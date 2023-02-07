@@ -52,7 +52,9 @@ $THEME->hidefromselector = FALSE;
 $THEME->usefallback = true;
 
 $THEME->scss = function($theme) {
-    return theme_boost_get_main_scss_content($theme);
+    // We need to load the config for our parent theme because that is where the preset setting is defined.
+    // $parentconfig = theme_config::load('boost');
+    return theme_saimaniq_get_main_scss_content($theme);
 };
 
 $THEME->prescsscallback = 'theme_boost_get_pre_scss';

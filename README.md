@@ -1,8 +1,20 @@
 # Saimaniq #
 
-TODO Describe the plugin shortly here.
+Named after the inuit word for "Peace", Saimaniq is a theme created for Concordia University, 
+using Boost 3.9 as it's main inspirtation.
 
-TODO Provide more detailed description here.
+
+### FEATURES: ###
+To be added---
+
+### TODO LIST: ###
+1. Improved design
+2. Concordia branding (fonts and colors)
+3. Accesibility concordia colors
+4. M4-047 - Provide a way of highlighting new activities, so students are alerted to new activities
+   Indicate on the front page when the item was last updated (so students know if a document was recently updated)
+5. Dark mode
+
 
 ## Installing via uploaded ZIP file ##
 
@@ -29,6 +41,7 @@ to complete the installation from the command line.
 
 ## License ##
 
+Created for Concordia University by:
 2023 Brandon Jimenez <brandon.jimenez@concordia.ca>
 
 This program is free software: you can redistribute it and/or modify it under
