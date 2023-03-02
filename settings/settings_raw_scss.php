@@ -25,17 +25,20 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-if ($hassiteconfig) {
-    //$settings = new admin_settingpage('theme_saimaniq_settings', new lang_string('pluginname', 'theme_saimaniq'));
-    
-    if ($ADMIN->fulltree) {
-        // $ADMIN->add("parent_section", new admin_externalpage('themesaimaniqtester', "Foo Admin Component", "$CFG->wwwroot/theme/saimaniq/foo.php"));
-        // $settings = new admin_externalpage('themesaimaniqtester', "Foo Admin Component", "$CFG->wwwroot/theme/saimaniq/test-pages/regular.php");
-        // Boost provides a nice setting page which splits settings onto separate tabs. We want to use it here.       
-        $settings = new theme_boost_admin_settingspage_tabs('themesettingsaimaniq', get_string('configtitle', 'theme_saimaniq'));    
-        require_once('settings/settings_general.php');
-        require_once('settings/settings_raw_scss.php');
-        require_once('settings/settings_login.php');
-        //require_once('settings/settings_test.php');
-    }
-}
+// Raw Scss settings.
+$page = new admin_settingpage('theme_saimaniq_raw_scss', get_string('settingsrawscss', 'theme_saimaniq'));
+
+// Raw SCSS to include before the content.
+$setting = new admin_setting_configtextarea('theme_saimaniq/scsspre',
+get_string('rawscsspre', 'theme_saimaniq'), get_string('rawscsspre_desc', 'theme_saimaniq'), '', PARAM_RAW);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Raw SCSS to include after the content.
+$setting = new admin_setting_configtextarea('theme_saimaniq/scss', get_string('rawscss', 'theme_saimaniq'),
+    get_string('rawscss_desc', 'theme_saimaniq'), '', PARAM_RAW);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Must add the page after definiting all the settings! 
+$settings->add($page);  

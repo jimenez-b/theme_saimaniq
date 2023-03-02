@@ -31,12 +31,12 @@ $THEME->parents = ['boost'];
 $THEME->sheets = [];
 $THEME->editor_sheets = [];
 
-// Most themes will use this rendererfactory as this is the one that allows the theme to override any other renderer.               
-$THEME->rendererfactory = 'theme_overridden_renderer_factory';                                                                      
+// Most themes will use this rendererfactory as this is the one that allows the theme to override any other renderer.      
+$THEME->rendererfactory = 'theme_overridden_renderer_factory';       
  
-// This is a list of blocks that are required to exist on all pages for this theme to function correctly. For example               
+// This is a list of blocks that are required to exist on all pages for this theme to function correctly. For example      
 // bootstrap base requires the settings and navigation blocks because otherwise there would be no way to navigate to all the        
-// pages in Moodle. Boost does not require these blocks because it provides other ways to navigate built into the theme.            
+// pages in Moodle. Boost does not require these blocks because it provides other ways to navigate built into the theme.   
 $THEME->requiredblocks = '';   
  
 // This is a feature that tells the blocks library not to use the "Add a block" block. We don't want this in boost based themes because
@@ -52,14 +52,12 @@ $THEME->hidefromselector = FALSE;
 $THEME->usefallback = true;
 
 $THEME->scss = function($theme) {
-    // We need to load the config for our parent theme because that is where the preset setting is defined.
-    // $parentconfig = theme_config::load('boost');
     return theme_saimaniq_get_main_scss_content($theme);
 };
 
-$THEME->prescsscallback = 'theme_boost_get_pre_scss';
-$THEME->extrascsscallback = 'theme_boost_get_extra_scss';
-$THEME->precompiledcsscallback = 'theme_boost_get_precompiled_css';
+$THEME->prescsscallback = 'theme_saimaniq_get_pre_scss';
+// $THEME->extrascsscallback = 'theme_boost_get_extra_scss';
+// $THEME->precompiledcsscallback = 'theme_boost_get_precompiled_css';
 $THEME->yuicssmodules = [];
 
 $THEME->iconsystem = '\\core\\output\\icon_system::FONTAWESOME';
@@ -80,6 +78,13 @@ $THEME->layouts = [
         'file' => 'drawers.php',
         'regions' => ['side-pre'],
         'defaultregion' => 'side-pre',
+    ],
+    'login' => [
+        'file' => 'saimaniq-login.php',
+        'regions' => [],
+        'options' => [
+            'langmenu' => true
+        ],
     ],
 /*
     // Main course page.
@@ -120,11 +125,6 @@ $THEME->layouts = [
     // My public page.
     'mypublic' => [
         'file' => 'layout9',
-        'regions' => [],
-    ],
-
-    'login' => [
-        'file' => 'layout10',
         'regions' => [],
     ],
 
@@ -216,4 +216,3 @@ $THEME->layouts = [
         ],
     ],*/
 ];
-

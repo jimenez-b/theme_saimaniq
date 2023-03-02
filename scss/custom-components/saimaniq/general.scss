@@ -1,0 +1,46 @@
+h1 {
+    background-color: azure !important;
+    font-size: x-large;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h2 {
+    background-color: burlywood !important;
+    font-size: x-large !important;
+    font-family: 'Courier New', Courier, monospace !important;
+}
+
+.btn {
+    border-radius: $conu-border-radius;
+}
+
+.form-control-lg {
+    border-radius: $conu-border-radius;
+}
+
+.conu {
+    &.conu-burgundy-background {
+        background-color: $conu-burgundy;
+    }
+    &.conu-magenta-background {
+        background-color: $conu-magenta;
+    }
+    &.conu-orange-background {
+        background-color: $conu-orange;
+    }
+    &.conu-mauve-background {
+        background-color: $conu-mauve;
+    }
+    &.conu-dark-blue-background {
+        background-color: $conu-dark-blue;
+    }
+    &.conu-blue-background {
+        background-color: $conu-blue;
+    }
+    &.conu-turquoise-background {
+        background-color: $conu-turquoise;
+    }
+    &.conu-green-background {
+        background-color: $conu-green;
+    }
+}

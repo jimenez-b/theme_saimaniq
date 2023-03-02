@@ -1,0 +1,56 @@
+/*
+/// @package     theme_saimaniq
+/// @category    scss
+/// @copyright   created for Concordia University 2023 by Brandon Jimenez <brandon.jimenez@concordia.ca>
+/// @description This is the scss containing all the colors taken from
+///              https://www.concordia.ca/web/design/ui-kit-style-guide.html
+///              All colors are either AA or AAA compliant
+*/
+
+//@import "../../../../boost/scss/bootstrap/variables";
+///Concordia colors
+///1. Primary colours
+/// Compliant as a background colour with white text on top
+/// Compliant as text on a white background 
+$conu-burgundy: #912338 !default; //Compliant AAA
+$conu-magenta:#db0272 !default; //Compliant AA
+$conu-orange: #da3a16 !default; //Compliant AA
+$conu-mauve: #573996 !default; //Compliant AAA
+$conu-dark-blue: #004085 !default; //Compliant AAA
+$conu-blue: #0072a8 !default; //Compliant AA
+$conu-turquoise: #057d78 !default; //Compliant AA
+$conu-green: #508212 !default; //Compliant AA
+
+/**/
+
+///2. Secondary colours
+/// Available only in the button and card component 
+/// (use of black text on top of these colours is mandatory)
+$conu-yellow: #e5a712 !default; //Compliant AAA (black text)
+$conu-gold: #cbb576 !default; //Compliant AAA (black text)
+$conu-cyan: #00adef !default; //Compliant AAA (black text)
+$conu-lime: #8cc63e !default; //Compliant AAA (black text)
+
+/**/
+
+///3. Background tints
+/// Can be used to create blocks of background colour on a web page
+/// to seperate and draw attention to content 
+$conu-tint-burgundy: #E9D3D7 !default;
+$conu-tint-magenta: #FACDE3 !default;
+$conu-tint-orange: #f9cdc3 !default;
+$conu-tint-mauve: #dcd6e8 !default;
+$conu-tint-dark-blue: #B2C5DA !default;
+$conu-tint-blue: #d3e1e9 !default;
+$conu-tint-turquoise: #CCE3E4 !default;
+$conu-tint-green: #dfeccf !default;
+$conu-tint-gold: #e9e3d3 !default;
+
+/**/
+
+///4. Neutrals
+$conu-light-grey: #f0f0f0 !default; //Compliant with black text
+$conu-medium-grey: #c8c8c8 !default; //Compliant with black text
+$conu-dark-grey: #6e6e6e !default; //Compliant AA
+$conu-very-dark-grey: #2c2c2c !default; //Compliant AAA
+$conu-black: $black !default; //Compliant AAA (black text)

@@ -1,0 +1,15 @@
+// Import FontAwesome.
+@import "fontawesome";
+// Import All of Bootstrap
+@import "bootstrap";
+// Import Core moodle CSS
+@import "moodle";
+
+/******** Default imports ***********************/
+
+@import "custom-components/variables/conu-colors";
+@import "custom-components/variables/conu-fonts";
+@import "custom-components/variables/conu-variables";
+///main imports /***************************/
+@import "custom-components/saimaniq/general";
+@import "custom-components/saimaniq/login";

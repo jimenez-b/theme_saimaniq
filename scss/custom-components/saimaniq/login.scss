@@ -1,0 +1,92 @@
+$opacity-calculated: 1 - $loginbgopacity;
+@mixin wrapper-bg($hasbg: false) {
+    @if $hasbg {
+        background-image: url($login-backgroundimage);
+        //background-image: url(https://png.pngtree.com/background/20210714/original/pngtree-pink-stain-watercolor-background-design-picture-image_1222735.jpg);
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: auto;
+    }
+    @else {
+        background-image: none;
+    }
+}
+
+
+/*
+@mixin page-bg($hasbg: false, $opacity) {
+    @if $hasbg {
+        background-image: initial;
+        background-color: rgba(255, 255, 255, $opacity);
+    }
+    @else {
+        background-image: none;
+    }
+}
+
+element.style {
+    display: flex;
+    justify-content: right;
+}
+
+<div id="saimaniq-blockquote-wrapper" class="saimaniq-login-blockquote-left" style="
+    display: flex;
+    justify-content: right;
+">
+                    <blockquote class="blockquote backquote ">
+                        <p>hello d<strong>oll</strong>y</p>
+                    </blockquote>
+                </div>
+
+*/
+
+body.pagelayout-login {
+    #page {
+        background-color: white;
+        .login-wrapper.saimaniq-login-#{$loginformposition} {
+            justify-content: $loginformposition;
+        }
+        .login-container {
+            background-color: rgba(255, 255, 255, $loginformopacity);
+            border-radius: $conu-border-radius;
+        }
+        #saimaniq-blockquote-wrapper {
+            display: flex;
+        }
+        .saimaniq-login-blockquote-#{$blockquoteposition} {
+            justify-content: $blockquoteposition;
+        }
+        #saimaniq-login-quote {
+            &.backquote {
+                border-left: 5px solid $conu-burgundy;
+                background-color: $conu-tint-burgundy;
+            }
+            &.styledquote {
+                background-color: $conu-light-grey;
+                opacity: $opacity-calculated;
+                font-family: $conu-font-book;
+            }
+        }
+    }
+    &.saimaniq-no-background {
+        &.saimaniq-plain {
+            #page {
+                background-image: none;
+                background-color: $loginbackgroundcolor;
+            }
+        }
+        #page-wrapper {
+            @include wrapper-bg($hasbg: false);
+        }
+    }
+    &.saimaniq-background {
+        #page-wrapper {
+            @include wrapper-bg($hasbg: true);
+            #page {
+                background-image: initial;
+                background-color: rgba(255, 255, 255, $opacity-calculated);
+            }
+        }
+    }
+}

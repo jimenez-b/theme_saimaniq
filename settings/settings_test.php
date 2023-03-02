@@ -15,18 +15,27 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * Plugin version and other meta-data are defined here.
+ * Plugin administration pages are defined here.
  *
  * @package     theme_saimaniq
- * @copyright   2023 Brandon Jimenez <brandon.jimenez@concordia.ca>
+ * @category    admin
+ * @copyright   created for Concordia University 2023 by Brandon Jimenez <brandon.jimenez@concordia.ca>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'theme_saimaniq';
-$plugin->release = '0.0.2';
-$plugin->version = 2023013000;
-$plugin->requires = 2022041900;
-$plugin->maturity = MATURITY_ALPHA;
-$plugin->dependencies = array('theme_boost' => 2022112800);
+// Raw Scss settings.
+$page = new admin_settingpage('theme_saimaniq_test', get_string('settingstestpage', 'theme_saimaniq'));
+
+$page->add(new admin_setting_heading('theme_saimaniq_test', get_string('testsettingsheading', 'theme_saimaniq'),
+        format_text(get_string('testsettingsheadingdesc', 'theme_saimaniq'), FORMAT_MARKDOWN)));
+
+// $page->add();
+
+//
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Must add the page after definiting all the settings! 
+$settings->add($page);  

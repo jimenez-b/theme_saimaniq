@@ -27,31 +27,63 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname']   = 'Saimaniq';
 $string['choosereadme'] = 'Theme Saimaniq was created for Concordia as a child of Boost.';
-// The name of the second tab in the theme settings.                                                                                
-$string['advancedsettings'] = 'Advanced settings';                                                                                  
-// The brand colour setting.                                                                                                        
-$string['brandcolor'] = 'Brand colour';                                                                                             
-// The brand colour setting description.                                                                                            
-$string['brandcolor_desc'] = 'The accent colour.';             
-// Name of the settings pages.                                                                                                      
-$string['configtitle'] = 'Saimaniq settings';                                                                                          
-// Name of the first settings tab.                                                                                                  
-$string['generalsettings'] = 'General settings';                                                                                                  
-// Preset files setting.                                                                                                            
-$string['presetfiles'] = 'Additional theme preset files';                                                                           
-// Preset files help text.                                                                                                          
+// Name of the settings pages.
+$string['configtitle'] = 'Saimaniq settings';
+// Name of the first settings tab.
+$string['generalsettings'] = 'General settings';
+// Preset setting.
+$string['preset'] = 'Theme preset';
+// Preset help text.
+$string['preset_desc'] = 'Pick a preset to broadly change the look of the theme.';
+// Preset files setting.
+$string['presetfiles'] = 'Additional theme preset files';
+// Preset files help text.
 $string['presetfiles_desc'] = 'Preset files can be used to dramatically alter the appearance of the theme. See <a href=https://docs.moodle.org/dev/Boost_Presets>Boost presets</a> for information on creating and sharing your own preset files, and see the <a href=http://moodle.net/boost>Presets repository</a> for presets that others have shared.';
-// Preset setting.                                                                                                                  
-$string['preset'] = 'Theme preset';                                                                                                 
-// Preset help text.                                                                                                                
-$string['preset_desc'] = 'Pick a preset to broadly change the look of the theme.';                                                  
-// Raw SCSS setting.                                                                                                                
-$string['rawscss'] = 'Raw SCSS';                                                                                                    
-// Raw SCSS setting help text.                                                                                                      
-$string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will be injected at the end of the style sheet.';       
-// Raw initial SCSS setting.                                                                                                        
-$string['rawscsspre'] = 'Raw initial SCSS';                                                                                         
-// Raw initial SCSS setting help text.                                                                                              
+// The brand colour setting.
+$string['brandcolor'] = 'Brand colour';
+// The brand colour setting description.
+$string['brandcolor_desc'] = 'The accent colour.';
+
+// The name of the second tab in the theme settings.        
+$string['settingsrawscss'] = 'Raw Scss settings';
+// Raw initial SCSS setting.
+$string['rawscsspre'] = 'Raw initial SCSS';
+// Raw initial SCSS setting help text.
 $string['rawscsspre_desc'] = 'In this field you can provide initialising SCSS code, it will be injected before everything else. Most of the time you will use this setting to define variables.';
-// We need to include a lang string for each block region.                                                                          
+// Raw SCSS setting.
+$string['rawscss'] = 'Raw SCSS'; 
+// Raw SCSS setting help text.
+$string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will be injected at the end of the style sheet.';
+
+// The name of the third tab in the theme settings.        
+$string['settingsloginpage'] = 'Login page settings';
+
+$string['loginsettingsheading'] = 'Customize the login page';
+$string['logindesc'] = 'Customize the login page with adding an image background and texts above and below the login box.';
+$string['loginbgimage']     = 'Background image';
+$string['loginbgimagedesc'] = 'Add a background image to the full size page.';
+$string['loginbgopacity']     = 'Opacity background image';
+$string['loginbgopacitydesc'] = 'Login background opacity for the background image. Opacity 1 means completely visible and 0 completely transparent.';
+$string['loginformopacity']     = 'Opacity login form';
+$string['loginformopacitydesc'] = 'Login background opacity for the form. Opacity 1 means completely visible and 0 completely transparent.';
+$string['loginformposition']     = 'Login form position';
+$string['loginformpositiondesc'] = 'Login form position. It can have one of three values and determines the position of loginbottomtext';
+$string['loginnobackground']     = 'Default no image';
+$string['loginnobackgrounddesc'] = 'Default behavior when no background image is present.';
+$string['loginbackgroundcolor']     = 'Background color';
+$string['loginbackgroundcolordesc'] = 'Background color when no image is supplied';
+$string['loginjsrectangles']     = 'JS Rectangles';
+$string['loginjsrectanglesdesc'] = 'When JS is enabled, number of rectangles to produce';
+$string['loginbottomtextshow']     = 'Hide/Display login bottom text';
+$string['loginbottomtextshowdesc'] = 'Hide/Display login bottom text';
+$string['loginbottomtext']     = 'Login bottom text';
+$string['loginbottomtextdesc'] = 'Text to be included in the bottom of the login page';
+$string['loginnobformatfrontpagebody']     = 'Format bottom section';
+$string['loginnobformatfrontpagebodydesc'] = 'The styling for the text that will be renderer on the login page';
+
+$string['settingstestpage'] = 'Settings test page';
+$string['testsettingsheading']     = 'Test the elements corresponding to the Concordia UI';
+$string['testsettingsheadingdesc'] = 'Test page to check the elements of the Concordia UI designed for the Saimaniq theme';
+
+// We need to include a lang string for each block region.
 $string['region-side-pre'] = 'Right';
