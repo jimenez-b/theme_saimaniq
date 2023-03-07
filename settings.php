@@ -36,6 +36,6 @@ if ($hassiteconfig) {
         require_once('settings/settings_general.php');
         require_once('settings/settings_raw_scss.php');
         require_once('settings/settings_login.php');
-        //require_once('settings/settings_test.php');
+        require_once('settings/settings_test.php');
     }
 }

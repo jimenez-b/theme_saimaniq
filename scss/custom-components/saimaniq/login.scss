@@ -2,7 +2,6 @@ $opacity-calculated: 1 - $loginbgopacity;
 @mixin wrapper-bg($hasbg: false) {
     @if $hasbg {
         background-image: url($login-backgroundimage);
-        //background-image: url(https://png.pngtree.com/background/20210714/original/pngtree-pink-stain-watercolor-background-design-picture-image_1222735.jpg);
         background-position: top center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -24,21 +23,6 @@ $opacity-calculated: 1 - $loginbgopacity;
         background-image: none;
     }
 }
-
-element.style {
-    display: flex;
-    justify-content: right;
-}
-
-<div id="saimaniq-blockquote-wrapper" class="saimaniq-login-blockquote-left" style="
-    display: flex;
-    justify-content: right;
-">
-                    <blockquote class="blockquote backquote ">
-                        <p>hello d<strong>oll</strong>y</p>
-                    </blockquote>
-                </div>
-
 */
 
 body.pagelayout-login {

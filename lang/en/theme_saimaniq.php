@@ -74,7 +74,7 @@ $string['loginbackgroundcolor']     = 'Background color';
 $string['loginbackgroundcolordesc'] = 'Background color when no image is supplied';
 $string['loginjsrectangles']     = 'JS Rectangles';
 $string['loginjsrectanglesdesc'] = 'When JS is enabled, number of rectangles to produce';
-$string['loginbottomtextshow']     = 'Hide/Display login bottom text';
+$string['loginbottomtextshow']     = 'Display login bottom text';
 $string['loginbottomtextshowdesc'] = 'Hide/Display login bottom text';
 $string['loginbottomtext']     = 'Login bottom text';
 $string['loginbottomtextdesc'] = 'Text to be included in the bottom of the login page';
@@ -84,6 +84,7 @@ $string['loginnobformatfrontpagebodydesc'] = 'The styling for the text that will
 $string['settingstestpage'] = 'Settings test page';
 $string['testsettingsheading']     = 'Test the elements corresponding to the Concordia UI';
 $string['testsettingsheadingdesc'] = 'Test page to check the elements of the Concordia UI designed for the Saimaniq theme';
+$string['styleguide'] = 'Style Guide';
 
 // We need to include a lang string for each block region.
 $string['region-side-pre'] = 'Right';

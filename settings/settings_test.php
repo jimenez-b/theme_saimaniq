@@ -25,13 +25,19 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+global $CFG;
+
+require_once($CFG->dirroot . '/theme/saimaniq/saimaniq_admin_settings_styleguide.php');
+
 // Raw Scss settings.
 $page = new admin_settingpage('theme_saimaniq_test', get_string('settingstestpage', 'theme_saimaniq'));
 
 $page->add(new admin_setting_heading('theme_saimaniq_test', get_string('testsettingsheading', 'theme_saimaniq'),
         format_text(get_string('testsettingsheadingdesc', 'theme_saimaniq'), FORMAT_MARKDOWN)));
 
-// $page->add();
+// Raw Bootstrap HTML to show the options of theme.
+$setting = new saimaniq_admin_settings_styleguide('theme_saimaniq_styleguide',
+    get_string('styleguide', 'theme_saimaniq'));
 
 //
 $setting->set_updatedcallback('theme_reset_all_caches');
