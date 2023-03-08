@@ -88,3 +88,5 @@ $string['styleguide'] = 'Style Guide';
 
 // We need to include a lang string for each block region.
 $string['region-side-pre'] = 'Right';
+
+$string['adminlogin'] = 'Admin log in';

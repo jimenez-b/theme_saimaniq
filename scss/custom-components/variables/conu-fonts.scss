@@ -12,9 +12,7 @@
 
 
 /**************************** Font Section ****************************/
-
-$font-default: "GillSansMTProMedium";
-$conu-font-medium: "GillSansMTProMedium";
-$conu-font-book: "GillSansMTProBook";
+$conu-font-medium: 'GillSansMTProMedium', Verdana, sans-serif;
+$conu-font-book: "GillSansMTProBook", Verdana, sans-serif;
 //$font-default: arial;
 //$font-default-color: $alert-text;

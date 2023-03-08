@@ -1,80 +1,60 @@
-.conu {
-    &.conu-burgundy-background {
-        background-color: $conu-burgundy;
+@each $name, $color in $conu-primaries{
+    .conu-#{$name}-background{
+        background-color: $color;
     }
-    &.conu-magenta-background {
-        background-color: $conu-magenta;
-    }
-    &.conu-orange-background {
-        background-color: $conu-orange;
-    }
-    &.conu-mauve-background {
-        background-color: $conu-mauve;
-    }
-    &.conu-dark-blue-background {
-        background-color: $conu-dark-blue;
-    }
-    &.conu-blue-background {
-        background-color: $conu-blue;
-    }
-    &.conu-turquoise-background {
-        background-color: $conu-turquoise;
-    }
-    &.conu-green-background {
-        background-color: $conu-green;
-    }
-    //
-    &.conu-burgundy-color {
-        color: $conu-burgundy;
-    }
-    &.conu-magenta-color {
-        background-color: $conu-magenta;
-    }
-    &.conu-orange-color {
-        background-color: $conu-orange;
-    }
-    &.conu-mauve-color {
-        background-color: $conu-mauve;
-    }
-    &.conu-dark-blue-color {
-        background-color: $conu-dark-blue;
-    }
-    &.conu-blue-color {
-        background-color: $conu-blue;
-    }
-    &.conu-turquoise-color {
-        background-color: $conu-turquoise;
-    }
-    &.conu-green-color {
-        background-color: $conu-green;
+    .conu-#{$name}-color{
+        color: $color;
     }
 }
+
 
 .color-white {
     color: white;
 }
 
-//$conu-font-medium: "GillSansMTProMedium";
-//$conu-font-book: "GillSansMTProBook";
+//headers
 h1,
 .h1 {
-    font-size: 46px;
     font: normal 46px $conu-font-medium;
     &.conu-h1-big {
         font-size: 60px;
     }
 }
 
-h2 {
-    background-color: burlywood !important;
-    font-size: x-large !important;
-    font-family: 'Courier New', Courier, monospace !important;
+h2,
+.h2 {
+    font: normal 26px $conu-font-book;
+    &.conu-h2-small {
+        font-size: 21px;
+    }
 }
 
+h3,
+.h3 {
+    font: bold 20px 'Arial';
+}
+
+h4,
+.h4 {
+    font: normal 21px $conu-font-medium;
+}
+
+h5,
+.h5 {
+    font: normal 18px 'Arial';
+}
+
+h6,
+.h6 {
+    font: bold 15px 'Arial';
+}
+
+//buttons
 .btn {
     border-radius: $conu-border-radius;
 }
 
+//miscelaneous
 .form-control-lg {
     border-radius: $conu-border-radius;
 }
@@ -89,4 +69,30 @@ h2 {
 
 .card-text p {
     margin-bottom: 0.1rem;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+.no-border {
+    border: none !important;
+}
+.border-bottom-settings {
+    border: none;
+    border-bottom: 1px solid lightgray;
+}
+.list-group-item:first-child,
+.list-group-item:last-child {
+    border-radius: $conu-border-radius;
+}
+
+.w-20 {
+    width: 20% !important;
+}
+.w-30 {
+    width: 30% !important;
+}
+
+input[type="checkbox"] { 
+    accent-color: chartreuse;
 }

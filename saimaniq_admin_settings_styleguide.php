@@ -70,6 +70,49 @@ class saimaniq_admin_settings_styleguide extends admin_setting_heading {
         $context->title = $this->visiblename;
         $context->description = (!empty($this->description));
         $context->descriptionformatted = highlight($query, markdown_to_html($this->description));
+        $colors = [
+            [
+                'name'      => 'burgundy',
+                'color'     => '#912338',
+                'compliant' => 'AAA',
+            ],
+            [
+                'name'      => 'magenta',
+                'color'     => '#db0272',
+                'compliant' => 'AA',
+            ],
+            [
+                'name'      => 'orange',
+                'color'     => '#da3a16',
+                'compliant' => 'AA',
+            ],
+            [
+                'name'      => 'mauve',
+                'color'     => '#573996',
+                'compliant' => 'AAA',
+            ],
+            [
+                'name'      => 'dark-blue',
+                'color'     => '#004085',
+                'compliant' => 'AAA',
+            ],
+            [
+                'name'      => 'blue',
+                'color'     => '#0072a8',
+                'compliant' => 'AA',
+            ],
+            [
+                'name'      => 'turquoise',
+                'color'     => '#057d78',
+                'compliant' => 'AA',
+            ],
+            [
+                'name'      => 'green',
+                'color'     => '#508212',
+                'compliant' => 'AA',
+            ],
+        ];
+        $context->colors = $colors;
         return $OUTPUT->render_from_template('theme_saimaniq/admin_setting_styleguide', $context);
     }
 

@@ -22,40 +22,16 @@
     <section class="mb-5">
     <h2>Colors</h2>
         <section>
-            <h3>Colors</h3>
+            <h3>Primary Colors</h3>
             <div class="d-flex flex-row justify-content-start flex-wrap">
-                <div class="card-container pl-2 conu conu-burgundy-background color-white m-2">
-                    <h3 class="card-title mb-1">Burgundy</h3>
-                    <div class="card-text mb-1"><p>HEX: #912338<br></p><p>Compliant AAA</p></div>
-                </div>
-                <div class="card-container pl-2 conu conu-magenta-background color-white m-2">
-                    <h3 class="card-title mb-1">Magenta</h3>
-                    <div class="card-text mb-1"><p>HEX: #db0272<br></p><p>Compliant AA</p></div>
-                </div>
-                <div class="card-container pl-2 conu conu-orange-background color-white m-2">
-                    <h3 class="card-title mb-1">Orange</h3>
-                    <div class="card-text mb-1"><p>HEX: #da3a16<br></p><p>Compliant AA</p></div>
-                </div>
-                <div class="card-container pl-2 conu conu-mauve-background color-white m-2">
-                    <h3 class="card-title mb-1">Mauve</h3>
-                    <div class="card-text mb-1"><p>HEX: #573996<br></p><p>Compliant AAA</p></div>
-                </div>
-                <div class="card-container pl-2 conu conu-dark-blue-background color-white m-2">
-                    <h3 class="card-title mb-1">Dark Blue</h3>
-                    <div class="card-text mb-1"><p>HEX: #004085<br></p><p>Compliant AAA</p></div>
-                </div>
-                <div class="card-container pl-2 conu conu-blue-background color-white m-2">
-                    <h3 class="card-title mb-1">Blue</h3>
-                    <div class="card-text mb-1"><p>HEX: #0072a8<br></p><p>Compliant AA</p></div>
-                </div>
-                <div class="card-container pl-2 conu conu-turquoise-background color-white m-2">
-                    <h3 class="card-title mb-1">Turquoise</h3>
-                    <div class="card-text mb-1"><p>HEX: #057d78<br></p><p>Compliant AA</p></div>
-                </div>
-                <div class="card-container pl-2 conu conu-green-background color-white m-2">
-                    <h3 class="card-title mb-1">Green</h3>
-                    <div class="card-text mb-1"><p>HEX: #508212<br></p><p>Compliant AA</p></div>
-                </div>
+                {{#colors}}
+                    {{#.}}
+                    <div class="card-container pl-2 pb-2 conu-{{{name}}}-background color-white m-2">
+                        <h3 class="card-title mb-1 capitalize">{{name}}</h3>
+                        <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
+                    </div>
+                    {{/.}}
+                {{/colors}}
             </div>
         </section>
     </section>
@@ -70,20 +46,21 @@
         <h3>Headings</h3>
             <h1>Heading Level 1</h1>
             <h2>Heading Level 2</h2>
-            <h3>Heading Level 3</h3>
-            <h4>Heading Level 4</h4>
+            <h3 class="no-border">Heading Level 3</h3>
+            <h4 class='conu-burgundy-color'>Heading Level 4</h4>
             <h5>Heading Level 5</h5>
             <h6>Heading Level 6</h6>
 
         <h3>Headings with big classes</h3>
-            <h1 class="conu-h1-big">Heading Level 1</h1>
-            <h2>Heading Level 2</h2>
+            <h1 class="conu-h1-big">Custom heading Level 1</h1>
+            <h2 class="conu-burgundy-color conu-h2-small">Custom heading Level 2</h2>
+            <h2 class="conu-burgundy-color">Custom color heading Level 2</h2>
 
         <h3>With classes instead of tags</h3>
             <p class="h1">h1. Bootstrap heading</p>
             <p class="h2">h2. Bootstrap heading</p>
             <p class="h3">h3. Bootstrap heading</p>
-            <p class="h4">h4. Bootstrap heading</p>
+            <p class="h4 conu-burgundy-color">h4. Bootstrap heading</p>
             <p class="h5">h5. Bootstrap heading</p>
             <p class="h6">h6. Bootstrap heading</p>
 

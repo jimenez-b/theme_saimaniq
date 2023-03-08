@@ -30,13 +30,13 @@ $bodyattributes = $OUTPUT->body_attributes();
  * First, we get all the config for the login page
  */
 
-$loginimage        = get_config('theme_saimaniq', 'loginbgimage');
-$loginopacity      = get_config('theme_saimaniq', 'loginbgopacity');
-$loginformopacity  = get_config('theme_saimaniq', 'loginformopacity');
-$loginformposition = get_config('theme_saimaniq', 'loginformposition');
-$logindefault         = get_config('theme_saimaniq', 'defaultnobackground');
-$loginjsrectangles    = get_config('theme_saimaniq', 'loginjsrectangles');
-$loginbackgroundcolor = get_config('theme_saimaniq', 'loginbackgroundcolor');
+$loginimage               = get_config('theme_saimaniq', 'loginbgimage');
+$loginopacity             = get_config('theme_saimaniq', 'loginbgopacity');
+$loginformopacity         = get_config('theme_saimaniq', 'loginformopacity');
+$loginformposition        = get_config('theme_saimaniq', 'loginformposition');
+$logindefault             = get_config('theme_saimaniq', 'defaultnobackground');
+$loginjsrectangles        = get_config('theme_saimaniq', 'loginjsrectangles');
+$loginbackgroundcolor     = get_config('theme_saimaniq', 'loginbackgroundcolor');
 $showdefaultfrontpagebody = get_config('theme_saimaniq', 'showdefaultfrontpagebody');
 $defaultfrontpagebody     = get_config('theme_saimaniq', 'defaultfrontpagebody');
 $formatfrontpagebody      = get_config('theme_saimaniq', 'formatfrontpagebody');
