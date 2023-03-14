@@ -26,12 +26,51 @@
             <div class="d-flex flex-row justify-content-start flex-wrap">
                 {{#colors}}
                     {{#.}}
-                    <div class="card-container pl-2 pb-2 conu-{{{name}}}-background color-white m-2">
+                    <div class="card-container pl-2 pb-2 conu-{{{name}}}-background {{#black}}text-black{{/black}}{{^black}}text-white{{/black}} m-2">
                         <h3 class="card-title mb-1 capitalize">{{name}}</h3>
                         <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
                     </div>
                     {{/.}}
                 {{/colors}}
+            </div>
+        </section>
+        <section>
+            <h3>Secondary Colors</h3>
+            <div class="d-flex flex-row justify-content-start flex-wrap">
+                {{#secondaries}}
+                    {{#.}}
+                    <div class="card-container pl-2 pb-2 conu-{{{name}}}-background {{#black}}text-black{{/black}}{{^black}}text-white{{/black}} m-2">
+                        <h3 class="card-title mb-1 capitalize">{{name}}</h3>
+                        <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
+                    </div>
+                    {{/.}}
+                {{/secondaries}}
+            </div>
+        </section>
+        <section>
+            <h3>Tint Colors</h3>
+            <div class="d-flex flex-row justify-content-start flex-wrap">
+                {{#tints}}
+                    {{#.}}
+                    <div class="card-container pl-2 pb-2 conu-{{{name}}}-background {{#black}}text-black{{/black}}{{^black}}text-white{{/black}} m-2">
+                        <h3 class="card-title mb-1 capitalize">{{name}}</h3>
+                        <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
+                    </div>
+                    {{/.}}
+                {{/tints}}
+            </div>
+        </section>
+        <section>
+            <h3>Neutral Colors</h3>
+            <div class="d-flex flex-row justify-content-start flex-wrap">
+                {{#neutrals}}
+                    {{#.}}
+                    <div class="card-container pl-2 pb-2 conu-{{{name}}}-background {{#black}}text-black{{/black}}{{^black}}text-white{{/black}} m-2">
+                        <h3 class="card-title mb-1 capitalize">{{name}}</h3>
+                        <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
+                    </div>
+                    {{/.}}
+                {{/neutrals}}
             </div>
         </section>
     </section>
@@ -131,21 +170,21 @@
             <li><a class="btn btn-secondary" style="cursor: pointer;">Default</a></li>
         </ul>
         <ul class="actions small">
-            <li><a class="btn btn-primary small" style="cursor: pointer;">Small</a></li>
-            <li><a class="btn small" style="cursor: pointer;">Small</a></li>
-            <li><a class="btn btn-secondary small" style="cursor: pointer;">Small</a></li>
+            <li><a class="btn btn-primary btn-sm" style="cursor: pointer;">Small</a></li>
+            <li><a class="btn btn-sm" style="cursor: pointer;">Small</a></li>
+            <li><a class="btn btn-secondary btn-sm" style="cursor: pointer;">Small</a></li>
         </ul>
         <h3>Buttons</h3>
         <ul class="actions">
-            <li><a class="btn btn-primary large" style="cursor: pointer;">Large</a></li>
+            <li><a class="btn btn-primary btn-lg" style="cursor: pointer;">Large</a></li>
             <li><a class="btn" style="cursor: pointer;">Default</a></li>
-            <li><a class="btn btn-secondary small" style="cursor: pointer;">Small</a></li>
+            <li><a class="btn btn-secondary btn-sm" style="cursor: pointer;">Small</a></li>
         </ul>
         <div class="row">
             <div class="col-6 col-12-xsmall">
                 <ul class="actions fit small">
-                    <li><a class="btn fit small" style="cursor: pointer;">Fit + Small</a></li>
-                    <li><a class="btn btn-secondary fit small" style="cursor: pointer;">Fit + Small</a></li>
+                    <li><a class="btn fit btn-sm" style="cursor: pointer;">Fit + Small</a></li>
+                    <li><a class="btn btn-secondary fit btn-sm" style="cursor: pointer;">Fit + Small</a></li>
                 </ul>
             </div>
         </div>
@@ -272,7 +311,7 @@
                         </div>
                         <div class="col-md-9 form-inline felement" data-fieldtype="text">
                             <input type="text" class="form-control " name="username" id="id_username" value="admin"
-                                   size="20">
+                                   size="20" autocomplete="new-password">
                             <div class="form-control-feedback invalid-feedback" id="id_error_username"></div>
                         </div>
                     </div>
@@ -286,7 +325,7 @@
                             <span data-passwordunmask="wrapper" data-passwordunmaskid="id_newpassword">
                                 <span data-passwordunmask="editor">
                                     <input type="password" name="newpassword" id="id_newpassword" value=""
-                                           class="form-control d-inline-block" data-size="20">
+                                           class="form-control d-inline-block" data-size="20" autocomplete="new-password">
                                 </span>
                             </span>
                         </div>

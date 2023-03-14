@@ -1,0 +1,45 @@
+.navigation {
+    font-family: $conu-font-book;
+    font-weight: initial;
+    .nav-link {
+        font-weight: initial;
+        &:hover,
+        &:focus {
+            border-bottom-color: $primary;
+            background-color: $conu-light-grey;
+            transition: border-color 0.4s ease-out;
+        }
+        &.active {
+            /*&:hover,
+            &:focus {
+                background-color: $conu-light-grey;
+            }*/
+            border-bottom-color: $primary;
+            font-family: $conu-font-bold;
+            &:hover,
+            &:focus {
+                border-bottom-color: $primary;
+                background-color: $conu-light-grey;
+            }
+        }
+    }
+}
+.dropdown-item {
+    a {
+        display: block;
+        width: 100%;
+        color: $body-color;
+    }
+    &.active,
+    &:active,
+    &:hover,
+    &:focus,
+    &:focus-within {
+        outline: 0;
+        background-color: $primary;
+        color: $dropdown-link-active-color;
+        a {
+            color: $dropdown-link-active-color;
+        }
+    }
+}

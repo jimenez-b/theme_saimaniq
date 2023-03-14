@@ -111,8 +111,136 @@ class saimaniq_admin_settings_styleguide extends admin_setting_heading {
                 'color'     => '#508212',
                 'compliant' => 'AA',
             ],
+            [
+                'name'      => 'dark-green',
+                'color'     => '#34550C',
+                'compliant' => 'AA?',
+            ],
+            [
+                'name'      => 'dark-gold',
+                'color'     => '#554720',
+                'compliant' => 'AA?',
+            ],
         ];
         $context->colors = $colors;
+
+        $secondaries = [
+            [
+                'name'      => 'yellow',
+                'color'     => '#e5a712',
+                'compliant' => 'AAA (black text)',
+                'black'     => true,
+            ],
+            [
+                'name'      => 'gold',
+                'color'     => '#cbb576',
+                'compliant' => 'AAA (black text)',
+                'black'     => true,
+            ],
+            [
+                'name'      => 'cyan',
+                'color'     => '#00adef',
+                'compliant' => 'AAA (black text)',
+                'black'     => true,
+            ],
+            [
+                'name'      => 'lime',
+                'color'     => '#8cc63e',
+                'compliant' => 'AAA (black text)',
+                'black'     => true,
+            ],
+        ];
+        $context->secondaries = $secondaries;
+
+        $tints = [
+            [
+                'name'      => 'tint-burgundy',
+                'color'     => '#E9D3D7',
+                'compliant' => 'AAA (black text)',
+                'black'     => true,
+            ],
+            [
+                'name'      => 'tint-magenta',
+                'color'     => '#FACDE3',
+                'compliant' => 'AAA (black text)',
+                'black'     => true,
+            ],
+            [
+                'name'      => 'tint-orange',
+                'color'     => '#f9cdc3',
+                'compliant' => 'AAA (black text)',
+                'black'     => true,
+            ],
+            [
+                'name'      => 'tint-mauve',
+                'color'     => '#dcd6e8',
+                'compliant' => 'AAA (black text)',
+                'black'     => true,
+            ],
+            [
+                'name'      => 'tint-dark-blue',
+                'color'     => '#B2C5DA',
+                'compliant' => 'AAA (black text)',
+                'black'     => true,
+            ],
+            [
+                'name'      => 'tint-blue',
+                'color'     => '#d3e1e9',
+                'compliant' => 'AAA (black text)',
+                'black'     => true,
+            ],
+            [
+                'name'      => 'tint-turquoise',
+                'color'     => '#CCE3E4',
+                'compliant' => 'AAA (black text)',
+                'black'     => true,
+            ],
+            [
+                'name'      => 'tint-green',
+                'color'     => '#dfeccf',
+                'compliant' => 'AAA (black text)',
+                'black'     => true,
+            ],
+            [
+                'name'      => 'tint-gold',
+                'color'     => '#e9e3d3',
+                'compliant' => 'AAA (black text)',
+                'black'     => true,
+            ],
+        ];
+        $context->tints = $tints;
+
+        $neutrals = [
+            [
+                'name'      => 'light-grey',
+                'color'     => '#f0f0f0',
+                'compliant' => 'AAA (black text)',
+                'black'     => true,
+            ],
+            [
+                'name'      => 'medium-grey',
+                'color'     => '#c8c8c8',
+                'compliant' => 'AAA (black text)',
+                'black'     => true,
+            ],
+            [
+                'name'      => 'dark-grey',
+                'color'     => '#6e6e6e',
+                'compliant' => 'AAA',
+            ],
+            [
+                'name'      => 'very-dark-grey',
+                'color'     => '#2c2c2c',
+                'compliant' => 'AAA',
+            ],
+            [
+                'name'      => 'black',
+                'color'     => 'black',
+                'compliant' => 'AAA',
+            ],
+        ];
+        $context->neutrals = $neutrals;
+
         return $OUTPUT->render_from_template('theme_saimaniq/admin_setting_styleguide', $context);
     }
 

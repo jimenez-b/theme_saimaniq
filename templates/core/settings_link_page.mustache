@@ -112,10 +112,19 @@
                             {{^action}}<h4>{{text}}</h4>{{/action}}
                             <a class="btn btn-primary" data-toggle="collapse" href="#collapse{{text}}" role="button" aria-expanded="false" aria-controls="collapse{{text}}">
                                 expand
-                            </a>
+                                </a>
+                            
                         </div>
                         <div class="col-sm-9 collapse" id="collapse{{text}}">
-                            <ul class="list-group list-group-light list-group-small {{!-- list-unstyled --}}">
+                            <div class="list-group list-group-light">
+                                {{#children}}
+                                    {{#display}}
+                                        {{^children.count}}
+                                            <a class="list-group-item list-group-item-action px-1 border-0 ripple w-25" href="{{{action}}}">{{text}}</a>
+                                        {{/children.count}}
+                                    {{/display}}
+                                {{/children}}
+                            <!--ul class="list-group list-group-light list-group-small {{!-- list-unstyled --}}">
                                 {{#children}}
                                     {{#display}}
                                         {{^children.count}}
@@ -123,7 +132,8 @@
                                         {{/children.count}}
                                     {{/display}}
                                 {{/children}}
-                            </ul>
+                            </ul-->
+                            </div>
                         </div>
                     </div>
                     {{#children}}

@@ -18,6 +18,8 @@ $conu-dark-blue: #004085 !default; //Compliant AAA
 $conu-blue:      #0072a8 !default; //Compliant AA
 $conu-turquoise: #057d78 !default; //Compliant AA
 $conu-green:     #508212 !default; //Compliant AA
+$conu-dark-green:#34550C !default; //New color added
+$conu-dark-gold: #554720 !default; //New color added
 
 $conu-primaries: () !default;
 $conu-primaries: map-merge(
@@ -29,7 +31,9 @@ $conu-primaries: map-merge(
     "dark-blue":  $conu-dark-blue,
     "blue":       $conu-blue,
     "turquoise":  $conu-turquoise,
-    "green":      $conu-green
+    "green":      $conu-green,
+    "dark-green": $conu-dark-green,
+    "dark-gold":  $conu-dark-gold
     ),
     $conu-primaries
 );
@@ -42,26 +46,91 @@ $conu-gold:   #cbb576 !default; //Compliant AAA (black text)
 $conu-cyan:   #00adef !default; //Compliant AAA (black text)
 $conu-lime:   #8cc63e !default; //Compliant AAA (black text)
 
-/**/
+$conu-secondaries: () !default;
+$conu-secondaries: map-merge(
+    (
+    "yellow":   $conu-yellow,
+    "gold":     $conu-gold,
+    "cyan":     $conu-cyan,
+    "lime":     $conu-lime
+    ),
+    $conu-secondaries
+);
 
 ///3. Background tints
 /// Can be used to create blocks of background colour on a web page
 /// to seperate and draw attention to content 
 $conu-tint-burgundy: #E9D3D7 !default;
-$conu-tint-magenta: #FACDE3 !default;
-$conu-tint-orange: #f9cdc3 !default;
-$conu-tint-mauve: #dcd6e8 !default;
-$conu-tint-dark-blue: #B2C5DA !default;
-$conu-tint-blue: #d3e1e9 !default;
-$conu-tint-turquoise: #CCE3E4 !default;
-$conu-tint-green: #dfeccf !default;
-$conu-tint-gold: #e9e3d3 !default;
+$conu-tint-magenta:  #FACDE3 !default;
+$conu-tint-orange:   #f9cdc3 !default;
+$conu-tint-mauve:    #dcd6e8 !default;
+$conu-tint-dark-blue:#B2C5DA !default;
+$conu-tint-blue:     #d3e1e9 !default;
+$conu-tint-turquoise:#CCE3E4 !default;
+$conu-tint-green:    #dfeccf !default;
+$conu-tint-gold:     #e9e3d3 !default;
 
-/**/
+$conu-tints: () !default;
+$conu-tints: map-merge(
+    (
+    "tint-burgundy":   $conu-tint-burgundy,
+    "tint-magenta":    $conu-tint-magenta,
+    "tint-orange":     $conu-tint-orange,
+    "tint-mauve":      $conu-tint-mauve,
+    "tint-dark-blue":  $conu-tint-dark-blue,
+    "tint-blue":       $conu-tint-blue,
+    "tint-turquoise":  $conu-tint-turquoise,
+    "tint-green":      $conu-tint-green,
+    "tint-gold":       $conu-tint-gold
+    ),
+    $conu-tints
+);
 
 ///4. Neutrals
-$conu-light-grey: #f0f0f0 !default; //Compliant with black text
-$conu-medium-grey: #c8c8c8 !default; //Compliant with black text
-$conu-dark-grey: #6e6e6e !default; //Compliant AA
+$conu-light-grey:     #f0f0f0 !default; //Compliant with black text
+$conu-medium-grey:    #c8c8c8 !default; //Compliant with black text
+$conu-dark-grey:      #6e6e6e !default; //Compliant AA
 $conu-very-dark-grey: #2c2c2c !default; //Compliant AAA
-$conu-black: $black !default; //Compliant AAA (black text)
+$conu-black:            $black !default;  //Compliant AAA (black text)
+
+$conu-neutrals: () !default;
+$conu-neutrals: map-merge(
+    (
+    "light-grey":     $conu-light-grey,
+    "medium-grey":    $conu-medium-grey,
+    "dark-grey":      $conu-dark-grey,
+    "very-dark-grey": $conu-very-dark-grey
+    ),
+    $conu-neutrals
+);
+
+// theme colors
+$primary:   $conu-burgundy;
+$success:   $conu-tint-green;
+$info:      $conu-tint-blue;
+$warning:   $conu-tint-gold;
+$danger:    $conu-tint-burgundy;
+$secondary: $conu-medium-grey;
+
+$success-outline: $conu-tint-green;
+$info-outline:    $conu-dark-blue;
+$warning-outline: $conu-gold;
+$danger-outline:  $conu-burgundy;
+
+$success-text: $conu-dark-green;
+$info-text:    $conu-dark-blue;
+$warning-text: $conu-dark-gold;
+$danger-text:  $conu-burgundy;
+
+
+$dropdown-link-active-color: $conu-light-grey;
+
+$conu-theme-colors: () !default;
+$conu-theme-colors: map-merge((
+    primary:   $primary,
+    secondary: $secondary,
+    success:   $success,
+    info:      $info,
+    warning:   $warning,
+    danger:    $danger,
+), $conu-theme-colors);

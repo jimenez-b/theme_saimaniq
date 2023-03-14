@@ -1,4 +1,8 @@
-@each $name, $color in $conu-primaries{
+body {
+    font-family: $font-default;
+}
+
+@each $name, $color in $conu-primaries {
     .conu-#{$name}-background{
         background-color: $color;
     }
@@ -7,11 +11,61 @@
     }
 }
 
-
-.color-white {
-    color: white;
+@each $name, $color in $conu-secondaries {
+    .conu-#{$name}-background{
+        background-color: $color;
+    }
+    .conu-#{$name}-color{
+        color: $color;
+    }
 }
 
+@each $name, $color in $conu-tints {
+    .conu-#{$name}-background{
+        background-color: $color;
+    }
+    .conu-#{$name}-color{
+        color: $color;
+    }
+}
+
+@each $name, $color in $conu-neutrals {
+    .conu-#{$name}-background{
+        background-color: $color;
+    }
+    .conu-#{$name}-color{
+        color: $color;
+    }
+}
+
+@each $name, $color in $conu-theme-colors {
+    .link-#{$name} {
+        color: $color;
+    }
+    .btn-#{$name} {
+        background-color: $color;
+        border-color: $color;
+    }
+    .text-#{$name} {
+        color: $color;
+    }
+    .bg-#{$name} {
+        color: $color;
+    }
+}
+
+@each $name, $width in $conu-widths {
+    .w-#{$name}{
+        width: $width !important;
+    }
+}
+
+a {
+    color: $conu-blue;
+    &:hover{
+        color: $conu-dark-blue;
+    }
+}
 //headers
 h1,
 .h1 {
@@ -52,6 +106,7 @@ h6,
 //buttons
 .btn {
     border-radius: $conu-border-radius;
+    font-family: $conu-font-book;
 }
 
 //miscelaneous
@@ -86,13 +141,6 @@ h6,
     border-radius: $conu-border-radius;
 }
 
-.w-20 {
-    width: 20% !important;
-}
-.w-30 {
-    width: 30% !important;
-}
-
 input[type="checkbox"] { 
-    accent-color: chartreuse;
+    accent-color: $primary;
 }
