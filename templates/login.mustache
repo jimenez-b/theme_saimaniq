@@ -40,9 +40,10 @@
 
     <div id="page" class="container-fluid {{! pt-5 }} mt-0">
         <div id="page-content" class="row">
-            <div id="region-main-box" class="col-12">
-                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#variables">Variables</button>
-                <div id="variables" class="collapse">
+            <div id="region-main-box" class="col-12 {{#logorender}}px-0{{/logorender}}">
+                {{#themedesigner}}
+                <button id="custom-variables-toggle-button" type="button" class="btn btn-info" data-toggle="collapse" data-target="#custom-variables-toggle">Variables</button>
+                <div id="custom-variables-toggle" class="collapse">
                     <pre>
                         loginbgimage {{{ loginbgimage }}}<br/>
                         loginbgopacity {{{ loginbgopacity }}}<br/>
@@ -57,21 +58,50 @@
                         hasbackground {{{ hasbackground }}}<br/>
                         nobackground {{{ nobackground }}}<br/>
                         blockquoteposition {{{ blockquoteposition }}}<br/>
+                        corelogo {{{ corelogo }}}<br/>
+                        corelogosmall {{{ corelogosmall }}}
+                        logorender {{{logorender}}}
+                        reverse {{{reverse}}}
                     </pre>
                 </div>
-                <section id="region-main" class="col-12 h-auto" aria-label="{{#str}}content{{/str}}">
-                <div class="login-wrapper saimaniq-login-{{{ loginformposition }}}">
-                    <div class="login-container">
-                    {{{ output.main_content }}}
+                {{/themedesigner}}
+                <section id="region-main" class="col-12 h-auto {{#logorender}}row p-0 mx-0{{/logorender}} {{#reverse}}flex-row-reverse{{/reverse}}" aria-label="{{#str}}content{{/str}}">
+                    <div class="login-wrapper saimaniq-login-{{{ loginformposition }}} {{#logorender}}col-5{{/logorender}}">
+                        <div class="login-container {{#logorender}}w-100 px-1 bg-transparent shadow-none{{/logorender}}">
+                        {{^logorender}}
+                            {{#corelogo}}
+                                <div id="loginlogo" class="login-logo">
+                                    <img id="logoimage" src="{{output.get_logo_url}}" class="img-fluid" alt="{{sitename}}"/>
+                                    <h1 class="login-heading sr-only">{{#str}} loginto, core, {{sitename}} {{/str}}</h1>
+                                </div>
+                            {{/corelogo}}
+                            {{^corelogo}}
+                                <h1 class="login-heading mb-4">{{#str}} loginto, core, {{sitename}} {{/str}}</h1>
+                            {{/corelogo}}
+                        {{/logorender}}
+                        {{#logorender}}
+                            <h1 class="login-heading mb-4">{{#str}} loginto, core, {{sitename}} {{/str}}</h1>
+                        {{/logorender}}
+                        {{{ output.main_content }}}
+                        </div>
                     </div>
-                </div>
-                {{#showdefaultfrontpagebody}}
-                <div id="saimaniq-blockquote-wrapper" class="saimaniq-login-blockquote-{{{ blockquoteposition }}}">
-                    <blockquote id="saimaniq-login-quote" class="blockquote {{{ formatfrontpagebody }}}">
-                        <p>{{{ defaultfrontpagebody }}}</p>
-                    </blockquote>
-                </div>
-                {{/showdefaultfrontpagebody}}
+
+                    <div class="d-flex additional-wrapper flex-direction-column saimaniq-login-blockquote-{{{ blockquoteposition }}} {{#logorender}}col-7{{/logorender}}">
+                        {{#logorender}}
+                            <div id="saimaniq-logo-wrapper" class="d-flex h-100 justify-content-center">
+                            {{#corelogo}}
+                                <img src="{{output.get_logo_url}}" class="align-self-center w-50">
+                            {{/corelogo}}
+                            </div>
+                        {{/logorender}}
+                        {{#showdefaultfrontpagebody}}
+                        <div id="saimaniq-blockquote-wrapper" class="saimaniq-login-blockquote-{{{ blockquoteposition }}}">
+                            <blockquote id="saimaniq-login-quote" class="blockquote w-40 {{{ formatfrontpagebody }}}">
+                                <p>{{{ defaultfrontpagebody }}}</p>
+                            </blockquote>
+                        </div>
+                        {{/showdefaultfrontpagebody}}
+                    </div>
                 </section>
             </div>
         </div>
