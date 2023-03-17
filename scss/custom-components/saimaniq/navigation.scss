@@ -1,13 +1,15 @@
 .navigation {
-    font-family: $conu-font-book;
-    font-weight: initial;
+    font-family: $conu-font-bold-condensed;
+    //font-weight: initial;
     .nav-link {
         font-weight: initial;
+        color: $conu-medium-grey;
         &:hover,
         &:focus {
             border-bottom-color: $primary;
-            background-color: $conu-light-grey;
+            //background-color: $conu-light-grey;
             transition: border-color 0.4s ease-out;
+            color: $black;
         }
         &.active {
             /*&:hover,
@@ -15,12 +17,19 @@
                 background-color: $conu-light-grey;
             }*/
             border-bottom-color: $primary;
-            font-family: $conu-font-bold;
+            //font-family: $conu-font-bold;
             &:hover,
             &:focus {
                 border-bottom-color: $primary;
                 background-color: $conu-light-grey;
             }
+        }
+    }
+}
+.primary-navigation {
+    .navigation {
+        .nav-link{
+            color: $conu-medium-grey;
         }
     }
 }

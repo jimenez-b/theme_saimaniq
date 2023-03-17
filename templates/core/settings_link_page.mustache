@@ -109,31 +109,18 @@
                         <div class="col-sm-3">
                         aaa
                             {{#action}}<h4><a href="{{action}}">{{text}}</a></h4>{{/action}}
-                            {{^action}}<h4>{{text}}</h4>{{/action}}
-                            <a class="btn btn-primary" data-toggle="collapse" href="#collapse{{text}}" role="button" aria-expanded="false" aria-controls="collapse{{text}}">
-                                expand
-                                </a>
-                            
+                            {{^action}}<h4>{{text}}</h4>{{/action}}                            
                         </div>
-                        <div class="col-sm-9 collapse" id="collapse{{text}}">
-                            <div class="list-group list-group-light">
+                        <div class="col-sm-9">
+                            <ul class="list-group list-group-flush w-25 {{!-- list-unstyled --}}">
                                 {{#children}}
                                     {{#display}}
                                         {{^children.count}}
-                                            <a class="list-group-item list-group-item-action px-1 border-0 ripple w-25" href="{{{action}}}">{{text}}</a>
+                                            <li class="list-group-item p-1"><a href="{{{action}}}">{{text}}</a></li>
                                         {{/children.count}}
                                     {{/display}}
                                 {{/children}}
-                            <!--ul class="list-group list-group-light list-group-small {{!-- list-unstyled --}}">
-                                {{#children}}
-                                    {{#display}}
-                                        {{^children.count}}
-                                            <li class="list-group-item p-2 w-20 border-bottom-settings"><a href="{{{action}}}">{{text}}</a></li>
-                                        {{/children.count}}
-                                    {{/display}}
-                                {{/children}}
-                            </ul-->
-                            </div>
+                            </ul>
                         </div>
                     </div>
                     {{#children}}
