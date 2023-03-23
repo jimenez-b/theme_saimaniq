@@ -80,6 +80,8 @@ $logorender = ($loginformposition=='left' || $loginformposition=='right' ) ? tru
 
 $reverse = ($loginformposition=='right') ? true : false;
 
+$shapesload = $logindefault == "random" ? true : false;
+
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
@@ -102,8 +104,8 @@ $templatecontext = [
     'logorender'              => $logorender,
     'reverse'                 => $reverse,
     'themedesigner'           => $themedesigner,
+    'shapesload'              => $shapesload,
 ];
-
 
 echo $OUTPUT->render_from_template('theme_saimaniq/login', $templatecontext);
 

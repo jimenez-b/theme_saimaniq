@@ -59,14 +59,15 @@
                         nobackground {{{ nobackground }}}<br/>
                         blockquoteposition {{{ blockquoteposition }}}<br/>
                         corelogo {{{ corelogo }}}<br/>
-                        corelogosmall {{{ corelogosmall }}}
-                        logorender {{{logorender}}}
-                        reverse {{{reverse}}}
+                        corelogosmall {{{ corelogosmall }}}<br/>
+                        logorender {{{logorender}}}<br/>
+                        reverse {{{reverse}}}<br/>
+                        shapesload {{{ shapesload }}}<br/> 
                     </pre>
                 </div>
                 {{/themedesigner}}
                 <section id="region-main" class="col-12 full-height {{#logorender}}row p-0 mx-0{{/logorender}} {{#reverse}}flex-row-reverse{{/reverse}}" aria-label="{{#str}}content{{/str}}">
-                    <div class="login-wrapper saimaniq-login-{{{ loginformposition }}} {{#logorender}}col-5{{/logorender}}">
+                    <div class="login-wrapper saimaniq-login-{{{ loginformposition }}} {{#logorender}}col-5 login-opacity{{/logorender}}">
                         <div class="login-container {{#logorender}}w-100 px-1 bg-transparent shadow-none{{/logorender}}">
                         {{^logorender}}
                             {{#corelogo}}
@@ -116,4 +117,22 @@ M.util.js_pending('theme_boost/loader');
 require(['theme_boost/loader'], function() {
   M.util.js_complete('theme_boost/loader');
 });
+{{^loginbgimage}}
+    {{#shapesload}}
+        console.log('number of figures to create: '+ {{{loginjsrectangles}}});
+        
+        require(['theme_saimaniq/shapegenerator'], function(shapegenerator) {
+            
+            shapegenerator.generateShapes({
+                    element: document.querySelector('#page'),
+                    options: {
+                        colorList: ["#912338","#db0272","#da3a16","#573996","#004085","#0072a8","#057d78","#508212","#34550C","#554720"],
+                        numberOfShapes: {{{loginjsrectangles}}},
+                        mode: 1,
+                        rotation: true
+                    }
+                });
+        });
+    {{/shapesload}} 
+{{/loginbgimage}}
 {{/js}}

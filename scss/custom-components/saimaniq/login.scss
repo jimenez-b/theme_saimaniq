@@ -47,7 +47,8 @@ body.pagelayout-login {
         }
     }
     #page {
-        background-color: white;
+        background-color: transparent;
+        background-image: none;
         .login-wrapper.saimaniq-login-#{$loginformposition} {
             justify-content: $loginformposition;
         }
@@ -77,8 +78,11 @@ body.pagelayout-login {
                 font-family: $conu-font-medium-italic;
             }
         }
-        .login-wrapper{
+        /*.login-wrapper{
             //background-color: blueviolet;
+            background-color: rgba(255, 255, 255, $loginformopacity);
+        }*/
+        .login-opacity{
             background-color: rgba(255, 255, 255, $loginformopacity);
         }
         .additional-wrapper{

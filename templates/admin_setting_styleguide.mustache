@@ -75,13 +75,7 @@
         </section>
     </section>
     <section>
-    <h2>Text</h2>
-        <p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is
-            <em>emphasized</em>. This is <sup>superscript</sup> text and this is <sub>subscript</sub> text. This is <u>underlined</u>
-            and this is code: <code>for (;;) { ... }</code>. Finally, <a style="cursor: pointer;" href="#">this is a
-                link</a>.
-        </p>
-        <hr>
+    <h2>Typography</h2>
         <h3>Headings</h3>
             <h1>Heading Level 1</h1>
             <h2>Heading Level 2</h2>
@@ -110,11 +104,25 @@
         </h3>
 
         <hr>
+        <h3>Inline text elements</h3>
+        <p>This is <b>bold</b> and this is <strong>strong</strong>.<br>
+           This is <i>italic</i> and this is <em>emphasized</em>.<br>
+           This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.<br>
+           You can use the mark tag to <mark>highlight</mark> text.<br>
+           <del>This line of text is meant to be treated as deleted text.</del><br>
+           <s>This line of text is meant to be treated as no longer accurate.</s><br>
+           <ins>This line of text is meant to be treated as an addition to the document.</ins><br>
+           <small>This line of text is meant to be treated as fine print.</small><br>
+           This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>.<br>
+           Finally, <a style="cursor: pointer;" href="#">this is a link</a>.
+        </p>
+        <hr>
         <h4>Blockquote</h4>
         <blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod.
             Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac
             adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam
             adipiscing eu felis.
+            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
         </blockquote>
         <h4>Preformatted</h4>
         <pre>
@@ -294,7 +302,7 @@
         <form method="post" action="#" class="mform">
             <fieldset class="clearfix collapsible" id="id_moodle">
                 <div class="fcontainer clearfix">
-                    <div id="fitem_id_username" class="form-group row  fitem   ">
+                    <div id="fitem_id_username" class="form-group row  fitem">
                         <div class="col-md-3">
                         <span class="float-sm-right text-nowrap">
                             <a class="btn btn-link p-0" role="button" data-container="body" data-toggle="popover"
@@ -315,7 +323,7 @@
                             <div class="form-control-feedback invalid-feedback" id="id_error_username"></div>
                         </div>
                     </div>
-                    <div id="fitem_id_newpassword" class="form-group row  fitem   ">
+                    <div id="fitem_id_newpassword" class="form-group row  fitem">
                         <div class="col-md-3">
                             <label class="col-form-label d-inline " for="id_newpassword">
                                 {{#str}}newpassword{{/str}}

@@ -105,7 +105,7 @@
         {{#children.count}}
             <div class="tab-pane" id="link{{key}}" {{^secondarynavigation}}role="tabpanel"{{/secondarynavigation}}>
                 <div class="container-fluid">
-                    <div class="row">
+                    <div class="row conu-hover-section">
                         <div class="col-sm-3">
                         aaa
                             {{#action}}<h4><a href="{{action}}">{{text}}</a></h4>{{/action}}
@@ -126,8 +126,8 @@
                     {{#children}}
                         {{#display}}
                             {{#children.count}}
-                                <hr>
-                                <div class="row">
+                                <!--hr-->
+                                <div class="row conu-hover-section">
                                     <div class="col-sm-3">
                                     bbb
                                         {{#action}}<h4><a href="{{action}}">{{text}}</a></h4>{{/action}}

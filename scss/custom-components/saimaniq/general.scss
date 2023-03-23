@@ -152,3 +152,11 @@ input[type="checkbox"] {
 .bg-gradient {
     background-image: $bs-gradient!important;
 }
+
+.conu-hover-section {
+    border-left: 3px solid transparent;
+    &:hover{
+        border-left: 3px solid $conu-burgundy;
+        background-color: $conu-light-grey;
+    }
+}

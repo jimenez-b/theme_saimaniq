@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<libraries>
+    <library>
+        <location>amd/src/shapes.js</location>
+        <name>shapes.js</name>
+        <license>MIT</license>
+        <version>0.3.0</version>
+        <licenseversion>1.0</licenseversion>
+    </library>
+    <library>
+        <location>amd/src/shapegenerator.js</location>
+        <name>shapegenerator.js</name>
+        <license>MIT</license>
+        <version>0.3.0</version>
+        <licenseversion>1.0</licenseversion>
+    </library>
+</libraries>
