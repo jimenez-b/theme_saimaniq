@@ -7,6 +7,10 @@ body {
     font-family: $font-default;
 }
 
+#page {
+    background-color: $conu-light-grey;
+}
+
 @each $name, $color in $conu-primaries {
     .conu-#{$name}-background{
         background-color: $color;
