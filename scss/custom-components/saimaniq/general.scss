@@ -1,3 +1,8 @@
+html {
+    font-size: 16px;
+    line-height: 24.00px;
+}
+  
 body {
     font-family: $font-default;
 }
@@ -90,7 +95,8 @@ h3,
 
 h4,
 .h4 {
-    font: normal 21px $conu-font-medium;
+    //Update section H4 to GillSansMTProBoldCondensed 1.44rem
+    font: normal 1.44rem $conu-font-bold-condensed;
 }
 
 h5,
@@ -152,11 +158,13 @@ input[type="checkbox"] {
 .bg-gradient {
     background-image: $bs-gradient!important;
 }
-
-.conu-hover-section {
-    border-left: 3px solid transparent;
-    &:hover{
-        border-left: 3px solid $conu-burgundy;
-        background-color: $conu-light-grey;
+.conu-admin-list {
+    line-height: 1.75rem;
+    .conu-sublist {
+        padding: 0 1.25rem;
+        border-left: 1px solid $conu-light-grey;
     }
+}
+.conu-hr {
+    border-top: 1px solid $conu-medium-grey;
 }
