@@ -7,9 +7,12 @@
 
 ///Some default variables
 // Options
-$enable-rounded: false !default;
-$enable-responsive-font-sizes: true !default;
-$conu-border-radius:0px !default;
+$enable-rounded: false;
+$enable-responsive-font-sizes: true;
+$conu-border-radius:0px;
+
+$border-radius: 0rem;
+$border-radius-lg: 0rem;
 
 // stylelint-disable
 $conu-widths: () !default;

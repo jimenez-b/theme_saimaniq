@@ -1,10 +1,44 @@
 html {
     font-size: 16px;
     line-height: 24.00px;
+    border-radius: $border-radius !important;
 }
   
 body {
     font-family: $font-default;
+    .main-inner,
+    .card,
+    .custom-select,
+    .breadcrumb,
+    .badge,
+    textarea,
+    .form-control,
+    .tox-tinymce,
+    .tox-mbtn,
+    .tox-menu,
+    .tox-tbtn,
+    .tox .tox-collection__item,
+    .tox .tox-collection--list .tox-collection__item--active,
+    .alert,
+    .filepicker-filelist, 
+    .filemanager-container,
+    .activityiconcontainer,
+    .activity-item,
+    #contentframe,
+    .que .formulation,
+    .que .outcome,
+    .que .comment,
+    .que .info,
+    .modal-content,
+    .thispageholder,
+    .coursebox,
+    input[type="text"] {
+        border-radius: $border-radius !important;
+    }
+    .nav-link {
+        border-top-left-radius:  $border-radius !important;
+        border-top-right-radius: $border-radius !important;
+    }
 }
 
 #page {
@@ -162,6 +196,7 @@ input[type="checkbox"] {
 .bg-gradient {
     background-image: $bs-gradient!important;
 }
+
 .conu-admin-list {
     line-height: 1.75rem;
     .conu-sublist {
