@@ -1,9 +1,9 @@
-.navigation {
+/*.navigation {
     font-family: $conu-font-bold-condensed;
     //font-weight: initial;
     .nav-link {
         font-weight: initial;
-        color: $conu-medium-grey;
+        color: $conu-dark-grey;
         &:hover,
         &:focus {
             border-bottom-color: $primary;
@@ -12,10 +12,6 @@
             color: $black;
         }
         &.active {
-            /*&:hover,
-            &:focus {
-                background-color: $conu-light-grey;
-            }*/
             border-bottom-color: $primary;
             //font-family: $conu-font-bold;
             &:hover,
@@ -25,11 +21,26 @@
             }
         }
     }
+}*/
+.navbar.fixed-top{
+    height: 60.8px;
 }
+
 .primary-navigation {
     .navigation {
+        font-family: $conu-font-bold-condensed;
+        font-size: 1.3125rem;
+        line-height: 1.94rem;
         .nav-link{
-            color: $conu-medium-grey;
+            color: $conu-dark-grey;
+            &:hover{
+                transition: color 0.4s ease-out;
+                color: $black;
+                background-color: inherit;
+            }
+            &.active {
+                border-bottom-color: $primary;
+            }
         }
     }
 }
