@@ -96,6 +96,8 @@ $setting = new admin_setting_configcolourpicker($name, $title, $description, '#f
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+//$page->hide_if($name, 'theme_saimaniq/defaultnobackground', 'eq','random');
+
 // When JS is enabled, number of rectangles to produce
 $name = 'theme_saimaniq/loginjsrectangles';
 $title = get_string('loginjsrectangles', 'theme_saimaniq');

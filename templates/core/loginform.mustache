@@ -102,11 +102,11 @@
     {{/cansignup}}
     {{#hasidentityproviders}}
         <div class="login-identityproviders">
-            <h2 class="login-heading">{{#str}} potentialidps, auth {{/str}}</h2>
+            <h2 class="login-heading d-none">{{#str}} potentialidps, auth {{/str}}</h2>
             {{#identityproviders}}
                 <a class="btn login-identityprovider-btn btn-lg btn-primary" href="{{url}}">
                     {{#iconurl}}
-                        <img src="{{iconurl}}" alt="" width="24" height="24"/>
+                        <img class="d-none" src="{{iconurl}}" alt="" width="24" height="24"/>
                     {{/iconurl}}
                     {{name}}
                 </a>
@@ -116,10 +116,13 @@
     {{/hasidentityproviders}}
     {{! if it has identity providers we hide the regular login in a nice collapsible div}}
     {{#hasidentityproviders}}
-    <a class="link-primary" data-toggle="collapse" href="#collapseRegularLogin" role="button" aria-expanded="false" aria-controls="collapseRegularLogin">
-        {{# str }} adminlogin, theme_saimaniq {{/ str }}
-    </a>
-    <div class="collapse" id="collapseRegularLogin">
+    <div class="mb-5">
+        <a data-toggle="collapse" href="#collapseregularLogin" role="button" aria-expanded="false" aria-controls="collapseregularLogin">
+            {{# str }} adminlogin, theme_saimaniq {{/ str }}
+            <i class="fa fa-angle-down"></i>
+        </a>
+    </div>
+    <div class="collapse" id="collapseregularLogin">
     {{/hasidentityproviders}}
     <form class="login-form" action="{{loginurl}}" method="post" id="login">
         <input type="hidden" name="logintoken" value="{{logintoken}}">
@@ -159,9 +162,20 @@
     {{/hasidentityproviders}}
     {{#hasinstructions}}
         <div class="login-divider"></div>
-        <div class="login-instructions {{#cansignup}}mb-3{{/cansignup}}">
-            <h2 class="login-heading">{{#str}}firsttime{{/str}}</h2>
+        
+        <div class="login-instructions w-70 {{#cansignup}}mb-3{{/cansignup}}">
+            <div class="d-inline-flex">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                </svg>
+                <h2 class="login-heading">{{#str}}firsttime{{/str}}</h2>
+            </div>
             {{{instructions}}}
+            <div class="d-flex justify-content-between">
+                <a href="{{# str }} learnmoreurl, theme_saimaniq {{/ str }}" target="_blank">{{# str }} learnmore, theme_saimaniq {{/ str }} <i class="fa fa-external-link" aria-hidden="true"></i></a>
+                <a href="{{# str }} contactiturl, theme_saimaniq {{/ str }}" target="_blank">{{# str }} contactit, theme_saimaniq {{/ str }} <i class="fa fa-external-link" aria-hidden="true"></i></a>
+            </div>
         </div>
     {{/hasinstructions}}
     {{#cansignup}}

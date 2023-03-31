@@ -49,14 +49,36 @@ body.pagelayout-login {
     #page {
         background-color: transparent;
         background-image: none;
+        #custom-variables-div{
+            display:none;
+        }
         .login-wrapper.saimaniq-login-#{$loginformposition} {
             justify-content: $loginformposition;
+            padding-#{$loginformposition}: 5rem !important;
         }
         .login-container {
             background-color: rgba(255, 255, 255, $loginformopacity);
             border-radius: $conu-border-radius;
             .login-identityproviders .login-identityprovider-btn {
                 border: inherit;
+            }
+            .login-divider{
+                border-top: 1px solid transparent;
+                margin: 1.2rem 0rem;
+            }
+            h2 {
+                &.login-heading {
+                    font-family: $font-default;
+                    font-size: 1.125rem;
+                    font-weight: 700;
+                }
+            }
+            .login-instructions{
+                border-left: 3px solid $conu-dark-blue;
+                padding-left: 0.8rem;
+                svg{
+                    margin: 0.1rem 0.3rem;
+                }
             }
         }
         #saimaniq-blockquote-wrapper {
@@ -71,11 +93,11 @@ body.pagelayout-login {
                 background-color: $conu-tint-burgundy;
             }
             &.styledquote {
-                //background-color: $conu-light-grey;
-                //opacity: $opacity-calculated;
-                background-color: rgba($conu-light-grey,$opacity-calculated);
-                color:$conu-very-dark-grey;
-                font-family: $conu-font-medium-italic;
+                font-family: $conu-font-light;
+                background-color: rgba($black,$opacity-calculated);
+                color:$white;
+                border: none;
+                padding: 10px 15px 0px 15px;
             }
         }
         /*.login-wrapper{
@@ -92,6 +114,9 @@ body.pagelayout-login {
         }
     }
     &.theme-designer-true{
+        #custom-variables-div{
+            display: block !important;
+        }
         .login-wrapper{
             background-color: blueviolet !important;
         }

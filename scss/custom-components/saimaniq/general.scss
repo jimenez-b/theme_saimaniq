@@ -115,7 +115,8 @@ a {
 //headers
 h1,
 .h1 {
-    font: normal 46px $conu-font-medium;
+    font: normal 2.488rem $conu-font-bold-condensed;
+    line-height: 2.98rem;
     &.conu-h1-big {
         font-size: 60px;
     }
@@ -123,7 +124,7 @@ h1,
 
 h2,
 .h2 {
-    font: normal 26px $conu-font-book;
+    font: normal 26px $conu-font-bold-condensed;
     &.conu-h2-small {
         font-size: 21px;
     }
@@ -153,7 +154,14 @@ h6,
 //buttons
 .btn {
     border-radius: $conu-border-radius;
-    font-family: $conu-font-book;
+    font-family: $font-default;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    &.btn-primary,
+    &.btn-secondary {
+        font-family: $conu-font-book;
+        padding: .5rem 1rem 0.5rem 1rem;
+    }
 }
 
 //miscelaneous

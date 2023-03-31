@@ -73,7 +73,7 @@ $string['loginnobackgrounddesc'] = 'Default behavior when no background image is
 $string['loginbackgroundcolor']     = 'Background color';
 $string['loginbackgroundcolordesc'] = 'Background color when no image is supplied';
 $string['loginjsrectangles']     = 'JS Rectangles';
-$string['loginjsrectanglesdesc'] = 'When JS is enabled, number of rectangles to produce';
+$string['loginjsrectanglesdesc'] = 'When JS is enabled, number of figures to produce';
 $string['loginbottomtextshow']     = 'Display login bottom text';
 $string['loginbottomtextshowdesc'] = 'Hide/Display login bottom text';
 $string['loginbottomtext']     = 'Login bottom text';
@@ -85,6 +85,11 @@ $string['settingstestpage'] = 'Settings test page';
 $string['testsettingsheading']     = 'Test the elements corresponding to the Concordia UI';
 $string['testsettingsheadingdesc'] = 'Test page to check the elements of the Concordia UI designed for the Saimaniq theme';
 $string['styleguide'] = 'Style Guide';
+
+$string['learnmore'] = 'Learn More';
+$string['learnmoreurl'] = 'https://www.concordia.ca/it.html#notices';
+$string['contactit'] = 'Contact IT Service Desk';
+$string['contactiturl'] = 'https://www.concordia.ca/it/support.html';
 
 // We need to include a lang string for each block region.
 $string['region-side-pre'] = 'Right';
