@@ -168,6 +168,9 @@ h6,
 .form-control-lg {
     border-radius: $conu-border-radius;
 }
+.card {
+    border: 1px solid $conu-medium-grey !important;
+}
 
 .card-container {
     width: 17rem;

@@ -86,6 +86,13 @@ $THEME->layouts = [
             'langmenu' => true
         ],
     ],
+    // My dashboard page.
+    'mydashboard' => array(
+        'file' => 'saimaniq-drawers.php',
+        'regions' => array('side-pre'),
+        'defaultregion' => 'side-pre',
+        'options' => array('nonavbar' => true, 'langmenu' => true),
+    ),
 /*
     // Main course page.
     'course' => [
@@ -113,12 +120,6 @@ $THEME->layouts = [
     // Server administration scripts.
     'admin' => [
         'file' => 'layout7',
-        'regions' => [],
-    ],
-
-    // My dashboard page.
-    'mydashboard' => [
-        'file' => 'layout8',
         'regions' => [],
     ],
 
