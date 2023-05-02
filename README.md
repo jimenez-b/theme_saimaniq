@@ -5,7 +5,7 @@ using Boost 3.9 as it's main inspirtation.
 
 
 ### FEATURES: ###
-To be added---
+- Configurable login page via settings
 
 ### TODO LIST: ###
 1. Improved design
