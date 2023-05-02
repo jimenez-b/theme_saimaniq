@@ -66,6 +66,8 @@ $string['loginbgopacity']     = 'Opacity background image';
 $string['loginbgopacitydesc'] = 'Login background opacity for the background image. Opacity 1 means completely visible and 0 completely transparent.';
 $string['loginformopacity']     = 'Opacity login form';
 $string['loginformopacitydesc'] = 'Login background opacity for the form. Opacity 1 means completely visible and 0 completely transparent.';
+$string['loginlogoposition']     = 'Login logo position';
+$string['loginlogopositiondesc'] = 'Login logo position. It can have one of two values and determines the position of the logo on the login page';
 $string['loginformposition']     = 'Login form position';
 $string['loginformpositiondesc'] = 'Login form position. It can have one of three values and determines the position of loginbottomtext';
 $string['loginnobackground']     = 'Default no image';
@@ -90,6 +92,8 @@ $string['learnmore'] = 'Learn More';
 $string['learnmoreurl'] = 'https://www.concordia.ca/it.html#notices';
 $string['contactit'] = 'Contact IT Service Desk';
 $string['contactiturl'] = 'https://www.concordia.ca/it/support.html';
+
+$string['loginmaintext'] = ' students, faculty and staff login';
 
 // We need to include a lang string for each block region.
 $string['region-side-pre'] = 'Right';

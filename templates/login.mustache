@@ -49,6 +49,8 @@
                             loginbgimage {{{ loginbgimage }}}<br/>
                             loginbgopacity {{{ loginbgopacity }}}<br/>
                             loginformopacity {{{ loginformopacity }}}<br/>
+                            loginlogoposition {{{ loginlogoposition }}}<br/>
+                            logorenderwhitin  {{{ logorenderwhitin }}}<br/>
                             loginformposition  {{{ loginformposition }}}<br/>
                             defaultnobackground {{{ defaultnobackground }}}<br/>
                             loginbackgroundcolor {{{ loginbackgroundcolor }}}<br/>
@@ -75,15 +77,23 @@
                             {{#corelogo}}
                                 <div id="loginlogo" class="login-logo">
                                     <img id="logoimage" src="{{output.get_logo_url}}" class="img-fluid" alt="{{sitename}}"/>
-                                    <h1 class="login-heading sr-only">{{#str}} loginto, core, {{sitename}} {{/str}}</h1>
+                                    <h1 class="login-heading sr-only">{{sitename}} {{#str}} loginmaintext, theme_saimaniq {{/str}}</h1>
                                 </div>
                             {{/corelogo}}
                             {{^corelogo}}
-                                <h1 class="login-heading mb-4">{{#str}} loginto, core, {{sitename}} {{/str}}</h1>
+                                <h1 class="login-heading mb-4">{{sitename}} {{#str}}loginmaintext, theme_saimaniq {{/str}}</h1>
                             {{/corelogo}}
                         {{/logorender}}
                         {{#logorender}}
-                            <h1 class="login-heading mb-4">{{#str}} loginto, core, {{sitename}} {{/str}}</h1>
+                            {{#logorenderwhitin}}
+                                {{#corelogo}}
+                                    <div id="loginlogo" class="login-logo w-90">
+                                        <img id="logoimage" src="{{output.get_logo_url}}" class="img-fluid" alt="{{sitename}}"/>
+                                        <h1 class="login-heading sr-only">{{sitename}} {{#str}}loginto, core {{/str}}</h1>
+                                    </div>
+                                {{/corelogo}}
+                            {{/logorenderwhitin}}
+                            <h1 class="login-heading mb-4">{{sitename}} {{#str}}loginmaintext, theme_saimaniq {{/str}}</h1>
                         {{/logorender}}
                         {{{ output.main_content }}}
                         </div>
@@ -92,9 +102,11 @@
                     <div class="d-flex additional-wrapper flex-direction-column saimaniq-login-blockquote-{{{ blockquoteposition }}} {{#logorender}}col-7{{/logorender}}">
                         {{#logorender}}
                             <div id="saimaniq-logo-wrapper" class="d-flex h-100 justify-content-center">
-                            {{#corelogo}}
-                                <img src="{{output.get_logo_url}}" class="align-self-center w-50">
-                            {{/corelogo}}
+                            {{^logorenderwhitin}}
+                                {{#corelogo}}
+                                    <img src="{{output.get_logo_url}}" class="align-self-center w-50">
+                                {{/corelogo}}
+                            {{/logorenderwhitin}}
                             </div>
                         {{/logorender}}
                         {{#showdefaultfrontpagebody}}

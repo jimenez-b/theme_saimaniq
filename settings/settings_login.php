@@ -71,6 +71,15 @@ $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Default setting when no background image is provided
+$name = 'theme_saimaniq/loginlogoposition';
+$title = get_string('loginlogoposition', 'theme_saimaniq');
+$description = get_string('loginlogopositiondesc', 'theme_saimaniq');
+$default = 'within';
+$setting = new admin_setting_configselect($name, $title, $description, $default, ['within' => 'Within','opposite' => 'Opposite']);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Default setting when no background image is provided
 $name = 'theme_saimaniq/loginformposition';
 $title = get_string('loginformposition', 'theme_saimaniq');
 $description = get_string('loginformpositiondesc', 'theme_saimaniq');

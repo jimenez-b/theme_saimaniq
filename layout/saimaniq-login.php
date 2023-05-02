@@ -33,6 +33,7 @@ $bodyattributes = $OUTPUT->body_attributes();
 $loginimage               = get_config('theme_saimaniq', 'loginbgimage');
 $loginopacity             = get_config('theme_saimaniq', 'loginbgopacity');
 $loginformopacity         = get_config('theme_saimaniq', 'loginformopacity');
+$loginlogoposition        = get_config('theme_saimaniq', 'loginlogoposition');
 $loginformposition        = get_config('theme_saimaniq', 'loginformposition');
 $logindefault             = get_config('theme_saimaniq', 'defaultnobackground');
 $loginjsrectangles        = get_config('theme_saimaniq', 'loginjsrectangles');
@@ -67,6 +68,8 @@ $additionalclasses = [
 ];
 $bodyattributes = $OUTPUT->body_attributes($additionalclasses);
 
+$logorenderwhitin = ($loginlogoposition=='within') ? true : false;
+
 $blockquoteposition = '';
 if ($loginformposition=='left'){
     $blockquoteposition = 'right';
@@ -89,6 +92,8 @@ $templatecontext = [
     'loginbgimage'            => $loginimage,
     'loginbgopacity'          => $loginopacity,
     'loginformopacity'        => $loginformopacity,
+    'loginlogoposition'       => $loginlogoposition,
+    'logorenderwhitin'        => $logorenderwhitin,
     'loginformposition'       => $loginformposition,
     'defaultnobackground'     => $logindefault,
     'loginbackgroundcolor'    => $loginbackgroundcolor,
