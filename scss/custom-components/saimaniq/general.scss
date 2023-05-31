@@ -104,6 +104,10 @@ body {
     .w-#{$name}{
         width: $width !important;
     }
+
+    .mw-#{$name}{
+        max-width: $width !important;
+    }
 }
 
 a {
@@ -178,6 +182,10 @@ h6,
 
 .card-title {
     border-bottom: none !important;
+}
+
+.card-img {
+    border-radius: $conu-border-radius;
 }
 
 .card-text p {

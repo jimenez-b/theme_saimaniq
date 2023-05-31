@@ -99,3 +99,4 @@ $string['loginmaintext'] = ' students, faculty and staff login';
 $string['region-side-pre'] = 'Right';
 
 $string['adminlogin'] = 'Admin log in';
+$string['forgotpassword'] = 'Forgot password?';

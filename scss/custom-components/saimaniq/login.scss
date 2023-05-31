@@ -54,11 +54,15 @@ body.pagelayout-login {
         }
         .login-wrapper.saimaniq-login-#{$loginformposition} {
             justify-content: $loginformposition;
-            padding-#{$loginformposition}: 5rem !important;
+            /*padding-#{$loginformposition}: 5rem !important;*/
+            padding: 0 5rem;
         }
         .login-container {
             background-color: rgba(255, 255, 255, $loginformopacity);
             border-radius: $conu-border-radius;
+            .login-logo {
+                margin-bottom: 4rem;
+            }
             .login-identityproviders .login-identityprovider-btn {
                 border: inherit;
             }
@@ -79,6 +83,15 @@ body.pagelayout-login {
                 svg{
                     margin: 0.1rem 0.3rem;
                 }
+            }
+            .login-form-forgotpassword{
+                padding-top: 0.5rem;
+            }
+        }
+        .saimaniq-login-left,
+        .saimaniq-login-right {
+            .login-logo{
+                justify-content: left;
             }
         }
         #saimaniq-blockquote-wrapper {
