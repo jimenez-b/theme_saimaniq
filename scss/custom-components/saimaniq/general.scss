@@ -100,6 +100,15 @@ body {
     }
 }
 
+@each $name, $color in $conu-theme-alerts {
+    .text-#{$name} {
+        color: $color !important;
+    }
+    .bg-#{$name} {
+        background-color: $color !important;
+    }
+}
+
 @each $name, $width in $conu-widths {
     .w-#{$name}{
         width: $width !important;
@@ -156,16 +165,15 @@ h6,
 }
 
 //buttons
+button,
 .btn {
-    border-radius: $conu-border-radius;
-    font-family: $font-default;
+    border-radius: $conu-border-radius !important;
+    font-family: $conu-font-book;
     font-size: 1.25rem;
     line-height: 1.25rem;
-    &.btn-primary,
-    &.btn-secondary {
-        font-family: $conu-font-book;
-        padding: .5rem 1rem 0.5rem 1rem;
-    }
+    padding: .5rem 1rem 0.5rem 1rem;
+    border-style: solid;
+    border-width: thin;
 }
 
 //miscelaneous

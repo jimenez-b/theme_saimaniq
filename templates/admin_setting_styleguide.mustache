@@ -20,7 +20,7 @@
     <header class="major special"><h2>Elements</h2>
         <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p></header>
     <section class="mb-5">
-    <h2>Colors</h2>
+    <h2>Colors available</h2>
         <section>
             <h3>Primary Colors</h3>
             <div class="d-flex flex-row justify-content-start flex-wrap">
@@ -71,6 +71,35 @@
                     </div>
                     {{/.}}
                 {{/neutrals}}
+            </div>
+        </section>
+    </section>
+    <section class="mb-5">
+    <h2>Theme colors</h2>
+        <section>
+            <h3>Definition Colors</h3>
+            <div class="d-flex flex-row justify-content-start flex-wrap">
+                {{#theme_primary}}
+                    {{#.}}
+                    <div class="card-container pl-2 pb-2 bg-{{{name}}} {{#black}}text-black{{/black}}{{^black}}text-white{{/black}} m-2">
+                        <h3 class="card-title mb-1 capitalize">{{name}}</h3>
+                        <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
+                    </div>
+                    {{/.}}
+                {{/theme_primary}}
+            </div>
+        </section>
+        <section>
+            <h3>Alert Colors</h3>
+            <div class="d-flex flex-row justify-content-start flex-wrap">
+                {{#theme_alerts}}
+                    {{#.}}
+                    <div class="card-container pl-2 pb-2 bg-{{{name}}} {{#black}}text-black{{/black}}{{^black}}text-white{{/black}} m-2">
+                        <h3 class="card-title mb-1 capitalize">{{name}}</h3>
+                        <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
+                    </div>
+                    {{/.}}
+                {{/theme_alerts}}
             </div>
         </section>
     </section>
@@ -182,30 +211,156 @@
             <li><a class="btn btn-sm" style="cursor: pointer;">Small</a></li>
             <li><a class="btn btn-secondary btn-sm" style="cursor: pointer;">Small</a></li>
         </ul>
+    </section>
+    <section>
         <h3>Buttons</h3>
-        <ul class="actions">
-            <li><a class="btn btn-primary btn-lg" style="cursor: pointer;">Large</a></li>
-            <li><a class="btn" style="cursor: pointer;">Default</a></li>
-            <li><a class="btn btn-secondary btn-sm" style="cursor: pointer;">Small</a></li>
-        </ul>
-        <div class="row">
-            <div class="col-6 col-12-xsmall">
-                <ul class="actions fit small">
-                    <li><a class="btn fit btn-sm" style="cursor: pointer;">Fit + Small</a></li>
-                    <li><a class="btn btn-secondary fit btn-sm" style="cursor: pointer;">Fit + Small</a></li>
-                </ul>
-            </div>
-        </div>
-        <ul class="actions">
-            <li><a class="btn btn-primary fa fa-download" style="cursor: pointer;">Icon</a></li>
-            <li><a class="btn fa fa-download" style="cursor: pointer;">Icon</a></li>
-            <li><a class="btn btn-secondary fa fa-download" style="cursor: pointer;">Icon</a></li>
-        </ul>
-        <ul class="actions">
-            <li><span class="btn primary disabled">Primary</span></li>
-            <li><span class="btn disabled">Default</span></li>
-            <li><span class="btn btn-secondary disabled">Alternate</span></li>
-        </ul>
+        <h4>Button tag default</h4>
+        <button type="button" class=" btn-primary">Primary</button>
+        <button type="button" class=" btn-secondary">Secondary</button>
+        <button type="button" class=" btn-success">Success</button>
+        <button type="button" class=" btn-danger">Danger</button>
+        <button type="button" class=" btn-warning">Warning</button>
+        <button type="button" class=" btn-info">Info</button>
+        <button type="button" class=" btn-light">Light</button>
+        <button type="button" class=" btn-dark">Dark</button>
+        <button type="button" class=" btn-link">Link</button>
+
+        <hr>
+        <h4>Button tag outline</h4>
+        <button type="button" class=" btn-outline-primary">Primary</button>
+        <button type="button" class=" btn-outline-secondary">Secondary</button>
+        <button type="button" class=" btn-outline-success">Success</button>
+        <button type="button" class=" btn-outline-danger">Danger</button>
+        <button type="button" class=" btn-outline-warning">Warning</button>
+        <button type="button" class=" btn-outline-info">Info</button>
+        <button type="button" class=" btn-outline-light">Light</button>
+        <button type="button" class=" btn-outline-dark">Dark</button>
+        
+        <hr>
+        <h4>Button class link</h4>
+        <a class="btn btn-primary" href="#" role="button">Link</a>
+        <a class="btn btn-secondary" href="#" role="button">Link</a>
+        <a class="btn btn-success" href="#" role="button">Link</a>
+        <a class="btn btn-danger" href="#" role="button">Link</a>
+        <a class="btn btn-warning" href="#" role="button">Link</a>
+        <a class="btn btn-info" href="#" role="button">Link</a>
+        <a class="btn btn-light" href="#" role="button">Link</a>
+        <a class="btn btn-dark" href="#" role="button">Link</a>
+
+        <h4>Button class outline link</h4>
+        <a class="btn btn-outline-primary" href="#" role="button">Link</a>
+        <a class="btn btn-outline-secondary" href="#" role="button">Link</a>
+        <a class="btn btn-outline-success" href="#" role="button">Link</a>
+        <a class="btn btn-outline-danger" href="#" role="button">Link</a>
+        <a class="btn btn-outline-warning" href="#" role="button">Link</a>
+        <a class="btn btn-outline-info" href="#" role="button">Link</a>
+        <a class="btn btn-outline-light" href="#" role="button">Link</a>
+        <a class="btn btn-outline-dark" href="#" role="button">Link</a>
+
+        <hr>
+        <h4>Button class input</h4>
+        <input class="btn btn-primary" type="button" value="Input">
+        <input class="btn btn-secondary" type="submit" value="Submit">
+        <input class="btn btn-success" type="reset" value="Reset">
+        <input class="btn btn-danger" type="button" value="Input">
+        <input class="btn btn-warning" type="submit" value="Submit">
+        <input class="btn btn-info" type="reset" value="Reset">
+        <input class="btn btn-light" type="button" value="Input">
+        <input class="btn btn-dark" type="submit" value="Submit">
+
+        <h4>Button class outline input</h4>
+        <input class="btn btn-outline-primary" type="button" value="Input">
+        <input class="btn btn-outline-secondary" type="submit" value="Submit">
+        <input class="btn btn-outline-success" type="reset" value="Reset">
+        <input class="btn btn-outline-danger" type="button" value="Input">
+        <input class="btn btn-outline-warning" type="submit" value="Submit">
+        <input class="btn btn-outline-info" type="reset" value="Reset">
+        <input class="btn btn-outline-light" type="button" value="Input">
+        <input class="btn btn-outline-dark" type="submit" value="Submit">
+
+        <hr>
+        <h4>Button tag sizes</h4>
+        <button type="button" class=" btn-primary btn-lg">Primary</button>
+        <button type="button" class=" btn-secondary btn-lg">Secondary</button>
+        <button type="button" class=" btn-success btn-lg">Success</button>
+        <button type="button" class=" btn-danger btn-lg">Danger</button>
+        <button type="button" class=" btn-warning btn-lg">Warning</button>
+        <button type="button" class=" btn-info btn-lg">Info</button>
+        <button type="button" class=" btn-light btn-lg">Light</button>
+        <button type="button" class=" btn-dark btn-lg">Dark</button>
+        <button type="button" class=" btn-link btn-lg">Link</button>
+        <hr>
+        <button type="button" class=" btn-primary btn-sm">Primary</button>
+        <button type="button" class=" btn-secondary btn-sm">Secondary</button>
+        <button type="button" class=" btn-success btn-sm">Success</button>
+        <button type="button" class=" btn-danger btn-sm">Danger</button>
+        <button type="button" class=" btn-warning btn-sm">Warning</button>
+        <button type="button" class=" btn-info btn-sm">Info</button>
+        <button type="button" class=" btn-light btn-sm">Light</button>
+        <button type="button" class=" btn-dark btn-sm">Dark</button>
+        <button type="button" class=" btn-link btn-sm">Link</button>
+
+        <h4>Button class size</h4>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Primary</a>
+        <a class="btn btn-secondary btn-lg" href="#" role="button">Secondary</a>
+        <a class="btn btn-success btn-lg" href="#" role="button">Success</a>
+        <a class="btn btn-danger btn-lg" href="#" role="button">Danger</a>
+        <a class="btn btn-warning btn-lg" href="#" role="button">Warning</a>
+        <a class="btn btn-info btn-lg" href="#" role="button">Info</a>
+        <a class="btn btn-light btn-lg" href="#" role="button">Light</a>
+        <a class="btn btn-dark btn-lg" href="#" role="button">Dark</a>
+        <hr>
+        <a class="btn btn-primary btn-sm" href="#" role="button">Primary</a>
+        <a class="btn btn-secondary btn-sm" href="#" role="button">Secondary</a>
+        <a class="btn btn-success btn-sm" href="#" role="button">Success</a>
+        <a class="btn btn-danger btn-sm" href="#" role="button">Danger</a>
+        <a class="btn btn-warning btn-sm" href="#" role="button">Warning</a>
+        <a class="btn btn-info btn-sm" href="#" role="button">Info</a>
+        <a class="btn btn-light btn-sm" href="#" role="button">Light</a>
+        <a class="btn btn-dark btn-sm" href="#" role="button">Dark</a>
+        <hr>
+        <h4>Button tag sizeblocks</h4>
+        <button type="button" class=" btn-primary btn-block">Primary</button>
+        <button type="button" class=" btn-secondary btn-block">Secondary</button>
+        <button type="button" class=" btn-success btn-block">Success</button>
+        <button type="button" class=" btn-danger btn-block">Danger</button>
+        <button type="button" class=" btn-warning btn-block">Warning</button>
+        <button type="button" class=" btn-info btn-block">Info</button>
+        <button type="button" class=" btn-light btn-block">Light</button>
+        <button type="button" class=" btn-dark btn-block">Dark</button>
+        <button type="button" class=" btn-link btn-block">Link</button>
+        <hr>
+        <h4>Button class sizeblocks</h4>
+        <a class="btn btn-primary btn-block" href="#" role="button">Link</a>
+        <a class="btn btn-secondary btn-block" href="#" role="button">Link</a>
+        <a class="btn btn-success btn-block" href="#" role="button">Link</a>
+        <a class="btn btn-danger btn-block" href="#" role="button">Link</a>
+        <a class="btn btn-warning btn-block" href="#" role="button">Link</a>
+        <a class="btn btn-info btn-block" href="#" role="button">Link</a>
+        <a class="btn btn-light btn-block" href="#" role="button">Link</a>
+        <a class="btn btn-dark btn-block" href="#" role="button">Link</a>
+        <hr>
+        <h4>Button class active</h4>
+        <a class="btn btn-primary active" href="#" role="button">Link</a>
+        <a class="btn btn-secondary active" href="#" role="button">Link</a>
+        <a class="btn btn-success active" href="#" role="button">Link</a>
+        <a class="btn btn-danger active" href="#" role="button">Link</a>
+        <a class="btn btn-warning active" href="#" role="button">Link</a>
+        <a class="btn btn-info active" href="#" role="button">Link</a>
+        <a class="btn btn-light active" href="#" role="button">Link</a>
+        <a class="btn btn-dark active" href="#" role="button">Link</a>
+        <hr>
+        <h4>Button tag disabled</h4>
+        <button type="button" class=" btn-primary" disabled>Primary</button>
+        <button type="button" class=" btn-secondary" disabled>Secondary</button>
+        <button type="button" class=" btn-success" disabled>Success</button>
+        <button type="button" class=" btn-danger" disabled>Danger</button>
+        <button type="button" class=" btn-warning" disabled>Warning</button>
+        <button type="button" class=" btn-info" disabled>Info</button>
+        <button type="button" class=" btn-light" disabled>Light</button>
+        <button type="button" class=" btn-dark" disabled>Dark</button>
+        <button type="button" class=" btn-link" disabled>Link</button>
+        <hr>
     </section>
     <section><h3>Table</h3><h4>Default</h4>
         <div class="table-wrapper">

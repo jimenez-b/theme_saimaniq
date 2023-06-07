@@ -241,6 +241,86 @@ class saimaniq_admin_settings_styleguide extends admin_setting_heading {
         ];
         $context->neutrals = $neutrals;
 
+        $theme_primary = [
+            [
+                'name'      => 'primary',
+                'color'     => '#912338',
+                'compliant' => 'AAA (black text)',
+            ],
+            [
+                'name'      => 'secondary',
+                'color'     => '#c8c8c8',
+                'compliant' => 'AAA (black text)',
+                'black'     => true,
+            ],
+            [
+                'name'      => 'success',
+                'color'     => '#dfeccf',
+                'compliant' => 'AAA',
+            ],
+            [
+                'name'      => 'info',
+                'color'     => '#d3e1e9',
+                'compliant' => 'AAA',
+            ],
+            [
+                'name'      => 'warning',
+                'color'     => '#e9e3d3',
+                'compliant' => 'AAA',
+            ],
+            [
+                'name'      => 'danger',
+                'color'     => '#E9D3D7',
+                'compliant' => 'AAA',
+            ],
+        ];
+        $context->theme_primary = $theme_primary;
+
+        $theme_alerts = [
+            [
+                'name'      => 'success-outline',
+                'color'     => '#dfeccf',
+                'compliant' => 'AAA (black text)',
+                'black'     => true,
+            ],
+            [
+                'name'      => 'info-outline',
+                'color'     => '#004085',
+                'compliant' => 'AAA (black text)',
+            ],
+            [
+                'name'      => 'warning-outline',
+                'color'     => '#554720',
+                'compliant' => 'AAA',
+            ],
+            [
+                'name'      => 'danger-outline',
+                'color'     => '#912338',
+                'compliant' => 'AAA',
+            ],
+            [
+                'name'      => 'success-text',
+                'color'     => '#912338',
+                'compliant' => 'AAA (black text)',
+            ],
+            [
+                'name'      => 'info-text',
+                'color'     => '#004085',
+                'compliant' => 'AAA (black text)',
+            ],
+            [
+                'name'      => 'warning-text',
+                'color'     => '#dfeccf',
+                'compliant' => 'AAA',
+            ],
+            [
+                'name'      => 'danger-text',
+                'color'     => '#912338',
+                'compliant' => 'AAA',
+            ],
+        ];
+        $context->theme_alerts = $theme_alerts;
+
         return $OUTPUT->render_from_template('theme_saimaniq/admin_setting_styleguide', $context);
     }
 
