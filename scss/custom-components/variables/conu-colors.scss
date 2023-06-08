@@ -107,10 +107,12 @@ $conu-neutrals: map-merge(
 // theme colors
 $primary:   $conu-burgundy;
 $secondary: $conu-medium-grey;
-$success:   $conu-tint-green;
-$info:      $conu-tint-blue;
-$warning:   $conu-tint-gold;
-$danger:    $conu-tint-burgundy;
+$success:   $conu-lime;
+$info:      $conu-dark-blue;
+$warning:   $conu-yellow;
+$danger:    $conu-orange;
+$light:     $conu-light-grey;
+$dark:      $conu-very-dark-grey;
 
 $success-outline: $conu-tint-green;
 $info-outline:    $conu-dark-blue;
@@ -133,6 +135,8 @@ $conu-theme-colors: map-merge((
     info:      $info,
     warning:   $warning,
     danger:    $danger,
+    light:     $light,
+    dark:      $dark,
 ), $conu-theme-colors);
 
 $conu-theme-alerts: () !default;
@@ -148,5 +152,14 @@ $conu-theme-alerts: map-merge((
 
 ), $conu-theme-alerts);
 
+$conu-text-colors: () !default;
+$conu-text-colors: map-merge((
+    secondary: $black,
+), $conu-text-colors);
+
+$conu-text-colors-outline: () !default;
+$conu-text-colors-outline: map-merge((
+    secondary: $black,
+), $conu-text-colors-outline);
 
 $bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));

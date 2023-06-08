@@ -48,6 +48,38 @@ body {
     background-color: $conu-light-grey;
 }
 
+//buttons
+button,
+.btn {
+    border-radius: $conu-border-radius !important;
+    font-family: $conu-font-book;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    padding: .5rem 1rem 0.5rem 1rem;
+    border-style: solid;
+    border-width: thin;
+    text-transform: uppercase;
+    &.btn-footer-popover{
+        border-radius: 50% !important;
+    }
+}
+
+.btn-lg {
+    @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
+}
+  
+.btn-sm {
+    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+}
+
+button.disabled,
+button:disabled,
+.btn.disabled,
+.btn:disabled {
+    opacity: 0.65;
+}
+
+
 @each $name, $color in $conu-primaries {
     .conu-#{$name}-background{
         background-color: $color;
@@ -97,6 +129,16 @@ body {
             background-color: darken($color,5%);
             border-color: darken($color,5%);
         }
+        &.disabled,
+        &:disabled{
+            background-color: $color;
+            border-color: $color;
+            &:hover,
+            &:focus {
+                background-color: $color;
+                border-color: $color;
+            }
+        }
     }
     .btn-#{$name}:not(:disabled):not(.disabled):active,
     .btn-#{$name}:not(:disabled):not(.disabled).active,
@@ -114,6 +156,16 @@ body {
             background-color: $color;
             border-color: $color;
             color: white;
+        }
+        &.disabled,
+        &:disabled{
+            color : $color;
+            border-color: $color;
+            background-color: white;
+            &:hover,
+            &:focus {
+                color: $color;
+            }
         }
     }
     .btn-outline-#{$name}:not(:disabled):not(.disabled):active,
@@ -140,6 +192,39 @@ body {
     }
 }
 
+@each $name, $color in $conu-text-colors {
+    .btn-#{$name} {
+        color: $color;
+        &:hover,
+        &:focus {
+            color: $color;
+        }
+        &.disabled,
+        &:disabled{
+            color: $color;
+            &:hover,
+            &:focus {
+                color: $color;
+            }
+        }
+    }
+    .btn-outline-#{$name} {
+        color: $color;
+        &:hover,
+        &:focus {
+            color: $color;
+        }
+        &.disabled,
+        &:disabled{
+            color: $color;
+            &:hover,
+            &:focus {
+                color: $color;
+            }
+        }
+    }
+}
+
 @each $name, $width in $conu-widths {
     .w-#{$name}{
         width: $width !important;
@@ -154,6 +239,12 @@ a {
     color: $conu-blue;
     &:hover{
         color: $conu-dark-blue;
+    }
+    &.btn{
+        &.disabled,
+        &:disabled{
+            font-style: normal;
+        }
     }
 }
 //headers
@@ -195,21 +286,7 @@ h6,
     font: bold 15px 'Arial';
 }
 
-//buttons
-button,
-.btn {
-    border-radius: $conu-border-radius !important;
-    font-family: $conu-font-book;
-    font-size: 1.25rem;
-    line-height: 1.25rem;
-    padding: .5rem 1rem 0.5rem 1rem;
-    border-style: solid;
-    border-width: thin;
-    text-transform: uppercase;
-    &.btn-footer-popover{
-        border-radius: 50% !important;
-    }
-}
+
 
 //miscelaneous
 .form-control-lg {
