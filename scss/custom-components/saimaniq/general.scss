@@ -55,10 +55,12 @@ button,
     font-family: $conu-font-book;
     font-size: 1.25rem;
     line-height: 1.25rem;
-    padding: .5rem 1rem 0.5rem 1rem;
+    letter-spacing: 1.5px;
+    padding: 7px 1rem 6px 1rem;
     border-style: solid;
     border-width: thin;
-    text-transform: uppercase;
+    max-height: 38px;
+    height: 38px;
     &.btn-footer-popover{
         border-radius: 50% !important;
     }
@@ -66,10 +68,14 @@ button,
 
 .btn-lg {
     @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
+    max-height: initial;
+    height: initial;
 }
   
 .btn-sm {
     @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+    max-height: initial;
+    height: initial;
 }
 
 button.disabled,
@@ -128,6 +134,7 @@ button:disabled,
         &:focus {
             background-color: darken($color,5%);
             border-color: darken($color,5%);
+            box-shadow:none;
         }
         &.disabled,
         &:disabled{
@@ -137,6 +144,7 @@ button:disabled,
             &:focus {
                 background-color: $color;
                 border-color: $color;
+                box-shadow:none;
             }
         }
     }
@@ -156,6 +164,7 @@ button:disabled,
             background-color: $color;
             border-color: $color;
             color: white;
+            box-shadow:none;
         }
         &.disabled,
         &:disabled{
@@ -165,6 +174,7 @@ button:disabled,
             &:hover,
             &:focus {
                 color: $color;
+                box-shadow:none;
             }
         }
     }
@@ -195,31 +205,44 @@ button:disabled,
 @each $name, $color in $conu-text-colors {
     .btn-#{$name} {
         color: $color;
+        &:active,
         &:hover,
         &:focus {
             color: $color;
+            box-shadow:none;
         }
         &.disabled,
         &:disabled{
             color: $color;
+            &:active,
             &:hover,
             &:focus {
                 color: $color;
+                box-shadow:none;
             }
         }
     }
+    .btn-#{$name}:not(:disabled):not(.disabled):active,
+    .btn-#{$name}:not(:disabled):not(.disabled).active,
+    .show > .btn-#{$name}.dropdown-toggle{
+        color: $color;
+    }
     .btn-outline-#{$name} {
         color: $color;
+        &:active,
         &:hover,
         &:focus {
             color: $color;
+            box-shadow:none;
         }
         &.disabled,
         &:disabled{
             color: $color;
+            &:active,
             &:hover,
             &:focus {
                 color: $color;
+                box-shadow:none;
             }
         }
     }
@@ -234,7 +257,31 @@ button:disabled,
         max-width: $width !important;
     }
 }
+.btn-dark {
+    &:hover,
+    &:focus {
+        background-color: lighten($black,30%);
+        border-color: lighten($black,30%);
+        box-shadow:none;
+    }
+}
 
+.btn-link {
+    background-color: $white;
+    border-color: $white;
+    color: $conu-blue;
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        color: $conu-blue;
+        background-color: $conu-light-grey;
+        border-color: $conu-light-grey;
+    }
+}
+.drawer-toggles .drawer-toggler .btn{
+    max-height: initial;
+    height: initial;
+}
 a {
     color: $conu-blue;
     &:hover{
@@ -252,6 +299,7 @@ h1,
 .h1 {
     font: normal 2.488rem $conu-font-bold-condensed;
     line-height: 2.98rem;
+    letter-spacing: 0.5px;
     &.conu-h1-big {
         font-size: 60px;
     }

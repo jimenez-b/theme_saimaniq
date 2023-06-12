@@ -106,11 +106,11 @@ $conu-neutrals: map-merge(
 
 // theme colors
 $primary:   $conu-burgundy;
-$secondary: $conu-medium-grey;
-$success:   $conu-lime;
+$secondary: $conu-tint-burgundy;
+$success:   $conu-green;
 $info:      $conu-dark-blue;
 $warning:   $conu-yellow;
-$danger:    $conu-orange;
+$danger:    $conu-burgundy;
 $light:     $conu-light-grey;
 $dark:      $conu-very-dark-grey;
 
@@ -136,7 +136,7 @@ $conu-theme-colors: map-merge((
     warning:   $warning,
     danger:    $danger,
     light:     $light,
-    dark:      $dark,
+    dark:      $black,
 ), $conu-theme-colors);
 
 $conu-theme-alerts: () !default;
