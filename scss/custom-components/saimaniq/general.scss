@@ -294,11 +294,12 @@ a {
         }
     }
 }
+
 //headers
 h1,
 .h1 {
     font: normal 2.488rem $conu-font-bold-condensed;
-    line-height: 2.98rem;
+    line-height: 3.732rem;
     letter-spacing: 0.5px;
     &.conu-h1-big {
         font-size: 60px;
@@ -307,7 +308,9 @@ h1,
 
 h2,
 .h2 {
-    font: normal 26px $conu-font-bold-condensed;
+    font: normal 2.074rem $conu-font-bold-condensed;
+    line-height: 3.11rem;
+    letter-spacing: 0.5px;
     &.conu-h2-small {
         font-size: 21px;
     }
@@ -315,26 +318,46 @@ h2,
 
 h3,
 .h3 {
-    font: bold 20px 'Arial';
+    font: normal 1.728rem $conu-font-bold-condensed;
+    line-height: 2.592rem;
+    letter-spacing: 0.5px;
+    &.heading-reset {
+        font: normal 1.728rem $conu-font-bold-condensed !important;
+        line-height: 2.592rem !important;
+    }
 }
 
 h4,
 .h4 {
-    //Update section H4 to GillSansMTProBoldCondensed 1.44rem
     font: normal 1.44rem $conu-font-bold-condensed;
+    line-height: 2.16rem;
+    letter-spacing: 0.5px;
+    &.conu-h4-alternate {
+        font: bold 1.25rem Arial;
+        line-height: 1.875rem;
+        letter-spacing: 0px;
+    }
 }
 
 h5,
 .h5 {
-    font: normal 18px 'Arial';
+    font: normal 1.3125rem $conu-font-bold-condensed;
+    line-height: 1.968rem;
+    letter-spacing: 0.5px;
 }
 
 h6,
 .h6 {
-    font: bold 15px 'Arial';
+    font: normal 1.3125rem $conu-font-medium;
+    line-height: 1.968rem;
+    letter-spacing: 0.5px;
 }
 
-
+p {
+    font: normal 1rem 'Arial';
+    line-height: 1.5rem;
+    letter-spacing: 0px;
+}
 
 //miscelaneous
 .form-control-lg {
