@@ -22,7 +22,6 @@ body {
     .alert,
     .filepicker-filelist, 
     .filemanager-container,
-    .activityiconcontainer,
     .activity-item,
     #contentframe,
     .que .formulation,
@@ -423,4 +422,27 @@ input[type="checkbox"] {
 }
 .conu-hr {
     border-top: 1px solid $conu-medium-grey;
+}
+
+//formatting for the activity containers
+.activityiconcontainer{
+    border-radius: 50%;
+    &.administration {
+        background-color: $conu-magenta;
+    }
+    &.assessment {
+        background-color: $conu-dark-blue;
+    }
+    &.collaboration {
+        background-color: $conu-green;
+    }
+    &.communication {
+        background-color: $conu-mauve;
+    }
+    &.content {
+        background-color: $conu-yellow;
+    }
+    &.interface {
+        background-color: $conu-orange;
+    }
 }
