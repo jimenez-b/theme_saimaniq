@@ -284,7 +284,24 @@ button:disabled,
 .drawer-toggles .drawer-toggler .btn{
     max-height: initial;
     height: initial;
+    border-radius: 200px !important;
+    background-color: $conu-medium-grey;
 }
+.drawer-toggles .drawer-right-toggle .btn {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+.drawer-toggles .drawer-left-toggle .btn {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+.userinitials {
+    background-color: $conu-medium-grey;
+}
+.action-menu .dropdown-toggle {
+    border-radius: 50% !important;
+}
+
 a {
     color: $conu-blue;
     &:hover{

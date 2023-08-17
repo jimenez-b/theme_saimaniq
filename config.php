@@ -93,6 +93,13 @@ $THEME->layouts = [
         'defaultregion' => 'side-pre',
         'options' => array('nonavbar' => true, 'langmenu' => true),
     ],
+    // Main course page.
+    'course' => array(
+        'file' => 'saimaniq-drawers.php',
+        'regions' => array('side-pre'),
+        'defaultregion' => 'side-pre',
+        'options' => array('langmenu' => true),
+    ),
 /*
     // Main course page.
     'course' => [
