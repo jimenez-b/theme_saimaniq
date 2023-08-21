@@ -1,0 +1,19 @@
+body[id*="page-course-view"]{
+    //weeks
+    .secondary-navigation {
+        .navigation {
+            background-color: transparent;
+            .nav-tabs {
+                background-color: transparent;
+            }
+        }
+    }
+    section {
+        &#region-main {
+            background-color: transparent;
+        }
+        .activity-item:not(.activityinline) {
+            background-color: $white;
+        }
+    }
+}

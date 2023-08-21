@@ -5,10 +5,7 @@
 // Import Core moodle CSS
 @import "moodle";
 // Import bootstrap icons
-//@import "bootstrap-icons/font/bootstrap-icons.scss";
 @import "bootstrap-icons/font/bootstrap-icons";
-//@import "bootstrap-icons";
-//C:\sites\moodle41\theme\saimaniq\scss\bootstrap-icons\font\bootstrap-icons.scss
 
 /******** Default imports ***********************/
 
@@ -20,3 +17,4 @@
 @import "custom-components/saimaniq/navigation";
 @import "custom-components/saimaniq/login";
 @import "custom-components/saimaniq/dashboard";
+@import "custom-components/saimaniq/course";
