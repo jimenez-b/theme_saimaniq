@@ -14,6 +14,11 @@ body[id*="page-course-view"]{
         }
         .activity-item:not(.activityinline) {
             background-color: $white;
+            button.btn-success[data-toggletype="manual:undo"] {
+                background-color: $conu-tint-green;
+                border-color: $conu-tint-green;
+                color: $conu-very-dark-grey;
+            }
         }
     }
 }
