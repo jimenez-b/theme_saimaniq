@@ -11,13 +11,33 @@ body[id*="page-course-view"]{
     section {
         &#region-main {
             background-color: transparent;
-        }
-        .activity-item:not(.activityinline) {
-            background-color: $white;
-            button.btn-success[data-toggletype="manual:undo"] {
-                background-color: $conu-tint-green;
-                border-color: $conu-tint-green;
-                color: $conu-very-dark-grey;
+            .course-section-header {
+                &[data-for="section_title"] {
+                    div:nth-child(1){
+                        &:hover {
+                            opacity: .70;
+                        }
+                    } 
+                }
+                a {
+                    &.btn.btn-icon{
+                        font-size: 1.728rem;
+                        line-height: 2.592rem;
+                    }
+                    &.btn.btn-icon:hover,
+                    &.btn.btn-icon:focus {
+                        background-color: transparent;
+                    }
+                }
+            }
+            .activity-item:not(.activityinline) {
+                background-color: $white;
+                padding: 1rem;
+                button.btn-success[data-toggletype="manual:undo"] {
+                    background-color: $conu-tint-green;
+                    border-color: $conu-tint-green;
+                    color: $conu-very-dark-grey;
+                }
             }
         }
     }

@@ -10,7 +10,6 @@ body {
     .card,
     .custom-select,
     .breadcrumb,
-    .badge,
     textarea,
     .form-control,
     .tox-tinymce,
@@ -195,6 +194,9 @@ button:disabled,
     .bg-#{$name} {
         background-color: $color !important;
     }
+    .badge-#{$name} {
+        background-color: $color !important;
+    }
 }
 
 @each $name, $color in $conu-theme-alerts {
@@ -269,7 +271,6 @@ button:disabled,
         box-shadow:none;
     }
 }
-
 .btn-link {
     background-color: $white;
     border-color: $white;
@@ -295,6 +296,16 @@ button:disabled,
 .drawer-toggles .drawer-left-toggle .btn {
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
+}
+.badge {
+    &.badge-pill {
+        border-radius: 20px !important;
+        padding: 0.5rem 0.75rem 0.4rem 0.75rem;
+    }
+    &.badge-warning,
+    &.badge-light {
+        color: $black;
+    }
 }
 .userinitials {
     background-color: $conu-medium-grey;
