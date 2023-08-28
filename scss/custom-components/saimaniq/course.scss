@@ -30,6 +30,13 @@ body[id*="page-course-view"]{
                     }
                 }
             }
+            .course-content {
+                .current{
+                    &::before {
+                        border-left: $primary 3px solid;
+                    }
+                }
+            }
             .activity-item:not(.activityinline) {
                 background-color: $white;
                 padding: 1rem;
