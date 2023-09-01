@@ -37,14 +37,30 @@ body[id*="page-course-view"]{
                     }
                 }
             }
-            .activity-item:not(.activityinline) {
-                background-color: $white;
-                padding: 1rem;
-                button.btn-success[data-toggletype="manual:undo"] {
-                    background-color: $conu-tint-green;
-                    border-color: $conu-tint-green;
-                    color: $conu-very-dark-grey;
+            .activity-item {
+                &:not(.activityinline) {
+                    background-color: $white;
+                    padding: 1rem;
+                    border: 1px solid $conu-medium-grey !important;
+                    button.btn-success[data-toggletype="manual:undo"] {
+                        background-color: $conu-tint-green;
+                        border-color: $conu-tint-green;
+                        color: $conu-very-dark-grey;
+                    }
                 }
+                &.activityinline {
+                    padding: 1rem 0 0 0;
+                }
+            }
+        }
+    }
+    &.editing {
+        .activity-item {
+            transition: 300ms all;
+            &:hover {
+                cursor: move;
+                border: 1px solid $conu-blue;
+                box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
             }
         }
     }

@@ -282,6 +282,31 @@ button:disabled,
         background-color: $conu-light-grey;
         border-color: $conu-light-grey;
     }
+    &.block-add,
+    &.activity-add,
+    &.section-modchooser {
+        background-color: transparent;
+        border: 2px dashed $conu-blue;
+        font-family: $conu-font-book;
+        font-size: 21px;
+        letter-spacing: 0.5px;
+        color: $conu-blue;
+        transition: 200ms background-color;
+        &:hover {
+            background-color: $conu-tint-blue;
+        }
+    } 
+    &.block-add,
+    &.activity-add {
+        padding: 0rem 2rem !important;
+        .pluscontainer {
+            border:none;
+            background-color: transparent;
+        }
+    }
+    &.section-modchooser {
+        padding: 2rem !important;
+    }
 }
 .drawer-toggles .drawer-toggler .btn{
     max-height: initial;
@@ -317,7 +342,8 @@ button:disabled,
 a {
     color: $conu-blue;
     &:hover{
-        color: $conu-dark-blue;
+        color: $conu-blue;
+        text-decoration: underline;
     }
     &.btn{
         &.disabled,
@@ -383,6 +409,11 @@ h6,
     font: normal 1.3125rem $conu-font-medium;
     line-height: 1.968rem;
     letter-spacing: 0.5px;
+}
+
+h3.sectionname .inplaceeditable.inplaceeditingon .editinstructions {
+    margin-top: -25px;
+    line-height:1.5rem;
 }
 
 p {
