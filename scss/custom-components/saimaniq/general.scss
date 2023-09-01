@@ -290,20 +290,21 @@ button:disabled,
     &.block-add,
     &.activity-add,
     &.section-modchooser {
-        background-color: transparent;
+        background-color: #E7EEF4;
         border: 2px dashed $conu-blue;
         font-family: $conu-font-book;
         font-size: 21px;
         letter-spacing: 0.5px;
         color: $conu-blue;
+        text-transform: none;
         transition: 200ms background-color;
         &:hover {
-            background-color: $conu-tint-blue;
+            background-color: #d9e4ed;
             .activity-add-text {
                 text-decoration: none;
             }
         }
-    } 
+    }
     &.block-add,
     &.activity-add {
         padding: 0rem 2rem !important;
