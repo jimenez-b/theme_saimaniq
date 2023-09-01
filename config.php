@@ -100,33 +100,34 @@ $THEME->layouts = [
         'defaultregion' => 'side-pre',
         'options' => array('langmenu' => true),
     ),
+    // Server administration scripts.
+    'admin' => array(
+        'file' => 'saimaniq-drawers.php',
+        'regions' => array('side-pre'),
+        'defaultregion' => 'side-pre',
+    ),
+    // My courses page.
+    'mycourses' => array(
+        'file' => 'saimaniq-drawers.php',
+        'regions' => ['side-pre'],
+        'defaultregion' => 'side-pre',
+        'options' => array('nonavbar' => true),
+    ),
+    // Part of course, typical for modules. Default page layout if $cm specified in require_login().
+    'incourse' => array(
+        'file' => 'saimaniq-drawers.php',
+        'regions' => ['side-pre'],
+        'defaultregion' => 'side-pre',
+        'options' => array('nonavbar' => true),
+    ),
 /*
-    // Main course page.
-    'course' => [
-        'file' => 'layout3',
-        'regions' => [],
-    ],
-
     'coursecategory' => [
         'file' => 'layout4',
         'regions' => [],
     ],
-
-    // Part of course, typical for modules. Default page layout if $cm specified in require_login().
-    'incourse' => [
-        'file' => 'layout5',
-        'regions' => [],
-    ],
-
     // The site home page.
     'frontpage' => [
         'file' => 'layout6',
-        'regions' => [],
-    ],
-
-    // Server administration scripts.
-    'admin' => [
-        'file' => 'layout7',
         'regions' => [],
     ],
 
