@@ -56,14 +56,19 @@ button,
 .btn {
     border-radius: $conu-border-radius !important;
     font-family: $conu-font-book;
-    font-size: 1.25rem;
-    line-height: 1.25rem;
-    letter-spacing: 1.5px;
-    padding: 7px 1rem 6px 1rem;
+    //font-size: 1.25rem;
+    //line-height: 1.25rem;
+    //letter-spacing: 1.5px;
+    font-size: 1rem;
+    line-height: 1rem;
+    letter-spacing: 1px;
+    //padding: 7px 1rem 6px 1rem;
+    padding: 0.5rem 0.75rem;
     border-style: solid;
     border-width: thin;
     max-height: 38px;
     height: 38px;
+    text-transform: uppercase;
     &.btn-footer-popover{
         border-radius: 50% !important;
     }
@@ -294,6 +299,9 @@ button:disabled,
         transition: 200ms background-color;
         &:hover {
             background-color: $conu-tint-blue;
+            .activity-add-text {
+                text-decoration: none;
+            }
         }
     } 
     &.block-add,
