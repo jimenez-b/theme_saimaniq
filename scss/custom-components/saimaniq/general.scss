@@ -72,6 +72,10 @@ button,
     &.btn-footer-popover{
         border-radius: 50% !important;
     }
+    &[data-toggle='popover']{
+        background-color: transparent;
+        border-color: transparent;
+    }
 }
 
 .btn-lg {
@@ -92,6 +96,7 @@ button:disabled,
 .btn:disabled {
     opacity: 0.65;
 }
+
 
 
 @each $name, $color in $conu-primaries {
@@ -127,6 +132,9 @@ button:disabled,
     }
     .conu-#{$name}-color{
         color: $color;
+    }
+    .conu-#{$name}-border{
+        border-color: $color;
     }
 }
 
@@ -423,6 +431,14 @@ h6,
 h3.sectionname .inplaceeditable.inplaceeditingon .editinstructions {
     margin-top: -25px;
     line-height:1.5rem;
+}
+
+.text-initial{
+    text-transform: inital !important;
+}
+
+.text-inherit{
+    text-transform: inherit !important;
 }
 
 p {

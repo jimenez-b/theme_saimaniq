@@ -120,6 +120,12 @@ $THEME->layouts = [
         'defaultregion' => 'side-pre',
         'options' => array('nonavbar' => true),
     ),
+    // The pagelayout used for reports.
+    'report' => array(
+        'file' => 'saimaniq-drawers.php',
+        'regions' => array('side-pre'),
+        'defaultregion' => 'side-pre',
+    ),
 /*
     'coursecategory' => [
         'file' => 'layout4',
@@ -206,11 +212,6 @@ $THEME->layouts = [
         ],
     ],
 
-    // The page layout used for reports.
-    'report' => [
-        'file' => 'layout17',
-        'regions' => [],
-    ],
 
     // The pagelayout used for safebrowser and securewindow.
     'secure' => [
