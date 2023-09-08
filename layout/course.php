@@ -27,6 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 require_once($CFG->libdir . '/behat/lib.php');
 require_once($CFG->dirroot . '/course/lib.php');
 
+$backgroundcolorchoices = get_config('theme_saimaniq', 'backgroundcolorchoices');
+$backgroundcolorchoices = substr($backgroundcolorchoices, 1);
+
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
 
@@ -104,7 +107,8 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'overflow' => $overflow,
     'headercontent' => $headercontent,
-    'addblockbutton' => $addblockbutton
+    'addblockbutton' => $addblockbutton,
+    'backgroundcolorchoices' => $backgroundcolorchoices,
 ];
 
 echo $OUTPUT->render_from_template('theme_saimaniq/course', $templatecontext);

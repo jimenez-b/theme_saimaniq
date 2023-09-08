@@ -70,14 +70,15 @@ function theme_saimaniq_get_main_scss_content($theme) {
 function theme_saimaniq_get_pre_scss($theme) {
     $scss = '';
     $configurable = [       
-        // Config key => [variableName, ...].         
-        'brandcolor'          => ['brand-primary'],            
-        'cardbg'              => ['card-bg'],
-        'loginbgopacity'      => ['loginbgopacity'],
-        'loginformopacity'    => ['loginformopacity'],
-        'loginformposition'   => ['loginformposition'],
-        'loginbackgroundcolor'=> ['loginbackgroundcolor'],
-        'defaultnobackground' => ['defaultnobackground'],
+        // Config key => [variableName, ...].
+        'backgroundcolorchoices' => ['backgroundcolorchoices'],
+        'brandcolor'             => ['brand-primary'],
+        'cardbg'                 => ['card-bg'],
+        'loginbgopacity'         => ['loginbgopacity'],
+        'loginformopacity'       => ['loginformopacity'],
+        'loginformposition'      => ['loginformposition'],
+        'loginbackgroundcolor'   => ['loginbackgroundcolor'],
+        'defaultnobackground'    => ['defaultnobackground'],
     ];
     
     $backgroundimageurl = $theme->setting_file_url('loginbgimage', 'loginbgimage');

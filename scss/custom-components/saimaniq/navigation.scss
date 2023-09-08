@@ -13,10 +13,23 @@
             color: $conu-dark-grey;
             padding: 0;
             margin: 0 0.5rem;
+            &:active {
+                box-shadow: none !important; 
+            }
             &:hover{
                 transition: color 0.4s ease-out;
                 color: $black;
                 background-color: inherit;
+                &:active {
+
+                    box-shadow: none !important;
+                
+                }
+                &:not(:active) {
+
+                    box-shadow: none !important;
+                
+                }
             }
             &.active {
                 border-bottom-color: $primary;
@@ -47,6 +60,7 @@
                     border-bottom: 3px solid $conu-tint-burgundy;
                 }
                 &.active {
+                    color: $conu-burgundy;
                     border-bottom: 3px solid $conu-burgundy;
                 }
             }

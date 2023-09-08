@@ -62,6 +62,20 @@ $setting = new admin_setting_configstoredfile($name, $title, $description, 'pres
     ['maxfiles' => 20, 'accepted_types' => ['.scss']]);
 $page->add($setting);     
 
+// Login page background opacity.
+$backgroundcolorchoices = [
+    '\$white' => 'White',
+    '\$conu-light-grey' => 'Light Grey',
+];
+
+$name = 'theme_saimaniq/backgroundcolorchoices';
+$title = get_string('backgroundcolorchoices', 'theme_saimaniq');
+$description = get_string('backgroundcolorchoices_desc', 'theme_saimaniq');
+$default = '\$white';
+$setting = new admin_setting_configselect($name, $title, $description, $default, $backgroundcolorchoices);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Variable $brand-color.    
 // We use an empty default value because the default colour should come from the preset.    
 $name = 'theme_saimaniq/brandcolor';     

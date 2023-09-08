@@ -39,6 +39,10 @@ $string['preset_desc'] = 'Pick a preset to broadly change the look of the theme.
 $string['presetfiles'] = 'Additional theme preset files';
 // Preset files help text.
 $string['presetfiles_desc'] = 'Preset files can be used to dramatically alter the appearance of the theme. See <a href=https://docs.moodle.org/dev/Boost_Presets>Boost presets</a> for information on creating and sharing your own preset files, and see the <a href=http://moodle.net/boost>Presets repository</a> for presets that others have shared.';
+// The background color choices as a general adjustment for all the site.
+$string['backgroundcolorchoices'] = 'Background color';
+// The background color choices setting description.
+$string['backgroundcolorchoices_desc'] = 'The color to be applied as a background throughout the site';
 // The brand colour setting.
 $string['brandcolor'] = 'Brand colour';
 // The brand colour setting description.

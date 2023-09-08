@@ -1,17 +1,19 @@
 html {
     font-size: 16px;
     line-height: 24.00px;
-    border-radius: $border-radius !important;
+    border-radius: $conu-border-radius !important;
 }
-  
+
 body {
     font-family: $font-default;
     .main-inner,
     .card,
+    .card-img,
     .custom-select,
     .breadcrumb,
     textarea,
     .form-control,
+    .form-control-lg,
     .tox-tinymce,
     .tox-mbtn,
     .tox-menu,
@@ -35,7 +37,7 @@ body {
     .dropdown-menu,
     .description .course-description-item,
     input[type="text"] {
-        border-radius: $border-radius !important;
+        border-radius: $conu-border-radius !important;
     }
     .nav-link {
         border-top-left-radius:  $border-radius !important;
@@ -44,7 +46,7 @@ body {
 }
 
 #page {
-    background-color: $conu-light-grey;
+    background-color: $backgroundcolorchoices;
 }
 
 .border-radius {
@@ -68,7 +70,7 @@ button,
     border-width: thin;
     max-height: 38px;
     height: 38px;
-    text-transform: uppercase;
+    //text-transform: uppercase;
     &.btn-footer-popover{
         border-radius: 50% !important;
     }
@@ -448,9 +450,10 @@ p {
 }
 
 //miscelaneous
-.form-control-lg {
-    border-radius: $conu-border-radius;
+.form-control {
+    font-family: $conu-font-book;
 }
+
 .card {
     border: 1px solid $conu-medium-grey !important;
 }
@@ -461,10 +464,6 @@ p {
 
 .card-title {
     border-bottom: none !important;
-}
-
-.card-img {
-    border-radius: $conu-border-radius;
 }
 
 .card-text p {
