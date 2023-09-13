@@ -21,14 +21,10 @@
                 color: $black;
                 background-color: inherit;
                 &:active {
-
                     box-shadow: none !important;
-                
                 }
                 &:not(:active) {
-
                     box-shadow: none !important;
-                
                 }
             }
             &.active {

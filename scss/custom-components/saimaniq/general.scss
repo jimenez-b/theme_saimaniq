@@ -57,13 +57,15 @@ body {
 button,
 .btn {
     border-radius: $conu-border-radius !important;
-    font-family: $conu-font-book;
+    //font-family: $conu-font-book;
+    font-family: $font-default;
     //font-size: 1.25rem;
     //line-height: 1.25rem;
     //letter-spacing: 1.5px;
     font-size: 1rem;
     line-height: 1rem;
-    letter-spacing: 1px;
+    //letter-spacing: 1px;
+    letter-spacing: 0px;
     //padding: 7px 1rem 6px 1rem;
     padding: 0.5rem 0.75rem;
     border-style: solid;
@@ -77,6 +79,10 @@ button,
     &[data-toggle='popover']{
         background-color: transparent;
         border-color: transparent;
+        &:hover {
+            background-color: transparent;
+            border-color: transparent;
+        }
     }
 }
 
@@ -267,6 +273,9 @@ button:disabled,
             }
         }
     }
+    .badge-#{$name} {
+        color: $color !important;
+    }
 }
 
 @each $name, $width in $conu-widths {
@@ -450,8 +459,22 @@ p {
 }
 
 //miscelaneous
-.form-control {
+/*.form-control {
     font-family: $conu-font-book;
+}*/
+
+.col-form-label {
+    p,
+    label,
+    [data-toggle='popover'] {
+        font-size: 0.85rem;
+        margin-top: 2px;
+    }
+    .form-label-addon {
+        div[title='Required'] {
+            margin-top: -15px;
+        }
+    }
 }
 
 .card {
