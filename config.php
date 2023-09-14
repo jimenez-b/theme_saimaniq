@@ -118,7 +118,6 @@ $THEME->layouts = [
         'file' => 'saimaniq-drawers.php',
         'regions' => ['side-pre'],
         'defaultregion' => 'side-pre',
-        'options' => array('nonavbar' => true),
     ),
     // The pagelayout used for reports.
     'report' => array(
