@@ -11,25 +11,6 @@ body[id*="page-course-view"]{
     section {
         &#region-main {
             background-color: transparent;
-            .course-section-header {
-                &[data-for="section_title"] {
-                    div.hover-transparent{
-                        &:hover {
-                            opacity: .70;
-                        }
-                    } 
-                }
-                a {
-                    &.btn.btn-icon{
-                        font-size: 1.728rem;
-                        line-height: 2.592rem;
-                    }
-                    &.btn.btn-icon:hover,
-                    &.btn.btn-icon:focus {
-                        background-color: transparent;
-                    }
-                }
-            }
             .course-content {
                 .current{
                     &::before {

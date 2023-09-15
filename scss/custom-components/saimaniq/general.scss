@@ -565,3 +565,37 @@ input[type="checkbox"] {
 .video-js .vjs-big-play-button {
     line-height: 2.3rem;
 }
+
+.course-section-header {
+    &[data-for="section_title"] {
+        div.hover-transparent{
+            &:hover {
+                opacity: .70;
+            }
+        }
+    }
+    a {
+        &.btn.btn-icon{
+            font-size: 1.728rem;
+            line-height: 2.592rem;
+        }
+        &.btn.btn-icon:hover,
+        &.btn.btn-icon:focus {
+            background-color: transparent;
+        }
+    }
+}
+
+fieldset {
+    div.hover-transparent{
+        &:hover {
+            opacity: .70;
+        }
+    }
+    a {
+        &.btn.btn-icon:hover,
+        &.btn.btn-icon:focus {
+            background-color: transparent;
+        }
+    }
+}
