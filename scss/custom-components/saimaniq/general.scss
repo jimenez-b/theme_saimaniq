@@ -599,3 +599,12 @@ fieldset {
         }
     }
 }
+table {
+    th {
+        &.header {
+            a {
+                display: inline-flex;
+            }
+        }
+    }
+}
