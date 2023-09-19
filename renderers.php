@@ -42,7 +42,7 @@ class theme_saimaniq_core_renderer extends theme_boost\output\core_renderer {
         if (!isset($contextheader->heading)) {
             $heading = $this->heading($this->page->heading, $contextheader->headinglevel, 'h2');
         } else {
-            $heading = $this->heading($contextheader->heading, $contextheader->headinglevel, 'h1 conu-burgundy-color');
+            $heading = $this->heading($contextheader->heading, $contextheader->headinglevel, 'h2');
         }
 
         // All the html stuff goes here.
@@ -59,11 +59,11 @@ class theme_saimaniq_core_renderer extends theme_boost\output\core_renderer {
             $prefix = html_writer::div($contextheader->prefix, 'text-muted text-uppercase small line-height-3');
             $heading = $prefix . $heading;
         }
-        $html .= html_writer::tag('div', $heading, array('class' => 'page-header-headings'));
+        $html .= html_writer::tag('div', $heading, array('class' => 'page-header-headings d-flex align-items-center'));
 
         // Buttons.
         if (isset($contextheader->additionalbuttons)) {
-            $html .= html_writer::start_div('btn-group header-button-group');
+            $html .= html_writer::start_div('btn-group header-button-group d-flex align-items-center');
             foreach ($contextheader->additionalbuttons as $button) {
                 if (!isset($button->page)) {
                     // Include js for messaging.
