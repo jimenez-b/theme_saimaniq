@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname']   = 'Saimaniq';
-$string['choosereadme'] = 'Theme Saimaniq was created for Concordia as a child of Boost.';
+$string['choosereadme'] = 'Saimaniq, the Inuktitut word for Peace, is our new Boost-based Moodle theme. It reflects the Concordia branding with a few additional features, such as customizable login page.';
 // Name of the settings pages.
 $string['configtitle'] = 'Saimaniq settings';
 // Name of the first settings tab.
@@ -63,7 +63,7 @@ $string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will
 $string['settingsloginpage'] = 'Login page settings';
 
 $string['loginsettingsheading'] = 'Customize the login page';
-$string['logindesc'] = 'Customize the login page with adding an image background and texts above and below the login box.';
+$string['logindesc'] = 'Customize the login page by adding an image background and texts above and below the login box.';
 $string['loginbgimage']     = 'Background image';
 $string['loginbgimagedesc'] = 'Add a background image to the full size page.';
 $string['loginbgopacity']     = 'Opacity background image';
