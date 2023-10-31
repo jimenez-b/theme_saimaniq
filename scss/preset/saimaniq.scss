@@ -7,8 +7,7 @@
 // Import bootstrap icons
 @import "bootstrap-icons/font/bootstrap-icons";
 
-/******** Default imports ***********************/
-
+///default imports /*************************/
 @import "custom-components/variables/conu-colors";
 @import "custom-components/variables/conu-fonts";
 @import "custom-components/variables/conu-variables";
@@ -18,3 +17,5 @@
 @import "custom-components/saimaniq/login";
 @import "custom-components/saimaniq/dashboard";
 @import "custom-components/saimaniq/course";
+///plugins imports /************************/
+@import "custom-components/plugins/multiblock";

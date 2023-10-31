@@ -1,0 +1,22 @@
+div.multiblock {
+    &.multiblock-accordion {
+        .card-header {
+            h5 {
+                a {
+                    &.btn-link {
+                        height: auto;
+                        text-align: left;
+                        font-family: $conu-font-book;
+                        background-color: transparent;
+                        border-color: transparent;
+                        &:hover,
+                        &:focus {
+                            background-color: transparent;
+                            border-color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
