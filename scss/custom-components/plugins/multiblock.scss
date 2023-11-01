@@ -19,4 +19,18 @@ div.multiblock {
             }
         }
     }
+    &.multiblock-carousel {
+        .carousel-control {
+            border-color: $conu-medium-grey;
+            span {
+                color: $conu-medium-grey;
+                &:hover {
+                    color: $conu-dark-blue;
+                }
+                i.icon {
+                    margin-right: initial;
+                }
+            }
+        }
+    }
 }
