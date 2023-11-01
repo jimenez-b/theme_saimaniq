@@ -20,9 +20,9 @@ div.multiblock {
         }
     }
     &.multiblock-carousel {
-        .carousel-control {
+        a.carousel-control {
             border-color: $conu-medium-grey;
-            span {
+            span.carousel-control {
                 color: $conu-medium-grey;
                 &:hover {
                     color: $conu-dark-blue;
