@@ -1,0 +1,106 @@
+.c4l-keyconcept, 
+.c4lv-keyconcept {
+    background-color: $conu-tint-dark-blue;
+    border-left: 6px solid $conu-dark-blue;
+}
+
+.c4l-tip,
+.c4lv-tip {
+    background-color: $conu-tint-mauve;
+    border-left: 6px solid $conu-mauve;
+}
+
+.c4l-reminder,
+.c4lv-reminder {
+    background-color: $conu-tint-blue;
+    border-left: 6px solid $conu-blue;
+}
+
+.c4l-quote,
+.c4lv-quote {
+    .c4l-quote-line {
+        border-left: 4px solid $conu-dark-blue;
+    }
+    .c4l-quote-text {
+        p:first-of-type::before,
+        p:last-of-type::after {
+            fill: $conu-dark-blue;
+        }
+    }
+}
+
+.c4l-dodontcards , 
+.c4lv-dodontcards {
+    .c4l-dodontcards-do {
+        background: $conu-tint-green;
+    }
+    .c4l-dodontcards-dont {
+        background: $conu-tint-burgundy;
+    }
+}
+
+.c4l-example,
+.c4lv-example{
+    h1 {
+        font-family: $conu-font-book;
+        color: $conu-dark-blue;
+        border-bottom: 2px solid $conu-dark-blue;
+    }
+}
+
+.c4l-tag,
+.c4lv-tag {
+    color: $conu-blue;
+    background-color: $conu-tint-blue;
+}
+
+.c4l-inlinetag, 
+.c4lv-inlinetag {
+    color: $white;
+    background: $conu-blue;
+}
+
+.c4l-attention,
+.c4lv-attention {
+    background-color: $conu-tint-orange;
+    border-left: 6px solid $conu-orange;
+}
+
+.c4l-estimatedtime,
+.c4lv-estimatedtime {
+    color: $conu-blue;
+    background-color: $conu-tint-blue;
+}
+
+.c4l-duedate,
+.c4lv-duedate {
+    color: $conu-blue;
+    background-color: $conu-tint-blue;
+}
+
+.c4l-proceduralcontext,
+.c4lv-proceduralcontext {
+    color: $conu-dark-blue;
+}
+
+.c4l-learningoutcomes,
+.c4lv-learningoutcomes {
+    background-color: $conu-tint-blue;
+    .c4l-learningoutcomes-title {
+        border-top-right-radius: $conu-border-radius;
+        border-bottom-right-radius: $conu-border-radius;
+        background-color: $conu-blue;
+    }
+}
+
+.c4l-gradingvalue,
+.c4lv-gradingvalue {
+    color: $conu-blue;
+    background-color: $conu-tint-blue;
+}
+
+.c4l-allpurposecard,
+.c4lv-allpurposecard {
+    background: $conu-tint-blue;
+    border-radius: $conu-border-radius;
+}
