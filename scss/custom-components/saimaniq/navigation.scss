@@ -1,5 +1,8 @@
 .navbar.fixed-top{
     height: 60.8px;
+    .action-menu .dropdown-toggle {
+        border-radius: 50% !important;
+    }
 }
 
 .primary-navigation,

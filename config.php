@@ -120,27 +120,29 @@ $THEME->layouts = [
         'defaultregion' => 'side-pre',
     ],
     // Part of course, typical for modules. Default page layout if $cm specified in require_login().
-    'incourse' => array(
+    'incourse' => [
         'file' => 'saimaniq-drawers.php',
         'regions' => ['side-pre'],
         'defaultregion' => 'side-pre',
-    ),
+    ],
     // The pagelayout used for reports.
-    'report' => array(
+    'report' => [
         'file' => 'saimaniq-drawers.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
-    ),
+    ],
+    // The site home page.
+    'frontpage' => [
+        'file' => 'saimaniq-drawers.php',
+        'regions' => array('side-pre'),
+        'defaultregion' => 'side-pre',
+    ],
 /*
     'coursecategory' => [
         'file' => 'layout4',
         'regions' => [],
     ],
-    // The site home page.
-    'frontpage' => [
-        'file' => 'layout6',
-        'regions' => [],
-    ],
+    
 
     // My public page.
     'mypublic' => [
