@@ -5,16 +5,19 @@ using Boost 3.9 as it's main inspirtation.
 
 
 ### FEATURES: ###
-- Configurable login page via settings
+1. Configurable login page via settings
+2. Concordia branding (fonts and colors)
+3. Colors applied as per Concordia rules regarding accesibility
 
 ### TODO LIST: ###
-1. Improved design
-2. Concordia branding (fonts and colors)
-3. Accesibility concordia colors
-4. M4-047 - Provide a way of highlighting new activities, so students are alerted to new activities
+1. Review fonts, especially main Concordia font, due to the issues (ethical) regarding gill sans
+2. Improve design
+3. M4-047 - Provide a way of highlighting new activities, so students are alerted to new activities
    Indicate on the front page when the item was last updated (so students know if a document was recently updated)
-5. Dark mode
-
+4. Dark mode
+5. Home page design and settings
+6. Custom visuals for for video and audio players (poodll)
+7. Mobile log-in
 
 ## Installing via uploaded ZIP file ##
 

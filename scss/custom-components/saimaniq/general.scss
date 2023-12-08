@@ -374,9 +374,6 @@ button:disabled,
 .userinitials {
     background-color: $conu-medium-grey;
 }
-.action-menu .dropdown-toggle {
-    border-radius: 50% !important;
-}
 
 .moremenu {
     .dropdown-item{
@@ -689,10 +686,15 @@ table {
 .courseindex {
     .courseindex-section{
         &.current {
-            border-left: solid 3px $conu-blue;
+            border-left: solid 3px $conu-burgundy;
         }
     }
     .courseindex-item {
+        .completioninfo {
+            &.completion_complete {
+                color: $conu-green;
+            }
+        }
         &.pageitem {
             background-color: $conu-blue;
             border-radius: $conu-border-radius;
@@ -702,4 +704,8 @@ table {
             }
         }
     }
+}
+
+#course-category-listings .listitem[data-selected="1"] {
+    border-left: calc(1px + 5px) solid $conu-blue;
 }

@@ -1,0 +1,15 @@
+body {
+    &#page-user-profile {
+        header {
+            &#page-header {
+                margin-bottom: 1rem;
+            }
+        }
+        section {
+            &.card.node_category {
+                border: 0px !important;
+                background-color: $conu-light-grey;
+            }
+        }
+    }
+}
