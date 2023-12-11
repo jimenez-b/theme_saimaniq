@@ -231,17 +231,19 @@ img.userpicture {
             background-color: white;
             border-color: $conu-medium-grey;
             &:hover {
-                background-color: $conu-light-grey;
+                background-color: $conu-light-grey !important;
+                color: $conu-blue !important;
                 text-decoration: none;
                 background: none;
             }
             &.active-page {
                 color: #fff;
-                background-color: $conu-blue;
-                border-color: $conu-blue;
+                background-color: $conu-blue !important;
+                border-color: $conu-blue !important;
                 background: none;
                 &:hover {
-                    background-color: $conu-dark-blue;
+                    background-color: $conu-dark-blue !important;
+                    color: #fff !important;
                     text-decoration: none;
                     background: none;
                 }
