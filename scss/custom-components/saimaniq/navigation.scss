@@ -240,6 +240,11 @@ img.userpicture {
                 background-color: $conu-blue;
                 border-color: $conu-blue;
                 background: none;
+                &:hover {
+                    background-color: $conu-dark-blue;
+                    text-decoration: none;
+                    background: none;
+                }
             }
         }
     }
