@@ -201,21 +201,46 @@ img.userpicture {
     .yui3-button {
         padding: 0.5rem 0.75rem;
         border-radius: $conu-border-radius;
-        font-size: initial !important;
-        margin: 0.4rem 0rem 0.45rem !important;
-        color: $conu-blue !important;
-        background-color: white !important;
-        border-color: $conu-medium-grey !important;
+        font-size: initial;
+        margin: 0.4rem 0rem 0.45rem;
+        color: $conu-blue;
+        background-color: white;
+        border-color: $conu-medium-grey;
         &:hover {
-            background-color: $conu-light-grey !important;
+            background-color: $conu-light-grey;
             text-decoration: none;
             background: none;
         }
         &.active-page {
-            color: #fff !important;
-            background-color: $conu-blue !important;
-            border-color: $conu-blue !important;
-            background: none !important;
+            color: #fff;
+            background-color: $conu-blue;
+            border-color: $conu-blue;
+            background: none;
+        }
+    }
+}
+
+#course-category-listings {
+    .listing-pagination {
+        .yui3-button {
+            padding: 0.5rem 0.75rem;
+            border-radius: $conu-border-radius;
+            font-size: initial;
+            margin: 0.4rem 0rem 0.45rem;
+            color: $conu-blue;
+            background-color: white;
+            border-color: $conu-medium-grey;
+            &:hover {
+                background-color: $conu-light-grey;
+                text-decoration: none;
+                background: none;
+            }
+            &.active-page {
+                color: #fff;
+                background-color: $conu-blue;
+                border-color: $conu-blue;
+                background: none;
+            }
         }
     }
 }
