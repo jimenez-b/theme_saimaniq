@@ -209,9 +209,10 @@ img.userpicture {
         &:hover {
             background-color: $conu-light-grey !important;
             text-decoration: none;
+            background: none;
         }
-        &.active-page{
-            color: #fff;
+        &.active-page {
+            color: #fff !important;
             background-color: $conu-blue !important;
             border-color: $conu-blue !important;
             background: none !important;
