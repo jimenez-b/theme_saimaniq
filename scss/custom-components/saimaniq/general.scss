@@ -636,9 +636,13 @@ table {
     thead {
         //background-color: $conu-dark-blue;
         //color: white;
+        border-bottom: 2px solid $conu-burgundy;
         td,
         th {
             border-bottom: 0px;
+            div.commands {
+                display: contents;
+            }
         }
     }
     tbody{
@@ -654,7 +658,7 @@ table {
         th {
             border-top: 0px;
             vertical-align: middle;
-            
+            font-size: 0.95rem;
             label {
                 margin-bottom: 0;
             }
