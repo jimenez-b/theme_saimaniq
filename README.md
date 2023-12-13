@@ -13,6 +13,7 @@ using Boost 3.9 as it's main inspirtation.
    b. Multiblock
    c. ConU Library Search
    d. Components for Learning
+5. Mobile log-in
 
 ### TODO LIST: ###
 1. Review fonts, especially main Concordia font, due to the issues (ethical) regarding gill sans
@@ -20,7 +21,6 @@ using Boost 3.9 as it's main inspirtation.
    Indicate on the front page when the item was last updated (so students know if a document was recently updated)
 3. Dark mode
 4. Home page design and settings
-5. Mobile log-in
 
 ## Installing via uploaded ZIP file ##
 
