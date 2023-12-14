@@ -30,6 +30,15 @@ $page = new admin_settingpage('theme_saimaniq_login', get_string('settingsloginp
 $page->add(new admin_setting_heading('theme_saimaniq_login', get_string('loginsettingsheading', 'theme_saimaniq'),
         format_text(get_string('logindesc', 'theme_saimaniq'), FORMAT_MARKDOWN)));
 
+// Login page background opacity.
+$name = 'theme_saimaniq/loginmaintextconf';
+$title = get_string('loginmaintextconf', 'theme_saimaniq');
+$description = get_string('loginmaintextconfdesc', 'theme_saimaniq');
+$default = get_string('loginmaintext', 'theme_saimaniq');
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Login page background image.
 $name = 'theme_saimaniq/loginbgimage';
 $title = get_string('loginbgimage', 'theme_saimaniq');

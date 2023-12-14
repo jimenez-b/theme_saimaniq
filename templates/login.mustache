@@ -46,6 +46,7 @@
                     <button id="custom-variables-toggle-button" type="button" class="btn btn-info" data-toggle="collapse" data-target="#custom-variables-toggle">Variables</button>
                     <div id="custom-variables-toggle" class="collapse">
                         <pre>
+                            loginmaintextconf {{{ loginmaintextconf }}}<br/>
                             loginbgimage {{{ loginbgimage }}}<br/>
                             loginbgopacity {{{ loginbgopacity }}}<br/>
                             loginformopacity {{{ loginformopacity }}}<br/>
@@ -77,11 +78,11 @@
                             {{#corelogo}}
                                 <div id="loginlogo" class="login-logo">
                                     <img id="logoimage" src="{{output.get_logo_url}}" class="img-fluid" alt="{{sitename}}"/>
-                                    <h1 class="login-heading sr-only">{{sitename}} {{#str}} loginmaintext, theme_saimaniq {{/str}}</h1>
+                                    <h1 class="login-heading sr-only">{{sitename}} {{{ loginmaintextconf }}}</h1>
                                 </div>
                             {{/corelogo}}
                             {{^corelogo}}
-                                <h1 class="login-heading mb-4">{{sitename}} {{#str}}loginmaintext, theme_saimaniq {{/str}}</h1>
+                                <h1 class="login-heading mb-4">{{sitename}} {{{ loginmaintextconf }}}</h1>
                             {{/corelogo}}
                         {{/logorender}}
                         {{#logorender}}
@@ -93,7 +94,7 @@
                                     </div>
                                 {{/corelogo}}
                             {{/logorenderwhitin}}
-                            <h1 class="login-heading mb-4">{{sitename}} {{#str}}loginmaintext, theme_saimaniq {{/str}}</h1>
+                            <h1 class="login-heading mb-4">{{sitename}} {{{ loginmaintextconf }}}</h1>
                         {{/logorender}}
                         {{{ output.main_content }}}
                         </div>

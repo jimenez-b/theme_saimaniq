@@ -30,6 +30,7 @@ $bodyattributes = $OUTPUT->body_attributes();
  * First, we get all the config for the login page
  */
 
+$loginmaintextconf        = get_config('theme_saimaniq', 'loginmaintextconf');
 $loginimage               = get_config('theme_saimaniq', 'loginbgimage');
 $loginopacity             = get_config('theme_saimaniq', 'loginbgopacity');
 $loginformopacity         = get_config('theme_saimaniq', 'loginformopacity');
@@ -57,6 +58,8 @@ if (isset($defaultfrontpagebody)){
 else {
     $defaultfrontpagebody = 'nothing to see here';
 }
+
+$loginmaintextconf = empty($loginmaintextconf) ? get_string('loginmaintext', 'theme_saimaniq') : $loginmaintextconf;
 
 $hasbackground = empty($loginimage) ? 'saimaniq-no-background' : 'saimaniq-background';
 
@@ -89,6 +92,7 @@ $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
     'bodyattributes' => $bodyattributes,
+    'loginmaintextconf'       => $loginmaintextconf,
     'loginbgimage'            => $loginimage,
     'loginbgopacity'          => $loginopacity,
     'loginformopacity'        => $loginformopacity,
