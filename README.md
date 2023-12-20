@@ -21,6 +21,8 @@ using Boost 3.9 as it's main inspirtation.
    Indicate on the front page when the item was last updated (so students know if a document was recently updated)
 3. Dark mode
 4. Home page design and settings
+5. Review table css
+6. Review add/remove users css
 
 ## Installing via uploaded ZIP file ##
 

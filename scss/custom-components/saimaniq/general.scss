@@ -36,6 +36,7 @@ body {
     .availability-plugincontrols,
     .dropdown-menu,
     .description .course-description-item,
+    .mform .grouped_settings.section_level,
     input[type="text"] {
         border-radius: $conu-border-radius !important;
     }
@@ -712,4 +713,107 @@ table {
 
 #course-category-listings .listitem[data-selected="1"] {
     border-left: calc(1px + 5px) solid $conu-blue;
+}
+
+body#page-backup-import {
+    //background-color: aquamarine;
+    &.path-backup {
+        .mform {
+            .grouped_settings {
+                height: auto;
+                border: 0px;
+                background-color: transparent !important;
+                &.section_level {
+                    padding: 0.25rem 1rem;
+                    margin-bottom: initial;
+                    background-color: transparent !important;
+                    &:nth-of-type(1) {
+                        background-color: $conu-light-grey !important;
+                        margin-bottom: 1.25rem;
+                    }
+                }
+                &.activity_level {
+                    padding: 0px 0px;
+                    .include_setting {
+                        padding: 0px 0px;
+                        &.activity_level {
+                            padding: 0px 0px;
+                            div.form-group {
+                                padding-left: 1.5rem;
+                                margin-bottom: 0px;
+                                div.checkbox {
+                                    border-left: 2px solid $conu-light-grey;
+                                    div.form-check {
+                                        margin-left: 2rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+body#page-group-members {
+    .generaltable {
+        tbody{
+            /*tr {
+                background-color:  $conu-light-grey;
+                &:hover {
+                    background-color:  $conu-light-grey;
+                }
+            }*/
+            td,
+            th {
+                vertical-align: top;
+                font-size: initial;
+                &#existingcell,
+                &#potentialcell {
+                    p {
+                        label {
+                            font-weight: bold;
+                        } 
+                    }
+                }
+                /*&#buttonscell {
+                    p.arrow_button {
+                        margin-top: 3em;
+                        padding: 1rem 4rem;
+                        background-color: $conu-light-grey;
+                        input {
+                            min-width: 100%;
+                            &#add {
+                                border-top-left-radius: 50px !important;
+                                border-bottom-left-radius: 50px !important;
+                            }
+                            &#remove {
+                                border-top-right-radius: 50px !important;
+                                border-bottom-right-radius: 50px !important;
+                            }
+                        }
+                    }
+                }*/
+            }
+            
+        }
+    }
+    .collapsibleregioninner {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 1rem;
+    }
+    select{
+        &.form-control[size],
+        &.form-control[multiple] {
+            option {
+                width: 95%;
+            }
+        }
+    }
+}
+.groupinfobox {
+    border: 0px !important;
 }
