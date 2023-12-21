@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'theme_saimaniq';
-$plugin->release = '1.0.0 MkI';
+$plugin->release = '1.0.0 MkI - Nanuq';
 $plugin->version = 2023121500;
 $plugin->requires = 2022041900;
 $plugin->maturity = MATURITY_STABLE;
