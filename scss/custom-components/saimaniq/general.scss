@@ -817,3 +817,19 @@ body#page-group-members {
 .groupinfobox {
     border: 0px !important;
 }
+
+body#page-course-view-participants{
+    .generaltable {
+        tbody{
+            td,
+            th {
+                &[id^=user-index-participants-] {
+                    div:not(:last-child) {
+                        margin-bottom: 0.5rem;
+                    }
+                }
+            }
+            
+        }
+    }
+}
