@@ -16,21 +16,6 @@
 
 //namespace theme_saimaniq\output;
 
-/*
-use moodle_url;
-use html_writer;
-use get_string;
-
-PHP Warning:  The use statement with non-compound name 'moodle_url' has no effect in /public/home/theme/saimaniq/renderers.php on line 19
-
-Warning: The use statement with non-compound name 'moodle_url' has no effect in /public/home/theme/saimaniq/renderers.php on line 19
-PHP Warning:  The use statement with non-compound name 'html_writer' has no effect in /public/home/theme/saimaniq/renderers.php on line 20
-
-Warning: The use statement with non-compound name 'html_writer' has no effect in /public/home/theme/saimaniq/renderers.php on line 20
-PHP Warning:  The use statement with non-compound name 'get_string' has no effect in /public/home/theme/saimaniq/renderers.php on line 21
-
-Warning: The use statement with non-compound name 'get_string' has no effect in /public/home/theme/saimaniq/renderers.php on line 21
-*/
 defined('MOODLE_INTERNAL') || die;
 require_once($CFG->dirroot . '/backup/util/ui/renderer.php');
 

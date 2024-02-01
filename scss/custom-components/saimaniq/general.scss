@@ -715,36 +715,82 @@ table {
     border-left: calc(1px + 5px) solid $conu-blue;
 }
 
-body#page-backup-import {
-    //background-color: aquamarine;
-    &.path-backup {
-        .mform {
-            .grouped_settings {
-                height: auto;
-                border: 0px;
-                background-color: transparent !important;
-                &.section_level {
-                    padding: 0.25rem 1rem;
-                    margin-bottom: initial;
-                    background-color: transparent !important;
-                    &:nth-of-type(1) {
-                        background-color: $conu-light-grey !important;
-                        margin-bottom: 1.25rem;
-                    }
-                }
-                &.activity_level {
-                    padding: 0px 0px;
-                    .include_setting {
-                        padding: 0px 0px;
+body {
+    //&#page-backup-import,
+    &[id^="page-backup"] {
+        //background-color: aquamarine;
+        &.path-backup {
+            .mform {
+                fieldset{
+                    .grouped_settings {
+                        height: auto;
+                        border: 0px;
+                        background-color: transparent !important;
+                        &.section_level {
+                            padding: 0.25rem 1rem;
+                            margin-bottom: initial;
+                            background-color: transparent !important;
+                            &:nth-of-type(1) {
+                                background-color: $conu-light-grey !important;
+                                margin-bottom: 1.25rem;
+                            }
+                        }
                         &.activity_level {
                             padding: 0px 0px;
-                            div.form-group {
-                                padding-left: 1.5rem;
-                                margin-bottom: 0px;
-                                div.checkbox {
-                                    border-left: 2px solid $conu-light-grey;
-                                    div.form-check {
-                                        margin-left: 2rem;
+                            .include_setting {
+                                padding: 0px 0px;
+                                &.activity_level {
+                                    padding: 0px 0px;
+                                    div.form-group {
+                                        padding-left: 1.5rem;
+                                        margin-bottom: 0px;
+                                        div.checkbox {
+                                            border-left: 2px solid $conu-medium-grey;
+                                            &::before {
+                                                content: '';
+                                                display: block;
+                                                width: 15px;
+                                                border-top: 2px solid $conu-medium-grey;
+                                                position: absolute;
+                                                top: 10px;
+                                                left: 0px;
+                                            }
+                                            div.form-check {
+                                                margin-left: 2rem;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .normal_setting {
+                                padding: 0 0.3rem;
+                                .form-group {
+                                    margin-bottom: initial;
+                                }
+                            }
+                        }
+                    }
+                    &:nth-of-type(2) {
+                        &#id_coursesettings {
+                            //background-color: azure;
+                            .grouped_settings {
+                                &.section_level {
+                                    .grouped_settings {
+                                        &.activity_level {
+                                            &:nth-of-type(odd) {
+                                                background-color: $conu-light-grey !important;
+                                            }
+                                            .include_setting {
+                                                &.activity_level {
+                                                    border-right: 10px solid white;
+                                                }
+                                            }
+                                            .form-control-static {
+                                                i.icon {
+                                                    margin-top: 7px;
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
