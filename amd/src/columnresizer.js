@@ -1,6 +1,6 @@
 define(function() {
     return {
-        columnResizer: function (parameter = {}) {
+        columnResizer: function(parameter = {}) {
             if (parameter.element == undefined) {
                 parameter.element = document.body;
             }
@@ -29,5 +29,5 @@ define(function() {
                 }
             }
         }
-    }
+    };
 });
