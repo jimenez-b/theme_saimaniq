@@ -802,48 +802,56 @@ body {
     }
 }
 
-body#page-group-members {
-    .generaltable {
-        tbody{
-            /*tr {
+.generaltable.generalbox.groupmanagementtable {
+    tbody{
+        tr {
+            background-color:  $conu-light-grey;
+            &:hover {
                 background-color:  $conu-light-grey;
-                &:hover {
-                    background-color:  $conu-light-grey;
+            }
+        }
+        td,
+        th {
+            vertical-align: top;
+            font-size: initial;
+            &#existingcell,
+            &#potentialcell {
+                p {
+                    label {
+                        font-weight: bold;
+                    } 
                 }
-            }*/
-            td,
-            th {
-                vertical-align: top;
-                font-size: initial;
-                &#existingcell,
-                &#potentialcell {
-                    p {
-                        label {
-                            font-weight: bold;
-                        } 
-                    }
-                }
-                /*&#buttonscell {
-                    p.arrow_button {
-                        margin-top: 3em;
-                        padding: 1rem 4rem;
-                        background-color: $conu-light-grey;
-                        input {
-                            min-width: 100%;
-                            &#add {
+            }
+            &#buttonscell {
+                p.arrow_button {
+                    /*margin-top: 3em;
+                    padding: 1rem 4rem;
+                    background-color: $conu-light-grey;*/
+                    input {
+                        //min-width: 100%;
+                        &#add {
+                            //border-top-left-radius: 50px !important;
+                            //border-bottom-left-radius: 50px !important;
+                            &:hover {
                                 border-top-left-radius: 50px !important;
                                 border-bottom-left-radius: 50px !important;
+                                transition: border-radius 1s;
                             }
-                            &#remove {
+                        }
+                        &#remove {
+                            //border-top-right-radius: 50px !important;
+                            //border-bottom-right-radius: 50px !important;
+                            &:hover {
                                 border-top-right-radius: 50px !important;
                                 border-bottom-right-radius: 50px !important;
+                                transition: border-radius 1s;
                             }
                         }
                     }
-                }*/
+                }
             }
-            
         }
+        
     }
     .collapsibleregioninner {
         display: flex;
@@ -859,7 +867,11 @@ body#page-group-members {
             }
         }
     }
+    #backcell {
+        background-color:  white;
+    }
 }
+
 .groupinfobox {
     border: 0px !important;
 }
