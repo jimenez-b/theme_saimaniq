@@ -121,7 +121,7 @@ $THEME->layouts = [
     ],
     // Part of course, typical for modules. Default page layout if $cm specified in require_login().
     'incourse' => [
-        'file' => 'saimaniq-drawers.php',
+        'file' => 'incourse.php',
         'regions' => ['side-pre'],
         'defaultregion' => 'side-pre',
     ],
