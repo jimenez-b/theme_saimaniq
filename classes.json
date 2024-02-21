@@ -1,0 +1,140 @@
+{
+    "classes": [
+        {
+            "oldClass": "fa-pencil",
+            "newClass": "bi-pencil"
+        },
+        {
+            "oldClass": "fa-clipboard",
+            "newClass": "bi-clipboard-check"
+        },
+        {
+            "oldClass": "fa-question-circle",
+            "newClass": "bi-question-circle"
+        },
+        {
+            "oldClass": "fa-share",
+            "newClass": "bi-share-fill"
+        },
+        {
+            "oldClass": "fa-copy",
+            "newClass": "bi-files"
+        },
+        {
+            "oldClass": "fa-trash",
+            "newClass": "bi-trash"
+        },
+        {
+            "oldClass": "fa-label",
+            "newClass": "bi-tag"
+        },
+        {
+            "oldClass": "fa-user-circle",
+            "newClass": "bi-person-circle"
+        },
+        {
+            "oldClass": "fa-links",
+            "newClass": "bi-link-45deg"
+        },
+        {
+            "oldClass": "fa-comment-o",
+            "newClass": "bi-chat"
+        },
+        {
+            "oldClass": "fa-bell-o",
+            "newClass": "bi-bell"
+        },
+        {
+            "oldClass": "fa-search",
+            "newClass": "bi-search"
+        },
+        {
+            "oldClass": "fa-question",
+            "newClass": "bi-question"
+        },
+        {
+            "oldClass": "fa-list",
+            "newClass": "bi-list-ul"
+        },
+        {
+            "oldClass": "fa-ellipsis-h",
+            "newClass": "bi-three-dots"
+        },
+        {
+            "oldClass": "fa-ellipsis-v",
+            "newClass": "bi-three-dots-vertical"
+        },
+        {
+            "oldClass": "fa-caret-down",
+            "newClass": "bi-chevron-down"
+        },
+        {
+            "oldClass": "fa-caret-right",
+            "newClass": "bi-chevron-right"
+        },
+        {
+            "oldClass": "fa-arrows",
+            "newClass": "bi-arrows-move"
+        },
+        {
+            "oldClass": "fa-check",
+            "newClass": "bi-check-lg"
+        },
+        {
+            "oldClass": "fa-bars",
+            "newClass": "bi-list"
+        },
+        {
+            "oldClass": "fa-filter",
+            "newClass": "bi-filter"
+        },
+        {
+            "oldClass": "fa-th-large",
+            "newClass": "bi-grid"
+        },
+        {
+            "oldClass": "fa-sort-amount-asc",
+            "newClass": "bi-filter-left"
+        },
+        {
+            "oldClass": "fa-language",
+            "newClass": "bi-translate"
+        },
+        {
+            "oldClass": "fa-calendar",
+            "newClass": "bi-calendar3"
+        },
+        {
+            "oldClass": "fa-exclamation-circle",
+            "newClass": "bi-exclamation-circle"
+        },
+        {
+            "oldClass": "fa-lock",
+            "newClass": "bi-lock"
+        },
+        {
+            "oldClass": "fa-plus",
+            "newClass": "bi-plus"
+        },
+        {
+            "oldClass": "fa-info-circle",
+            "newClass": "bi-info-circle"
+        },
+        {
+            "oldClass": "fa-unlock-alt",
+            "newClass": "bi-unlock"
+        },
+        {
+            "oldClass": "fa-sign-in",
+            "newClass": "bi-box-arrow-in-right"
+        },
+        {
+            "oldClass": "fa-cog",
+            "newClass": "bi-gear"
+        },
+        {
+            "oldClass": "fa-address-card",
+            "newClass": "bi-person-vcard"
+        }
+    ]
+}
