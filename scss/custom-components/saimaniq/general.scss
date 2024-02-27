@@ -895,3 +895,16 @@ body#page-course-view-participants{
 .progress-bar {
     background-color: $conu-blue;
 }
+
+$icon-width: 20px;
+$icon-height: 20px;
+
+.icon-saimaniq {
+    display: inline-block;
+    font-size: $icon-height;
+    width: $icon-width;
+    height: $icon-height;
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
