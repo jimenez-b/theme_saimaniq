@@ -7,7 +7,8 @@ define(function() {
         iconReplacer: function() {
             const locations = ["/moodle", "/moodle41", ""];
             var urlToSend = '';
-            locations.forEach((location) => {
+
+            locations.forEach(async(location) => {
                 let urlVar = window.location.origin + location + "/theme/saimaniq/classes.json";
                 // console.log("location is: " + urlVar);
                 var http = new XMLHttpRequest();
