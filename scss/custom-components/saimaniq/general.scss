@@ -489,9 +489,12 @@ p {
 
 .col-form-label {
     p,
-    label {
+    label,
+    span {
         font-size: 0.85rem;
-        margin-top: 2px;
+        margin-left: 0.5rem;
+        line-height: 1;
+        //margin-top: 2px;
     }
     [data-toggle='popover'] {
         font-size: 0.85rem;
@@ -716,11 +719,36 @@ table {
 }
 
 body {
-    //&#page-backup-import,
     &[id^="page-backup"] {
         //background-color: aquamarine;
         &.path-backup {
             .mform {
+                /*.col-form-label {
+                    line-height: 1;
+                    label,
+                    span {
+                        margin-left: 0.5rem;
+                        margin-top: -2px;
+                    }
+                    label {
+                        font-size: unset;
+                    }
+                }*/
+                .form-group {
+                    margin-bottom: unset;
+                }
+                select.custom-select,
+                input.form-control#id_setting_root_filename {
+                    font-size: 0.9rem;
+                    height: 1.8rem;
+                    padding-top: 0;
+                    padding-bottom: 0;
+                }
+                input.form-control#id_setting_root_filename {
+                    pointer-events: none;
+                    opacity: 0.8;
+                    background-color: $conu-light-grey;
+                }
                 fieldset{
                     .grouped_settings {
                         height: auto;
@@ -733,7 +761,7 @@ body {
                             &:nth-of-type(1) {
                                 background-color: $conu-light-grey !important;
                                 margin-bottom: 1.25rem;
-                            }
+                            } 
                         }
                         &.activity_level {
                             padding: 0px 0px;
@@ -898,7 +926,7 @@ body#page-course-view-participants{
 
 $icon-width: 20px;
 $icon-height: 20px;
-
+/*
 .icon-saimaniq {
     display: inline-block;
     font-size: $icon-height;
@@ -907,6 +935,14 @@ $icon-height: 20px;
     margin: 0;
     padding: 0;
     box-sizing: content-box;
+}
+*/
+.icon-saimaniq {
+    display: inline-flex;
+    font-size: $icon-height;
+    width: $icon-width;
+    height: $icon-height;
+    margin-top: 2px;
 }
 
 .path-grade-report-grader .gradeparent select { 

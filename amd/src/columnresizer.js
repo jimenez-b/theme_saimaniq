@@ -8,12 +8,12 @@ define(function() {
             let element = parameter.element;
 
             // 1. determine if we're on the right page
-            if (element.id == 'page-backup-restore') {
+            if (element.id == 'page-backup-restore' || element.id == 'page-backup-backup') {
                 // 2. select the correct element
                 // we have to verify we're on the REVIEW PAGE
                 // <span class="backup_stage backup_stage_current">5. Review</span>
                 let identifier = element.querySelector(".backup_stage_current");
-                if (identifier.innerHTML == '5. Review') {
+                if (identifier.innerHTML == '5. Review' || identifier.innerHTML == '3. Confirmation and review') {
                     let courseSettingsContainer = element.querySelector("#id_coursesettingscontainer");
                     // We select all divs <div class="col-md-3 col-form-label d-flex pb-0 pr-md-0">
                     let firstColumn = courseSettingsContainer.querySelectorAll(".col-md-3.col-form-label.d-flex.pb-0.pr-md-0");
