@@ -75,7 +75,7 @@ $THEME->layouts = [
     ],
     // Standard layout with blocks.
     'standard' => [
-        'file' => 'drawers.php',
+        'file' => 'saimaniq-drawers.php',
         'regions' => ['side-pre'],
         'defaultregion' => 'side-pre',
     ],
