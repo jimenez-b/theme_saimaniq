@@ -487,26 +487,6 @@ p {
     font-family: $conu-font-book;
 }*/
 
-.col-form-label {
-    p,
-    label,
-    span {
-        font-size: 0.85rem;
-        margin-left: 0.5rem;
-        line-height: 1;
-        //margin-top: 2px;
-    }
-    [data-toggle='popover'] {
-        font-size: 0.85rem;
-        height: auto;
-    }
-    /*.form-label-addon {
-        div[title='Required'] {
-            margin-top: -15px;
-        }
-    }*/
-}
-
 .form-autocomplete-selection {
     min-height: initial;
     [role=option] {
@@ -734,6 +714,20 @@ body {
                         font-size: unset;
                     }
                 }*/
+                .col-form-label {
+                    p,
+                    label,
+                    span {
+                        font-size: 0.85rem;
+                        margin-left: 0.5rem;
+                        line-height: 1;
+                        //margin-top: 2px;
+                    }
+                    [data-toggle='popover'] {
+                        font-size: 0.85rem;
+                        height: auto;
+                    }
+                }
                 .form-group {
                     margin-bottom: unset;
                 }
