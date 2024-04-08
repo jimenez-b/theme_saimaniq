@@ -126,7 +126,6 @@ $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 // $page->hide_if($name,'theme_saimaniq/defaultnobackground','noeq','random');
 
-
 // Checkbox to Show/hide the front page quote
 $name = 'theme_saimaniq/showdefaultfrontpagebody';
 $title = get_string('loginbottomtextshow', 'theme_saimaniq');
@@ -150,6 +149,15 @@ $title = get_string('loginnobformatfrontpagebody', 'theme_saimaniq');
 $description = get_string('loginnobformatfrontpagebodydesc', 'theme_saimaniq');
 $default = 'backquote';
 $setting = new admin_setting_configselect($name, $title, $description, $default, ['backquote' => 'Background Quote','styledquote' => 'Styled Quote']);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Checkbox to Show/hide the "Change password"
+$name = 'theme_saimaniq/showchangepassword';
+$title = get_string('loginshowchangepassword', 'theme_saimaniq');
+$description = get_string('loginshowchangepassworddesc', 'theme_saimaniq');
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true,false);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 

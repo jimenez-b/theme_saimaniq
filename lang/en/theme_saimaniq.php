@@ -88,6 +88,8 @@ $string['loginbottomtext']     = 'Login bottom text';
 $string['loginbottomtextdesc'] = 'Text to be included in the bottom of the login page';
 $string['loginnobformatfrontpagebody']     = 'Format bottom section';
 $string['loginnobformatfrontpagebodydesc'] = 'The styling for the text that will be renderer on the login page';
+$string['loginshowchangepassword']     = 'Hide/Display "Change Password"';
+$string['loginshowchangepassworddesc'] = 'Control to hide or show the "Change password" link on the login page';
 
 $string['settingstestpage'] = 'Settings test page';
 $string['testsettingsheading']     = 'Test the elements corresponding to the Concordia UI';

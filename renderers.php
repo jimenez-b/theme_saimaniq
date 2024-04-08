@@ -96,6 +96,24 @@ class theme_saimaniq_core_renderer extends theme_boost\output\core_renderer {
 
         return $html;
     }
+
+    public function render_login(\core_auth\output\login $form) {
+        global $CFG, $SITE;
+
+        $context = $form->export_for_template($this);
+
+        $context->errorformatted = $this->error_text($context->error);
+        $url = $this->get_logo_url();
+        if ($url) {
+            $url = $url->out(false);
+        }
+        $context->logourl = $url;
+        $context->sitename = format_string($SITE->fullname, true,
+                ['context' => context_course::instance(SITEID), "escape" => false]);
+        $context->showchangepassword = get_config('theme_saimaniq', 'showchangepassword');
+
+        return $this->render_from_template('theme_saimaniq/core/loginform', $context);
+    }
 }
 
 class theme_saimaniq_core_backup_renderer extends \core_backup_renderer {

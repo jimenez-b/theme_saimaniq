@@ -88,6 +88,8 @@ $string['loginbottomtext']     = 'Texte de bas de page de connexion';
 $string['loginbottomtextdesc'] = 'Texte à inclure au bas de la page de connexion.';
 $string['loginnobformatfrontpagebody']     = 'Format du bas de page';
 $string['loginnobformatfrontpagebodydesc'] = 'Style du texte qui apparaît sur la page de connexion.';
+$string['loginshowchangepassword']     = 'Afficher le lien "Mot de passe oublié?"';
+$string['loginshowchangepassworddesc'] = 'Control pour afficher le lien "Mot de passe oublié?"';
 
 $string['settingstestpage'] = 'Page d\'essai des paramètres';
 $string['testsettingsheading']     = 'Tester les éléments correspondant à l\'interface utilisateur de Concordia';
