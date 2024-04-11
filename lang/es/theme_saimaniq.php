@@ -88,8 +88,8 @@ $string['loginbottomtext']     = 'Texto inferior inicio';
 $string['loginbottomtextdesc'] = 'Texto a ser incluído en la parte inferior de la página de inicio';
 $string['loginnobformatfrontpagebody']     = 'Formato de la sección inferior';
 $string['loginnobformatfrontpagebodydesc'] = 'El formato de estilo del texto que será mostrado en la página de inicio';
-$string['loginshowchangepassword']     = 'Ocultar/mostrar "Cambiar Contraseña"';
-$string['loginshowchangepassworddesc'] = 'Control para ocultar o mostrar el enlace de "Cambiar Contraseña" en la página de inicio';
+$string['loginshowchangepassword']     = 'Mostrar enlace "¿Olvidó su contraseña?"';
+$string['loginshowchangepassworddesc'] = 'Ocultar o mostrar el enlace de "¿Olvidó su contraseña?" en la página de inicio';
 
 $string['settingstestpage'] = 'Página de prueba de elementos';
 $string['testsettingsheading']     = 'Prueba los elementos que corresponden a la UI Concordia';
