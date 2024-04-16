@@ -54,8 +54,14 @@ body.pagelayout-login {
         }
         .login-wrapper.saimaniq-login-#{$loginformposition} {
             justify-content: $loginformposition;
-            /*padding-#{$loginformposition}: 5rem !important;*/
             padding: 0 5rem;
+            margin: initial;
+        }
+        @media (min-width: 768px) and (max-width: 1000px) {
+            .login-wrapper.saimaniq-login-#{$loginformposition} {
+                padding: initial;
+                margin: 0 auto;
+            }
         }
         .login-container {
             background-color: rgba(255, 255, 255, $loginformopacity);
@@ -65,6 +71,7 @@ body.pagelayout-login {
             }
             .login-identityproviders .login-identityprovider-btn {
                 border: inherit;
+                //text-transform: uppercase;
             }
             .login-divider{
                 border-top: 1px solid transparent;
@@ -86,6 +93,24 @@ body.pagelayout-login {
             }
             .login-form-forgotpassword{
                 padding-top: 0.5rem;
+            }
+            span {
+                &#cookiesnotice {
+                    display: initial;
+                }
+                &#cookiesnotice-mobile {
+                    display: none;
+                }
+            }
+            @media (max-width: 850px) {
+                span {
+                    &#cookiesnotice {
+                        display: none;
+                    }
+                    &#cookiesnotice-mobile {
+                        display: initial;
+                    }
+                }
             }
         }
         .saimaniq-login-left,

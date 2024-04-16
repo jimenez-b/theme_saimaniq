@@ -90,6 +90,7 @@ $string['loginnobformatfrontpagebody']     = 'Format bottom section';
 $string['loginnobformatfrontpagebodydesc'] = 'The styling for the text that will be renderer on the login page';
 $string['loginshowchangepassword']     = 'Display "Forgot Password?" link';
 $string['loginshowchangepassworddesc'] = 'Hide or show the "Forgot password?" link on the login page';
+$string['cookiesnoticemobile'] = 'Cookies';
 
 $string['settingstestpage'] = 'Settings test page';
 $string['testsettingsheading']     = 'Test the elements corresponding to the Concordia UI';

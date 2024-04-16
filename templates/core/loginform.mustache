@@ -203,7 +203,9 @@
         }} data-modal="alert"{{!
         }} data-modal-title-str='["cookiesenabled", "core"]' {{!
         }} data-modal-content-str='["cookiesenabled_help_html", "core"]'{{!
-        }}>{{#str}}cookiesnotice{{/str}}</button>
+        }}> <span id="cookiesnotice">{{#str}}cookiesnotice{{/str}}</span>
+            <span id="cookiesnotice-mobile">{{#str}}cookiesnoticemobile, theme_saimaniq{{/str}}</span>
+        </button>
         {{#languagemenu}}
             <div class="login-languagemenu">
                 {{>core/action_menu}}

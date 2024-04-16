@@ -406,7 +406,8 @@ a {
 h1,
 .h1 {
     font: normal 2.488rem $conu-font-bold-condensed;
-    line-height: 3.732rem;
+    // line-height: 3.732rem;
+    line-height: 3.23rem;
     letter-spacing: 0.5px;
     &.conu-h1-big {
         font-size: 60px;
