@@ -704,17 +704,6 @@ body {
         //background-color: aquamarine;
         &.path-backup {
             .mform {
-                /*.col-form-label {
-                    line-height: 1;
-                    label,
-                    span {
-                        margin-left: 0.5rem;
-                        margin-top: -2px;
-                    }
-                    label {
-                        font-size: unset;
-                    }
-                }*/
                 .col-form-label {
                     p,
                     label,
@@ -765,8 +754,11 @@ body {
                                 &.activity_level {
                                     padding: 0px 0px;
                                     div.form-group {
-                                        padding-left: 1.5rem;
+                                        //padding-left: 1.5rem;
                                         margin-bottom: 0px;
+                                        /*.col-form-label {
+                                            padding-left: 1.5rem;
+                                        }*/
                                         div.checkbox {
                                             border-left: 2px solid $conu-medium-grey;
                                             &::before {
@@ -811,6 +803,51 @@ body {
                                             .form-control-static {
                                                 i.icon {
                                                     margin-top: 7px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.saimaniq-step-schema-settings {
+            &.path-backup {
+                .mform {
+                    fieldset{
+                        .grouped_settings {
+                            &.activity_level {
+                                .include_setting {
+                                    &.activity_level {
+                                        div.form-group {
+                                            padding-left: 1.5rem;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.saimaniq-step-confirmation-and-review {
+            &.path-backup {
+                .mform {
+                    fieldset{
+                        .grouped_settings {
+                            &.activity_level {
+                                .include_setting {
+                                    &.activity_level {
+                                        div.form-group {
+                                            .col-form-label {
+                                                padding-left: 1.5rem;
+                                            }
+                                            .felement {
+                                                .form-control-static {
+                                                    margin-left: -1px;
                                                 }
                                             }
                                         }

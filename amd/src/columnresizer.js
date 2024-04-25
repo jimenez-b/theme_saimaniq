@@ -7,6 +7,12 @@ define(function() {
 
             let element = parameter.element;
 
+            let identifier = element.querySelector(".backup_stage_current");
+            let additionalClass = identifier.innerHTML.substr(3);
+            additionalClass = additionalClass.toLowerCase();
+            additionalClass = additionalClass.replaceAll(' ', '-');
+            additionalClass = 'saimaniq-step-' + additionalClass;
+            element.classList.add(additionalClass);
             // 1. determine if we're on the right page
             if (element.id == 'page-backup-restore' || element.id == 'page-backup-backup') {
                 // 2. select the correct element
