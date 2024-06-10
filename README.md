@@ -1,4 +1,6 @@
-# Saimaniq #
+![Concordia logo](https://www.concordia.ca/etc/designs/concordia/clientlibs/img/logo-concordia-university-montreal.png)
+
+# Saimaniq Theme for Moodle #
 
 Named after the inuit word for "Peace", Saimaniq is a theme created for Concordia University, 
 using Boost 3.9 as it's main inspirtation.
@@ -9,13 +11,28 @@ using Boost 3.9 as it's main inspirtation.
 2. Concordia branding (fonts and colors)
 3. Colors applied as per Concordia rules regarding accesibility
 4. Custom branding and visuals for plugins
-   a. Poodll audio player
-   b. Multiblock
-   c. ConU Library Search
-   d. Components for Learning
+   - a. Poodll audio player
+   - b. Multiblock
+   - c. ConU Library Search
+   - d. Components for Learning
 5. Mobile log-in
 
 ### TODO LIST: ###
+- [ ] MS01 - Integrations
+- - [ ] MS0101 Build settings page to include integrations
+- - [ ] MS0102 Build LivePerson integration
+- - [ ] MS0102 Build Proctorio integration
+- - [ ] MS0103 Build Conquizzer integration
+- [ ] MS02 - Features coming from COLEv2
+- - [ ] MS0201 Branding
+- - [ ] MS0202 Support FAQ Sidebar
+- - [ ] MS0203 General Quiz UX/UI
+- - [ ] MS0204 Summary of questions
+- - [ ] MS0204 Prevent clicking on exam exit
+- - [ ] MS0205 Customized checkboxes for the Copyright notice and the Terms and conditions
+- - [ ] MS0206 Add second verification for Copyright notice and Terms and conditions checkboxes
+
+
 1. Review fonts, especially main Concordia font, due to the issues (ethical) regarding gill sans
 2. M4-047 - Provide a way of highlighting new activities, so students are alerted to new activities
    Indicate on the front page when the item was last updated (so students know if a document was recently updated)
