@@ -18,28 +18,29 @@ using Boost 3.9 as it's main inspirtation.
 5. Mobile log-in
 
 ### TODO LIST: ###
-- [ ] MS01 - Integrations
-- - [ ] MS0101 Build settings page to include integrations
-- - [ ] MS0102 Build LivePerson integration
-- - [ ] MS0102 Build Proctorio integration
-- - [ ] MS0103 Build Conquizzer integration
-- [ ] MS02 - Features coming from COLEv2
-- - [ ] MS0201 Branding
-- - [ ] MS0202 Support FAQ Sidebar
-- - [ ] MS0203 General Quiz UX/UI
-- - [ ] MS0204 Summary of questions
-- - [ ] MS0204 Prevent clicking on exam exit
-- - [ ] MS0205 Customized checkboxes for the Copyright notice and the Terms and conditions
-- - [ ] MS0206 Add second verification for Copyright notice and Terms and conditions checkboxes
-
-
-1. Review fonts, especially main Concordia font, due to the issues (ethical) regarding gill sans
-2. M4-047 - Provide a way of highlighting new activities, so students are alerted to new activities
-   Indicate on the front page when the item was last updated (so students know if a document was recently updated)
-3. Dark mode
-4. Home page design and settings
-5. Review table css
-6. Review add/remove users css
+- [ ] CONUMDLS01 - Integrations
+- - [ ] CONUMDLS0101 Build settings page to include integrations
+- - [ ] CONUMDLS0102 Build LivePerson integration
+- - [ ] CONUMDLS0102 Build Proctorio integration
+- - [ ] CONUMDLS0103 Build Conquizzer integration
+- [ ] CONUMDLS02 - Features coming from COLEv2
+- - [ ] CONUMDLS0201 Branding
+- - [ ] CONUMDLS0202 Support FAQ Sidebar
+- - [ ] CONUMDLS0203 General Quiz UX/UI
+- - [ ] CONUMDLS0204 Summary of questions
+- - [ ] CONUMDLS0205 Prevent clicking on exam exit
+- - [ ] CONUMDLS0206 Customized checkboxes for the Copyright notice and the Terms and conditions
+- - [ ] CONUMDLS0207 Add second verification for Copyright notice and Terms and conditions checkboxes
+- [ ] CONUMDLS03 - Miscellaneous
+- - [ ] CONUMDLS0301 Review table css
+- - [ ] CONUMDLS0302 Review add/remove users css
+- [ ] CONUMDLS04 - Settings
+- - [ ] CONUMDLS0401 Create course settings page
+- - [ ] CONUMDLS0401 Create home settings page
+- [ ] CONUMDLS05 - Features
+- - [ ] CONUMDLS0501 Provide a way of highlighting new activities, so students are alerted to new activities
+- - [ ] CONUMDLS0502 Dark mode
+- - [ ] CONUMDLS0503 Review fonts, especially main Concordia font, due to the issues (ethical) regarding gill sans
 
 ## Installing via uploaded ZIP file ##
 
