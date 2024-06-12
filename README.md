@@ -21,8 +21,8 @@ using Boost 3.9 as it's main inspirtation.
 - [ ] CONUMDLS01 - Integrations
 - - [ ] CONUMDLS0101 Build settings page to include integrations
 - - [ ] CONUMDLS0102 Build LivePerson integration
-- - [ ] CONUMDLS0102 Build Proctorio integration
-- - [ ] CONUMDLS0103 Build Conquizzer integration
+- - ~~[ ] CONUMDLS0102 Build Proctorio integration (deemed not necessary)~~ 
+- - ~~[ ] CONUMDLS0103 Build Conquizzer integration (deemed not necessary)~~
 - [ ] CONUMDLS02 - Features coming from COLEv2
 - - [ ] CONUMDLS0201 Branding
 - - [ ] CONUMDLS0202 Support FAQ Sidebar
@@ -36,11 +36,14 @@ using Boost 3.9 as it's main inspirtation.
 - - [ ] CONUMDLS0302 Review add/remove users css
 - [ ] CONUMDLS04 - Settings
 - - [ ] CONUMDLS0401 Create course settings page
-- - [ ] CONUMDLS0401 Create home settings page
+- - [ ] CONUMDLS0402 Create home settings page
+- - [ ] CONUMDLS0403 Review the order for the Test settings page
 - [ ] CONUMDLS05 - Features
 - - [ ] CONUMDLS0501 Provide a way of highlighting new activities, so students are alerted to new activities
 - - [ ] CONUMDLS0502 Dark mode
 - - [ ] CONUMDLS0503 Review fonts, especially main Concordia font, due to the issues (ethical) regarding gill sans
+- [ ] CONUMDLS06 - Languages
+- - [ ] CONUMDLS0601 Update language strings in additional languages for settings pages
 
 ## Installing via uploaded ZIP file ##
 

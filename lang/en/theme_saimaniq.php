@@ -61,7 +61,7 @@ $string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will
 
 // The name of the third tab in the theme settings.        
 $string['settingsloginpage'] = 'Login page settings';
-
+// All the settings for the login page
 $string['loginsettingsheading'] = 'Customize the login page';
 $string['logindesc'] = 'Customize the login page by adding an image background and texts above and below the login box.';
 $string['loginbgimage']     = 'Background image';
@@ -92,7 +92,21 @@ $string['loginshowchangepassword']     = 'Display "Forgot Password?" link';
 $string['loginshowchangepassworddesc'] = 'Hide or show the "Forgot password?" link on the login page';
 $string['cookiesnoticemobile'] = 'Cookies';
 
+//the name for the Integrations tab
+$string['settingsintegrationpage'] = 'Integrations settings';
+// All the settings for the Integrations page
+$string['integrationsheading']     = 'Integrations with additional additional';
+$string['integrationsheadingdesc'] = 'Allows the administrator to enable/disable several integrations with additional components';
+$string['enableliveperson']     = 'Enable LivePerson integration';
+$string['enablelivepersondesc'] = 'Enable/Disable the inclusion of the LivePerson chat';
+$string['enableproctorio']      = 'Enable Proctorio integration';
+$string['enableproctoriodesc']  = 'Enable/Disable the inclusion of Proctorio';
+$string['enableconquizzer']     = 'Enable Conquizzer plugin integration';
+$string['enableconquizzerdesc'] = 'Enable/Disable the display of the Conquizzer plugin information';
+
+//the name for the Test settings tab
 $string['settingstestpage'] = 'Settings test page';
+// All the settings for the Test settings page
 $string['testsettingsheading']     = 'Test the elements corresponding to the Concordia UI';
 $string['testsettingsheadingdesc'] = 'Test page to check the elements of the Concordia UI designed for the Saimaniq theme';
 $string['styleguide'] = 'Style Guide';
