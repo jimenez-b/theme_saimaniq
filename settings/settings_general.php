@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-       
 $page = new admin_settingpage('theme_saimaniq_general', get_string('generalsettings', 'theme_saimaniq'));
   
 // Replicate the preset setting from boost.    
@@ -45,9 +44,19 @@ foreach ($files as $file) {
     $choices[$file->get_filename()] = $file->get_filename();     
 } 
 // These are the built in presets from Boost.  
-$choices['default.scss'] = 'default.scss';     
-$choices['plain.scss'] = 'plain.scss';
-$choices['saimaniq.scss'] = 'saimaniq.scss';
+$choices['default.scss'] = 'default -- Boost';     
+$choices['plain.scss'] = 'plain -- Boost';
+//here we add the choices for Saimaniq taken from the presets directory
+/* CONUMDLS0303 Cleanup code settings_general.php -- we add this loop in case we add more presets*/
+$directory = $CFG->dirroot . '/theme/saimaniq/scss/preset';
+$files = scandir($directory);
+foreach ($files as $file) {
+    $filePath = $directory . '/' . $file;
+    if (is_file($filePath)) {
+        $choices[$file] = substr($file, 0, strpos($file, '.')).' -- Saimaniq';
+    }
+}
+/* CONUMDLS0303 Cleanup code settings_general.php -- end */
 
 $setting = new admin_setting_configselect($name, $title, $description, $default, $choices); 
 $setting->set_updatedcallback('theme_reset_all_caches');
