@@ -27,6 +27,10 @@ defined('MOODLE_INTERNAL') || die();
 require_once($CFG->libdir . '/behat/lib.php');
 require_once($CFG->dirroot . '/course/lib.php');
 
+//CONUMDLS0102 Build LivePerson integration -- Begin
+$enableliveperson = get_config('theme_saimaniq', 'enableliveperson');
+//CONUMDLS0102 Build LivePerson integration -- End
+
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
 

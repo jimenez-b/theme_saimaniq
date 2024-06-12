@@ -1,0 +1,24 @@
+/************************* Styles for the chat tab **************************/
+.LPMain_container {
+    z-index: 999999 !important;
+    position: fixed !important;
+    right: -2%!important;
+    top: 50% !important;
+    .LPMcontainer.LPMoverlay {
+        width: 160px !important;
+        height: 40px !important;
+        border-radius: $conu-border-radius !important;
+        transform: rotate(-90deg);
+        .LPMlabel {
+            position: relative !important;
+            top: 10px !important;
+            left: 25px !important;
+        }
+    }
+}
+
+body.mobiletheme {
+    .LPMain_container {
+        display: none;
+    }
+}

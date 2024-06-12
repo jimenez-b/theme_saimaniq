@@ -30,6 +30,10 @@ require_once($CFG->dirroot . '/course/lib.php');
 $backgroundcolorchoices = get_config('theme_saimaniq', 'backgroundcolorchoices');
 $backgroundcolorchoices = substr($backgroundcolorchoices, 1);
 
+//CONUMDLS0102 Build LivePerson integration -- Begin
+$enableliveperson = get_config('theme_saimaniq', 'enableliveperson');
+//CONUMDLS0102 Build LivePerson integration -- End
+
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
 
@@ -107,8 +111,9 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'overflow' => $overflow,
     'headercontent' => $headercontent,
-    'addblockbutton' => $addblockbutton,
+    'addblockbutton'         => $addblockbutton,
     'backgroundcolorchoices' => $backgroundcolorchoices,
+    'enableliveperson'       => $enableliveperson,
 ];
 
 echo $OUTPUT->render_from_template('theme_saimaniq/drawers', $templatecontext);

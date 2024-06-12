@@ -52,11 +52,18 @@
 {{> theme_saimaniq/head }}
 
 <body {{{ bodyattributes }}}>
+<!-- Begin CONUMDLS0102 Build LivePerson integration -->
+{{#enableliveperson}}
+    <!-- Live Embed Code Begin -->
+        <div id="LP_DIV_1624456828781" class="LPMain_container"></div> 
+    <!-- Live Embed Code End -->
+{{/enableliveperson}}
+<!-- End CONUMDLS0102 Build LivePerson integration -->
+
 {{> core/local/toast/wrapper}}
 <div id="page-wrapper" class="d-print-block">
 
     {{{ output.standard_top_of_body_html }}}
-
     {{> theme_saimaniq/navbar }}
     {{#courseindex}}
         {{< theme_boost/drawer }}
