@@ -46,8 +46,8 @@ using Boost 3.9 as it's main inspirtation.
 - - [ ] CONUMDLS0503 Review fonts, especially main Concordia font, due to the issues (ethical) regarding gill sans
 - [ ] CONUMDLS06 - Languages
 - - [ ] CONUMDLS0601 Update language strings in additional languages for settings pages
-- [ ] CONUMDLS07 - Bugs
-- - [ ] CONUMDLS0701 columnresizer bug on selector
+- [x] CONUMDLS07 - Bugs
+- - [x] CONUMDLS0701 columnresizer bug on selector
 
 ## Installing via uploaded ZIP file ##
 
