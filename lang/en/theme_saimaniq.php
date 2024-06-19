@@ -92,10 +92,20 @@ $string['loginshowchangepassword']     = 'Display "Forgot Password?" link';
 $string['loginshowchangepassworddesc'] = 'Hide or show the "Forgot password?" link on the login page';
 $string['cookiesnoticemobile'] = 'Cookies';
 
+//the name for the Quiz Landing tab
+$string['settingsquizlandingpage']    = 'Quiz Landing settings';
+// All the settings for the Quiz Landing page
+$string['quizlandingheading']         = 'Settings for the Quiz Landing page';
+$string['quizlandingheadingdesc']     = 'Allows the administrator to control several aspects of the quiz landing page';
+$string['enableinstructionsread']     = 'Enables additional check for the instructions';
+$string['enableinstructionsreaddesc'] = 'Enable/Disable checkbox to verify if the user has read the instructions before the exam';
+$string['enablemodalscopyterms']      = 'Enables additional check for the modals';
+$string['enablemodalscopytermsdesc']  = 'Enable/Disable checkbox to verify if the user has read the Copyright and Terms';
+
 //the name for the Integrations tab
 $string['settingsintegrationpage'] = 'Integrations settings';
 // All the settings for the Integrations page
-$string['integrationsheading']     = 'Integrations with additional additional';
+$string['integrationsheading']     = 'Integrations with additional components';
 $string['integrationsheadingdesc'] = 'Allows the administrator to enable/disable several integrations with additional components';
 $string['enableliveperson']     = 'Enable LivePerson integration';
 $string['enablelivepersondesc'] = 'Enable/Disable the inclusion of the LivePerson chat';

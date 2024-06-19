@@ -40,6 +40,7 @@ using Boost 3.9 as it's main inspirtation.
 - - [ ] CONUMDLS0401 Create course settings page
 - - [ ] CONUMDLS0402 Create home settings page
 - - [ ] CONUMDLS0403 Review the order for the Test settings page
+- - [x] CONUMDLS0404 Create landing quiz settings page
 - [ ] CONUMDLS05 - Features
 - - [ ] CONUMDLS0501 Provide a way of highlighting new activities, so students are alerted to new activities
 - - [ ] CONUMDLS0502 Dark mode
