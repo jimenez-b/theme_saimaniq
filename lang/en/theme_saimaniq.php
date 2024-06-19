@@ -122,11 +122,11 @@ $string['testsettingsheading']     = 'Test the elements corresponding to the Con
 $string['testsettingsheadingdesc'] = 'Test page to check the elements of the Concordia UI designed for the Saimaniq theme';
 $string['styleguide'] = 'Style Guide';
 
+//Login page strings
 $string['learnmore'] = 'Learn More';
 $string['learnmoreurl'] = 'https://www.concordia.ca/it.html#notices';
 $string['contactit'] = 'Contact IT Service Desk';
 $string['contactiturl'] = 'https://www.concordia.ca/it/support.html';
-
 $string['loginmaintext'] = ' students, faculty and staff login';
 
 // We need to include a lang string for each block region.
