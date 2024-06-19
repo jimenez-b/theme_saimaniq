@@ -35,7 +35,8 @@ using Boost 3.9 as it's main inspirtation.
 - - [ ] CONUMDLS0301 Review table css
 - - [ ] CONUMDLS0302 Review add/remove users css
 - - [x] CONUMDLS0303 Cleanup code lib.php
-- - [x] CONUMDLS0303 Cleanup code settings_general.php
+- - [x] CONUMDLS0304 Cleanup code settings_general.php
+- - [x] CONUMDLS0305 Add privacy class file
 - [ ] CONUMDLS04 - Settings
 - - [ ] CONUMDLS0401 Create course settings page
 - - [ ] CONUMDLS0402 Create home settings page
