@@ -18,7 +18,7 @@ using Boost 3.9 as it's main inspirtation.
 5. Mobile log-in
 
 ### TODO LIST: ###
-- [ ] CONUMDLS01 - Integrations
+- [x] CONUMDLS01 - Integrations
 - - [x] CONUMDLS0101 Build settings page to include integrations
 - - [x] CONUMDLS0102 Build LivePerson integration
 - - ~~[ ] CONUMDLS0102 Build Proctorio integration (deemed not necessary)~~ 
@@ -29,8 +29,8 @@ using Boost 3.9 as it's main inspirtation.
 - - [ ] CONUMDLS0203 General Quiz UX/UI
 - - [ ] CONUMDLS0204 Summary of questions
 - - [ ] CONUMDLS0205 Prevent clicking on exam exit
-- - [ ] CONUMDLS0206 Customized checkboxes for the Copyright notice and the Terms and conditions
-- - [ ] CONUMDLS0207 Add second verification for Copyright notice and Terms and conditions checkboxes
+- - [x] CONUMDLS0206 Customized checkboxes for the Copyright notice and the Terms and conditions
+- - [x] CONUMDLS0207 Add second verification for Copyright notice and Terms and conditions checkboxes
 - [ ] CONUMDLS03 - Miscellaneous
 - - [ ] CONUMDLS0301 Review table css
 - - [ ] CONUMDLS0302 Review add/remove users css

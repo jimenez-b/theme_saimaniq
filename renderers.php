@@ -17,6 +17,7 @@
 //namespace theme_saimaniq\output;
 
 defined('MOODLE_INTERNAL') || die;
+include_once($CFG->dirroot . "/mod/quiz/renderer.php");
 require_once($CFG->dirroot . '/backup/util/ui/renderer.php');
 
 /**
@@ -26,6 +27,83 @@ require_once($CFG->dirroot . '/backup/util/ui/renderer.php');
  * @copyright  2012 Bas Brands, www.basbrands.nl
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
+    //CONUMDLS0206 Customized checkboxes for the Copyright notice and the Terms and conditions
+    public function export_for_template($array) {
+        $checkboxes_display = theme_saimaniq\helper::checkboxes_display('array');
+        $data = new stdClass();
+        $data->instructions = $checkboxes_display['instructions'];
+        $data->copyright = $checkboxes_display['copyright'];
+        $data->checkmessage = (!empty($checkboxes_display['instructions']) && !empty($checkboxes_display['copyright'])) ? true : false;
+        return $data;
+    }
+
+    public function view_confirmation() : string {
+        $preset = theme_saimaniq\helper::is_cole_preset(theme_config::load('saimaniq'));
+        $checkboxes_display = theme_saimaniq\helper::checkboxes_display('array');
+        $data = $this->export_for_template($checkboxes_display);
+        return ($preset == true ? $this->render_from_template('theme_saimaniq/cole/checkboxes', $data) : '' );
+    }
+
+    public function render_modals() : string {
+        $preset = theme_saimaniq\helper::is_cole_preset(theme_config::load('saimaniq'));
+        $checkboxes_display = theme_saimaniq\helper::checkboxes_display('array');
+        $output = '';
+        if ($preset == true && !empty($checkboxes_display['copyright'])) {
+            $output .= $this->render_from_template('theme_saimaniq/cole/copy_modal', '');
+            $output .= $this->render_from_template('theme_saimaniq/cole/terms_modal', '');
+        }
+        return $output;
+    }
+    public function js_loaders_landing() : string {
+        $preset = theme_saimaniq\helper::is_cole_preset(theme_config::load('saimaniq'));
+        $checkboxes_display = theme_saimaniq\helper::checkboxes_display('array');
+        $output = '';
+        if ($preset == true) {
+            $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/landing','init');
+            $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/landing','checkboxEnabler', [$checkboxes_display['instructions'] , $checkboxes_display['copyright']]);
+        }
+        return $output;
+    }
+    /*
+     * View Page
+     */
+    /**
+     * Generates the view page
+     *
+     * @param stdClass $course the course settings row from the database.
+     * @param stdClass $quiz the quiz settings row from the database.
+     * @param stdClass $cm the course_module settings row from the database.
+     * @param context_module $context the quiz context.
+     * @param mod_quiz_view_object $viewobj
+     * @return string HTML to display
+     */
+    public function view_page($course, $quiz, $cm, $context, $viewobj) {
+        /*
+        * Revised logic: 
+        * if CONQUIZZER is not installed don't load its information
+        * if COLE is the preset, show/hide
+        * - checkboxes
+        * - Liveperson
+        */
+        $output = '';
+
+        $output .= $this->view_page_tertiary_nav($viewobj);
+        $output .= $this->view_information($quiz, $cm, $context, $viewobj->infomessages);
+        $output .= $this->view_table($quiz, $context, $viewobj);
+        $output .= $this->view_result_info($quiz, $context, $cm, $viewobj);
+        //CONUMDLS0206 Customized checkboxes for the Copyright notice and the Terms and conditions - begin
+        $output .= $this->view_confirmation();
+        $output .= $this->render_modals();
+        $output .= $this->js_loaders_landing();
+        //CONUMDLS0206 Customized checkboxes for the Copyright notice and the Terms and conditions - end
+        $output .= $this->box($this->view_page_buttons($viewobj), 'quizattempt');
+        
+        return $output;
+    }
+}
+
 class theme_saimaniq_core_renderer extends theme_boost\output\core_renderer {
      /**
       * Renders the header bar.

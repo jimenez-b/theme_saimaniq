@@ -15,7 +15,7 @@ define(function() {
                 additionalClass = 'saimaniq-step-' + additionalClass;
                 element.classList.add(additionalClass);
             } else {
-                console.log ('No such element exists');
+                window.console.log('No such element exists');
             }
             // 1. determine if we're on the right page
             if (element.id == 'page-backup-restore' || element.id == 'page-backup-backup') {

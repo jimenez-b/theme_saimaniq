@@ -1,0 +1,26 @@
+// Import FontAwesome.
+@import "fontawesome";
+// Import All of Bootstrap
+@import "bootstrap";
+// Import Core moodle CSS
+@import "moodle";
+// Import bootstrap icons
+@import "bootstrap-icons/font/bootstrap-icons";
+
+///default imports /*************************/
+@import "custom-components/variables/conu-colors";
+@import "custom-components/variables/conu-fonts";
+@import "custom-components/variables/conu-variables";
+///main imports /***************************/
+@import "custom-components/saimaniq/general";
+@import "custom-components/saimaniq/navigation";
+@import "custom-components/saimaniq/login";
+@import "custom-components/saimaniq/dashboard";
+@import "custom-components/saimaniq/course";
+@import "custom-components/saimaniq/profile";
+///plugins imports /************************/
+@import "custom-components/plugins/multiblock";
+@import "custom-components/plugins/c4l";
+@import "custom-components/plugins/library_search_block";
+@import "custom-components/plugins/poodll";
+@import "custom-components/plugins/liveperson";
