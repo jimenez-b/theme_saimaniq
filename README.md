@@ -22,7 +22,7 @@ using Boost 3.9 as it's main inspirtation.
 - - [x] CONUMDLS0101 Build settings page to include integrations
 - - [x] CONUMDLS0102 Build LivePerson integration
 - - ~~[ ] CONUMDLS0102 Build Proctorio integration (deemed not necessary)~~ 
-- - ~~[ ] CONUMDLS0103 Build Conquizzer integration (deemed not necessary)~~
+- - [x] CONUMDLS0103 Build Conquizzer integration
 - [ ] CONUMDLS02 - Features coming from COLEv2
 - - [ ] CONUMDLS0201 Branding
 - - [ ] CONUMDLS0202 Support FAQ Sidebar

@@ -66,6 +66,10 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         }
         return $output;
     }
+    public function cole_description($quiz) : string {
+        $plugininfo = \core_plugin_manager::instance()->get_plugin_info('quizaccess_conquizzer');
+        return ($plugininfo ? $this->render_from_template('quizaccess_conquizzer/description', quizaccess_conquizzer\helper_rules::quiz_description($quiz)) : '');
+    }
     /*
      * View Page
      */
@@ -88,7 +92,9 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         * - Liveperson
         */
         $output = '';
-
+        //CONUMDLS0103 Build Conquizzer integration - begin
+        $output .= $this->cole_description($quiz);
+        //CONUMDLS0103 Build Conquizzer integration - end
         $output .= $this->view_page_tertiary_nav($viewobj);
         $output .= $this->view_information($quiz, $cm, $context, $viewobj->infomessages);
         $output .= $this->view_table($quiz, $context, $viewobj);

@@ -46,7 +46,7 @@
         return ($return_type == 'array' ? $enabledcheckboxes : json_encode($enabledcheckboxes) );
     }
 
-    public static function little_html_test_saimaniq () : string {
+    public static function little_html_test_saimaniq() : string {
         return "<p>this is my little html test function from Saimaniq</p>";
     }
  }
