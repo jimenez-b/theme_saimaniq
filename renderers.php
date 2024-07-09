@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-//namespace theme_saimaniq\output;
-
 defined('MOODLE_INTERNAL') || die;
 include_once($CFG->dirroot . "/mod/quiz/renderer.php");
 require_once($CFG->dirroot . '/backup/util/ui/renderer.php');
@@ -62,14 +60,47 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $output = '';
         if ($preset == true) {
             $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/landing','init');
+            $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/landing','bolder');
             $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/landing','checkboxEnabler', [$checkboxes_display['instructions'] , $checkboxes_display['copyright']]);
         }
         return $output;
     }
+
+    public function saimaniq_row($quiz, $cm, $context, $viewobj) : string {
+        $info = ['id' =>'saimaniq-quiz-landing-container', 'class'=> (get_config('theme_saimaniq', 'adittionallayoutclasses') ? 'row saimaniq-row' : '')];
+        $rendered  = html_writer::start_tag('div', $info);
+        //CONUMDLS0103 Build Conquizzer integration - begin
+        $rendered .= $this->cole_description($quiz);
+        //CONUMDLS0103 Build Conquizzer integration - end
+        $rendered .= $this->saimaniq_information($quiz, $cm, $context, $viewobj);
+        $rendered .= html_writer::end_tag('div');
+        return $rendered;
+    }
+
     public function cole_description($quiz) : string {
         $plugininfo = \core_plugin_manager::instance()->get_plugin_info('quizaccess_conquizzer');
-        return ($plugininfo ? $this->render_from_template('quizaccess_conquizzer/description', quizaccess_conquizzer\helper_rules::quiz_description($quiz)) : '');
+        $rendered = '';
+        $info = ['id' =>'saimaniq-quiz-landing-left', 'class'=> (get_config('theme_saimaniq', 'adittionallayoutclasses') ? 'col-6' : '')];
+        if ($plugininfo){
+            $rendered .= html_writer::start_tag('div', $info);
+            $rendered .= $this->render_from_template('quizaccess_conquizzer/description', quizaccess_conquizzer\helper_rules::quiz_description($quiz));
+            $rendered .= html_writer::end_tag('div');
+        }
+        return $rendered;
     }
+
+    public function saimaniq_information($quiz, $cm, $context, $viewobj) : string {
+        //CONUMDLS0209 Landing information reordered -- begin
+        $info = ['id' =>'saimaniq-quiz-landing-right', 'class'=> (get_config('theme_saimaniq', 'adittionallayoutclasses') ? 'col-6' : '')];
+        $rendered  = html_writer::start_tag('div', $info);
+        $rendered .= $this->view_information($quiz, $cm, $context, $viewobj->infomessages);
+        $rendered .= $this->view_confirmation();
+        $rendered .= $this->view_page_tertiary_nav($viewobj);
+        $rendered .= html_writer::end_tag('div');
+        //CONUMDLS0209 Landing information reordered -- end
+        return $rendered;
+    }
+
     /*
      * View Page
      */
@@ -92,18 +123,13 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         * - Liveperson
         */
         $output = '';
-        //CONUMDLS0103 Build Conquizzer integration - begin
-        $output .= $this->cole_description($quiz);
-        //CONUMDLS0103 Build Conquizzer integration - end
-        $output .= $this->view_page_tertiary_nav($viewobj);
-        $output .= $this->view_information($quiz, $cm, $context, $viewobj->infomessages);
+        $output .= $this->saimaniq_row($quiz, $cm, $context, $viewobj);
         $output .= $this->view_table($quiz, $context, $viewobj);
         $output .= $this->view_result_info($quiz, $context, $cm, $viewobj);
         //CONUMDLS0206 Customized checkboxes for the Copyright notice and the Terms and conditions - begin
-        $output .= $this->view_confirmation();
         $output .= $this->render_modals();
-        $output .= $this->js_loaders_landing();
         //CONUMDLS0206 Customized checkboxes for the Copyright notice and the Terms and conditions - end
+        $output .= $this->js_loaders_landing();
         $output .= $this->box($this->view_page_buttons($viewobj), 'quizattempt');
         
         return $output;

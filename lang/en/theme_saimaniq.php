@@ -94,26 +94,28 @@ $string['loginshowchangepassworddesc'] = 'Hide or show the "Forgot password?" li
 $string['cookiesnoticemobile'] = 'Cookies';
 
 //the name for the Quiz Landing tab
-$string['settingsquizlandingpage']    = 'Quiz Landing settings';
+$string['settingsquizpage']    = 'Quiz settings';
 // All the settings for the Quiz Landing page
-$string['quizlandingheading']         = 'Settings for the Quiz Landing page';
-$string['quizlandingheadingdesc']     = 'Allows the administrator to control several aspects of the quiz landing page';
-$string['enableinstructionsread']     = 'Enables additional check for the instructions';
-$string['enableinstructionsreaddesc'] = 'Enable/Disable checkbox to verify if the user has read the instructions before the exam';
-$string['enablemodalscopyterms']      = 'Enables additional check for the modals';
-$string['enablemodalscopytermsdesc']  = 'Enable/Disable checkbox to verify if the user has read the Copyright and Terms';
+$string['quizlandingheading']          = 'Settings for the Quiz Landing page';
+$string['quizlandingheadingdesc']      = 'Allows the administrator to control several aspects of the quiz landing page';
+$string['adittionallayoutclasses']     = 'Enables layout elements';
+$string['adittionallayoutclassesdesc'] = 'Enable/Disable additional layout items to help visualize the information';
+$string['enableinstructionsread']      = 'Enables additional check for the instructions';
+$string['enableinstructionsreaddesc']  = 'Enable/Disable checkbox to verify if the user has read the instructions before the exam';
+$string['enablemodalscopyterms']       = 'Enables additional check for the modals';
+$string['enablemodalscopytermsdesc']   = 'Enable/Disable checkbox to verify if the user has read the Copyright and Terms';
 
 //the name for the Integrations tab
 $string['settingsintegrationpage'] = 'Integrations settings';
 // All the settings for the Integrations page
 $string['integrationsheading']     = 'Integrations with additional components';
 $string['integrationsheadingdesc'] = 'Allows the administrator to enable/disable several integrations with additional components';
-$string['enableliveperson']     = 'Enable LivePerson integration';
-$string['enablelivepersondesc'] = 'Enable/Disable the inclusion of the LivePerson chat';
-$string['enableproctorio']      = 'Enable Proctorio integration';
-$string['enableproctoriodesc']  = 'Enable/Disable the inclusion of Proctorio';
-$string['enableconquizzer']     = 'Enable Conquizzer plugin integration';
-$string['enableconquizzerdesc'] = 'Enable/Disable the display of the Conquizzer plugin information';
+$string['enableliveperson']        = 'Enable LivePerson integration';
+$string['enablelivepersondesc']    = 'Enable/Disable the inclusion of the LivePerson chat';
+$string['enableproctorio']         = 'Enable Proctorio integration';
+$string['enableproctoriodesc']     = 'Enable/Disable the inclusion of Proctorio';
+$string['enableconquizzer']        = 'Enable Conquizzer plugin integration';
+$string['enableconquizzerdesc']    = 'Enable/Disable the display of the Conquizzer plugin information';
 
 //the name for the Test settings tab
 $string['settingstestpage'] = 'Settings test page';

@@ -25,12 +25,21 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$page = new admin_settingpage('theme_saimaniq_quiz_landing', get_string('settingsquizlandingpage', 'theme_saimaniq'));
+$page = new admin_settingpage('theme_saimaniq_quiz', get_string('settingsquizpage', 'theme_saimaniq'));
 
 $page->add(new admin_setting_heading('theme_saimaniq_quiz_landing', get_string('quizlandingheading', 'theme_saimaniq'),
         format_text(get_string('quizlandingheadingdesc', 'theme_saimaniq'), FORMAT_MARKDOWN)));
 
-// Checkbox to Enable/Disable LivePerson
+// Checkbox to Enable/Disable the check for additional instructions for the test
+$name = 'theme_saimaniq/adittionallayoutclasses';
+$title = get_string('adittionallayoutclasses', 'theme_saimaniq');
+$description = get_string('adittionallayoutclassesdesc', 'theme_saimaniq');
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true,false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Checkbox to Enable/Disable the check for additional instructions for the test
 $name = 'theme_saimaniq/enableinstructionsread';
 $title = get_string('enableinstructionsread', 'theme_saimaniq');
 $description = get_string('enableinstructionsreaddesc', 'theme_saimaniq');
@@ -39,7 +48,7 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-// Checkbox to Enable/Disable LivePerson
+// Checkbox to Enable/Disable seeing the copyright and terms and conditions modal
 $name = 'theme_saimaniq/enablemodalscopyterms';
 $title = get_string('enablemodalscopyterms', 'theme_saimaniq');
 $description = get_string('enablemodalscopytermsdesc', 'theme_saimaniq');

@@ -30,7 +30,6 @@ function bothCheck() {
  * @param {object} statusModals status of the modals
  */
 function checkSingle(statusModals) {
-    window.console.log(statusModals.where);
     if (statusModals.copyrightModal == 1 && statusModals.termsModal == 1) {
         singleCheck(statusModals.where);
     } else {
@@ -52,12 +51,20 @@ function modalClose(statusModals, element) {
     if (element.id == 'terms-modal') {
         statusModals.termsModal = 1;
     }
-    window.console.log(`copyright modal is '${statusModals.copyrightModal}'`);
-    window.console.log(`terms modal is '${statusModals.termsModal}'`);
 }
 
 export const init = () => {
     document.querySelector("body#page-mod-quiz-view div#intro p").classList.add('d-none');
+};
+
+export const bolder = () => {
+    let selector = document.querySelectorAll('div.box.quizinfo p');
+    selector.forEach((paragraph) => {
+        paragraph.innerHTML = '<strong>'+
+                                paragraph.innerText.substr(0, paragraph.innerText.indexOf(':')+1)+
+                              '</strong>'+
+                                paragraph.innerText.substr(paragraph.innerText.indexOf(':')+1);
+    });
 };
 
 export const checkboxEnabler = (instructions, copyright) => {
@@ -68,8 +75,6 @@ export const checkboxEnabler = (instructions, copyright) => {
         termsModal: 0,
         where: ''
     };
-    window.console.log(`copyright modal is '${statusModals.copyrightModal}'`);
-    window.console.log(`terms modal is '${statusModals.termsModal}'`);
     if (instructions !== "" && copyright !== "") {
         document.querySelector('input#instructions_verification').addEventListener("click", bothCheck);
         document.querySelector('input#copyrightnotice').addEventListener("click", bothCheck);
