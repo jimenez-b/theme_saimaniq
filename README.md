@@ -41,7 +41,7 @@ using Boost 3.9 as it's main inspirtation.
 - - [x] CONUMDLS0304 Cleanup code settings_general.php
 - - [x] CONUMDLS0305 Add privacy class file
 - [ ] CONUMDLS04 - Settings
-- - [ ] CONUMDLS0401 Create course settings page
+- - [x] CONUMDLS0401 Create course settings page
 - - [ ] CONUMDLS0402 Create home settings page
 - - [ ] CONUMDLS0403 Review the order for the Test settings page
 - - [x] CONUMDLS0404 Create landing quiz settings page
