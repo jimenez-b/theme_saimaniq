@@ -113,6 +113,7 @@ $templatecontext = [
     'headercontent' => $headercontent,
     'addblockbutton' => $addblockbutton,
     'backgroundcolorchoices' => $backgroundcolorchoices,
+    'enableliveperson' => $enableliveperson,
 ];
 
 echo $OUTPUT->render_from_template('theme_saimaniq/course', $templatecontext);

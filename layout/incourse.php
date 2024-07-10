@@ -108,7 +108,8 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'overflow' => $overflow,
     'headercontent' => $headercontent,
-    'addblockbutton' => $addblockbutton
+    'addblockbutton' => $addblockbutton,
+    'enableliveperson' => $enableliveperson,
 ];
 
 echo $OUTPUT->render_from_template('theme_saimaniq/incourse', $templatecontext);
