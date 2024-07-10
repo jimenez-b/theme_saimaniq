@@ -34,6 +34,10 @@ $backgroundcolorchoices = substr($backgroundcolorchoices, 1);
 $enableliveperson = get_config('theme_saimaniq', 'enableliveperson');
 //CONUMDLS0102 Build LivePerson integration -- End
 
+//CONUMDLS0202 Support FAQ Sidebar -- Begin
+$enablesupportfaq = get_config('theme_saimaniq', 'enablesupportfaq');
+//CONUMDLS0202 Support FAQ Sidebar -- End
+
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
 
@@ -114,6 +118,7 @@ $templatecontext = [
     'addblockbutton' => $addblockbutton,
     'backgroundcolorchoices' => $backgroundcolorchoices,
     'enableliveperson' => $enableliveperson,
+    'enablesupportfaq' => $enablesupportfaq,
 ];
 
 echo $OUTPUT->render_from_template('theme_saimaniq/course', $templatecontext);

@@ -25,7 +25,7 @@ using Boost 3.9 as it's main inspirtation.
 - - [x] CONUMDLS0103 Build Conquizzer integration
 - [ ] CONUMDLS02 - Features coming from COLEv2
 - - [ ] CONUMDLS0201 Branding
-- - [ ] CONUMDLS0202 Support FAQ Sidebar
+- - [x] CONUMDLS0202 Support FAQ Sidebar
 - - [ ] CONUMDLS0203 General Quiz UX/UI
 - - [ ] CONUMDLS0204 Summary of questions
 - - [ ] CONUMDLS0205 Prevent clicking on exam exit

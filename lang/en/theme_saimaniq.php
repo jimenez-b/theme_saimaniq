@@ -94,6 +94,14 @@ $string['loginshowchangepassworddesc'] = 'Hide or show the "Forgot password?" li
 $string['cookiesnoticemobile'] = 'Cookies';
 
 //the name for the Quiz Landing tab
+$string['settingscoursepage']    = 'Course settings';
+// All the settings for the Quiz Landing page
+$string['coursepageheading']     = 'Settings for the Course page';
+$string['coursepageheadingdesc'] = 'Allows the administrator to control several aspects of the course page';
+$string['enablesupportfaq']      = 'Enables Support FAQ';
+$string['enablesupportfaqdesc']  = 'Enable/Disable the support FAQ for the course page';
+
+//the name for the Quiz Landing tab
 $string['settingsquizpage']    = 'Quiz settings';
 // All the settings for the Quiz Landing page
 $string['quizlandingheading']          = 'Settings for the Quiz Landing page';
@@ -151,3 +159,17 @@ $string['termsandconditions'] = '<p>You are about to enter into an online exam e
 <p>The academic integrity standards applicable to you during this exam are identical to those applicable in an in-person exam. If it is suspected that you did not respect those standards, you may be charged under the Academic Code of Conduct. It is your responsibility to ensure that you remove anything from your exam environment that can be perceived to be unauthorized materials during the exam. Material that you are allowed to use during the exam are mentioned above.</p>
 <p>By entering the exam, you represent and warrant that you are the person whose name is associated with the login used in COLE. You affirm that you have had the opportunity to review and that you understand the Academic Code of Conduct.</p>
 <p>If you require support during the exam, please call 1-888-202-8615 as soon as possible.</p>';
+
+//suppport FAQ
+$string['support'] = "Support";
+$string['technicaldifficultieshdr'] = "Technical difficulty?";
+$string['technicaldifficulties'] = "Use the <strong>Exam Support</strong> chat button on the right of your screen to contact COLE support or call the toll free number at the bottom of the page.";
+$string['proctorioissueshdr'] = "Proctorio issues?";
+$string['proctorioissues'] = "First use the <strong>Exam Support</strong> chat button on the right of your screen to contact COLE support. If they direct you to Proctorio support, click the Proctorio shield icon in your browser (upper right) to access Proctorio live chat.";
+$string['questionsinstructorhdr'] = "Questions for your instructor";
+$string['questionsinstructor'] = "Use the <strong>Exam Support</strong> chat button on the right of your screen to contact COLE support. They will connect you with your instructor.";
+$string['acsdaccomodationshdr'] = "ACSD accommodations";
+$string['acsdaccomodations'] = "If you are eligible for extended time, your exam time has been configured and verified by the COLE exam team and ACSD.";
+$string['chinaoriranhdr'] = "Writing from China or Iran";
+$string['chinaoriran'] = "If your exam is proctored, make sure you are not connected with VPN. VPN is not compatible with proctored exams.";
+$string['supportphone'] = 'Call <a href="tel:+18882028615">1-888-202-8615</a> for support';
