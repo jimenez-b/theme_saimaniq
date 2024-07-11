@@ -41,9 +41,13 @@
             'instructions' => $enableinstructionsread,
             'copyright'    => $enablemodalscopyterms
         ];
-        //$enabledcheckboxes = ($return_type == 'array') ? $enabledcheckboxes : json_encode($enabledcheckboxes);
-        //return $enabledcheckboxes;
-        return ($return_type == 'array' ? $enabledcheckboxes : json_encode($enabledcheckboxes) );
+        return ($return_type == 'object' ? (object) $enabledcheckboxes : json_encode($enabledcheckboxes) );
+    }
+
+    public static function get_role($context, $userid) : string {
+        $capability  = has_capability('moodle/course:create',$context,$userid);
+        $capability2 = has_capability('mod/quiz:grade',$context,$userid);
+        return ($capability == 1 || $capability2 == 1)? "non-student" : "student";
     }
 
     public static function little_html_test_saimaniq() : string {
