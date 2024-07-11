@@ -28,27 +28,19 @@ require_once($CFG->dirroot . '/backup/util/ui/renderer.php');
 
 class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
     //CONUMDLS0206 Customized checkboxes for the Copyright notice and the Terms and conditions
-    public function export_for_template($array) {
-        $checkboxes_display = theme_saimaniq\helper::checkboxes_display('array');
-        $data = new stdClass();
-        $data->instructions = $checkboxes_display['instructions'];
-        $data->copyright = $checkboxes_display['copyright'];
-        $data->checkmessage = (!empty($checkboxes_display['instructions']) && !empty($checkboxes_display['copyright'])) ? true : false;
-        return $data;
-    }
 
     public function view_confirmation() : string {
         $preset = theme_saimaniq\helper::is_cole_preset(theme_config::load('saimaniq'));
-        $checkboxes_display = theme_saimaniq\helper::checkboxes_display('array');
-        $data = $this->export_for_template($checkboxes_display);
-        return ($preset == true ? $this->render_from_template('theme_saimaniq/cole/checkboxes', $data) : '' );
+        $checkboxes_display = theme_saimaniq\helper::checkboxes_display('object');
+        $checkboxes_display->checkmessage = (!empty($checkboxes_display->instructions) && !empty($checkboxes_display->copyright)) ? true : false;
+        return ($preset == true ? $this->render_from_template('theme_saimaniq/cole/checkboxes', $checkboxes_display) : '' );
     }
 
     public function render_modals() : string {
         $preset = theme_saimaniq\helper::is_cole_preset(theme_config::load('saimaniq'));
-        $checkboxes_display = theme_saimaniq\helper::checkboxes_display('array');
+        $checkboxes_display = theme_saimaniq\helper::checkboxes_display('object');
         $output = '';
-        if ($preset == true && !empty($checkboxes_display['copyright'])) {
+        if ($preset == true && !empty($checkboxes_display->copyright)) {
             $output .= $this->render_from_template('theme_saimaniq/cole/copy_modal', '');
             $output .= $this->render_from_template('theme_saimaniq/cole/terms_modal', '');
         }
@@ -56,12 +48,12 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
     }
     public function js_loaders_landing() : string {
         $preset = theme_saimaniq\helper::is_cole_preset(theme_config::load('saimaniq'));
-        $checkboxes_display = theme_saimaniq\helper::checkboxes_display('array');
+        $checkboxes_display = theme_saimaniq\helper::checkboxes_display('object');
         $output = '';
         if ($preset == true) {
             $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/landing','init');
             $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/landing','bolder');
-            $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/landing','checkboxEnabler', [$checkboxes_display['instructions'] , $checkboxes_display['copyright']]);
+            $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/landing','checkboxEnabler', [$checkboxes_display->instructions , $checkboxes_display->copyright]);
         }
         return $output;
     }
@@ -101,6 +93,22 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         return $rendered;
     }
 
+    public function build_data_liveperson_template($context) {
+        global $USER;
+
+        $role = theme_saimaniq\helper::get_role($context,$USER->id);
+        $data = new stdClass();
+        $data->username = $USER->username;
+        if($role == "non-student") {
+            $data->employeeid = $USER->profile['aim'];
+        }
+        if($role == "student") {
+            $data->studentid = $USER->idnumber;
+        }
+        $data->userrole = $role;
+        return $this->render_from_template('theme_saimaniq/cole/lpfields', $data);
+    }
+
     /*
      * View Page
      */
@@ -115,6 +123,7 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
      * @return string HTML to display
      */
     public function view_page($course, $quiz, $cm, $context, $viewobj) {
+        global $USER;
         /*
         * Revised logic: 
         * if CONQUIZZER is not installed don't load its information
@@ -130,8 +139,8 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $output .= $this->render_modals();
         //CONUMDLS0206 Customized checkboxes for the Copyright notice and the Terms and conditions - end
         $output .= $this->js_loaders_landing();
+        $output .= $this->build_data_liveperson_template($context);
         $output .= $this->box($this->view_page_buttons($viewobj), 'quizattempt');
-        
         return $output;
     }
 }
