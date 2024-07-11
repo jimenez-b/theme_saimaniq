@@ -33,7 +33,7 @@ using Boost 3.9 as it's main inspirtation.
 - - [x] CONUMDLS0207 Add second verification for Copyright notice and Terms and conditions checkboxes
 - - [ ] CONUMDLS0208 Questions answered bar
 - - [x] CONUMDLS0209 Landing information reordered
-- - [ ] CONUMDLS0210 LivePerson information
+- - [x] CONUMDLS0210 LivePerson information
 - [ ] CONUMDLS03 - Miscellaneous
 - - [ ] CONUMDLS0301 Review table css
 - - [ ] CONUMDLS0302 Review add/remove users css
