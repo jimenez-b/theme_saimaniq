@@ -161,7 +161,7 @@ $string['termsandconditions'] = '<p>You are about to enter into an online exam e
 <p>If you require support during the exam, please call 1-888-202-8615 as soon as possible.</p>';
 
 //suppport FAQ
-$string['support'] = "Support";
+$string['support'] = "Support FAQ";
 $string['technicaldifficultieshdr'] = "Technical difficulty?";
 $string['technicaldifficulties'] = "Use the <strong>Exam Support</strong> chat button on the right of your screen to contact COLE support or call the toll free number at the bottom of the page.";
 $string['proctorioissueshdr'] = "Proctorio issues?";
