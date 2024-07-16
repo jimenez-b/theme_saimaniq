@@ -139,7 +139,7 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
             $percentage = ($attempted/$total)*100;
             $output .= html_writer::start_tag('div', ['id'=>'saimaniq-questions-bar', 'class' => "container mb-4 mx-w-inh"]);
             $output .= html_writer::tag('div', $contents, $classes);
-            $output .= html_writer::start_tag('div', array('class' => "progress"));
+            $output .= html_writer::start_tag('div', array('class' => "progress rounded-0"));
             $output .= html_writer::start_tag('div', array('class' => "progress-bar", 'role' => "progressbar",'aria-valuenow' => $attempted,'aria-valuemin' => 0,'aria-valuemax' => $total,'style' => "width:$percentage%"));
             $output .= html_writer::tag('span', $percentage." completed", array('class' => "sr-only"));
             $output .= html_writer::end_tag('div');

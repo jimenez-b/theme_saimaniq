@@ -34,6 +34,7 @@ using Boost 3.9 as it's main inspirtation.
 - - [x] CONUMDLS0208 Questions answered bar
 - - [x] CONUMDLS0209 Landing information reordered
 - - [x] CONUMDLS0210 LivePerson information
+- - [ ] CONUMDLS0211 Modified question footer with navigation to all the questions
 - [ ] CONUMDLS03 - Miscellaneous
 - - [ ] CONUMDLS0301 Review table css
 - - [ ] CONUMDLS0302 Review add/remove users css
