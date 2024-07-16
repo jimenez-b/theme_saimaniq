@@ -109,6 +109,50 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         return $this->render_from_template('theme_saimaniq/cole/lpfields', $data);
     }
 
+    //CONUMDLS0208 Questions answered bar -- Begin
+    public function header_questions_attempted($attemptobj,$display=false,$bar = false) {
+        $output = '';
+        $enablequestionsanswered = get_config('theme_saimaniq', 'enablequestionsanswered');
+        if (!$enablequestionsanswered){
+            return '';
+        }
+        
+        $slots = $attemptobj->get_slots();
+        $attempted = 0;
+        $total = 0;
+        foreach ($slots as $slot) {
+            $state = $attemptobj->get_question_state_class($slot, $display);
+            $type = $attemptobj->get_question_type_name($slot);
+            if($type=='hybrid' && ($state=='answersaved'||$state=='invalidanswer')){
+                $attempted++;
+            } 
+            if($state=='answersaved' && $type!='description'){
+                $attempted++;
+            }
+            if($type!='description'){
+                $total++;
+            }
+        }
+        $contents = get_string('questionsatt', 'theme_saimaniq').$attempted."/".$total;
+        $classes = array('class' => 'summarymarks');
+        if ($bar == true){
+            $percentage = ($attempted/$total)*100;
+            $output .= html_writer::start_tag('div', ['id'=>'saimaniq-questions-bar', 'class' => "container mb-4 mx-w-inh"]);
+            $output .= html_writer::tag('div', $contents, $classes);
+            $output .= html_writer::start_tag('div', array('class' => "progress"));
+            $output .= html_writer::start_tag('div', array('class' => "progress-bar", 'role' => "progressbar",'aria-valuenow' => $attempted,'aria-valuemin' => 0,'aria-valuemax' => $total,'style' => "width:$percentage%"));
+            $output .= html_writer::tag('span', $percentage." completed", array('class' => "sr-only"));
+            $output .= html_writer::end_tag('div');
+            $output .= html_writer::end_tag('div');
+            $output .= html_writer::end_tag('div');
+        }
+        else{
+            $output .= html_writer::tag('div', $contents, $classes);
+        }
+        return $output;
+    }
+    //CONUMDLS0208 Questions answered bar -- end
+
     /*
      * View Page
      */
@@ -141,6 +185,33 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $output .= $this->js_loaders_landing();
         $output .= $this->build_data_liveperson_template($context);
         $output .= $this->box($this->view_page_buttons($viewobj), 'quizattempt');
+        return $output;
+    }
+
+    /**
+     * Attempt Page
+     *
+     * @param quiz_attempt $attemptobj Instance of quiz_attempt
+     * @param int $page Current page number
+     * @param access_manager $accessmanager Instance of access_manager
+     * @param array $messages An array of messages
+     * @param array $slots Contains an array of integers that relate to questions
+     * @param int $id The ID of an attempt
+     * @param int $nextpage The number of the next page
+     * @return string HTML to output.
+     */
+    public function attempt_page($attemptobj, $page, $accessmanager, $messages, $slots, $id,
+            $nextpage) {
+        $output = '';
+        $output .= $this->header();
+        //CONUMDLS0208 Questions answered bar -- Begin
+        $output .= $this->header_questions_attempted($attemptobj, false,true);
+        //CONUMDLS0208 Questions answered bar -- End
+        $output .= $this->during_attempt_tertiary_nav($attemptobj->view_url());
+        $output .= $this->quiz_notices($messages);
+        $output .= $this->countdown_timer($attemptobj, time());
+        $output .= $this->attempt_form($attemptobj, $page, $slots, $id, $nextpage);
+        $output .= $this->footer();
         return $output;
     }
 }

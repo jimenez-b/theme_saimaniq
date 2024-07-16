@@ -110,8 +110,12 @@ $string['adittionallayoutclasses']     = 'Enables layout elements';
 $string['adittionallayoutclassesdesc'] = 'Enable/Disable additional layout items to help visualize the information';
 $string['enableinstructionsread']      = 'Enables additional check for the instructions';
 $string['enableinstructionsreaddesc']  = 'Enable/Disable checkbox to verify if the user has read the instructions before the exam';
-$string['enablemodalscopyterms']       = 'Enables additional check for the modals';
+$string['enablemodalscopyterms']       = 'Enables additional check for the Copy/Terms';
 $string['enablemodalscopytermsdesc']   = 'Enable/Disable checkbox to verify if the user has read the Copyright and Terms';
+$string['quizquestionheading']         = 'Settings for the Quiz question(s) page';
+$string['quizquestionheadingdesc']     = 'Allows the administrator to control several aspects of quiz question page';
+$string['enablequestionsanswered']     = 'Enables Questions Answered bar';
+$string['enablequestionsanswereddesc'] = 'Enable/Disable the Questions bar';
 
 //the name for the Integrations tab
 $string['settingsintegrationpage'] = 'Integrations settings';
@@ -138,6 +142,12 @@ $string['learnmoreurl'] = 'https://www.concordia.ca/it.html#notices';
 $string['contactit'] = 'Contact IT Service Desk';
 $string['contactiturl'] = 'https://www.concordia.ca/it/support.html';
 $string['loginmaintext'] = ' students, faculty and staff login';
+
+// quiz page
+//Summary strings
+//Table strings
+$string['questionno'] = 'Q No.';
+$string['questionsatt'] = 'Questions attempted:';
 
 // We need to include a lang string for each block region.
 $string['region-side-pre'] = 'Right';
