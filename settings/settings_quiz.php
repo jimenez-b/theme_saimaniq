@@ -69,5 +69,44 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Checkbox to Enable/Disable the custom pagination on the quiz page
+$name = 'theme_saimaniq/enablecustompagination';
+$title = get_string('enablecustompagination', 'theme_saimaniq');
+$description = get_string('enablecustompaginationdesc', 'theme_saimaniq');
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true,false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Login page background opacity.
+$opacitychoices = [
+        'label'     => 'Label',
+        'character' => 'Single Character',
+        'icon' => 'Icon'
+];
+    
+$name = 'theme_saimaniq/custompaginationnaming';
+$title = get_string('custompaginationnaming', 'theme_saimaniq');
+$description = get_string('custompaginationnamingdesc', 'theme_saimaniq');
+$default = 'label';
+$setting = new admin_setting_configselect($name, $title, $description, $default, $opacitychoices);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Login page background opacity.
+$opacitychoices = [
+        'center' => 'Centered',
+        'left'   => 'Left',
+        'end'    => 'Right'
+];
+    
+$name = 'theme_saimaniq/custompaginationposition';
+$title = get_string('custompaginationposition', 'theme_saimaniq');
+$description = get_string('custompaginationpositiondesc', 'theme_saimaniq');
+$default = 'center';
+$setting = new admin_setting_configselect($name, $title, $description, $default, $opacitychoices);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Must add the page after definiting all the settings! 
 $settings->add($page);

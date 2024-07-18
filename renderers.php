@@ -214,6 +214,178 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $output .= $this->footer();
         return $output;
     }
+
+    //CONUMDLS0211 Modified question footer with navigation to all the questions -- Begin
+
+    /**
+     * Display the prev/next buttons that go at the bottom of each page of the attempt.
+     *
+     * @param int $page the page number. Starts at 0 for the first page.
+     * @param bool $lastpage is this the last page in the quiz?
+     * @param string $navmethod Optional quiz attribute, 'free' (default) or 'sequential'
+     * @return string HTML fragment.
+     */
+    protected function attempt_navigation_buttons_custom($page, $lastpage, $navmethod = 'free', $attemptid = '', $cmid = '', $num_pages = 1, $pagesshow=5) {
+        global $DB,$PAGE;
+        $quizid = $DB->get_field('quiz_attempts','quiz',array('id' => $attemptid));
+        
+        $baseurl = strtok($PAGE->url, "?");
+
+        $output = '';
+
+        $custompaginationnaming = get_config('theme_saimaniq', 'custompaginationnaming');
+
+        $prevlabel = $nextlabel = $styleLabel= '';
+
+        if($custompaginationnaming) {
+            switch($custompaginationnaming){
+                case 'character':
+                    $prevlabel = '<';
+                    $nextlabel = '>';
+                    break;
+                case 'icon':
+                    $prevlabel = '&#xf053;';//fa-chevron-left [&#xf053;]
+                    $nextlabel = '&#xf054;';//fa-chevron-right [&#xf054;]
+                    $styleLabel= "font-family: FontAwesome";
+                    break;
+                default:
+                    $prevlabel = get_string('navigateprevious', 'quiz');
+                    $nextlabel = get_string('navigatenext', 'quiz');
+                    break;
+            }
+        }
+        
+        $custompaginationposition = get_config('theme_saimaniq', 'custompaginationposition');
+        /*$navClasses = match ($custompaginationposition) {
+            'center' => 'justify-content-center',
+            'center' => 'justify-content-center',
+            'center' => 'justify-content-center',
+        };*/
+        $navClasses  = 'nav bg-secondary';
+        $navClasses .= ($custompaginationposition?' justify-content-'.$custompaginationposition:' justify-content-center');
+
+        $pagesshow = ($num_pages < 5) ?$num_pages:$pagesshow;
+        $changeperc = floor($pagesshow*0.7);
+        
+        $previousclasses = ($page == 0)? "disabled pe-none rounded-0":'rounded-0';
+        $nextclasses = ($lastpage)? "disabled pe-none d-none rounded-0":'rounded-0';
+        $last = ($lastpage==1)? "true":'false';
+        $output .= html_writer::start_tag('div', array('id' => 'saimaniq-attempt_navigation_buttons', 'class'=> $navClasses));
+        $output .= html_writer::start_tag('div', array('id' => 'saimaniq-pagination-main-buttons', 'class' => 'd-inline-flex'));
+        if ($page >0 ){
+            $output .= html_writer::empty_tag('input',array('type' => 'submit','name' => 'previous','value' => $prevlabel,'class' => $previousclasses,'style'=>$styleLabel));
+        }
+
+        $start_level = 0;
+        if (($page >= 0)&&($page < $changeperc)||($num_pages==1)){
+            $start_level = 1; 
+        }
+        elseif (($page >= $changeperc)&&($page < $num_pages - $changeperc)){
+            $start_level = $page - 1; 
+        }
+        elseif($page >= $num_pages - $changeperc){
+            $start_level = $num_pages - ($pagesshow-1);
+        }
+        for ($i=1;$i<=$pagesshow;$i++) {
+            
+            $options = array_merge(
+                ['attempt' => $attemptid, 'cmid' => $cmid],
+                ($start_level > 1 ? ["page" => $start_level-1] : [])
+            );
+            $linkClasses = "btn qnbutton";
+            $linkClasses .= ($start_level == $page+1) ? " active" : "";
+            $output .= html_writer::link(
+                new moodle_url($baseurl, $options),
+                $start_level,
+                ["class" => $linkClasses,
+                 "data-current-page" => ($start_level == $page+1) ? "true" : "false"
+                ]
+                );
+            $start_level++;
+        }
+        
+        $output .= html_writer::empty_tag('input', array('type' => 'submit', 'name' => 'next',
+                'value' => $nextlabel,'class'=>$nextclasses, 'data-last-page'=>$last, 'style' =>$styleLabel));
+
+        $output .= html_writer::end_tag('div');     
+        $output .= html_writer::link(
+            new moodle_url($baseurl, array('attempt' => $attemptid, 'cmid' => $cmid)), 
+            get_string('endtest', 'quiz'),
+            array("class"=>'endtestlink align-self-center', "role"=>"button")
+        ); 
+        $output .= html_writer::end_tag('div');
+        return $output;
+    }
+
+    /**
+     * Outputs the form for making an attempt
+     *
+     * @param quiz_attempt $attemptobj
+     * @param int $page Current page number
+     * @param array $slots Array of integers relating to questions
+     * @param int $id ID of the attempt
+     * @param int $nextpage Next page number
+     */
+    public function attempt_form($attemptobj, $page, $slots, $id, $nextpage) {
+        $output = '';
+        $enablecustompagination = get_config('theme_saimaniq', 'enablecustompagination');
+
+        if (!$enablecustompagination) {
+            $output .= parent::attempt_form($attemptobj, $page, $slots, $id, $nextpage);
+            return $output;
+        }
+
+        
+        $output .= '<h1>tester</h1>';
+        // Start the form.
+        $output .= html_writer::start_tag('form',
+                ['action' => new moodle_url($attemptobj->processattempt_url(),
+                        ['cmid' => $attemptobj->get_cmid()]), 'method' => 'post',
+                        'enctype' => 'multipart/form-data', 'accept-charset' => 'utf-8',
+                        'id' => 'responseform']);
+        $output .= html_writer::start_tag('div');
+
+        // Print all the questions.
+        foreach ($slots as $slot) {
+            $output .= $attemptobj->render_question($slot, false, $this,
+                    $attemptobj->attempt_url($slot, $page));
+        }
+
+        $navmethod = $attemptobj->get_quiz()->navmethod;
+        //$output .= $this->attempt_navigation_buttons($page, $attemptobj->is_last_page($page), $navmethod);
+        $output .= $this->attempt_navigation_buttons_custom($page, $attemptobj->is_last_page($page), $navmethod, $attemptobj->get_attemptid(), $attemptobj->get_cmid(), $attemptobj->get_num_pages());
+
+
+        // Some hidden fields to track what is going on.
+        $output .= html_writer::empty_tag('input', ['type' => 'hidden', 'name' => 'attempt',
+                'value' => $attemptobj->get_attemptid()]);
+        $output .= html_writer::empty_tag('input', ['type' => 'hidden', 'name' => 'thispage',
+                'value' => $page, 'id' => 'followingpage']);
+        $output .= html_writer::empty_tag('input', ['type' => 'hidden', 'name' => 'nextpage',
+                'value' => $nextpage]);
+        $output .= html_writer::empty_tag('input', ['type' => 'hidden', 'name' => 'timeup',
+                'value' => '0', 'id' => 'timeup']);
+        $output .= html_writer::empty_tag('input', ['type' => 'hidden', 'name' => 'sesskey',
+                'value' => sesskey()]);
+        $output .= html_writer::empty_tag('input', ['type' => 'hidden', 'name' => 'mdlscrollto',
+                'value' => '', 'id' => 'mdlscrollto']);
+
+        // Add a hidden field with questionids. Do this at the end of the form, so
+        // if you navigate before the form has finished loading, it does not wipe all
+        // the student's answers.
+        $output .= html_writer::empty_tag('input', ['type' => 'hidden', 'name' => 'slots',
+                'value' => implode(',', $attemptobj->get_active_slots($page))]);
+
+        // Finish the form.
+        $output .= html_writer::end_tag('div');
+        $output .= html_writer::end_tag('form');
+
+        $output .= $this->connection_warning();
+
+        return $output;
+    }
+    //CONUMDLS0211 Modified question footer with navigation to all the questions -- End
+
 }
 
 class theme_saimaniq_core_renderer extends theme_boost\output\core_renderer {

@@ -112,10 +112,17 @@ $string['enableinstructionsread']      = 'Enables additional check for the instr
 $string['enableinstructionsreaddesc']  = 'Enable/Disable checkbox to verify if the user has read the instructions before the exam';
 $string['enablemodalscopyterms']       = 'Enables additional check for the Copy/Terms';
 $string['enablemodalscopytermsdesc']   = 'Enable/Disable checkbox to verify if the user has read the Copyright and Terms';
-$string['quizquestionheading']         = 'Settings for the Quiz question(s) page';
-$string['quizquestionheadingdesc']     = 'Allows the administrator to control several aspects of quiz question page';
-$string['enablequestionsanswered']     = 'Enables Questions Answered bar';
-$string['enablequestionsanswereddesc'] = 'Enable/Disable the Questions bar';
+// All the settings for the Quiz page
+$string['quizquestionheading']          = 'Settings for the Quiz question(s) page';
+$string['quizquestionheadingdesc']      = 'Allows the administrator to control several aspects of quiz question page';
+$string['enablequestionsanswered']      = 'Enables Questions Answered bar';
+$string['enablequestionsanswereddesc']  = 'Enable/Disable the Questions bar';
+$string['enablecustompagination']       = 'Enables Custom pagination';
+$string['enablecustompaginationdesc']   = 'Enable/Disable the custom pagination at the bottom of the quiz page';
+$string['custompaginationnaming']       = 'Select pagination type';
+$string['custompaginationnamingdesc']   = 'Allows selection of the pagination type: default strings, single character or icon';
+$string['custompaginationposition']     = 'Select pagination position';
+$string['custompaginationpositiondesc'] = 'Selects the position of the pagination bar for the quiz';
 
 //the name for the Integrations tab
 $string['settingsintegrationpage'] = 'Integrations settings';
