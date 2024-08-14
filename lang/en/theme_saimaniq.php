@@ -93,13 +93,15 @@ $string['loginshowchangepassword']     = 'Display "Forgot Password?" link';
 $string['loginshowchangepassworddesc'] = 'Hide or show the "Forgot password?" link on the login page';
 $string['cookiesnoticemobile'] = 'Cookies';
 
-//the name for the Quiz Landing tab
+//the name for the Course tab
 $string['settingscoursepage']    = 'Course settings';
 // All the settings for the Quiz Landing page
 $string['coursepageheading']     = 'Settings for the Course page';
 $string['coursepageheadingdesc'] = 'Allows the administrator to control several aspects of the course page';
 $string['enablesupportfaq']      = 'Enables Support FAQ';
 $string['enablesupportfaqdesc']  = 'Enable/Disable the support FAQ for the course page';
+$string['enablefloatingfaq']     = 'Enables floating FAQ';
+$string['enablefloatingfaqdesc'] = 'Enable/Disable the floating design for the FAQ';
 
 //the name for the Quiz Landing tab
 $string['settingsquizpage']    = 'Quiz settings';

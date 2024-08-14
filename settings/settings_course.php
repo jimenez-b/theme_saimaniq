@@ -39,5 +39,14 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Checkbox to Enable/Disable the floating FAQ design
+$name = 'theme_saimaniq/enablefloatingfaq';
+$title = get_string('enablefloatingfaq', 'theme_saimaniq');
+$description = get_string('enablefloatingfaqdesc', 'theme_saimaniq');
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true,false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Must add the page after definiting all the settings! 
 $settings->add($page);

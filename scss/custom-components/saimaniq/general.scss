@@ -138,6 +138,9 @@ button:disabled,
     .conu-#{$name}-color{
         color: $color;
     }
+    .border-#{$name} {
+        border-color: $color !important;
+    }
 }
 
 @each $name, $color in $conu-neutrals {
@@ -155,6 +158,9 @@ button:disabled,
 @each $name, $color in $conu-theme-colors {
     .link-#{$name} {
         color: $color !important;
+    }
+    .border-#{$name} {
+        border-color: $color !important;
     }
     //regular buttons
     .btn-#{$name} {
@@ -496,7 +502,7 @@ p {
 }
 
 .card {
-    border: 1px solid $conu-medium-grey !important;
+    border: 1px solid $conu-medium-grey;
 }
 
 .card-container {
@@ -980,3 +986,53 @@ $icon-height: 20px;
 .path-grade-report-grader .gradeparent select { 
     width: auto; 
 }
+
+//CONUMDLS0202 Support FAQ Sidebar -- floating css -- begin
+.saimaniq-faq {
+    border-top: 3px solid $primary;
+    //background-color: $conu-light-grey;
+    background-color: rgba($color: $conu-light-grey, $alpha: 0.5);
+    header {
+        padding-left: 1rem;
+    }
+    button {
+        background-color: rgba($color: $conu-light-grey, $alpha: 0.5);
+        &.btn-link {
+            color: black;
+            text-decoration: none;
+            font-family: $conu-font-book;
+            &:after {
+                content: "\f106";
+                font-family: FontAwesome;
+                font-weight: 900;
+                color: $primary;
+                float: right;
+            }
+            &.collapsed:after {
+                content: "\f107";
+            }
+            &:hover, 
+            &:focus {
+                color: $primary;
+                border-color: none;
+            }
+        }
+    }
+}
+.saimaniq-floating-faq {
+    padding: 0.5rem 0rem;
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    max-width: 20vw;
+    width: 100%;
+    transform: translate(-50%,-50%);
+    box-shadow: 10px 10px 15px rgb(0, 0, 0, 0.1);
+    header.h4 {
+        &.active{
+            cursor: move;
+            user-select: none;
+        }
+    }
+}
+//CONUMDLS0202 Support FAQ Sidebar -- floating css -- end

@@ -171,7 +171,7 @@
                 </div>
             </div>
             {{#enablesupportfaq}}
-                <div id="saimaniq-help-section">
+                <div id="saimaniq-help-section" class="saimaniq-faq mx-2 {{#enablefloatingfaq}}saimaniq-floating-faq{{/enablefloatingfaq}}">
                     {{> theme_saimaniq/cole/help }}
                 </div>
             {{/enablesupportfaq}}
@@ -189,4 +189,9 @@ require(['theme_boost/loader', 'theme_boost/drawer'], function(Loader, Drawer) {
     Drawer.init();
     M.util.js_complete('theme_boost/loader');
 });
-{{/js}}
+{{#enablefloatingfaq}}
+    require(['theme_saimaniq/cole/course'], function(dragster) {
+        dragster.dragger();
+    });
+{{/enablefloatingfaq}}
+{{/js}} 
