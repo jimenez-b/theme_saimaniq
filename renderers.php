@@ -256,13 +256,12 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         }
         
         $custompaginationposition = get_config('theme_saimaniq', 'custompaginationposition');
-        /*$navClasses = match ($custompaginationposition) {
-            'center' => 'justify-content-center',
-            'center' => 'justify-content-center',
-            'center' => 'justify-content-center',
-        };*/
+        $enablestickypagination = get_config('theme_saimaniq', 'enablestickypagination');
+    
         $navClasses  = 'nav bg-secondary';
-        $navClasses .= ($custompaginationposition?' justify-content-'.$custompaginationposition:' justify-content-center');
+
+        $navClasses .= ($enablestickypagination ? ' position-sticky fixed-bottom':' position-relative');
+        $navClasses .= ($custompaginationposition ? ' justify-content-'.$custompaginationposition :' justify-content-center');
 
         $pagesshow = ($num_pages < 5) ?$num_pages:$pagesshow;
         $changeperc = floor($pagesshow*0.7);
@@ -311,12 +310,14 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $output .= html_writer::link(
             new moodle_url($baseurl, array('attempt' => $attemptid, 'cmid' => $cmid)), 
             get_string('endtest', 'quiz'),
-            array("class"=>'endtestlink align-self-center', "role"=>"button")
+            array("class"=>'endtestlink align-self-center position-absolute right-0', "role"=>"button")
         ); 
         $output .= html_writer::end_tag('div');
         return $output;
     }
+    //CONUMDLS0211 Modified question footer with navigation to all the questions -- End
 
+    //CONUMDLS0203 General Quiz UX/UI -- begin
     /**
      * Outputs the form for making an attempt
      *
@@ -335,8 +336,10 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
             return $output;
         }
 
-        
+        //TO BE REMOVED
         $output .= '<h1>tester</h1>';
+        //TO BE REMOVED
+
         // Start the form.
         $output .= html_writer::start_tag('form',
                 ['action' => new moodle_url($attemptobj->processattempt_url(),
@@ -384,7 +387,7 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
 
         return $output;
     }
-    //CONUMDLS0211 Modified question footer with navigation to all the questions -- End
+    //CONUMDLS0203 General Quiz UX/UI -- end
 
 }
 

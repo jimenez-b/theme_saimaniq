@@ -78,6 +78,15 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Checkbox to Enable/Disable the custom pagination on the quiz page
+$name = 'theme_saimaniq/enablestickypagination';
+$title = get_string('enablestickypagination', 'theme_saimaniq');
+$description = get_string('enablestickypaginationdesc', 'theme_saimaniq');
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true,false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Login page background opacity.
 $opacitychoices = [
         'label'     => 'Label',
