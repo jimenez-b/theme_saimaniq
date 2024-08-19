@@ -266,8 +266,10 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $pagesshow = ($num_pages < 5) ?$num_pages:$pagesshow;
         $changeperc = floor($pagesshow*0.7);
         
-        $previousclasses = ($page == 0)? "disabled pe-none rounded-0":'rounded-0';
-        $nextclasses = ($lastpage)? "disabled pe-none d-none rounded-0":'rounded-0';
+        $previousclasses = $nextclasses = 'btn btn-light ml-1 mr-2';
+
+        $previousclasses .= ($page == 0) ? "disabled pe-none" : '';
+        $nextclasses     .= ($lastpage) ? "disabled pe-none d-none" : '';
         $last = ($lastpage==1)? "true":'false';
         $output .= html_writer::start_tag('div', array('id' => 'saimaniq-attempt_navigation_buttons', 'class'=> $navClasses));
         $output .= html_writer::start_tag('div', array('id' => 'saimaniq-pagination-main-buttons', 'class' => 'd-inline-flex'));
@@ -291,7 +293,8 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
                 ['attempt' => $attemptid, 'cmid' => $cmid],
                 ($start_level > 1 ? ["page" => $start_level-1] : [])
             );
-            $linkClasses = "btn qnbutton";
+            //$linkClasses = "btn qnbutton";
+            $linkClasses = "btn btn-light";
             $linkClasses .= ($start_level == $page+1) ? " active" : "";
             $output .= html_writer::link(
                 new moodle_url($baseurl, $options),
@@ -306,11 +309,13 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $output .= html_writer::empty_tag('input', array('type' => 'submit', 'name' => 'next',
                 'value' => $nextlabel,'class'=>$nextclasses, 'data-last-page'=>$last, 'style' =>$styleLabel));
 
+        $extraclasses = ($custompaginationposition == 'right' ? '' :' position-absolute right-0');
+
         $output .= html_writer::end_tag('div');     
         $output .= html_writer::link(
             new moodle_url($baseurl, array('attempt' => $attemptid, 'cmid' => $cmid)), 
             get_string('endtest', 'quiz'),
-            array("class"=>'endtestlink align-self-center position-absolute right-0', "role"=>"button")
+            array("class"=>'endtestlink btn btn-primary align-self-center'.$extraclasses, "role"=>"button")
         ); 
         $output .= html_writer::end_tag('div');
         return $output;
