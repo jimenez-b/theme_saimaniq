@@ -42,6 +42,18 @@ function checkSingle(statusModals) {
 /**
  * Function to check modals
  * @param {object} statusModals status of the modals
+ */
+function checkSingle2(statusModals) {
+    if (statusModals.copyrightModal != 1 || statusModals.termsModal != 1) {
+        // eslint-disable-next-line no-alert
+        window.alert('You need to read both the Copyright and the Terms and Conditions');
+        statusModals.where.checked = false;
+    }
+}
+
+/**
+ * Function to check modals
+ * @param {object} statusModals status of the modals
  * @param {object} element element to be tested
  */
 function modalClose(statusModals, element) {
@@ -78,6 +90,19 @@ export const checkboxEnabler = (instructions, copyright) => {
     if (instructions !== "" && copyright !== "") {
         document.querySelector('input#instructions_verification').addEventListener("click", bothCheck);
         document.querySelector('input#copyrightnotice').addEventListener("click", bothCheck);
+        // It is to be rendered
+        let selectorCloser = document.querySelectorAll('button.saimaniq-close-modal');
+        selectorCloser.forEach((closerModal) => {
+            closerModal.addEventListener("click", () => {
+                modalClose(statusModals, closerModal.closest('.saimaniq-modal-box'));
+            });
+        });
+
+        let selector = document.querySelector('input#copyrightnotice');
+        selector.addEventListener("click", () => {
+            statusModals.where = selector;
+            checkSingle2(statusModals);
+        });
     } else {
         // We check if instructions is to be rendered by config
         if (instructions !== "") {
