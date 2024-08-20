@@ -258,7 +258,7 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $custompaginationposition = get_config('theme_saimaniq', 'custompaginationposition');
         $enablestickypagination = get_config('theme_saimaniq', 'enablestickypagination');
     
-        $navClasses  = 'nav bg-secondary';
+        $navClasses  = 'nav';
 
         $navClasses .= ($enablestickypagination ? ' position-sticky fixed-bottom':' position-relative');
         $navClasses .= ($custompaginationposition ? ' justify-content-'.$custompaginationposition :' justify-content-center');
@@ -266,7 +266,7 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $pagesshow = ($num_pages < 5) ?$num_pages:$pagesshow;
         $changeperc = floor($pagesshow*0.7);
         
-        $previousclasses = $nextclasses = 'btn btn-light ml-1 mr-2';
+        $previousclasses = $nextclasses = 'btn btn-link'; /*'btn btn-light ml-1 mr-2';*/
 
         $previousclasses .= ($page == 0) ? "disabled pe-none" : '';
         $nextclasses     .= ($lastpage) ? "disabled pe-none d-none" : '';
@@ -294,8 +294,8 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
                 ($start_level > 1 ? ["page" => $start_level-1] : [])
             );
             //$linkClasses = "btn qnbutton";
-            $linkClasses = "btn btn-light";
-            $linkClasses .= ($start_level == $page+1) ? " active" : "";
+            $linkClasses = "btn btn-link";
+            $linkClasses .= ($start_level == $page+1) ? " active font-weight-bold" : "";
             $output .= html_writer::link(
                 new moodle_url($baseurl, $options),
                 $start_level,
@@ -309,7 +309,7 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $output .= html_writer::empty_tag('input', array('type' => 'submit', 'name' => 'next',
                 'value' => $nextlabel,'class'=>$nextclasses, 'data-last-page'=>$last, 'style' =>$styleLabel));
 
-        $extraclasses = ($custompaginationposition == 'right' ? '' :' position-absolute right-0');
+        $extraclasses = ($custompaginationposition == 'end' ? '' :' position-absolute right-0');
 
         $output .= html_writer::end_tag('div');     
         $output .= html_writer::link(
