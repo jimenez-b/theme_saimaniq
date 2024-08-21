@@ -17,563 +17,764 @@
     Example context (json): {}
 }}
 <div class="container box large bordered">
-    <header class="major special"><h2>Elements</h2>
-        <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p></header>
+    <header class="major special">
+        <h2>Elements available</h2>
+    </header>
     <section class="mb-5">
-    <h2>Colors available</h2>
-        <section>
-            <h3>Primary Colors</h3>
-            <div class="d-flex flex-row justify-content-start flex-wrap">
-                {{#colors}}
-                    {{#.}}
-                    <div class="card-container pl-2 pb-2 conu-{{{name}}}-background {{#black}}text-black{{/black}}{{^black}}text-white{{/black}} m-2">
-                        <h3 class="card-title mb-1 capitalize">{{name}}</h3>
-                        <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
-                    </div>
-                    {{/.}}
-                {{/colors}}
-            </div>
-        </section>
-        <section>
-            <h3>Secondary Colors</h3>
-            <div class="d-flex flex-row justify-content-start flex-wrap">
-                {{#secondaries}}
-                    {{#.}}
-                    <div class="card-container pl-2 pb-2 conu-{{{name}}}-background {{#black}}text-black{{/black}}{{^black}}text-white{{/black}} m-2">
-                        <h3 class="card-title mb-1 capitalize">{{name}}</h3>
-                        <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
-                    </div>
-                    {{/.}}
-                {{/secondaries}}
-            </div>
-        </section>
-        <section>
-            <h3>Tint Colors</h3>
-            <div class="d-flex flex-row justify-content-start flex-wrap">
-                {{#tints}}
-                    {{#.}}
-                    <div class="card-container pl-2 pb-2 conu-{{{name}}}-background {{#black}}text-black{{/black}}{{^black}}text-white{{/black}} m-2">
-                        <h3 class="card-title mb-1 capitalize">{{name}}</h3>
-                        <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
-                    </div>
-                    {{/.}}
-                {{/tints}}
-            </div>
-        </section>
-        <section>
-            <h3>Neutral Colors</h3>
-            <div class="d-flex flex-row justify-content-start flex-wrap">
-                {{#neutrals}}
-                    {{#.}}
-                    <div class="card-container pl-2 pb-2 conu-{{{name}}}-background {{#black}}text-black{{/black}}{{^black}}text-white{{/black}} m-2">
-                        <h3 class="card-title mb-1 capitalize">{{name}}</h3>
-                        <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
-                    </div>
-                    {{/.}}
-                {{/neutrals}}
-            </div>
-        </section>
-    </section>
-    <section class="mb-5">
-    <h2>Theme colors</h2>
-        <section>
-            <h3>Definition Colors</h3>
-            <div class="d-flex flex-row justify-content-start flex-wrap">
-                {{#theme_primary}}
-                    {{#.}}
-                    <div class="card-container pl-2 pb-2 bg-{{{name}}} {{#black}}text-black{{/black}}{{^black}}text-white{{/black}} m-2">
-                        <h3 class="card-title mb-1 capitalize">{{name}}</h3>
-                        <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
-                    </div>
-                    {{/.}}
-                {{/theme_primary}}
-            </div>
-        </section>
-        <section>
-            <h3>Alert Colors</h3>
-            <div class="d-flex flex-row justify-content-start flex-wrap">
-                {{#theme_alerts}}
-                    {{#.}}
-                    <div class="card-container pl-2 pb-2 bg-{{{name}}} {{#black}}text-black{{/black}}{{^black}}text-white{{/black}} m-2">
-                        <h3 class="card-title mb-1 capitalize">{{name}}</h3>
-                        <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
-                    </div>
-                    {{/.}}
-                {{/theme_alerts}}
-            </div>
-        </section>
-    </section>
-    <section>
-    <h2>Typography</h2>
-        <h3>Headings</h3>
-            <h1>Heading Level 1</h1>
-            <h2>Heading Level 2</h2>
-            <h3 class="no-border heading-reset">Heading Level 3</h3>
-            <h4>Heading Level 4</h4>
-            <h4 class="conu-h4-alternate">Heading Level 4 - alternative</h4>
-            <h5>Heading Level 5</h5>
-            <h6>Heading Level 6</h6>
-
-        <h3>With classes instead of tags</h3>
-            <p class="h1">h1. Bootstrap heading</p>
-            <p class="h2">h2. Bootstrap heading</p>
-            <p class="h3 heading-reset">h3. Bootstrap heading</p>
-            <p class="h4 ">h4. Bootstrap heading</p>
-            <p class="h4 conu-h4-alternate">h4. Bootstrap heading - alternative</p>
-            <p class="h5">h5. Bootstrap heading</p>
-            <p class="h6">h6. Bootstrap heading</p>
-
-        <h3>Display classes</h3>
-            <h1 class="display-1">Display 1</h1>
-            <h1 class="display-2">Display 2</h1>
-            <h1 class="display-3">Display 3</h1>
-            <h1 class="display-4">Display 4</h1>
-
-        <h3>Headings with big classes</h3>
-            <h1 class="conu-h1-big">Custom heading Level 1</h1>
-            <h2 class="conu-burgundy-color conu-h2-small">Custom heading Level 2</h2>
-            <h2 class="conu-burgundy-color">Custom color heading Level 2</h2>
-
-        <h3>Small tag with helper class</h3>
-        <h3>
-            Fancy display heading
-            <small class="text-muted">With faded secondary text</small>
-        </h3>
-
-        <hr>
-        <h3>Inline text elements</h3>
-        <p>This is <b>bold</b> and this is <strong>strong</strong>.<br>
-           This is <i>italic</i> and this is <em>emphasized</em>.<br>
-           This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.<br>
-           You can use the mark tag to <mark>highlight</mark> text.<br>
-           <del>This line of text is meant to be treated as deleted text.</del><br>
-           <s>This line of text is meant to be treated as no longer accurate.</s><br>
-           <ins>This line of text is meant to be treated as an addition to the document.</ins><br>
-           <small>This line of text is meant to be treated as fine print.</small><br>
-           This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>.<br>
-           Finally, <a style="cursor: pointer;" href="#">this is a link</a>.
-        </p>
-        <hr>
-        <h4>Blockquote</h4>
-        <blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod.
-            Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac
-            adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam
-            adipiscing eu felis.
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-        </blockquote>
-        <h4>Preformatted</h4>
-        <pre>
-            <code>i = 0;
-                while (!deck.isInOrder()) {
-                print 'Iteration ' + i;
-                deck.shuffle();
-                i++;
-                }
-                print 'It took ' + i + ' iterations to sort the deck.';
-            </code>
-        </pre>
-    </section>
-    <section><h3>Lists</h3>
-        <div class="row">
-            <div class="col-6 col-12-xsmall"><h4>Unordered</h4>
-                <ul>
-                    <li>Dolor pulvinar etiam magna etiam.</li>
-                    <li>Sagittis adipiscing lorem eleifend.</li>
-                    <li>Felis enim feugiat dolore viverra.</li>
-                </ul>
-                <h4>Alternate</h4>
-                <ul class="alt">
-                    <li>Dolor pulvinar etiam magna etiam.</li>
-                    <li>Sagittis adipiscing lorem eleifend.</li>
-                    <li>Felis enim feugiat dolore viverra.</li>
-                </ul>
-            </div>
-            <div class="col-6 col-12-xsmall"><h4>Ordered</h4>
-                <ol>
-                    <li>Dolor pulvinar etiam magna etiam.</li>
-                    <li>Etiam vel felis at lorem sed viverra.</li>
-                    <li>Felis enim feugiat dolore viverra.</li>
-                    <li>Dolor pulvinar etiam magna etiam.</li>
-                    <li>Etiam vel felis at lorem sed viverra.</li>
-                    <li>Felis enim feugiat dolore viverra.</li>
-                </ol>
-            </div>
-        </div>
-        <h4>Icons</h4>
-        <ul class="d-inline list-unstyled">
-            <li class="d-inline m-r-1"><a class="fa fa-2x fa-twitter" style="cursor: pointer;"></a></li>
-            <li class="d-inline m-r-1"><a class="fa fa-2x fa-facebook" style="cursor: pointer;"></a></li>
-            <li class="d-inline m-r-1"><a class="fa fa-2x fa-instagram" style="cursor: pointer;"></a></li>
-            <li class="d-inline m-r-1"><a class="fa fa-2x fa-github" style="cursor: pointer;"></a></li>
-            <li class="d-inline m-r-1"><a class="fa fa-2x fa-dribbble" style="cursor: pointer;"></a></li>
-            <li class="d-inline m-r-1"><a class="fa fa-2x fa-tumblr" style="cursor: pointer;"></a></li>
-        </ul>
-        <h4>Actions</h4>
-        <ul class="actions">
-            <li><a class="btn btn-primary" style="cursor: pointer;">Default</a></li>
-            <li><a class="btn" style="cursor: pointer;">Default</a></li>
-            <li><a class="btn btn-secondary" style="cursor: pointer;">Default</a></li>
-        </ul>
-        <ul class="actions small">
-            <li><a class="btn btn-primary btn-sm" style="cursor: pointer;">Small</a></li>
-            <li><a class="btn btn-sm" style="cursor: pointer;">Small</a></li>
-            <li><a class="btn btn-secondary btn-sm" style="cursor: pointer;">Small</a></li>
-        </ul>
-    </section>
-    <section>
-        <h3>Buttons</h3>
-        <h4>Button tag default</h4>
-        <button type="button" class=" btn-primary">Primary</button>
-        <button type="button" class=" btn-secondary">Secondary</button>
-        <button type="button" class=" btn-success">Success</button>
-        <button type="button" class=" btn-danger">Danger</button>
-        <button type="button" class=" btn-warning">Warning</button>
-        <button type="button" class=" btn-info">Info</button>
-        <button type="button" class=" btn-light">Light</button>
-        <button type="button" class=" btn-dark">Dark</button>
-        <button type="button" class=" btn-link">Link</button>
-
-        <hr>
-        <h4>Button tag outline</h4>
-        <button type="button" class=" btn-outline-primary">Primary</button>
-        <button type="button" class=" btn-outline-secondary">Secondary</button>
-        <button type="button" class=" btn-outline-success">Success</button>
-        <button type="button" class=" btn-outline-danger">Danger</button>
-        <button type="button" class=" btn-outline-warning">Warning</button>
-        <button type="button" class=" btn-outline-info">Info</button>
-        <button type="button" class=" btn-outline-light">Light</button>
-        <button type="button" class=" btn-outline-dark">Dark</button>
-        
-        <hr>
-        <h4>Button class link</h4>
-        <a class="btn btn-primary" href="#" role="button">Primary</a>
-        <a class="btn btn-secondary" href="#" role="button">Secondary</a>
-        <a class="btn btn-success" href="#" role="button">Success</a>
-        <a class="btn btn-danger" href="#" role="button">Danger</a>
-        <a class="btn btn-warning" href="#" role="button">Warning</a>
-        <a class="btn btn-info" href="#" role="button">Info</a>
-        <a class="btn btn-light" href="#" role="button">Light</a>
-        <a class="btn btn-dark" href="#" role="button">Dark</a>
-
-        <h4>Button class outline link</h4>
-        <a class="btn btn-outline-primary" href="#" role="button">Primary</a>
-        <a class="btn btn-outline-secondary" href="#" role="button">Secondary</a>
-        <a class="btn btn-outline-success" href="#" role="button">Success</a>
-        <a class="btn btn-outline-danger" href="#" role="button">Danger</a>
-        <a class="btn btn-outline-warning" href="#" role="button">Warning</a>
-        <a class="btn btn-outline-info" href="#" role="button">Info</a>
-        <a class="btn btn-outline-light" href="#" role="button">Light</a>
-        <a class="btn btn-outline-dark" href="#" role="button">Dark</a>
-
-        <hr>
-        <h4>Button class input</h4>
-        <input class="btn btn-primary" type="button" value="Primary">
-        <input class="btn btn-secondary" type="submit" value="Secondary">
-        <input class="btn btn-success" type="reset" value="Success">
-        <input class="btn btn-danger" type="button" value="Danger">
-        <input class="btn btn-warning" type="submit" value="Warning">
-        <input class="btn btn-info" type="reset" value="Info">
-        <input class="btn btn-light" type="button" value="Light">
-        <input class="btn btn-dark" type="submit" value="Dark">
-
-        <h4>Button class outline input</h4>
-        <input class="btn btn-outline-primary" type="button" value="Primary">
-        <input class="btn btn-outline-secondary" type="submit" value="Secondary">
-        <input class="btn btn-outline-success" type="reset" value="Success">
-        <input class="btn btn-outline-danger" type="button" value="Danger">
-        <input class="btn btn-outline-warning" type="submit" value="Warning">
-        <input class="btn btn-outline-info" type="reset" value="Info">
-        <input class="btn btn-outline-light" type="button" value="Light">
-        <input class="btn btn-outline-dark" type="submit" value="Dark">
-
-        <hr>
-        <h4>Button tag sizes</h4>
-        <button type="button" class=" btn-primary btn-lg">Primary</button>
-        <button type="button" class=" btn-secondary btn-lg">Secondary</button>
-        <button type="button" class=" btn-success btn-lg">Success</button>
-        <button type="button" class=" btn-danger btn-lg">Danger</button>
-        <button type="button" class=" btn-warning btn-lg">Warning</button>
-        <button type="button" class=" btn-info btn-lg">Info</button>
-        <button type="button" class=" btn-light btn-lg">Light</button>
-        <button type="button" class=" btn-dark btn-lg">Dark</button>
-        <button type="button" class=" btn-link btn-lg">Link</button>
-        <hr>
-        <button type="button" class=" btn-primary btn-sm">Primary</button>
-        <button type="button" class=" btn-secondary btn-sm">Secondary</button>
-        <button type="button" class=" btn-success btn-sm">Success</button>
-        <button type="button" class=" btn-danger btn-sm">Danger</button>
-        <button type="button" class=" btn-warning btn-sm">Warning</button>
-        <button type="button" class=" btn-info btn-sm">Info</button>
-        <button type="button" class=" btn-light btn-sm">Light</button>
-        <button type="button" class=" btn-dark btn-sm">Dark</button>
-        <button type="button" class=" btn-link btn-sm">Link</button>
-
-        <h4>Button class size</h4>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Primary</a>
-        <a class="btn btn-secondary btn-lg" href="#" role="button">Secondary</a>
-        <a class="btn btn-success btn-lg" href="#" role="button">Success</a>
-        <a class="btn btn-danger btn-lg" href="#" role="button">Danger</a>
-        <a class="btn btn-warning btn-lg" href="#" role="button">Warning</a>
-        <a class="btn btn-info btn-lg" href="#" role="button">Info</a>
-        <a class="btn btn-light btn-lg" href="#" role="button">Light</a>
-        <a class="btn btn-dark btn-lg" href="#" role="button">Dark</a>
-        <hr>
-        <a class="btn btn-primary btn-sm" href="#" role="button">Primary</a>
-        <a class="btn btn-secondary btn-sm" href="#" role="button">Secondary</a>
-        <a class="btn btn-success btn-sm" href="#" role="button">Success</a>
-        <a class="btn btn-danger btn-sm" href="#" role="button">Danger</a>
-        <a class="btn btn-warning btn-sm" href="#" role="button">Warning</a>
-        <a class="btn btn-info btn-sm" href="#" role="button">Info</a>
-        <a class="btn btn-light btn-sm" href="#" role="button">Light</a>
-        <a class="btn btn-dark btn-sm" href="#" role="button">Dark</a>
-        <hr>
-        <h4>Button tag sizeblocks</h4>
-        <button type="button" class=" btn-primary btn-block">Primary</button>
-        <button type="button" class=" btn-secondary btn-block">Secondary</button>
-        <button type="button" class=" btn-success btn-block">Success</button>
-        <button type="button" class=" btn-danger btn-block">Danger</button>
-        <button type="button" class=" btn-warning btn-block">Warning</button>
-        <button type="button" class=" btn-info btn-block">Info</button>
-        <button type="button" class=" btn-light btn-block">Light</button>
-        <button type="button" class=" btn-dark btn-block">Dark</button>
-        <button type="button" class=" btn-link btn-block">Link</button>
-        <hr>
-        <h4>Button class sizeblocks</h4>
-        <a class="btn btn-primary btn-block" href="#" role="button">Primary</a>
-        <a class="btn btn-secondary btn-block" href="#" role="button">Secondary</a>
-        <a class="btn btn-success btn-block" href="#" role="button">Success</a>
-        <a class="btn btn-danger btn-block" href="#" role="button">Danger</a>
-        <a class="btn btn-warning btn-block" href="#" role="button">Warning</a>
-        <a class="btn btn-info btn-block" href="#" role="button">Info</a>
-        <a class="btn btn-light btn-block" href="#" role="button">Light</a>
-        <a class="btn btn-dark btn-block" href="#" role="button">Dark</a>
-        <hr>
-        <h4>Button class active</h4>
-        <a class="btn btn-primary active" href="#" role="button">Primary</a>
-        <a class="btn btn-secondary active" href="#" role="button">Secondary</a>
-        <a class="btn btn-success active" href="#" role="button">Success</a>
-        <a class="btn btn-danger active" href="#" role="button">Danger</a>
-        <a class="btn btn-warning active" href="#" role="button">Warning</a>
-        <a class="btn btn-info active" href="#" role="button">Info</a>
-        <a class="btn btn-light active" href="#" role="button">Light</a>
-        <a class="btn btn-dark active" href="#" role="button">Dark</a>
-        <hr>
-        <h4>Button tag disabled</h4>
-        <button type="button" class=" btn-primary" disabled>Primary</button>
-        <button type="button" class=" btn-secondary" disabled>Secondary</button>
-        <button type="button" class=" btn-success" disabled>Success</button>
-        <button type="button" class=" btn-danger" disabled>Danger</button>
-        <button type="button" class=" btn-warning" disabled>Warning</button>
-        <button type="button" class=" btn-info" disabled>Info</button>
-        <button type="button" class=" btn-light" disabled>Light</button>
-        <button type="button" class=" btn-dark" disabled>Dark</button>
-        <button type="button" class=" btn-link" disabled>Link</button>
-        <hr>
-        <button type="button" class=" btn-outline-primary" disabled>Primary</button>
-        <button type="button" class=" btn-outline-secondary" disabled>Secondary</button>
-        <button type="button" class=" btn-outline-success" disabled>Success</button>
-        <button type="button" class=" btn-outline-danger" disabled>Danger</button>
-        <button type="button" class=" btn-outline-warning" disabled>Warning</button>
-        <button type="button" class=" btn-outline-info" disabled>Info</button>
-        <button type="button" class=" btn-outline-light" disabled>Light</button>
-        <button type="button" class=" btn-outline-dark" disabled>Dark</button>
-        <hr>
-        <h4>Button class disabled</h4>
-        <a class="btn btn-primary disabled" href="#" role="button">Primary</a>
-        <a class="btn btn-secondary disabled" href="#" role="button">Secondary</a>
-        <a class="btn btn-success disabled" href="#" role="button">Success</a>
-        <a class="btn btn-danger disabled" href="#" role="button">Danger</a>
-        <a class="btn btn-warning disabled" href="#" role="button">Warning</a>
-        <a class="btn btn-info disabled" href="#" role="button">Info</a>
-        <a class="btn btn-light disabled" href="#" role="button">Light</a>
-        <a class="btn btn-dark disabled" href="#" role="button">Dark</a>
-        <hr>
-        <a class="btn btn-outline-primary disabled" href="#" role="button">Primary</a>
-        <a class="btn btn-outline-secondary disabled" href="#" role="button">Secondary</a>
-        <a class="btn btn-outline-success disabled" href="#" role="button">Success</a>
-        <a class="btn btn-outline-danger disabled" href="#" role="button">Danger</a>
-        <a class="btn btn-outline-warning disabled" href="#" role="button">Warning</a>
-        <a class="btn btn-outline-info disabled" href="#" role="button">Info</a>
-        <a class="btn btn-outline-light disabled" href="#" role="button">Light</a>
-        <a class="btn btn-outline-dark disabled" href="#" role="button">Dark</a>
-    </section>
-    <section>
-        <h3>Badges</h3>
-        <h4>Default badges</h4>
-        <div class="row">
-            <span class="badge badge-primary mr-5">Badge primary</span>
-            <span class="badge badge-secondary mr-5">Badge secondary</span>
-            <span class="badge badge-success mr-5">Badge success</span>
-            <span class="badge badge-danger mr-5">Badge danger</span>
-            <span class="badge badge-warning mr-5">Badge Warning</span>
-            <span class="badge badge-info mr-5"> Badge info</span>
-            <span class="badge badge-light mr-5">Badge light</span>
-            <span class="badge badge-dark">Badge dark</span>
-        </div>
-        <h4>Pill badges</h4>
-        <div class="row">
-            <span class="badge badge-pill badge-primary mr-5">Pill Badge primary</span>
-            <span class="badge badge-pill badge-secondary mr-5">Pill Badge secondary</span>
-            <span class="badge badge-pill badge-success mr-5">Pill Badge success</span>
-            <span class="badge badge-pill badge-danger mr-5">Pill Badge danger</span>
-            <span class="badge badge-pill badge-warning mr-5">Pill Badge Warning</span>
-            <span class="badge badge-pill badge-info mr-5">Pill Badge info</span>
-            <span class="badge badge-pill badge-light mr-5">Pill Badge light</span>
-            <span class="badge badge-pill badge-dark">Pill Badge dark</span>
-        </div>
-    </section>
-    <section><h3>Table</h3><h4>Default</h4>
-        <div class="table-wrapper">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Item 1</td>
-                    <td>Ante turpis integer aliquet porttitor.</td>
-                    <td>29.99</td>
-                </tr>
-                <tr>
-                    <td>Item 2</td>
-                    <td>Vis ac commodo adipiscing arcu aliquet.</td>
-                    <td>19.99</td>
-                </tr>
-                <tr>
-                    <td>Item 3</td>
-                    <td> Morbi faucibus arcu accumsan lorem.</td>
-                    <td>29.99</td>
-                </tr>
-                <tr>
-                    <td>Item 4</td>
-                    <td>Vitae integer tempus condimentum.</td>
-                    <td>19.99</td>
-                </tr>
-                <tr>
-                    <td>Item 5</td>
-                    <td>Ante turpis integer aliquet porttitor.</td>
-                    <td>29.99</td>
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                    <td colspan="2">Total</td>
-                    <td>100.00</td>
-                </tr>
-                </tfoot>
-            </table>
-        </div>
-        <h4>Alternate</h4>
-        <div class="table-wrapper table">
-            <table class="table table-bordered table-hover table-striped">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Item 1</td>
-                    <td>Ante turpis integer aliquet porttitor.</td>
-                    <td>29.99</td>
-                </tr>
-                <tr>
-                    <td>Item 2</td>
-                    <td>Vis ac commodo adipiscing arcu aliquet.</td>
-                    <td>19.99</td>
-                </tr>
-                <tr>
-                    <td>Item 3</td>
-                    <td>Morbi faucibus arcu accumsan lorem.</td>
-                    <td>29.99</td>
-                </tr>
-                <tr>
-                    <td>Item 4</td>
-                    <td>Vitae integer tempus condimentum.</td>
-                    <td>19.99</td>
-                </tr>
-                <tr>
-                    <td>Item 5</td>
-                    <td>Ante turpis integer aliquet porttitor.</td>
-                    <td>29.99</td>
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                    <td colspan="2">Total</td>
-                    <td>100.00</td>
-                </tr>
-                </tfoot>
-            </table>
-        </div>
-    </section>
-    <section><h3>Form</h3>
-        <form method="post" action="#" class="mform">
-            <fieldset class="clearfix collapsible" id="id_moodle">
-                <div class="fcontainer clearfix">
-                    <div id="fitem_id_username" class="form-group row  fitem">
-                        <div class="col-md-3">
-                        <span class="float-sm-right text-nowrap">
-                            <a class="btn btn-link p-0" role="button" data-container="body" data-toggle="popover"
-                               data-placement="right"
-                               data-content="<div class=&quot;no-overflow&quot;><p>Vis ac commodo adipiscing arcu aliquet...</p></div>"
-                               data-html="true"
-                               tabindex="0" data-trigger="focus">
-                              <i class="icon fa fa-question-circle text-info fa-fw " aria-hidden="true"></i>
-                            </a>
-                        </span>
-                            <label class="col-form-label d-inline " for="id_username">
-                                {{#str}}username{{/str}}
-                            </label>
-                        </div>
-                        <div class="col-md-9 form-inline felement" data-fieldtype="text">
-                            <input type="text" class="form-control " name="username" id="id_username" value="admin"
-                                   size="20" autocomplete="new-password">
-                            <div class="form-control-feedback invalid-feedback" id="id_error_username"></div>
-                        </div>
-                    </div>
-                    <div id="fitem_id_newpassword" class="form-group row  fitem">
-                        <div class="col-md-3">
-                            <label class="col-form-label d-inline " for="id_newpassword">
-                                {{#str}}newpassword{{/str}}
-                            </label>
-                        </div>
-                        <div class="col-md-9 form-inline felement" data-fieldtype="passwordunmask">
-                            <span data-passwordunmask="wrapper" data-passwordunmaskid="id_newpassword">
-                                <span data-passwordunmask="editor">
-                                    <input type="password" name="newpassword" id="id_newpassword" value=""
-                                           class="form-control d-inline-block" data-size="20" autocomplete="new-password">
-                                </span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="form-group row  fitem">
-                        <div class="col-md-3">
-                        </div>
-                    </div>
-                    <div id="fitem_id_maildisplay" class="form-group row  fitem   ">
-                        <div class="col-md-3">
-                            <label class="col-form-label d-inline " for="id_maildisplay">
-                                {{#str}}emaildisplay{{/str}}
-                            </label>
-                        </div>
-                        <div class="col-md-9 form-inline felement" data-fieldtype="select">
-                            <select class="custom-select" name="maildisplay" id="id_maildisplay">
-                                <option value="0">{{#str}}emaildisplayno{{/str}}</option>
-                                <option value="1" selected="">{{#str}}emaildisplayyes{{/str}}</option>
-                                <option value="2">{{#str}}emaildisplaycourse{{/str}}
-                                </option>
-                            </select>
-                        </div>
+        <h2>Colors available</h2>
+        <div id="accordion">
+            <div class="panel list-group">
+                <!-- panel class must be in -->
+                <a href="#primary_colors" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Primary Colors</h4>
+                </a>
+                <div class="collapse" id="primary_colors">
+                    <div class="d-flex flex-row justify-content-start flex-wrap">
+                        {{#colors}}
+                            {{#.}}
+                            <div class="card-container pl-2 pb-2 conu-{{{name}}}-background {{#black}}text-black{{/black}}{{^black}}text-white{{/black}} m-2">
+                                <h3 class="card-title mb-1 capitalize">{{name}}</h3>
+                                <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
+                            </div>
+                            {{/.}}
+                        {{/colors}}
                     </div>
                 </div>
-            </fieldset>
-        </form>
+
+                <a href="#secondary_colors" data-parent="#accordion" data-toggle="collapse" class="list-group-item" `>
+                    <h4>Secondary Colors</h4>
+                </a>
+                <div class="collapse" id="secondary_colors">
+                    <div class="d-flex flex-row justify-content-start flex-wrap">
+                        {{#secondaries}}
+                            {{#.}}
+                            <div class="card-container pl-2 pb-2 conu-{{{name}}}-background {{#black}}text-black{{/black}}{{^black}}text-white{{/black}} m-2">
+                                <h3 class="card-title mb-1 capitalize">{{name}}</h3>
+                                <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
+                            </div>
+                            {{/.}}
+                        {{/secondaries}}
+                    </div>
+                </div>
+
+                <a href="#tint_colors" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Tint Colors</h4>
+                </a>
+                <div class="collapse" id="tint_colors">
+                    <div class="d-flex flex-row justify-content-start flex-wrap">
+                        {{#tints}}
+                            {{#.}}
+                            <div class="card-container pl-2 pb-2 conu-{{{name}}}-background {{#black}}text-black{{/black}}{{^black}}text-white{{/black}} m-2">
+                                <h3 class="card-title mb-1 capitalize">{{name}}</h3>
+                                <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
+                            </div>
+                            {{/.}}
+                        {{/tints}}
+                    </div>
+                </div>
+
+                <a href="#neutral_colors" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Neutral Colors</h4>
+                </a>
+                <div class="collapse" id="neutral_colors">
+                    <div class="d-flex flex-row justify-content-start flex-wrap">
+                        {{#neutrals}}
+                            {{#.}}
+                            <div class="card-container pl-2 pb-2 conu-{{{name}}}-background {{#black}}text-black{{/black}}{{^black}}text-white{{/black}} m-2">
+                                <h3 class="card-title mb-1 capitalize">{{name}}</h3>
+                                <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
+                            </div>
+                            {{/.}}
+                        {{/neutrals}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="mb-5">
+        <h2>Theme colors</h2>
+        <div id="accordion">
+            <div class="panel list-group">
+                <!-- panel class must be in -->
+                <a href="#definition_colors" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Definition Colors</h4>
+                </a>
+                <div class="collapse" id="definition_colors">
+                    <div class="d-flex flex-row justify-content-start flex-wrap">
+                        {{#theme_primary}}
+                            {{#.}}
+                            <div class="card-container pl-2 pb-2 bg-{{{name}}} {{#black}}text-black{{/black}}{{^black}}text-white{{/black}} m-2">
+                                <h3 class="card-title mb-1 capitalize">{{name}}</h3>
+                                <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
+                            </div>
+                            {{/.}}
+                        {{/theme_primary}}
+                    </div>
+                </div>
+
+                <a href="#alert_colors" data-parent="#accordion" data-toggle="collapse" class="list-group-item" `>
+                    <h4>Alert Colors</h4>
+                </a>
+                <div class="collapse" id="alert_colors">
+                    <div class="d-flex flex-row justify-content-start flex-wrap">
+                        {{#theme_alerts}}
+                            {{#.}}
+                            <div class="card-container pl-2 pb-2 bg-{{{name}}} {{#black}}text-black{{/black}}{{^black}}text-white{{/black}} m-2">
+                                <h3 class="card-title mb-1 capitalize">{{name}}</h3>
+                                <div class="card-text mb-1"><p>Color code: {{{color}}}<br></p><p>Compliant {{{compliant}}}</p></div>
+                            </div>
+                            {{/.}}
+                        {{/theme_alerts}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>Typography</h2>
+        <div id="accordion">
+            <div class="panel list-group">
+                <!-- panel class must be in -->
+                <a href="#Headings" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Headings</h4>
+                </a>
+                <div class="collapse" id="Headings">
+                    <h1>Heading Level 1</h1>
+                    <h2>Heading Level 2</h2>
+                    <h3 class="no-border heading-reset">Heading Level 3</h3>
+                    <h4>Heading Level 4</h4>
+                    <h4 class="conu-h4-alternate">Heading Level 4 - alternative</h4>
+                    <h5>Heading Level 5</h5>
+                    <h6>Heading Level 6</h6>
+                </div>
+
+                <a href="#header_classes" data-parent="#accordion" data-toggle="collapse" class="list-group-item" `>
+                    <h4>With classes instead of tags</h4>
+                </a>
+                <div class="collapse" id="header_classes">
+                    <p class="h1">h1. Bootstrap heading</p>
+                    <p class="h2">h2. Bootstrap heading</p>
+                    <p class="h3 heading-reset">h3. Bootstrap heading</p>
+                    <p class="h4 ">h4. Bootstrap heading</p>
+                    <p class="h4 conu-h4-alternate">h4. Bootstrap heading - alternative</p>
+                    <p class="h5">h5. Bootstrap heading</p>
+                    <p class="h6">h6. Bootstrap heading</p>
+                </div>
+
+                <a href="#display_classes" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Display classes</h4>
+                </a>
+                <div class="collapse" id="display_classes">
+                    <h1 class="display-1">Display 1</h1>
+                    <h1 class="display-2">Display 2</h1>
+                    <h1 class="display-3">Display 3</h1>
+                    <h1 class="display-4">Display 4</h1>
+                </div>
+
+                <a href="#inline_text_elements" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Inline text elements</h4>
+                </a>
+                <div class="collapse" id="inline_text_elements">
+                    <p>This is <b>bold</b> and this is <strong>strong</strong>.<br>
+                        This is <i>italic</i> and this is <em>emphasized</em>.<br>
+                        This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.<br>
+                        You can use the mark tag to <mark>highlight</mark> text.<br>
+                        <del>This line of text is meant to be treated as deleted text.</del><br>
+                        <s>This line of text is meant to be treated as no longer accurate.</s><br>
+                        <ins>This line of text is meant to be treated as an addition to the document.</ins><br>
+                        <small>This line of text is meant to be treated as fine print.</small><br>
+                        This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>.<br>
+                        Finally, <a style="cursor: pointer;" href="#">this is a link</a>.
+                    </p>
+                </div>
+
+                <a href="#blockquote" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Blockquote</h4>
+                </a>
+                <div class="collapse" id="blockquote">
+                    <blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod.
+                        Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac
+                        adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam
+                        adipiscing eu felis.
+                        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                    </blockquote>
+                </div>
+
+                <a href="#preformatted" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Preformatted</h4>
+                </a>
+                <div class="collapse" id="preformatted">
+                    <pre class="mr-3">
+                        <code>i = 0;
+                            while (!deck.isInOrder()) {
+                            print 'Iteration ' + i;
+                            deck.shuffle();
+                            i++;
+                            }
+                            print 'It took ' + i + ' iterations to sort the deck.';
+                        </code>
+                    </pre>
+                </div>
+
+                <a href="#miscellaneous_typography" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Miscellaneous Typography elements</h4>
+                </a>
+                <div class="collapse" id="miscellaneous_typography">
+                    <h4>Small tag with <span class="small">helper class</span></h4>
+                    <p><small>This line of text is meant to be treated as fine print.</small></p>
+
+                    <h4>
+                        Fancy display heading
+                        <small class="text-muted">With faded secondary text</small>
+                    </h4>
+                    <p class="lead">
+                        This is a lead paragraph. It stands out from regular paragraphs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>Lists</h2>
+        <div id="accordion">
+            <div class="panel list-group">
+                <!-- panel class must be in -->
+                <a href="#list_unordered" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Unordered</h4>
+                </a>
+                <div class="collapse" id="list_unordered">
+                    <div class="col-6 col-12-xsmall">
+                        <h4>Standard</h4>
+                        <ul>
+                            <li>Dolor pulvinar etiam magna etiam.</li>
+                            <li>Sagittis adipiscing lorem eleifend.</li>
+                            <li>Felis enim feugiat dolore viverra.</li>
+                        </ul>
+                        <h4>Alternate</h4>
+                        <ul class="alt">
+                            <li>Dolor pulvinar etiam magna etiam.</li>
+                            <li>Sagittis adipiscing lorem eleifend.</li>
+                            <li>Felis enim feugiat dolore viverra.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="#list_ordered" data-parent="#accordion" data-toggle="collapse" class="list-group-item" `>
+                    <h4>Ordered</h4>
+                </a>
+                <div class="collapse" id="list_ordered">
+                    <div class="col-6 col-12-xsmall">
+                        <h4>Ordered</h4>
+                        <ol>
+                            <li>Dolor pulvinar etiam magna etiam.</li>
+                            <li>Etiam vel felis at lorem sed viverra.</li>
+                            <li>Felis enim feugiat dolore viverra.</li>
+                            <li>Dolor pulvinar etiam magna etiam.</li>
+                            <li>Etiam vel felis at lorem sed viverra.</li>
+                            <li>Felis enim feugiat dolore viverra.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>Varia</h2>
+        <div id="accordion">
+            <div class="panel list-group">
+                <!-- panel class must be in -->
+                <a href="#varia_icons" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Icons</h4>
+                </a>
+                <div class="collapse" id="varia_icons">
+                    <ul class="d-inline list-unstyled">
+                        <li class="d-inline m-r-1"><a class="fa fa-2x fa-twitter" style="cursor: pointer;"></a></li>
+                        <li class="d-inline m-r-1"><a class="fa fa-2x fa-facebook" style="cursor: pointer;"></a></li>
+                        <li class="d-inline m-r-1"><a class="fa fa-2x fa-instagram" style="cursor: pointer;"></a></li>
+                        <li class="d-inline m-r-1"><a class="fa fa-2x fa-github" style="cursor: pointer;"></a></li>
+                        <li class="d-inline m-r-1"><a class="fa fa-2x fa-dribbble" style="cursor: pointer;"></a></li>
+                        <li class="d-inline m-r-1"><a class="fa fa-2x fa-tumblr" style="cursor: pointer;"></a></li>
+                    </ul>
+                </div>
+
+                <a href="#varia_actions" data-parent="#accordion" data-toggle="collapse" class="list-group-item" `>
+                    <h4>Actions</h4>
+                </a>
+                <div class="collapse" id="varia_actions">
+                    <ul class="actions list-unstyled">
+                        <li><a class="btn btn-primary" style="cursor: pointer;">Default</a></li>
+                        <li><a class="btn" style="cursor: pointer;">Default</a></li>
+                        <li><a class="btn btn-secondary" style="cursor: pointer;">Default</a></li>
+                    </ul>
+                    <ul class="actions small list-unstyled">
+                        <li><a class="btn btn-primary btn-sm" style="cursor: pointer;">Small</a></li>
+                        <li><a class="btn btn-sm" style="cursor: pointer;">Small</a></li>
+                        <li><a class="btn btn-secondary btn-sm" style="cursor: pointer;">Small</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>Buttons</h2>
+        <div id="accordion">
+            <div class="panel list-group">
+                <!-- panel class must be in -->
+                <a href="#button_tag" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Button tag</h4>
+                </a>
+                <div class="collapse" id="button_tag">
+                    <h5>Default</h5>
+                    <ul class="list-group-item-text">
+                        <button type="button" class=" btn-primary">Primary</button>
+                        <button type="button" class=" btn-secondary">Secondary</button>
+                        <button type="button" class=" btn-success">Success</button>
+                        <button type="button" class=" btn-danger">Danger</button>
+                        <button type="button" class=" btn-warning">Warning</button>
+                        <button type="button" class=" btn-info">Info</button>
+                        <button type="button" class=" btn-light">Light</button>
+                        <button type="button" class=" btn-dark">Dark</button>
+                        <button type="button" class=" btn-link">Link</button>
+                    </ul>
+                    <h5>Outline</h5>
+                    <ul class="list-group-item-text">
+                        <button type="button" class=" btn-outline-primary">Primary</button>
+                        <button type="button" class=" btn-outline-secondary">Secondary</button>
+                        <button type="button" class=" btn-outline-success">Success</button>
+                        <button type="button" class=" btn-outline-danger">Danger</button>
+                        <button type="button" class=" btn-outline-warning">Warning</button>
+                        <button type="button" class=" btn-outline-info">Info</button>
+                        <button type="button" class=" btn-outline-light">Light</button>
+                        <button type="button" class=" btn-outline-dark">Dark</button>
+                    </ul>
+                </div>
+
+                <a href="#button_class" data-parent="#accordion" data-toggle="collapse" class="list-group-item" `>
+                    <h4>Button class</h4>
+                </a>
+                <div class="collapse" id="button_class">
+                    <h5>Default</h5>
+                    <ul class="list-group-item-text">
+                        <a class="btn btn-primary" href="#" role="button">Primary</a>
+                        <a class="btn btn-secondary" href="#" role="button">Secondary</a>
+                        <a class="btn btn-success" href="#" role="button">Success</a>
+                        <a class="btn btn-danger" href="#" role="button">Danger</a>
+                        <a class="btn btn-warning" href="#" role="button">Warning</a>
+                        <a class="btn btn-info" href="#" role="button">Info</a>
+                        <a class="btn btn-light" href="#" role="button">Light</a>
+                        <a class="btn btn-dark" href="#" role="button">Dark</a>
+                    </ul>
+
+                    <h5>Outline</h5>
+                        <ul class="list-group-item-text">
+                        <a class="btn btn-outline-primary" href="#" role="button">Primary</a>
+                        <a class="btn btn-outline-secondary" href="#" role="button">Secondary</a>
+                        <a class="btn btn-outline-success" href="#" role="button">Success</a>
+                        <a class="btn btn-outline-danger" href="#" role="button">Danger</a>
+                        <a class="btn btn-outline-warning" href="#" role="button">Warning</a>
+                        <a class="btn btn-outline-info" href="#" role="button">Info</a>
+                        <a class="btn btn-outline-light" href="#" role="button">Light</a>
+                        <a class="btn btn-outline-dark" href="#" role="button">Dark</a>
+                    </ul>
+                </div>
+
+                <a href="#input_button" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Input button</h4>
+                </a>
+                <div class="collapse" id="input_button">
+                    <h5>Default</h5>
+                    <ul class="list-group-item-text">
+                        <input class="btn btn-primary" type="button" value="Primary">
+                        <input class="btn btn-secondary" type="submit" value="Secondary">
+                        <input class="btn btn-success" type="reset" value="Success">
+                        <input class="btn btn-danger" type="button" value="Danger">
+                        <input class="btn btn-warning" type="submit" value="Warning">
+                        <input class="btn btn-info" type="reset" value="Info">
+                        <input class="btn btn-light" type="button" value="Light">
+                        <input class="btn btn-dark" type="submit" value="Dark">
+                    </ul>
+
+                    <h5>Outline</h5>
+                    <ul class="list-group-item-text">
+                        <input class="btn btn-outline-primary" type="button" value="Primary">
+                        <input class="btn btn-outline-secondary" type="submit" value="Secondary">
+                        <input class="btn btn-outline-success" type="reset" value="Success">
+                        <input class="btn btn-outline-danger" type="button" value="Danger">
+                        <input class="btn btn-outline-warning" type="submit" value="Warning">
+                        <input class="btn btn-outline-info" type="reset" value="Info">
+                        <input class="btn btn-outline-light" type="button" value="Light">
+                        <input class="btn btn-outline-dark" type="submit" value="Dark">
+                    </ul>
+                </div>
+
+                <a href="#button_sizes" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Button Sizes</h4>
+                </a>
+                <div class="collapse" id="button_sizes">
+                    <h5>Tag</h5>
+                    <h6>Large</h6>
+                    <ul class="list-group-item-text">
+                        <button type="button" class=" btn-primary btn-lg">Primary</button>
+                        <button type="button" class=" btn-secondary btn-lg">Secondary</button>
+                        <button type="button" class=" btn-success btn-lg">Success</button>
+                        <button type="button" class=" btn-danger btn-lg">Danger</button>
+                        <button type="button" class=" btn-warning btn-lg">Warning</button>
+                        <button type="button" class=" btn-info btn-lg">Info</button>
+                        <button type="button" class=" btn-light btn-lg">Light</button>
+                        <button type="button" class=" btn-dark btn-lg">Dark</button>
+                        <button type="button" class=" btn-link btn-lg">Link</button>
+                    </ul>
+                    <h6>Small</h6>
+                    <ul class="list-group-item-text">
+                        <button type="button" class=" btn-primary btn-sm">Primary</button>
+                        <button type="button" class=" btn-secondary btn-sm">Secondary</button>
+                        <button type="button" class=" btn-success btn-sm">Success</button>
+                        <button type="button" class=" btn-danger btn-sm">Danger</button>
+                        <button type="button" class=" btn-warning btn-sm">Warning</button>
+                        <button type="button" class=" btn-info btn-sm">Info</button>
+                        <button type="button" class=" btn-light btn-sm">Light</button>
+                        <button type="button" class=" btn-dark btn-sm">Dark</button>
+                        <button type="button" class=" btn-link btn-sm">Link</button>
+                    </ul>
+
+                    <h5>Class</h5>
+                    <h6>Large</h6>
+                    <ul class="list-group-item-text">
+                        <a class="btn btn-primary btn-lg" href="#" role="button">Primary</a>
+                        <a class="btn btn-secondary btn-lg" href="#" role="button">Secondary</a>
+                        <a class="btn btn-success btn-lg" href="#" role="button">Success</a>
+                        <a class="btn btn-danger btn-lg" href="#" role="button">Danger</a>
+                        <a class="btn btn-warning btn-lg" href="#" role="button">Warning</a>
+                        <a class="btn btn-info btn-lg" href="#" role="button">Info</a>
+                        <a class="btn btn-light btn-lg" href="#" role="button">Light</a>
+                        <a class="btn btn-dark btn-lg" href="#" role="button">Dark</a>                        
+                    </ul>
+                    <h6>Small</h6>
+                    <ul class="list-group-item-text">
+                        <a class="btn btn-primary btn-sm" href="#" role="button">Primary</a>
+                        <a class="btn btn-secondary btn-sm" href="#" role="button">Secondary</a>
+                        <a class="btn btn-success btn-sm" href="#" role="button">Success</a>
+                        <a class="btn btn-danger btn-sm" href="#" role="button">Danger</a>
+                        <a class="btn btn-warning btn-sm" href="#" role="button">Warning</a>
+                        <a class="btn btn-info btn-sm" href="#" role="button">Info</a>
+                        <a class="btn btn-light btn-sm" href="#" role="button">Light</a>
+                        <a class="btn btn-dark btn-sm" href="#" role="button">Dark</a>
+                    </ul>
+                </div>
+
+                <a href="#sizeblocks" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Button sizeblocks</h4>
+                </a>
+                <div class="collapse" id="sizeblocks">
+                    <h5>Tag</h5>
+                    <button type="button" class=" btn-primary btn-block">Primary</button>
+                    <button type="button" class=" btn-secondary btn-block">Secondary</button>
+                    <button type="button" class=" btn-success btn-block">Success</button>
+                    <button type="button" class=" btn-danger btn-block">Danger</button>
+                    <button type="button" class=" btn-warning btn-block">Warning</button>
+                    <button type="button" class=" btn-info btn-block">Info</button>
+                    <button type="button" class=" btn-light btn-block">Light</button>
+                    <button type="button" class=" btn-dark btn-block">Dark</button>
+                    <button type="button" class=" btn-link btn-block">Link</button>
+
+                    <h5>Class</h5>
+                    <a class="btn btn-primary btn-block" href="#" role="button">Primary</a>
+                    <a class="btn btn-secondary btn-block" href="#" role="button">Secondary</a>
+                    <a class="btn btn-success btn-block" href="#" role="button">Success</a>
+                    <a class="btn btn-danger btn-block" href="#" role="button">Danger</a>
+                    <a class="btn btn-warning btn-block" href="#" role="button">Warning</a>
+                    <a class="btn btn-info btn-block" href="#" role="button">Info</a>
+                    <a class="btn btn-light btn-block" href="#" role="button">Light</a>
+                    <a class="btn btn-dark btn-block" href="#" role="button">Dark</a>
+                </div>
+
+                <a href="#button_states" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Button States</h4>
+                </a>
+                <div class="collapse" id="button_states">
+                    <h5>Button class active</h5>
+                    <ul class="list-group-item-text">
+                        <h4></h4>
+                        <a class="btn btn-primary active" href="#" role="button">Primary</a>
+                        <a class="btn btn-secondary active" href="#" role="button">Secondary</a>
+                        <a class="btn btn-success active" href="#" role="button">Success</a>
+                        <a class="btn btn-danger active" href="#" role="button">Danger</a>
+                        <a class="btn btn-warning active" href="#" role="button">Warning</a>
+                        <a class="btn btn-info active" href="#" role="button">Info</a>
+                        <a class="btn btn-light active" href="#" role="button">Light</a>
+                        <a class="btn btn-dark active" href="#" role="button">Dark</a>
+                    </ul>
+                    <h5>Tag disabled</h5>
+                    <h6>Default</h6>
+                    <ul class="list-group-item-text">
+                        <button type="button" class=" btn-primary" disabled>Primary</button>
+                        <button type="button" class=" btn-secondary" disabled>Secondary</button>
+                        <button type="button" class=" btn-success" disabled>Success</button>
+                        <button type="button" class=" btn-danger" disabled>Danger</button>
+                        <button type="button" class=" btn-warning" disabled>Warning</button>
+                        <button type="button" class=" btn-info" disabled>Info</button>
+                        <button type="button" class=" btn-light" disabled>Light</button>
+                        <button type="button" class=" btn-dark" disabled>Dark</button>
+                        <button type="button" class=" btn-link" disabled>Link</button>
+                    </ul>
+                    <h6>Outline</h6>
+                    <ul class="list-group-item-text">
+                        <button type="button" class=" btn-outline-primary" disabled>Primary</button>
+                        <button type="button" class=" btn-outline-secondary" disabled>Secondary</button>
+                        <button type="button" class=" btn-outline-success" disabled>Success</button>
+                        <button type="button" class=" btn-outline-danger" disabled>Danger</button>
+                        <button type="button" class=" btn-outline-warning" disabled>Warning</button>
+                        <button type="button" class=" btn-outline-info" disabled>Info</button>
+                        <button type="button" class=" btn-outline-light" disabled>Light</button>
+                        <button type="button" class=" btn-outline-dark" disabled>Dark</button>
+                    </ul>
+                    <h5>Class disabled</h5>
+                    <h6>Default</h6>
+                    <ul class="list-group-item-text">
+                        <a class="btn btn-primary disabled" href="#" role="button">Primary</a>
+                        <a class="btn btn-secondary disabled" href="#" role="button">Secondary</a>
+                        <a class="btn btn-success disabled" href="#" role="button">Success</a>
+                        <a class="btn btn-danger disabled" href="#" role="button">Danger</a>
+                        <a class="btn btn-warning disabled" href="#" role="button">Warning</a>
+                        <a class="btn btn-info disabled" href="#" role="button">Info</a>
+                        <a class="btn btn-light disabled" href="#" role="button">Light</a>
+                        <a class="btn btn-dark disabled" href="#" role="button">Dark</a>
+                    </ul>
+                    <h6>Outline</h6>
+                    <ul class="list-group-item-text">
+                        <a class="btn btn-outline-primary disabled" href="#" role="button">Primary</a>
+                        <a class="btn btn-outline-secondary disabled" href="#" role="button">Secondary</a>
+                        <a class="btn btn-outline-success disabled" href="#" role="button">Success</a>
+                        <a class="btn btn-outline-danger disabled" href="#" role="button">Danger</a>
+                        <a class="btn btn-outline-warning disabled" href="#" role="button">Warning</a>
+                        <a class="btn btn-outline-info disabled" href="#" role="button">Info</a>
+                        <a class="btn btn-outline-light disabled" href="#" role="button">Light</a>
+                        <a class="btn btn-outline-dark disabled" href="#" role="button">Dark</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>Badges</h2>
+        <div id="accordion">
+            <div class="panel list-group">
+                <!-- panel class must be in -->
+                <a href="#default_badges" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Default Badges</h4>
+                </a>
+                <div class="collapse" id="default_badges">
+                    <ul class="list-group-item-text">
+                        <span class="badge badge-primary mr-5">Badge primary</span>
+                        <span class="badge badge-secondary mr-5">Badge secondary</span>
+                        <span class="badge badge-success mr-5">Badge success</span>
+                        <span class="badge badge-danger mr-5">Badge danger</span>
+                        <span class="badge badge-warning mr-5">Badge Warning</span>
+                        <span class="badge badge-info mr-5"> Badge info</span>
+                        <span class="badge badge-light mr-5">Badge light</span>
+                        <span class="badge badge-dark">Badge dark</span>
+                    </ul>
+                </div>
+
+                <a href="#pill_badges" data-parent="#accordion" data-toggle="collapse" class="list-group-item" `>
+                    <h4>Pill Badges</h4>
+                </a>
+                <div class="collapse" id="pill_badges">
+                    <ul class="list-group-item-text">
+                        <span class="badge badge-pill badge-primary mr-5">Pill Badge primary</span>
+                        <span class="badge badge-pill badge-secondary mr-5">Pill Badge secondary</span>
+                        <span class="badge badge-pill badge-success mr-5">Pill Badge success</span>
+                        <span class="badge badge-pill badge-danger mr-5">Pill Badge danger</span>
+                        <span class="badge badge-pill badge-warning mr-5">Pill Badge Warning</span>
+                        <span class="badge badge-pill badge-info mr-5">Pill Badge info</span>
+                        <span class="badge badge-pill badge-light mr-5">Pill Badge light</span>
+                        <span class="badge badge-pill badge-dark">Pill Badge dark</span>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>Table</h2>
+        <div id="accordion">
+            <div class="panel list-group">
+                <!-- panel class must be in -->
+                <a href="#default_table" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Default</h4>
+                </a>
+                <div class="collapse" id="default_table">
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Item 1</td>
+                                    <td>Ante turpis integer aliquet porttitor.</td>
+                                    <td>29.99</td>
+                                </tr>
+                                <tr>
+                                    <td>Item 2</td>
+                                    <td>Vis ac commodo adipiscing arcu aliquet.</td>
+                                    <td>19.99</td>
+                                </tr>
+                                <tr>
+                                    <td>Item 3</td>
+                                    <td> Morbi faucibus arcu accumsan lorem.</td>
+                                    <td>29.99</td>
+                                </tr>
+                                <tr>
+                                    <td>Item 4</td>
+                                    <td>Vitae integer tempus condimentum.</td>
+                                    <td>19.99</td>
+                                </tr>
+                                <tr>
+                                    <td>Item 5</td>
+                                    <td>Ante turpis integer aliquet porttitor.</td>
+                                    <td>29.99</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2">Total</td>
+                                    <td>100.00</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                <a href="#alternate_table" data-parent="#accordion" data-toggle="collapse" class="list-group-item" `>
+                    <h4>Alternate</h4>
+                </a>
+                <div class="collapse" id="alternate">
+                    <div class="table-wrapper table">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Item 1</td>
+                                <td>Ante turpis integer aliquet porttitor.</td>
+                                <td>29.99</td>
+                            </tr>
+                            <tr>
+                                <td>Item 2</td>
+                                <td>Vis ac commodo adipiscing arcu aliquet.</td>
+                                <td>19.99</td>
+                            </tr>
+                            <tr>
+                                <td>Item 3</td>
+                                <td>Morbi faucibus arcu accumsan lorem.</td>
+                                <td>29.99</td>
+                            </tr>
+                            <tr>
+                                <td>Item 4</td>
+                                <td>Vitae integer tempus condimentum.</td>
+                                <td>19.99</td>
+                            </tr>
+                            <tr>
+                                <td>Item 5</td>
+                                <td>Ante turpis integer aliquet porttitor.</td>
+                                <td>29.99</td>
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <td colspan="2">Total</td>
+                                <td>100.00</td>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>Form Elements</h2>
+        <div id="accordion">
+            <div class="panel list-group">
+            <!-- panel class must be in -->
+                <a href="#form_elements" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+                    <h4>Form Elements</h4>
+                </a>
+                <div class="collapse" id="form_elements">
+                    <form method="post" action="#" class="mform">
+                        <fieldset class="clearfix collapsible" id="id_moodle">
+                            <div class="fcontainer clearfix">
+                                <div id="fitem_id_username" class="form-group row  fitem">
+                                    <div class="col-md-3">
+                                    <span class="float-sm-right text-nowrap">
+                                        <a class="btn btn-link p-0" role="button" data-container="body" data-toggle="popover"
+                                        data-placement="right"
+                                        data-content="<div class=&quot;no-overflow&quot;><p>Vis ac commodo adipiscing arcu aliquet...</p></div>"
+                                        data-html="true"
+                                        tabindex="0" data-trigger="focus">
+                                        <i class="icon fa fa-question-circle text-info fa-fw " aria-hidden="true"></i>
+                                        </a>
+                                    </span>
+                                        <label class="col-form-label d-inline " for="id_username">
+                                            {{#str}}username{{/str}}
+                                        </label>
+                                    </div>
+                                    <div class="col-md-9 form-inline felement" data-fieldtype="text">
+                                        <input type="text" class="form-control " name="username" id="id_username" value="admin"
+                                            size="20" autocomplete="new-password">
+                                        <div class="form-control-feedback invalid-feedback" id="id_error_username"></div>
+                                    </div>
+                                </div>
+                                <div id="fitem_id_newpassword" class="form-group row  fitem">
+                                    <div class="col-md-3">
+                                        <label class="col-form-label d-inline " for="id_newpassword">
+                                            {{#str}}newpassword{{/str}}
+                                        </label>
+                                    </div>
+                                    <div class="col-md-9 form-inline felement" data-fieldtype="passwordunmask">
+                                        <span data-passwordunmask="wrapper" data-passwordunmaskid="id_newpassword">
+                                            <span data-passwordunmask="editor">
+                                                <input type="password" name="newpassword" id="id_newpassword" value=""
+                                                    class="form-control d-inline-block" data-size="20" autocomplete="new-password">
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group row  fitem">
+                                    <div class="col-md-3">
+                                    </div>
+                                </div>
+                                <div id="fitem_id_maildisplay" class="form-group row  fitem   ">
+                                    <div class="col-md-3">
+                                        <label class="col-form-label d-inline " for="id_maildisplay">
+                                            {{#str}}emaildisplay{{/str}}
+                                        </label>
+                                    </div>
+                                    <div class="col-md-9 form-inline felement" data-fieldtype="select">
+                                        <select class="custom-select" name="maildisplay" id="id_maildisplay">
+                                            <option value="0">{{#str}}emaildisplayno{{/str}}</option>
+                                            <option value="1" selected="">{{#str}}emaildisplayyes{{/str}}</option>
+                                            <option value="2">{{#str}}emaildisplaycourse{{/str}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+        
     </section>
 </div>

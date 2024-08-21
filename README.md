@@ -41,10 +41,11 @@ using Boost 3.9 as it's main inspirtation.
 - - [x] CONUMDLS0303 Cleanup code lib.php
 - - [x] CONUMDLS0304 Cleanup code settings_general.php
 - - [x] CONUMDLS0305 Add privacy class file
+- - [ ] CONUMDLS0306 Update all JS files to ES6
 - [ ] CONUMDLS04 - Settings
 - - [x] CONUMDLS0401 Create course settings page
 - - [ ] CONUMDLS0402 Create home settings page
-- - [ ] CONUMDLS0403 Review the order for the Test settings page
+- - [x] CONUMDLS0403 Review the order for the Test settings page
 - - [x] CONUMDLS0404 Create landing quiz settings page
 - [ ] CONUMDLS05 - Features
 - - [ ] CONUMDLS0501 Provide a way of highlighting new activities, so students are alerted to new activities
