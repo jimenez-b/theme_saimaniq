@@ -117,5 +117,14 @@ $setting = new admin_setting_configselect($name, $title, $description, $default,
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Checkbox to Enable/Disable the custom pagination on the quiz page
+$name = 'theme_saimaniq/enablecustomexamnavigation';
+$title = get_string('enablecustomexamnavigation', 'theme_saimaniq');
+$description = get_string('enablecustomexamnavigationdesc', 'theme_saimaniq');
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true,false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Must add the page after definiting all the settings! 
 $settings->add($page);

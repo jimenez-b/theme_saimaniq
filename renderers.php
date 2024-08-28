@@ -260,7 +260,7 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
     
         $navClasses  = 'nav';
 
-        $navClasses .= ($enablestickypagination ? ' position-sticky fixed-bottom':' position-relative');
+        $navClasses .= ($enablestickypagination ? ' position-sticky conu-white-background fixed-bottom':' position-relative');
         $navClasses .= ($custompaginationposition ? ' justify-content-'.$custompaginationposition :' justify-content-center');
 
         $pagesshow = ($num_pages < 5) ?$num_pages:$pagesshow;
@@ -341,10 +341,6 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
             return $output;
         }
 
-        //TO BE REMOVED
-        $output .= '<h1>tester</h1>';
-        //TO BE REMOVED
-
         // Start the form.
         $output .= html_writer::start_tag('form',
                 ['action' => new moodle_url($attemptobj->processattempt_url(),
@@ -392,7 +388,178 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
 
         return $output;
     }
+    
+    /**
+     * Get an HTML string with the last time an attempt was saved.
+     *
+     * @return string HTML Fragment
+     */
+    public function last_autosave() {
+        global $DB;
+
+        $attemptid = optional_param('attempt', false, PARAM_INT);
+
+        $sql = "SELECT MAX(qat.timemodified) AS lastsaved
+                FROM {quiz_attempts} qa
+                INNER JOIN mdl_question_usages qu ON qa.uniqueid = qu.id
+                INNER JOIN mdl_question_attempts qat ON qat.questionusageid = qu.id
+                WHERE qa.id = :attemptid";
+
+        $lastsave = $DB->get_field_sql($sql, ['attemptid' => $attemptid]);
+
+        $lastsavestr = $lastsave == 0 ? get_string('never') : '';
+
+        return html_writer::span(html_writer::span(get_string('lastautosave', 'theme_saimaniq'),"strong h6") .html_writer::span($lastsavestr, 'lastsaved', ['data-lastsaved' => $lastsave]),"conu-lastautosave");
+    }
     //CONUMDLS0203 General Quiz UX/UI -- end
+
+    //CONUMDLS0203 General Quiz UX/UI -- Begin -- Custom Exam Navigation block
+    /**
+     * Outputs the navigation block panel
+     *
+     * @param quiz_nav_panel_base $panel instance of quiz_nav_panel_base
+     */
+    public function navigation_panel(quiz_nav_panel_base $panel) {
+        global $OUTPUT,$USER;
+        $extraclasses = [];
+        $bodyattributes = $OUTPUT->body_attributes($extraclasses);
+
+        $output = '';
+        $enablecustomexamnavigation = get_config('theme_saimaniq', 'enablecustomexamnavigation');
+        //we first verify if the setting is not enabled
+        // if it's not enabled, loads the original parent function
+        if (!$enablecustomexamnavigation) {
+            $output .= parent::navigation_panel($panel);
+            return $output;
+        }
+
+        //TO BE REMOVED
+        $output .= '<h1>tester</h1>';
+        //TO BE REMOVED
+
+        $userpicture = $panel->user_picture();
+        if ($userpicture) {
+            $fullname = fullname($userpicture->user);
+            if ($userpicture->size === true) {
+                $fullname = html_writer::div($fullname);
+            }
+            $output .= html_writer::tag('div', $this->render($userpicture) . $fullname,
+                    array('id' => 'user-picture', 'class' => 'clearfix'));
+        }
+        $output .= $panel->render_before_button_bits($this);
+        $bcc = $panel->get_button_container_class();
+        $output .= html_writer::start_tag('div', array('class' => "qn_buttons clearfix $bcc"));
+        foreach ($panel->get_question_buttons() as $button) {
+            $output .= $this->render($button);
+        }
+        $output .= html_writer::end_tag('div');
+
+        //the color key segment
+        $bodyattributes = $OUTPUT->body_attributes($extraclasses);
+
+        $reflection = new ReflectionClass($panel);
+        $property = $reflection->getProperty('attemptobj');
+        $property->setAccessible(true);
+        $attemptobj = $property->getValue($panel);
+        //we are going to check if the QR Hybrid question plugin is installed
+        $plugininfo = \core_plugin_manager::instance()->get_plugin_info('qtype_hybrid');
+        if ($plugininfo){
+            $qrsub = new qrsub();
+            $has_hybrid = $qrsub->has_hybrid_question($attemptobj);
+            if ($has_hybrid) {
+                $search_keys = array('answered','unsure','unanswered','invalidanswerhybrid');
+            }
+        } else {
+            $search_keys = array('answered','unsure','unanswered','invalidanswer');
+        }
+
+        if (strpos($bodyattributes,'page-mod-quiz-review')!==false){
+            $search_keys = array('correct','partiallycorrect','incorrect','notanswered','gradingrequired');
+        }
+        $key_strings = get_strings($search_keys, 'theme_saimaniq');
+        $array_keys = json_decode(json_encode($key_strings), true);
+        $output .= html_writer::start_tag('div', array('class' => "question_key"));
+        $output .= html_writer::tag('span', get_string('question_key', 'theme_saimaniq'));
+        $output .= html_writer::start_tag('ul');
+        foreach ( $array_keys as $key => $value )
+        {
+            $output .= html_writer::start_tag('li');
+            $output .= html_writer::tag('span', $value, array('class' => "$key"));
+            $output .= html_writer::end_tag('li');
+        }
+        
+        $output .= html_writer::end_tag('ul');
+        $output .= html_writer::end_tag('div');
+
+        if (strpos($bodyattributes,'quiz-attempt')!==false) {
+            $output .= $this->last_autosave();
+        }
+        $output .= html_writer::tag('div', $panel->render_end_bits($this),
+            array('class' => 'othernav'));
+        
+        $this->page->requires->js_init_call('M.mod_quiz.nav.init', null, false,
+                quiz_get_js_module());
+
+        return $output;
+    }
+
+    
+    /**
+     * Display a quiz navigation button.
+     *
+     * @param quiz_nav_question_button $button
+     * @return string HTML fragment.
+     */
+    protected function render_quiz_nav_question_button(quiz_nav_question_button $button) {
+
+        $enablecustomexamnavigation = get_config('theme_saimaniq', 'enablecustomexamnavigation');
+        //we first verify if the setting is not enabled
+        // if it's not enabled, loads the original parent function
+        if (!$enablecustomexamnavigation) {
+            return parent::render_quiz_nav_question_button($button);
+        }
+
+        $classes = array('qnbutton', $button->stateclass, $button->navmethod, 'btn');
+        $extrainfo = array();
+        $unsureclasses = array ('unsure');
+
+        if ($button->currentpage) {
+            $classes[] = 'thispage';
+            $extrainfo[] = get_string('onthispage', 'quiz');
+        }
+
+        // Flagged?
+        if ($button->flagged) {
+            //$classes[] = 'flagged';
+            $flaglabel = get_string('flagged', 'question');
+            $unsureclasses[]='flagged';
+        } else {
+            $flaglabel = '';
+        }
+        $extrainfo[] = html_writer::tag('span', $flaglabel, array('class' => 'flagstate'));
+
+        if (is_numeric($button->number)) {
+            $qnostring = 'questionnonav';
+        } else {
+            $qnostring = 'questionnonavinfo';
+        }
+        $a = new stdClass();
+        $a->number = $button->number;
+        $a->attributes = implode(' ', $extrainfo);
+        $tagcontents =  html_writer::tag('span', '', array('class' => 'thispageholder')) .
+                        html_writer::tag('span', '', array('class' => 'trafficlight')) .
+                        html_writer::tag('span', get_string($qnostring, 'quiz', $a) , array('class' => 'buttonnumber')) .
+                        html_writer::tag('span', '', array('class' => implode(' ', $unsureclasses)));
+        $tagattributes = array('class' => implode(' ', $classes), 'id' => $button->id,
+                                  'title' => $button->statestring, 'data-quiz-page' => $button->page);
+
+        if ($button->url) {
+            return html_writer::link($button->url, $tagcontents, $tagattributes);
+        } else {
+            return html_writer::tag('span', $tagcontents, $tagattributes);
+        }
+    }
+    //CONUMDLS0203 General Quiz UX/UI -- End -- Custom Exam Navigation block
 
 }
 

@@ -115,18 +115,20 @@ $string['enableinstructionsreaddesc']  = 'Enable/Disable checkbox to verify if t
 $string['enablemodalscopyterms']       = 'Enables additional check for the Copy/Terms';
 $string['enablemodalscopytermsdesc']   = 'Enable/Disable checkbox to verify if the user has read the Copyright and Terms';
 // All the settings for the Quiz page
-$string['quizquestionheading']          = 'Settings for the Quiz question(s) page';
-$string['quizquestionheadingdesc']      = 'Allows the administrator to control several aspects of quiz question page';
-$string['enablequestionsanswered']      = 'Enables Questions Answered bar';
-$string['enablequestionsanswereddesc']  = 'Enable/Disable the Questions bar';
-$string['enablecustompagination']       = 'Enables Custom pagination';
-$string['enablecustompaginationdesc']   = 'Enable/Disable the custom pagination at the bottom of the quiz page';
-$string['enablestickypagination']       = 'Enables sticky pagination';
-$string['enablestickypaginationdesc']   = 'Enable/Disable sticky pagination at the bottom of the quiz page';
-$string['custompaginationnaming']       = 'Select pagination type';
-$string['custompaginationnamingdesc']   = 'Allows selection of the pagination type: default strings, single character or icon';
-$string['custompaginationposition']     = 'Select pagination position';
-$string['custompaginationpositiondesc'] = 'Selects the position of the pagination bar for the quiz';
+$string['quizquestionheading']            = 'Settings for the Quiz question(s) page';
+$string['quizquestionheadingdesc']        = 'Allows the administrator to control several aspects of quiz question page';
+$string['enablequestionsanswered']        = 'Enables Questions Answered bar';
+$string['enablequestionsanswereddesc']    = 'Enable/Disable the Questions bar';
+$string['enablecustompagination']         = 'Enables Custom pagination';
+$string['enablecustompaginationdesc']     = 'Enable/Disable the custom pagination at the bottom of the quiz page';
+$string['enablestickypagination']         = 'Enables sticky pagination';
+$string['enablestickypaginationdesc']     = 'Enable/Disable sticky pagination at the bottom of the quiz page';
+$string['custompaginationnaming']         = 'Select pagination type';
+$string['custompaginationnamingdesc']     = 'Allows selection of the pagination type: default strings, single character or icon';
+$string['custompaginationposition']       = 'Select pagination position';
+$string['custompaginationpositiondesc']   = 'Selects the position of the pagination bar for the quiz';
+$string['enablecustomexamnavigation']     = 'Enables the custom Exam Navigation block';
+$string['enablecustomexamnavigationdesc'] = 'Enable/Disable the custom block elements for the Exam Navigation Block';
 
 //the name for the Integrations tab
 $string['settingsintegrationpage'] = 'Integrations settings';
@@ -194,3 +196,30 @@ $string['acsdaccomodations'] = "If you are eligible for extended time, your exam
 $string['chinaoriranhdr'] = "Writing from China or Iran";
 $string['chinaoriran'] = "If your exam is proctored, make sure you are not connected with VPN. VPN is not compatible with proctored exams.";
 $string['supportphone'] = 'Call <a href="tel:+18882028615">1-888-202-8615</a> for support';
+
+//Summary strings
+//Table strings
+$string['questionno'] = 'Q No.';
+$string['questionsatt'] = 'Questions attempted:';
+//Filter
+$string['sortby'] = 'Filter by';
+
+//color boxes
+$string['question_key'] = 'Key';
+$string['answered'] = 'Attempted';
+$string['correct'] = 'Correct';
+$string['unsure'] = 'Unsure of attempt';
+$string['unsureshort'] = 'Unsure';
+$string['unanswered'] = 'Not attempted';
+$string['invalidanswer'] = 'Incomplete';
+$string['incorrect'] = 'Incorrect';
+$string['filterall'] = 'All';
+$string['partiallycorrect'] = 'Partially correct';
+$string['gradingrequired'] = 'Requires grading';
+$string['notanswered'] = 'Not answered';
+$string['invalidanswerhybrid'] = 'Incomplete/Pending upload';
+$string['invalidsummaryhybrid'] = 'Pending upload';
+$string['invalidsummaryhybridbutton'] = 'Incomplete/ To upload';
+
+//Last Saved string - to be shown in the attempt page
+$string['lastautosave'] = "Last saved: ";

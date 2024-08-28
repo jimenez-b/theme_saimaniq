@@ -1,0 +1,90 @@
+/*************************** Attempt section ****************************/
+/************************* ported from QUIZZER **************************/
+
+#page-mod-quiz-attempt {
+    #mod_quiz_navblock {
+        .qnbutton {
+            font-size: 16px;
+            width: 30px;
+            margin: 8px;
+            font-weight: 500;
+            height: 30px;
+            border-radius: $conu-border-radius;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            color: white !important;
+            .thispageholder {
+                border-color: $conu-unanswered;
+            }
+            .trafficlight{
+                border-radius: $conu-border-radius;
+                margin: 1px;
+                height: auto;
+            }
+            &.complete,
+            &.answersaved,
+            &.requiresgrading {
+                .trafficlight {
+                    background-color: $conu-medium-grey;
+                    //background-color: $gray-400;
+                }
+            }
+            
+            &.notyetanswered {
+                .trafficlight {
+                    //height: auto;
+                    //margin: 2px;
+                    //background-color: $conu-dark-grey;
+                    background-color: $conu-unanswered;
+                }
+            }
+            
+            &.invalidanswer {
+                .trafficlight {
+                    //height: auto;
+                    //margin: 2px;
+                    background-color: $conu-invalidanswer;
+                    background-image: none!important;
+                }
+            }
+            &.answersaved {
+                .trafficlight {
+                    //height: auto;
+                    //margin: 2px;
+                    background-color: $conu-answered;
+                }
+            }
+            &.thispage {
+                .thispageholder {
+                    border-width: 1px;
+                    border-color: $gray-500;
+                    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .5);
+                    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .5);
+                }
+            }
+            .buttonnumber {
+                position: relative;
+                display: inline-block;
+                margin-top: 5px;
+            }
+            span {
+                &.unsure {
+                    position: absolute;
+                    z-index: 1;
+                    margin-top: 32px;
+                    padding: 5px 12px 0;
+                    left: 3px;
+                    border-radius: 4px 4px;
+                    &.flagged {
+                        background-color: $conu-unsure;
+                    }
+                }
+            }
+        }
+        .mod_quiz-section-heading {
+            padding: .7em 0 0;
+            margin: 0;
+            clear: both;
+        }
+    }
+}

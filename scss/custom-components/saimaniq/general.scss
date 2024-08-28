@@ -293,6 +293,9 @@ button:disabled,
         color: $color !important;
     }
 }
+.conu-white-background {
+    background-color: white;
+}
 
 @each $name, $width in $conu-widths {
     .w-#{$name}{
