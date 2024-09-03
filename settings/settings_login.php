@@ -30,7 +30,7 @@ $page = new admin_settingpage('theme_saimaniq_login', get_string('settingsloginp
 $page->add(new admin_setting_heading('theme_saimaniq_login', get_string('loginsettingsheading', 'theme_saimaniq'),
         format_text(get_string('logindesc', 'theme_saimaniq'), FORMAT_MARKDOWN)));
 
-// Login page background opacity.
+// Login main text.
 $name = 'theme_saimaniq/loginmaintextconf';
 $title = get_string('loginmaintextconf', 'theme_saimaniq');
 $description = get_string('loginmaintextconfdesc', 'theme_saimaniq');
