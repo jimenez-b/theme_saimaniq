@@ -126,5 +126,14 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// allows the changing of the amount of seconds to be switch to red
+/*$name = 'theme_saimaniq/quiztimercolorchange';
+$title = get_string('quiztimercolorchange', 'theme_saimaniq');
+$description = get_string('quiztimercolorchangedesc', 'theme_saimaniq');
+$default = get_string('quiztimercolorchangedef', 'theme_saimaniq');
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_INT);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);*/
+
 // Must add the page after definiting all the settings! 
 $settings->add($page);

@@ -129,6 +129,9 @@ $string['custompaginationposition']       = 'Select pagination position';
 $string['custompaginationpositiondesc']   = 'Selects the position of the pagination bar for the quiz';
 $string['enablecustomexamnavigation']     = 'Enables the custom Exam Navigation block';
 $string['enablecustomexamnavigationdesc'] = 'Enable/Disable the custom block elements for the Exam Navigation Block';
+$string['quiztimercolorchange']           = 'Seconds timer';
+$string['quiztimercolorchangedesc']       = 'Number of seconds to use in order to switch to a different color in the timer';
+$string['quiztimercolorchangedef']        = '100';
 
 //the name for the Integrations tab
 $string['settingsintegrationpage'] = 'Integrations settings';

@@ -165,8 +165,9 @@ $conu-text-colors-outline: map-merge((
 $bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
 
 //quiz colors
+$conu-red:           #C40025;
 //modified to conform with new branding
 $conu-answered:      $success;
 $conu-unsure:        $warning;
 $conu-unanswered:    $conu-dark-grey;
-$conu-invalidanswer: #C40025;
+$conu-invalidanswer: $conu-red;

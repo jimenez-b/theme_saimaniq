@@ -1,0 +1,51 @@
+/*************************** Quiz timer section ****************************/
+/*************************** from original COLE ****************************/
+
+#quiz-timer-wrapper {
+    position: unset;
+    #quiz-timer {
+        font: 1.5rem $conu-font-medium;
+        border-color: $conu-light-grey;
+        background-color: $conu-light-grey;
+        position: fixed;
+        top: 0px;
+        right: 350px;
+        z-index: 10000;
+        &::before {
+            content: "\f017";
+            font: 1.75rem FontAwesome;
+        }
+        #quiz-time-left {
+            //font-size: 2rem;
+            //font-weight: 500;
+            font: 2rem $conu-font-bold;
+            //color: $gray-700;
+            color: $conu-dark-grey;
+            line-height: 50px;
+        }
+    }
+}
+
+
+$tl: 300;
+@for $i from 1 through $tl {
+    #quiz-timer{
+        &.timeleft#{$i} { 
+            color: $conu-red !important;
+            #quiz-time-left {
+                color: $conu-red !important;
+            }
+        }
+    }
+    @if $i < 15 {
+        #quiz-timer{
+            &.timeleft#{$i} {
+                background-color: $conu-red !important;
+                color: white !important;
+                #quiz-time-left {
+                    color: white !important;
+                }
+            }
+        }
+    } 
+}
