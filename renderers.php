@@ -211,6 +211,7 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $output .= $this->quiz_notices($messages);
         $output .= $this->countdown_timer($attemptobj, time());
         $output .= $this->attempt_form($attemptobj, $page, $slots, $id, $nextpage);
+        $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/attempt','init');
         $output .= $this->footer();
         return $output;
     }
@@ -755,4 +756,327 @@ class theme_saimaniq_core_backup_renderer extends \core_backup_renderer {
         return $output;
     }
 
+}
+
+class theme_saimaniq_core_question_renderer extends core_question_renderer {
+     /**
+     * Generate the information bit of the question display that contains the
+     * metadata like the question number, current state, and mark.
+     * @param question_attempt $qa the question attempt to display.
+     * @param qbehaviour_renderer $behaviouroutput the renderer to output the behaviour
+     *      specific parts.
+     * @param qtype_renderer $qtoutput the renderer to output the question type
+     *      specific parts.
+     * @param question_display_options $options controls what should and should not be displayed.
+     * @param string|null $number The question number to display. 'i' is a special
+     *      value that gets displayed as Information. Null means no number is displayed.
+     * @return HTML fragment.
+     */
+    protected function info(question_attempt $qa, qbehaviour_renderer $behaviouroutput,
+            qtype_renderer $qtoutput, question_display_options $options, $number) {
+        global $OUTPUT;
+        $output = '';
+
+        $enablecustomquestionvisuals = get_config('theme_saimaniq', 'enablecustomquestionvisuals');
+
+        if (!$enablecustomquestionvisuals) {
+            $output .= parent::info($qa, $behaviouroutput, $qtoutput, $options, $number);
+            return $output;
+        }
+        //enablecustomquestionvisuals
+        $output .= $this->number_custom($number, $qa);
+
+        $extraclasses = [];
+        $bodyattributes = $OUTPUT->body_attributes($extraclasses);
+        /**
+         * two conditions 
+         * a. the exam is closed and
+         * b. teacher enabled review after exam closed
+         */
+        if (!empty($options->editquestionparams)) {
+            $output .= $this->status($qa, $behaviouroutput, $options);
+            $output .= $this->mark_summary($qa, $behaviouroutput, $options);
+            //$output .= $this->question_flag($qa, $options->flags);
+        //added verification in case a student is here
+        } else {
+            //extra verification to prevent error on question preview page
+            if (strpos($bodyattributes,'page-question-preview')==false){
+                $reflection = new ReflectionClass($qa);
+                $property = $reflection->getProperty('usageid');
+                $property->setAccessible(true);
+                $attemptid = $property->getValue($qa);
+
+                $quizobj =$this->get_quiz_by_id($this->get_quiz_id_by_attemptid($attemptid));
+
+                $t=time();
+                $closingtime = $quizobj->timeclose;
+                if($closingtime && 
+                    $t>$closingtime && 
+                    $quizobj->reviewattempt & mod_quiz_display_options::AFTER_CLOSE){
+                        $output .= $this->mark_summary($qa, $behaviouroutput, $options);
+                }
+            }
+            else{
+                $output .= $this->mark_summary($qa, $behaviouroutput, $options);
+            }       
+        }
+        $output .= $this->edit_question_link($qa, $options);
+        $output .= $this->question_flag_custom($qa, $options->flags);
+        return $output;
+    }
+
+    protected function get_quiz_by_id(int $quizid): stdClass {
+        global $DB;
+        return $DB->get_record('quiz', array('id' => $quizid), '*', MUST_EXIST);
+    }
+
+    protected function get_quiz_id_by_attemptid(string $attemptid) {
+        global $DB;
+        return $DB->get_field('quiz_attempts','quiz', array('uniqueid' => $attemptid));
+    }
+
+    /**
+     * Render the question flag, assuming $flagsoption allows it.
+     *
+     * @param question_attempt $qa the question attempt to display.
+     * @param int $flagsoption the option that says whether flags should be displayed.
+     */
+    protected function question_flag_custom(question_attempt $qa, $flagsoption) {
+        global $CFG;
+
+        $divattributes = array('class' => 'questionflag');
+
+        switch ($flagsoption) {
+            /*
+            case question_display_options::VISIBLE:
+                $flagcontent = $this->get_flag_html_custom($qa->is_flagged());
+                break;
+            */
+            case question_display_options::EDITABLE:
+                $id = $qa->get_flag_field_name();
+                // The checkbox id must be different from any element name, because
+                // of a stupid IE bug:
+                // http://www.456bereastreet.com/archive/200802/beware_of_id_and_name_attribute_mixups_when_using_getelementbyid_in_internet_explorer/
+                $checkboxattributes = array(
+                    'type' => 'checkbox',
+                    'id' => $id . 'checkbox',
+                    'name' => $id,
+                    'value' => 1,
+                );
+                if ($qa->is_flagged()) {
+                    $checkboxattributes['checked'] = 'checked';
+                }
+                $postdata = question_flags::get_postdata($qa);
+                $flagcontent =  html_writer::empty_tag('input',
+                                    array('type' => 'hidden', 'name' => $id, 'value' => 0)) .
+                                html_writer::empty_tag('input', $checkboxattributes) .
+                                html_writer::empty_tag('input',
+                                        array('type' => 'hidden', 'value' => $postdata, 'class' => 'questionflagpostdata')) .
+                                html_writer::tag('label', $this->get_flag_html_custom($qa->is_flagged(), $id . 'img'),
+                                        array('id' => $id . 'label', 'for' => $id . 'checkbox')) . "\n";
+
+                //get_string('unsureattempt', 'theme_quizzer')
+
+                $divattributes = array(
+                    'class' => 'questionflag editable',
+                    'aria-atomic' => 'true',
+                    'aria-relevant' => 'text',
+                    'aria-live' => 'assertive',
+                );
+
+                break;
+
+            default:
+                $flagcontent = '';
+        }
+
+        return html_writer::nonempty_tag('div', $flagcontent, $divattributes);
+    }
+
+    /**
+     * Work out the actual img tag needed for the flag
+     *
+     * @param bool $flagged whether the question is currently flagged.
+     * @param string $id an id to be added as an attribute to the img (optional).
+     * @return string the img tag.
+     */
+    protected function get_flag_html_custom($flagged, $id = '') {
+        if ($flagged) {
+            $icon = 'i/flagged';
+            $alt = get_string('clickunflag', 'question');
+            $label = get_string('unsureattempt', 'theme_saimaniq');
+        } else {
+            $icon = 'i/unflagged';
+            $alt = get_string('clickflag', 'question');
+            $label = get_string('unsureattempt', 'theme_saimaniq');
+        }
+        $attributes = array(
+            'src' => $this->image_url($icon),
+            'alt' => $alt,
+            'class' => 'questionflagimage',
+        );
+        if ($id) {
+            $attributes['id'] = $id;
+        }
+        $img = html_writer::empty_tag('img', $attributes);
+        $img .= html_writer::span($label);
+
+        return $img;
+    }
+
+    /**
+     * Generate the display of the question number.
+     * @param string|null $number The question number to display. 'i' is a special
+     *      value that gets displayed as Information. Null means no number is displayed.
+     * @param question_attempt $qa the question attempt to display.
+     * @return HTML fragment.
+     */
+    protected function number_custom($number, question_attempt $qa) {
+        global $DB;
+
+        $questionusageid = $DB->get_field('question_attempts','questionusageid', array('id' => $qa->get_database_id()));
+
+        $sql = "SELECT qa.id, q.id, q.qtype FROM {question_attempts} qa INNER JOIN {question} q ON qa.questionid = q.id WHERE qa.questionusageid = :questionusageid AND q.qtype <> 'description' ORDER BY qa.id ASC";
+        $qtotal = count($DB->get_records_sql($sql,array('questionusageid' => $questionusageid)));
+
+        if (trim($number) === '') {
+            return '';
+        }
+        $numbertext = '';
+
+        if (trim($number) === 'i') {
+            $numbertext = get_string('information', 'question');
+        } else {
+            $percentage = round(($number/$qtotal)*100);
+            $classperc = ($percentage>50) ? "over50" : '';
+
+            $number = html_writer::tag('span', $number, array('class' => 'qnumber question-font'));
+            $qtotal = html_writer::tag('span', " of ".$qtotal, array('class' => 'qtotal small small-60 question-font'));
+            $numbertext .= html_writer::tag('span', $number.$qtotal, array('class' => 'qnumber qno'));
+        }
+        return html_writer::tag('h3', $numbertext, array('class' => 'no'));
+    }
+
+    /**
+     *
+     * @return HTML fragment.
+     */
+    protected function highlighters() {
+        return html_writer::tag('div','', array('class' => 'text-highlight-pallet'));
+    }
+
+    protected function max_mark_question(question_attempt $qa) {
+        $output  = '';
+        $marks = $qa->get_max_mark();
+        $mark = ($marks>1) ? get_string('attemptmarks', 'theme_saimaniq') : get_string('attemptmark', 'theme_saimaniq');
+        $display = ($qa->get_question(false)->get_type_name() == 'description' ? 'd-none' : 'd-flex');
+        $output .= html_writer::start_tag('div', array('class' => 'qmarks '.$display.' flex-wrap position-relative w-15'));
+        $output .= html_writer::tag('span',$mark, array('class' => 'pl-2 string w-50 small conu-tint-dark-blue-background align-content-center'));
+        $output .= html_writer::tag('span',$marks, array('class' => 'pl-2 number w-50 pl-2 bold conu-tint-blue-background'));
+        $output .= html_writer::end_tag('div');
+        return $output;
+    }
+
+    protected function add_part_marks($highlighters, $marks) {
+        /*
+        global $USER,$PAGE;
+        $context = $PAGE->context;
+        $role = theme_saimaniq\helper::get_role($context,$USER->id);
+        $preset = theme_saimaniq\helper::is_cole_preset(theme_config::load('saimaniq'));
+        return ($role == "student" && $preset == true ? html_writer::tag('div', $highlighters.$marks, array('class' => 'row mx-0', 'id' => 'additional-control')) : '' );
+        */
+        return html_writer::tag('div', $highlighters.$marks, array('class' => 'row mx-0 flex-row justify-content-end', 'id' => 'additional-control'));
+    }
+
+    /**
+     * Generate the display of a question in a particular state, and with certain
+     * display options. Normally you do not call this method directly. Intsead
+     * you call {@link question_usage_by_activity::render_question()} which will
+     * call this method with appropriate arguments.
+     *
+     * @param question_attempt $qa the question attempt to display.
+     * @param qbehaviour_renderer $behaviouroutput the renderer to output the behaviour
+     *      specific parts.
+     * @param qtype_renderer $qtoutput the renderer to output the question type
+     *      specific parts.
+     * @param question_display_options $options controls what should and should not be displayed.
+     * @param string|null $number The question number to display. 'i' is a special
+     *      value that gets displayed as Information. Null means no number is displayed.
+     * @return string HTML representation of the question.
+     */
+    public function question(question_attempt $qa, qbehaviour_renderer $behaviouroutput,
+            qtype_renderer $qtoutput, question_display_options $options, $number) {
+        
+        $output = '';
+        
+        $preset = theme_saimaniq\helper::is_cole_preset(theme_config::load('saimaniq'));
+        $enablecustomquestionvisuals = get_config('theme_saimaniq', 'enablecustomquestionvisuals');
+
+        if (!$enablecustomquestionvisuals || $preset == false) {
+            $output .= parent::question($qa, $behaviouroutput, $qtoutput, $options, $number);
+            return $output;
+        }
+        $output .= html_writer::start_tag('div', array(
+            'id' => $qa->get_outer_question_div_unique_id(),
+            'class' => implode(' ', array(
+                'que',
+                $qa->get_question(false)->get_type_name(),
+                $qa->get_behaviour_name(),
+                $qa->get_state_class($options->correctness && $qa->has_marks()),
+            ))
+        ));
+
+        $output .= html_writer::tag('div',
+                $this->info($qa, $behaviouroutput, $qtoutput, $options, $number),
+                array('class' => 'info'));
+
+        $output .= html_writer::start_tag('div', array('class' => 'content'));
+
+        //$output .= $this->max_mark_question($qa);
+        $output .= $this->add_part_marks( $this->highlighters(), $this->max_mark_question($qa));
+        $output .= html_writer::tag('div',
+                $this->add_part_heading($qtoutput->formulation_heading(),
+                    $this->formulation($qa, $behaviouroutput, $qtoutput, $options)),
+                array('class' => 'formulation clearfix'));
+        $output .= html_writer::nonempty_tag('div',
+                $this->add_part_heading(get_string('feedback', 'question'),
+                    $this->outcome($qa, $behaviouroutput, $qtoutput, $options)),
+                array('class' => 'outcome clearfix'));
+        $output .= html_writer::nonempty_tag('div',
+                $this->add_part_heading(get_string('comments', 'question'),
+                    $this->manual_comment($qa, $behaviouroutput, $qtoutput, $options)),
+                array('class' => 'comment clearfix'));
+        $output .= html_writer::nonempty_tag('div',
+                $this->response_history($qa, $behaviouroutput, $qtoutput, $options),
+                array('class' => 'history clearfix border p-2'));
+        //$output .= $this->notes_area($number);
+        $output .= html_writer::end_tag('div');
+        $output .= html_writer::end_tag('div');
+        //Added from Nicolas' renderers.php
+        //21-09-2021
+
+        // Only add the files from the upload exam on hybrid question.
+        $question_definition = $qa->get_question(false);
+        if (get_class($question_definition) == 'qtype_hybrid_question') {
+
+	          $id = optional_param('attempt', 0, PARAM_INT);
+
+	          // Those pages shouldn't have the file list attach to them.
+	          $no_file_pages = array('local-qrsub-attempt', 'mod-quiz-attempt');
+
+	          // Make sure we have an attempt id and we are not in a question attempt page.
+	          if ($id !== 0 && !in_array($this->page->pagetype, $no_file_pages)) {
+	              $attemptobj = quiz_attempt::create($id);
+
+	              // Create a quiz attempt obj, get the uploaded files and add them to the page.
+	              $files = qrsub::get_files_from_upload_exam($attemptobj, $qa->get_slot(), $this->output);
+	              if (!empty($files)) {
+	                  $output = qrsub::add_upload_exam_files_to_review($output, $files);
+	              }
+	          }
+        }
+        // QRMOOD-40
+        //end Nicolas' addition 
+        return $output;
+    }
 }

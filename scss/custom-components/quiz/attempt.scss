@@ -2,89 +2,231 @@
 /************************* ported from QUIZZER **************************/
 
 #page-mod-quiz-attempt {
-    #mod_quiz_navblock {
-        .qnbutton {
-            font-size: 16px;
-            width: 30px;
-            margin: 8px;
-            font-weight: 500;
-            height: 30px;
-            border-radius: $conu-border-radius;
-            -webkit-box-shadow: none;
-            box-shadow: none;
-            color: white !important;
-            .thispageholder {
-                border-color: $conu-unanswered;
-            }
-            .trafficlight{
-                border-radius: $conu-border-radius;
-                margin: 1px;
-                height: auto;
-            }
-            &.complete,
-            &.answersaved,
-            &.requiresgrading {
-                .trafficlight {
-                    background-color: $conu-medium-grey;
-                    //background-color: $gray-400;
+    .que {
+        &:not(.informationitem){
+            background-color: rgba($color: $conu-light-grey, $alpha: 0.3);
+            border: 1px solid rgba($color: $conu-dark-grey, $alpha: 0.3) ;
+            .info{
+                background-color: transparent;
+                border: 0px;
+                width: 8.5rem;
+                .questionflag {
+                    a.aabtn{
+                        font-size: 1rem;
+                        img{
+                            vertical-align: text-bottom;
+                            &.questionflagimage{
+                                height: auto;
+                                width: 1.5em;
+                            }
+                        }
+                    }
+                    
                 }
             }
-            
-            &.notyetanswered {
-                .trafficlight {
-                    //height: auto;
-                    //margin: 2px;
-                    //background-color: $conu-dark-grey;
-                    background-color: $conu-unanswered;
+            .content {
+                border-left: 1px solid rgba($color: $primary, $alpha: 0.3);
+                .formulation {
+                    background-color: transparent;
+                    border: 0px;
+                    margin-bottom: 0;
+                }           
+                a {
+                    overflow-wrap: anywhere;
                 }
             }
-            
-            &.invalidanswer {
-                .trafficlight {
-                    //height: auto;
-                    //margin: 2px;
-                    background-color: $conu-invalidanswer;
-                    background-image: none!important;
+        }
+        div{
+            &.r0,
+            &.r1 {
+                background-color: rgba($color: $conu-blue, $alpha: 0.15);
+                margin-bottom:0.3rem;
+                //padding-top: 5px;
+                input[type="radio"] {
+                    display: none;
+                }
+                [data-region="answer-label"] {
+                    width: -webkit-fill-available !important;
+                    &>* {
+                        padding-top: 5px;
+                    }
+                }
+                label {
+                    display: inline-block;
+                    width: -webkit-fill-available !important;
+                    padding-top: 5px;
+                }
+                .answernumber {
+                    background-color: rgba($color: $conu-blue, $alpha: 0.5);
+                    min-width: 1.7rem;
+                    padding:5px;
+                    padding-left:8px;
+                }
+                &.checked,
+                &:hover {
+                    background-color: rgba($color: $conu-blue, $alpha: 0.5);
+                }
+                
+            }
+        }
+        select{
+            &.custom-select {
+                border: 1px solid transparent;
+                border-bottom: 4px solid rgba($color: $conu-blue, $alpha: 0.5);
+                //background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-caret-down%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M3.204%205h9.592L8%2010.481zm-.753.659%204.796%205.48a1%201%200%200%200%201.506%200l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1%201%200%200%200-.753%201.659%22%2F%3E%3C%2Fsvg%3E);
+                background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-chevron-down%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M1.646%204.646a.5.5%200%200%201%20.708%200L8%2010.293l5.646-5.647a.5.5%200%200%201%20.708.708l-6%206a.5.5%200%200%201-.708%200l-6-6a.5.5%200%200%201%200-.708%22%2F%3E%3C%2Fsvg%3E);
+                background-size: 10px;
+                &:hover {
+                    background-color: rgba($color: $conu-blue, $alpha: 0.15);
+                }
+                option {
+                    background-color: $conu-light-grey;
                 }
             }
-            &.answersaved {
-                .trafficlight {
-                    //height: auto;
-                    //margin: 2px;
-                    background-color: $conu-answered;
+        }
+        input[type="text"] {
+            &:focus {
+                border-bottom: 4px solid rgba($color: $conu-blue, $alpha: 0.5);
+                box-shadow: none;
+                transition: border-bottom 0.25s ease-out;
+            }
+        }
+        textarea {
+            border: 1px solid rgba($color: $conu-medium-grey, $alpha: 0.5);
+            &:focus,
+            &:focus-visible {
+                border: 1px solid rgba($color: $conu-blue, $alpha: 0.5);
+                border-left-width: 4px;
+                transition: border-bottom 0.25s ease-in-out;
+            }
+        }
+        &.ddwtos,
+        &.ddimageortext {
+            .drop {
+                &.active {
+                    border: 1px dashed rgba($color: $conu-blue, $alpha: 0.5);
+                    background-color: rgba($color: $conu-blue, $alpha: 0.15);
+                }
+                &:focus,
+                &.valid-drag-over-drop {
+                    box-shadow: 0 0 8px 2px rgba($color: $conu-dark-grey, $alpha: 0.5);
                 }
             }
-            &.thispage {
-                .thispageholder {
-                    border-width: 1px;
-                    border-color: $gray-500;
-                    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .5);
-                    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .5);
+            .dropzone {
+                &.active {
+                    border: 1px dashed $conu-dark-grey;
+                }
+                &:focus,
+                &.valid-drag-over-drop {
+                    box-shadow: 0 0 8px 2px rgba($color: white, $alpha: 0.9);
                 }
             }
-            .buttonnumber {
-                position: relative;
-                display: inline-block;
-                margin-top: 5px;
-            }
-            span {
-                &.unsure {
-                    position: absolute;
-                    z-index: 1;
-                    margin-top: 32px;
-                    padding: 5px 12px 0;
-                    left: 3px;
-                    border-radius: 4px 4px;
-                    &.flagged {
-                        background-color: $conu-unsure;
+            .draghome {
+                border: 1px solid $conu-medium-grey;
+                &.beingdragged {
+                    box-shadow: none;
+                    border: 1px solid rgba($color: $conu-blue, $alpha: 0.5);
+                    border-left-width: 4px;
+                }
+                &.placed {
+                    &:focus:not(.beingdragged),
+                    &.valid-drag-over-drop {
+                        box-shadow: 0 0 8px 2px rgba($color: $conu-dark-grey, $alpha: 0.5);
                     }
                 }
             }
         }
-        .mod_quiz-section-heading {
-            padding: .7em 0 0;
-            margin: 0;
-            clear: both;
+        &.ddmarker {
+            .marker {
+                img.target {
+                    left: -3px;
+                    z-index: 10;
+                }
+                span.markertext{
+                    border: 1px solid $conu-medium-grey;
+                    border-radius: $conu-border-radius;
+                }
+                &.beingdragged {
+                    span.markertext{
+                        box-shadow: none;
+                        border: 1px solid rgba($color: $conu-blue, $alpha: 0.5);
+                        border-left-width: 4px;
+                    }
+                }
+            }
+        }
+        &.essay {
+            .editor_atto {
+                .editor_atto_toolbar {
+                    background-color: $conu-medium-grey;
+                    border-top-left-radius: $conu-border-radius;
+                    border-top-right-radius: $conu-border-radius;
+                    .atto_group {
+                        border-radius: $conu-border-radius;
+                        button {
+                            padding: 4px 8px;
+                            &:hover {
+                                background-image: none;
+                                background-color: rgba($color: $conu-blue, $alpha: 0.15);
+                            }
+                            &:active,
+                            &.highlight {
+                                background-image: none;
+                                background-color: rgba($color: $conu-blue, $alpha: 0.5);
+                            }
+                        }
+                    }
+                }
+            }
+            .tox {
+                .tox-mbtn{
+                    &:hover{
+                        &:not(:disabled){
+                            &:not(.tox-mbtn--active){
+                                background-color: rgba($color: $conu-blue, $alpha: 0.15);
+                            }
+                        }
+                    }
+                }
+                .tox-tbtn--enabled{
+                    background-color: rgba($color: $conu-blue, $alpha: 0.5);
+                    &:hover{
+                        background-color: rgba($color: $conu-blue, $alpha: 0.5);
+                    }
+                }
+            }
+        }
+        &.informationitem {
+            .info {
+                display: contents;
+                .questionflag {
+                    display: none;
+                }
+                .no {
+                    display: none;
+                }
+            }
+            .content {
+                margin: 0;
+                .formulation {
+                    background-color: $white;
+                    border-color: $white;
+                    .additional-instructions {
+                        background-color: $gray-300;
+                        padding: 1rem;
+                        .additional-title {
+                            font-family: $conu-font-book;
+                            font-size: larger;
+                            color: $primary;
+                            text-align: center !important;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+            .qmarks {
+                display: none;
+            }
         }
     }
 }

@@ -114,7 +114,14 @@ $string['enableinstructionsread']      = 'Enables additional check for the instr
 $string['enableinstructionsreaddesc']  = 'Enable/Disable checkbox to verify if the user has read the instructions before the exam';
 $string['enablemodalscopyterms']       = 'Enables additional check for the Copy/Terms';
 $string['enablemodalscopytermsdesc']   = 'Enable/Disable checkbox to verify if the user has read the Copyright and Terms';
-// All the settings for the Quiz page
+// All the settings common to the quiz
+$string['quizcommonheading']               = 'Common Settings for the Quiz pages';
+$string['quizcommonheadingdesc']           = 'Allows the administrator to set several aspects that are common throughout the quiz';
+$string['enablecustomquestionvisuals']     = 'Enables Custom format for the question';
+$string['enablecustomquestionvisualsdesc'] = 'Enable/Disable a custom visual formatting for the questions';
+$string['enablecustomexamnavigation']      = 'Enables the custom Exam Navigation block';
+$string['enablecustomexamnavigationdesc']  = 'Enable/Disable the custom block elements for the Exam Navigation Block';
+// All the settings for the attempt Quiz page
 $string['quizquestionheading']            = 'Settings for the Quiz question(s) page';
 $string['quizquestionheadingdesc']        = 'Allows the administrator to control several aspects of quiz question page';
 $string['enablequestionsanswered']        = 'Enables Questions Answered bar';
@@ -127,8 +134,7 @@ $string['custompaginationnaming']         = 'Select pagination type';
 $string['custompaginationnamingdesc']     = 'Allows selection of the pagination type: default strings, single character or icon';
 $string['custompaginationposition']       = 'Select pagination position';
 $string['custompaginationpositiondesc']   = 'Selects the position of the pagination bar for the quiz';
-$string['enablecustomexamnavigation']     = 'Enables the custom Exam Navigation block';
-$string['enablecustomexamnavigationdesc'] = 'Enable/Disable the custom block elements for the Exam Navigation Block';
+
 $string['quiztimercolorchange']           = 'Seconds timer';
 $string['quiztimercolorchangedesc']       = 'Number of seconds to use in order to switch to a different color in the timer';
 $string['quiztimercolorchangedef']        = '100';
@@ -185,6 +191,11 @@ $string['termsandconditions'] = '<p>You are about to enter into an online exam e
 <p>The academic integrity standards applicable to you during this exam are identical to those applicable in an in-person exam. If it is suspected that you did not respect those standards, you may be charged under the Academic Code of Conduct. It is your responsibility to ensure that you remove anything from your exam environment that can be perceived to be unauthorized materials during the exam. Material that you are allowed to use during the exam are mentioned above.</p>
 <p>By entering the exam, you represent and warrant that you are the person whose name is associated with the login used in COLE. You affirm that you have had the opportunity to review and that you understand the Academic Code of Conduct.</p>
 <p>If you require support during the exam, please call 1-888-202-8615 as soon as possible.</p>';
+
+//attempt
+$string['unsureattempt'] = 'Unsure';
+$string['attemptmarks']  = 'Marks';
+$string['attemptmark']   = 'Mark';
 
 //suppport FAQ
 $string['support'] = "Support FAQ";

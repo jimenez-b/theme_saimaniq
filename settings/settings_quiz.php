@@ -57,6 +57,27 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+$page->add(new admin_setting_heading('theme_saimaniq_quiz_common', get_string('quizcommonheading', 'theme_saimaniq'),
+        format_text(get_string('quizcommonheadingdesc', 'theme_saimaniq'), FORMAT_MARKDOWN)));
+
+// Enable/Disable the custom visuals on the exam, where applicable
+$name = 'theme_saimaniq/enablecustomquestionvisuals';
+$title = get_string('enablecustomquestionvisuals', 'theme_saimaniq');
+$description = get_string('enablecustomquestionvisualsdesc', 'theme_saimaniq');
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true,false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Enable/Disable the custom block elements for the Exam Navigation Block
+$name = 'theme_saimaniq/enablecustomexamnavigation';
+$title = get_string('enablecustomexamnavigation', 'theme_saimaniq');
+$description = get_string('enablecustomexamnavigationdesc', 'theme_saimaniq');
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true,false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 $page->add(new admin_setting_heading('theme_saimaniq_quiz_page', get_string('quizquestionheading', 'theme_saimaniq'),
         format_text(get_string('quizquestionheadingdesc', 'theme_saimaniq'), FORMAT_MARKDOWN)));
 
@@ -114,15 +135,6 @@ $title = get_string('custompaginationposition', 'theme_saimaniq');
 $description = get_string('custompaginationpositiondesc', 'theme_saimaniq');
 $default = 'center';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $opacitychoices);
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
-
-// Checkbox to Enable/Disable the custom pagination on the quiz page
-$name = 'theme_saimaniq/enablecustomexamnavigation';
-$title = get_string('enablecustomexamnavigation', 'theme_saimaniq');
-$description = get_string('enablecustomexamnavigationdesc', 'theme_saimaniq');
-$default = false;
-$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true,false);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
