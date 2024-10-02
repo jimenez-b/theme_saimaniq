@@ -179,25 +179,50 @@
             }
         }
         &.essay {
-            .editor_atto {
-                .editor_atto_toolbar {
-                    background-color: $conu-medium-grey;
-                    border-top-left-radius: $conu-border-radius;
-                    border-top-right-radius: $conu-border-radius;
-                    .atto_group {
-                        border-radius: $conu-border-radius;
-                        button {
-                            padding: 4px 8px;
-                            &:hover {
-                                background-image: none;
-                                background-color: rgba($color: $conu-blue, $alpha: 0.15);
-                            }
-                            &:active,
-                            &.highlight {
-                                background-image: none;
-                                background-color: rgba($color: $conu-blue, $alpha: 0.5);
+            .editor_atto_wrap{
+                border: 1px solid $conu-medium-grey;
+                background-color: $conu-light-grey;
+                .editor_atto {
+                    .editor_atto_toolbar {
+                        background-color: transparent;
+                        border-top-left-radius: $conu-border-radius;
+                        border-top-right-radius: $conu-border-radius;
+                        border: 0px;
+                        padding: 0px 5px;
+                        .atto_toolbar_row {
+                            margin: 6px 0 5px 0px;
+                            .atto_group {
+                                border-radius: $conu-border-radius;
+                                border-bottom-width: 0px;
+                                border-top-width: 0px;
+                                padding: 0px 8px;
+                                margin: 0px;
+                                background-color: transparent;
+                                &:first-child {
+                                    border-left-width: 0px;
+                                }
+                                &:last-child {
+                                    border-right-width: 0px;
+                                }
+                                button {
+                                    border-color: transparent;
+                                    padding: 4px 6px;
+                                    &:hover {
+                                        background-image: none;
+                                        background-color: rgba($color: $conu-blue, $alpha: 0.15);
+                                    }
+                                    &:active,
+                                    &.highlight {
+                                        background-image: none;
+                                        background-color: rgba($color: $conu-blue, $alpha: 0.5);
+                                    }
+                                }
                             }
                         }
+                    }
+                    .editor_atto_content_wrap {
+                        border: 4px solid $conu-light-grey;
+                        border-top: 0px;
                     }
                 }
             }

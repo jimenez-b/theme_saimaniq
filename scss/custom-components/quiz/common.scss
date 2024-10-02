@@ -5,18 +5,19 @@ body[id^='page-mod-quiz-'] {
         #saimaniq-pagination-main-buttons {
             input[type="submit"] {
                 max-height: 2rem;
-                border-width: 0px;
                 color: $conu-very-dark-grey;
                 background-color: $conu-light-grey;
+                border: 0px solid $conu-light-grey;
             }
             .qnbutton {
                 font-weight: normal;
-                border-width: 0px;
+                //border-width: 0px;
                 width: 2rem;
                 height: 2rem;
                 padding: 4px;
                 color: $conu-very-dark-grey;
                 background-color: $conu-light-grey;
+                border: 0px solid $conu-light-grey;
                 margin: 0rem;
             }
             input[type="submit"]:hover,
