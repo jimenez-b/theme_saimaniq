@@ -153,6 +153,20 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
     }
     //CONUMDLS0208 Questions answered bar -- end
 
+    protected function add_img_modal() {
+        $preset = theme_saimaniq\helper::is_cole_preset(theme_config::load('saimaniq'));
+        $data = '';
+        /*$output = '';
+        if ($preset == true) {
+            $output .= html_writer::tag('div','', array('class' => 'd-none', 'id' => 'saimaniq-modal-image'));
+        }
+        return $output;
+        */
+        //$output = (($preset == true) ? html_writer::tag('div','<span>sample modal</span>', array('class' => 'modal fade', 'id' => 'saimaniq-modal-image')) : '');
+        //return $output;
+        return $output = (($preset == true) ? $this->render_from_template('theme_saimaniq/cole/image_modal', $data) : '');
+    }
+
     /*
      * View Page
      */
@@ -211,7 +225,9 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $output .= $this->quiz_notices($messages);
         $output .= $this->countdown_timer($attemptobj, time());
         $output .= $this->attempt_form($attemptobj, $page, $slots, $id, $nextpage);
+        $output .= $this->add_img_modal();
         $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/attempt','init');
+        $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/attempt','modal_images');
         $output .= $this->footer();
         return $output;
     }
@@ -800,7 +816,12 @@ class theme_saimaniq_core_question_renderer extends core_question_renderer {
         //added verification in case a student is here
         } else {
             //extra verification to prevent error on question preview page
-            if (strpos($bodyattributes,'page-question-preview')==false){
+            //2024-10-01 - we invert the verification
+            if (strpos($bodyattributes,'page-question-preview')==true ||
+                strpos($bodyattributes,'page-question-bank-previewquestion-preview')==true ){    
+                $output .= $this->mark_summary($qa, $behaviouroutput, $options);
+            }
+            else{
                 $reflection = new ReflectionClass($qa);
                 $property = $reflection->getProperty('usageid');
                 $property->setAccessible(true);
@@ -815,9 +836,6 @@ class theme_saimaniq_core_question_renderer extends core_question_renderer {
                     $quizobj->reviewattempt & mod_quiz_display_options::AFTER_CLOSE){
                         $output .= $this->mark_summary($qa, $behaviouroutput, $options);
                 }
-            }
-            else{
-                $output .= $this->mark_summary($qa, $behaviouroutput, $options);
             }       
         }
         $output .= $this->edit_question_link($qa, $options);
@@ -983,7 +1001,7 @@ class theme_saimaniq_core_question_renderer extends core_question_renderer {
         $context = $PAGE->context;
         $role = theme_saimaniq\helper::get_role($context,$USER->id);
         $preset = theme_saimaniq\helper::is_cole_preset(theme_config::load('saimaniq'));
-        return ($role == "student" && $preset == true ? html_writer::tag('div', $highlighters.$marks, array('class' => 'row mx-0', 'id' => 'additional-control')) : '' );
+        return ($role == "student" && $preset == true ? html_writer::tag('div', $highlighters.$marks, array('class' => 'row mx-0 flex-row justify-content-end', 'id' => 'additional-control')) : '' );
         */
         return html_writer::tag('div', $highlighters.$marks, array('class' => 'row mx-0 flex-row justify-content-end', 'id' => 'additional-control'));
     }

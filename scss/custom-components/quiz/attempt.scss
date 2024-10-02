@@ -30,6 +30,14 @@
                     background-color: transparent;
                     border: 0px;
                     margin-bottom: 0;
+                    img {
+                        //max-width: 100%;
+                        //height: auto;
+                        border: 1px solid $conu-medium-grey;
+                        //border-radius: $conu-border-radius;
+                        //-webkit-box-shadow: 0 0 10px $conu-light-grey;
+                        //box-shadow: 0 0 10px $conu-light-grey;
+                    }
                 }           
                 a {
                     overflow-wrap: anywhere;
@@ -226,6 +234,18 @@
             }
             .qmarks {
                 display: none;
+            }
+        }
+    }
+    #saimaniq-modal-image {
+        .modal-dialog {
+            max-width:calc(100vh + 13rem);
+            .modal-content {
+                width: fit-content;
+                img {
+                    max-width:calc(100vh + 13rem);
+                    //width: 100vh;
+                }
             }
         }
     }
