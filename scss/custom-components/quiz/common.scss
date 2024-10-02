@@ -1,6 +1,47 @@
 /*********************** originally from QUIZZER ************************/
 
 body[id^='page-mod-quiz-'] {
+    #saimaniq-attempt_navigation_buttons {
+        #saimaniq-pagination-main-buttons {
+            input[type="submit"] {
+                max-height: 2rem;
+                border-width: 0px;
+                color: $conu-very-dark-grey;
+                background-color: $conu-light-grey;
+            }
+            .qnbutton {
+                font-weight: normal;
+                border-width: 0px;
+                width: 2rem;
+                height: 2rem;
+                padding: 4px;
+                color: $conu-very-dark-grey;
+                background-color: $conu-light-grey;
+                margin: 0rem;
+            }
+            input[type="submit"]:hover,
+            input[type="submit"]:focus,
+            .qnbutton:hover,
+            .qnbutton:focus,
+            .qnbutton[data-current-page="true"] {
+                color: white;
+                background-color: $conu-dark-grey;
+                text-decoration: none;
+            }
+            input[name="previous"] {
+                border-top-left-radius: 25px !important;
+                border-bottom-left-radius: 25px !important;
+            }
+            input[name="next"] {
+                border-top-right-radius: 25px !important;
+                border-bottom-right-radius: 25px !important;
+            }
+        }
+        .endtestlink {
+            padding-top: 10px;
+        }
+    }
+    
     #mod_quiz_navblock {
         .qnbutton {
             font-size: 16px;

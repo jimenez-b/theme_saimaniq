@@ -5,23 +5,38 @@
     .que {
         &:not(.informationitem){
             background-color: rgba($color: $conu-light-grey, $alpha: 0.3);
-            border: 1px solid rgba($color: $conu-dark-grey, $alpha: 0.3) ;
+            border: 1px solid rgba($color: $conu-dark-grey, $alpha: 0.3);
+            //overflow: hidden;
+            //position: relative;
             .info{
                 background-color: transparent;
                 border: 0px;
                 width: 8.5rem;
+                border-top: 10px solid transparent;
+                /*height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;*/
                 .questionflag {
-                    a.aabtn{
-                        font-size: 1rem;
-                        img{
-                            vertical-align: text-bottom;
-                            &.questionflagimage{
-                                height: auto;
-                                width: 1.5em;
+                    &.editable {
+                        /*position: absolute;
+                        bottom: 1rem;*/
+                        a.aabtn{
+                            font-size: 1rem;
+                            img{
+                                vertical-align: text-bottom;
+                                &.questionflagimage{
+                                    height: auto;
+                                    width: 1.5em;
+                                }
                             }
                         }
                     }
-                    
+                }
+            }
+            &.unsure {
+                .info {
+                    border-top: 10px solid $conu-yellow;
                 }
             }
             .content {

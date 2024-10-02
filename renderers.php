@@ -310,8 +310,9 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
                 ['attempt' => $attemptid, 'cmid' => $cmid],
                 ($start_level > 1 ? ["page" => $start_level-1] : [])
             );
-            //$linkClasses = "btn qnbutton";
-            $linkClasses = "btn btn-link";
+            //$linkClasses = "btn btn-link";
+            //reverted to class qnbutton because of a bug preventing navigation between pages
+            $linkClasses = "qnbutton";
             $linkClasses .= ($start_level == $page+1) ? " active font-weight-bold" : "";
             $output .= html_writer::link(
                 new moodle_url($baseurl, $options),
