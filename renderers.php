@@ -111,12 +111,15 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
 
     //CONUMDLS0208 Questions answered bar -- Begin
     public function header_questions_attempted($attemptobj,$display=false,$bar = false) {
+        global $OUTPUT;
         $output = '';
         $enablequestionsanswered = get_config('theme_saimaniq', 'enablequestionsanswered');
         if (!$enablequestionsanswered){
             return '';
         }
-        
+
+        $enablequestionsbar = get_config('theme_saimaniq', 'enablequestionsbar');
+
         $slots = $attemptobj->get_slots();
         $attempted = 0;
         $total = 0;
@@ -133,37 +136,27 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
                 $total++;
             }
         }
-        $contents = get_string('questionsatt', 'theme_saimaniq').$attempted."/".$total;
-        $classes = array('class' => 'summarymarks');
-        if ($bar == true){
-            $percentage = ($attempted/$total)*100;
-            $output .= html_writer::start_tag('div', ['id'=>'saimaniq-questions-bar', 'class' => "container mb-4 mx-w-inh"]);
-            $output .= html_writer::tag('div', $contents, $classes);
-            $output .= html_writer::start_tag('div', array('class' => "progress rounded-0"));
-            $output .= html_writer::start_tag('div', array('class' => "progress-bar", 'role' => "progressbar",'aria-valuenow' => $attempted,'aria-valuemin' => 0,'aria-valuemax' => $total,'style' => "width:$percentage%"));
-            $output .= html_writer::tag('span', $percentage." completed", array('class' => "sr-only"));
-            $output .= html_writer::end_tag('div');
-            $output .= html_writer::end_tag('div');
-            $output .= html_writer::end_tag('div');
+        $data = new stdClass();
+        $data->question_answered = $contents = get_string('questionsatt', 'theme_saimaniq').$attempted."/".$total;
+        $data->classes = 'summarymarks';
+        $page = strpos($OUTPUT->body_attributes(),'page-mod-quiz-attempt');
+        $idpage = ($page === false ? false : true);
+        if ($enablequestionsbar && $idpage) {
+            $data->questionbar = $enablequestionsbar;
+            $data->percentage = ($attempted/$total)*100;
+            $data->attempted = $attempted;
+            $data->total = $total;
         }
         else{
-            $output .= html_writer::tag('div', $contents, $classes);
+            $data->classes .= ' h2';
         }
-        return $output;
+        return $this->render_from_template('theme_saimaniq/cole/progress_section', $data);
     }
     //CONUMDLS0208 Questions answered bar -- end
 
     protected function add_img_modal() {
         $preset = theme_saimaniq\helper::is_cole_preset(theme_config::load('saimaniq'));
         $data = '';
-        /*$output = '';
-        if ($preset == true) {
-            $output .= html_writer::tag('div','', array('class' => 'd-none', 'id' => 'saimaniq-modal-image'));
-        }
-        return $output;
-        */
-        //$output = (($preset == true) ? html_writer::tag('div','<span>sample modal</span>', array('class' => 'modal fade', 'id' => 'saimaniq-modal-image')) : '');
-        //return $output;
         return $output = (($preset == true) ? $this->render_from_template('theme_saimaniq/cole/image_modal', $data) : '');
     }
 
@@ -451,10 +444,6 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
             return $output;
         }
 
-        //TO BE REMOVED
-        $output .= '<h1>tester</h1>';
-        //TO BE REMOVED
-
         $userpicture = $panel->user_picture();
         if ($userpicture) {
             $fullname = fullname($userpicture->user);
@@ -578,7 +567,271 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         }
     }
     //CONUMDLS0203 General Quiz UX/UI -- End -- Custom Exam Navigation block
+    
+    //CONUMDLS0204 Summary of questions -- Start
+    //Functions ported from Theme Quizzer
+    public function convert_status($status,$flagged,$type='') {
+        $converted = '';
+        $preffix = 'badge badge-pill saimaniq-badge-';
+        switch ($status) {
+            case "Answer saved":
+                $converted .=  get_string('answered', 'theme_saimaniq');
+                $class = 'answered';
+                break;
+            case "Not yet answered":
+                $converted .=  get_string('unanswered', 'theme_saimaniq');
+                $class = 'unanswered';
+                break;
+            case "Incomplete answer":
+                if($type == 'hybrid'){
+                    $converted .=  get_string('invalidsummaryhybrid', 'theme_saimaniq');
+                }else{
+                    $converted .=  get_string('invalidanswer', 'theme_saimaniq');
+                }
+                $class = 'invalidanswer';
+                break;
+        }
+        $flagged = ($flagged == 'flagged')?html_writer::nonempty_tag('span',get_string('unsureshort', 'theme_saimaniq'), array('class'=>$preffix.$flagged)).' / ':'';
+        $output = $flagged.html_writer::nonempty_tag('span', $converted, array('class'=>$preffix.$class));
+        return $output;
+    }
+//<span class="badge badge-pill badge-primary mr-5">Pill Badge primary</span>
+    /**
+     * Generates the table of summarydata
+     *
+     * @param quiz_attempt $attemptobj
+     * @param mod_quiz_display_options $displayoptions
+     */
+    public function summary_table($attemptobj, $displayoptions) {
+        global $USER;
 
+        $enablecustomattemptsummary = get_config('theme_saimaniq', 'enablecustomattemptsummary');
+        //we first verify if the setting is not enabled
+        // if it's not enabled, loads the original parent function
+        if (!$enablecustomattemptsummary) {
+            return parent::summary_table($attemptobj, $displayoptions);
+        }
+        // Prepare the summary table header.
+        $table = new html_table();
+        $table->attributes['class'] = 'generaltable quizsummaryofattempt boxaligncenter';
+        //$table->attributes['class'] = 'flexible quizsummaryofattempt boxaligncenter';
+        $table->head = [
+                            get_string('questionno', 'theme_saimaniq'),
+                            get_string('question', 'quiz'), 
+                            get_string('status', 'quiz')
+                        ];
+        $table->align = ['','',''];
+        $table->size = ['','',''];
+        $markscolumn = $displayoptions->marks = question_display_options::MARK_AND_MAX;
+        if ($markscolumn) {
+            $table->head[] = get_string('marks', 'quiz');
+            $table->align[] = '';
+            $table->size[] = '';
+        }
+        $tablewidth = count($table->align);
+        $table->data = array();
+
+        // Get the summary info for each question.
+        $slots = $attemptobj->get_slots();
+        foreach ($slots as $slot) {
+            // Add a section headings if we need one here.
+            $heading = $attemptobj->get_heading_before_slot($slot);
+            if ($heading) {
+                $cell = new html_table_cell(format_string($heading));
+                $cell->header = true;
+                $cell->colspan = $tablewidth;
+                $table->data[] = [$cell];
+                $table->rowclasses[] = 'quizsummaryheading';
+            }
+
+            // Don't display information items.
+            if (!$attemptobj->is_real_question($slot)) {
+                continue;
+            }
+            // Real question, show it.
+            $flag = '';
+            $flagged = '';
+            if ($attemptobj->is_question_flagged($slot)) {
+                $flagged = 'flagged';
+                // Quiz has custom JS manipulating these image tags - so we can't use the pix_icon method here.
+                $flag = html_writer::empty_tag('img', array('src' => $this->image_url('i/flagged'),
+                        'alt' => get_string('flagged', 'question'), 'class' => 'questionflag icon-post'));
+            }
+            //if ($attemptobj->can_navigate_to($slot) && $checkstu == 'else') {
+            if ($attemptobj->can_navigate_to($slot)) {
+                $row = array(
+                            html_writer::link(  $attemptobj->attempt_url($slot),
+                                                $attemptobj->get_question_number($slot)),
+                            html_writer::link(  $attemptobj->attempt_url($slot),
+                                                html_writer::tag(
+                                                                'div',
+                                                                strip_tags($attemptobj->get_question_attempt($slot)->get_question($slot,false)->questiontext),
+                                                                array('class'=>'questiontext-container'))),
+                            html_writer::link(  $attemptobj->attempt_url($slot),
+                            $this->convert_status($attemptobj->get_question_status($slot, $displayoptions->correctness),$flagged, $attemptobj->get_question_type_name($slot)))
+                        );
+            } else {
+                $row = array(
+                            $attemptobj->get_question_number($slot) . $flag,
+                            $attemptobj->get_question_attempt($slot)->get_question($slot,false)->questiontext,
+                            $this->convert_status($attemptobj->get_question_status($slot, $displayoptions->correctness),$flagged)
+                        );
+            }
+            if ($markscolumn) {
+                //$row[] = $attemptobj->get_question_mark($slot);
+                $row[] = html_writer::link( $attemptobj->attempt_url($slot),
+                                            $attemptobj->get_question_attempt($slot)->get_max_mark());
+            }
+            $table->data[] = $row;
+            $table->rowclasses[] = 'answerrow quizsummary' . $slot . ' ' . $attemptobj->get_question_state_class(
+                    $slot, $displayoptions->correctness).' '.$flagged;
+
+        }
+
+        // Print the summary table.
+        $output = html_writer::nonempty_tag(
+                                            'div', 
+                                            html_writer::tag(
+                                                'div',
+                                                html_writer::tag(
+                                                    'div',
+                                                    html_writer::tag(
+                                                        'div',
+                                                        html_writer::table($table),
+                                                        array('class'=>'no-overflow')        
+                                                    ),
+                                                    array('class'=>'summarytable')        
+                                                )
+                                            ), 
+                                            array('class'=>'summarycontent')
+                                        );
+        $output = html_writer::nonempty_tag('div',
+                                                html_writer::tag(
+                                                    'div',
+                                                    html_writer::tag(
+                                                        'div',
+                                                        html_writer::table($table),
+                                                        array('class'=>'no-overflow')        
+                                                    ),
+                                                    array('class'=>'summarytable')        
+                                                )
+                                        );
+
+        return $output;
+    }
+    /*
+    * original function imported from theme_quizzer
+    * this version should be cleaner and leaner
+    */
+    public function filter_panel($attemptobj, $displayoptions){
+        $output = '';
+        $slots = $attemptobj->get_slots();
+        $filterall = $answered = $unsure = $unanswered = $invalidanswer = 0;
+
+        $data = [];
+        $data['title'] = get_string('sortby', 'theme_saimaniq');
+
+        $search_keys = ['filterall','answered','invalidanswer','unanswered','unsure'];
+        foreach ($slots as $slot) {
+            $type = $attemptobj->get_question_type_name($slot);
+            if($type!='description') $filterall++;
+            $state = $attemptobj->get_question_state_class($slot, $displayoptions->correctness);
+            switch ($state) {
+                case "notyetanswered":
+                    if($type!='description') $unanswered++; break;
+                case "invalidanswer": $invalidanswer++; break;
+                case "answersaved":
+                    if($type!='description') $answered++; break;
+            }
+            if ($attemptobj->is_question_flagged($slot)) $unsure++;
+        }
+        foreach ($search_keys as $key) {
+            switch ($key) {
+                case "unsure":
+                    $outtext = get_string('unsureshort', 'theme_saimaniq'); break;
+                case "invalidanswer":
+                    $plugininfo = \core_plugin_manager::instance()->get_plugin_info('qtype_hybrid');
+                    if ($plugininfo){
+                        $qrsub = new qrsub();
+                        $has_hybrid = $qrsub->has_hybrid_question($attemptobj);
+                        if ($has_hybrid) {
+                            $outtext = get_string('invalidsummaryhybridbutton', 'theme_saimaniq');
+                        }
+                    }
+                    else {
+                        $outtext = get_string($key, 'theme_saimaniq');
+                    }
+                    break;
+                default:
+                    $outtext = get_string($key, 'theme_saimaniq');
+            }
+            $enabled = ($key == 'filterall')?'enabled':'disabled';
+            $data['buttons'][]=['key' => $key, 'outtext' => $outtext, 'amount' => ${$key}, 'enabled' => $enabled ];
+        }
+        $output .= $this->render_from_template('theme_saimaniq/cole/filter_panel', $data);
+        return $output;
+    } 
+
+    /*
+     * Summary Page
+     * imported from theme_quizzer
+     */
+    /**
+     * Create the summary page
+     *
+     * @param quiz_attempt $attemptobj
+     * @param mod_quiz_display_options $displayoptions
+     */
+    public function summary_page($attemptobj, $displayoptions) {
+        global $CFG,$PAGE;
+
+        $enablecustomattemptsummary = get_config('theme_saimaniq', 'enablecustomattemptsummary');
+        //we first verify if the setting is not enabled
+        // if it's not enabled, loads the original parent function
+        if (!$enablecustomattemptsummary) {
+            return parent::summary_page($attemptobj, $displayoptions);
+        }
+        $output = '';
+        $output .= $this->header();
+        //$output .= $this->heading(format_string($attemptobj->get_quiz_name()));
+        //$output .= $this->heading(get_string('summaryofattempt', 'quiz'), 3);
+        $output .= $this->filter_panel($attemptobj, $displayoptions);
+        $output .= html_writer::start_tag('div', array('class' => "summarycontent"));
+        $output .= $this->header_questions_attempted($attemptobj, false);
+        $output .= $this->summary_table($attemptobj, $displayoptions);
+        $output .= $this->summary_page_controls($attemptobj);
+        $output .= html_writer::end_tag('div');
+
+        $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/summary','init');
+        $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/summary','modalSummary');
+/*         $PAGE->requires->js(new moodle_url('/theme/quizzer/javascript/modal_summary.js'));
+*/
+        $output .= $this->footer();
+        $templatecontext = [
+            'quiz_name' => $attemptobj->get_quiz_name(),
+            'isreview' => false
+        ];
+
+        /*
+        * new logic to be added to contemplate scenarios with the hybrid questions
+        *  The checkmark page:
+        *  1 - No hybrid question: no change
+        *  2 - Hybrid question: display a message specifying: 
+            the student is done with the first part of the exam, 
+            he will be redirected to the attempt start page 
+            where he will scan the QR Code and upload his file.
+        */
+        $plugininfo = \core_plugin_manager::instance()->get_plugin_info('qtype_hybrid');
+        if ($plugininfo) {
+            $qrsub = new qrsub();
+            $has_hybrid = $qrsub->has_hybrid_question($attemptobj);
+            if ($has_hybrid) $templatecontext['hybrid'] = 'true';
+        }
+        $output .= $this->render_from_template('theme_saimaniq/cole/review', $templatecontext);
+        //end new logic
+        return $output;
+    }
+    //CONUMDLS0204 Summary of questions -- End
 }
 
 class theme_saimaniq_core_renderer extends theme_boost\output\core_renderer {
@@ -894,8 +1147,6 @@ class theme_saimaniq_core_question_renderer extends core_question_renderer {
                                 html_writer::tag('label', $this->get_flag_html_custom($qa->is_flagged(), $id . 'img'),
                                         array('id' => $id . 'label', 'for' => $id . 'checkbox')) . "\n";
 
-                //get_string('unsureattempt', 'theme_quizzer')
-
                 $divattributes = array(
                     'class' => 'questionflag editable',
                     'aria-atomic' => 'true',
@@ -997,14 +1248,14 @@ class theme_saimaniq_core_question_renderer extends core_question_renderer {
     }
 
     protected function add_part_marks($highlighters, $marks) {
-        /*
+        
         global $USER,$PAGE;
         $context = $PAGE->context;
         $role = theme_saimaniq\helper::get_role($context,$USER->id);
         $preset = theme_saimaniq\helper::is_cole_preset(theme_config::load('saimaniq'));
         return ($role == "student" && $preset == true ? html_writer::tag('div', $highlighters.$marks, array('class' => 'row mx-0 flex-row justify-content-end', 'id' => 'additional-control')) : '' );
-        */
-        return html_writer::tag('div', $highlighters.$marks, array('class' => 'row mx-0 flex-row justify-content-end', 'id' => 'additional-control'));
+        
+        /*return html_writer::tag('div', $highlighters.$marks, array('class' => 'row mx-0 flex-row justify-content-end', 'id' => 'additional-control'));*/
     }
 
     /**

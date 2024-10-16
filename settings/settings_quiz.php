@@ -78,13 +78,22 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-$page->add(new admin_setting_heading('theme_saimaniq_quiz_page', get_string('quizquestionheading', 'theme_saimaniq'),
-        format_text(get_string('quizquestionheadingdesc', 'theme_saimaniq'), FORMAT_MARKDOWN)));
-
 // Checkbox to Enable/Disable seeing the 'Questions answered' bar at the top of every quiz question page
 $name = 'theme_saimaniq/enablequestionsanswered';
 $title = get_string('enablequestionsanswered', 'theme_saimaniq');
 $description = get_string('enablequestionsanswereddesc', 'theme_saimaniq');
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true,false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+$page->add(new admin_setting_heading('theme_saimaniq_quiz_page', get_string('quizquestionheading', 'theme_saimaniq'),
+        format_text(get_string('quizquestionheadingdesc', 'theme_saimaniq'), FORMAT_MARKDOWN)));
+
+// Checkbox to Enable/Disable seeing the 'Questions answered' bar at the top of every quiz question page
+$name = 'theme_saimaniq/enablequestionsbar';
+$title = get_string('enablequestionsbar', 'theme_saimaniq');
+$description = get_string('enablequestionsbardesc', 'theme_saimaniq');
 $default = false;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true,false);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -146,6 +155,20 @@ $default = get_string('quiztimercolorchangedef', 'theme_saimaniq');
 $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_INT);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);*/
+
+$page->add(new admin_setting_heading('theme_saimaniq_quiz_summary_page', get_string('quizsummaryheading', 'theme_saimaniq'),
+        format_text(get_string('quizsummaryheadingdesc', 'theme_saimaniq'), FORMAT_MARKDOWN)));
+
+        
+// Checkbox to Enable/Disable the custom pagination on the quiz page
+$name = 'theme_saimaniq/enablecustomattemptsummary';
+$title = get_string('enablecustomattemptsummary', 'theme_saimaniq');
+$description = get_string('enablecustomattemptsummarydesc', 'theme_saimaniq');
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true,false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 
 // Must add the page after definiting all the settings! 
 $settings->add($page);

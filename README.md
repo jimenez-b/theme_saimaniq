@@ -26,8 +26,8 @@ using Boost 3.9 as it's main inspirtation.
 - [ ] CONUMDLS02 - Features coming from COLEv2
 - - [ ] CONUMDLS0201 Branding
 - - [x] CONUMDLS0202 Support FAQ Sidebar
-- - [ ] CONUMDLS0203 General Quiz UX/UI
-- - [ ] CONUMDLS0204 Summary of questions
+- - [x] CONUMDLS0203 General Quiz UX/UI
+- - [x] CONUMDLS0204 Summary of questions
 - - [ ] CONUMDLS0205 Prevent clicking on exam exit
 - - [x] CONUMDLS0206 Customized checkboxes for the Copyright notice and the Terms and conditions
 - - [x] CONUMDLS0207 Add second verification for Copyright notice and Terms and conditions checkboxes
@@ -35,6 +35,7 @@ using Boost 3.9 as it's main inspirtation.
 - - [x] CONUMDLS0209 Landing information reordered
 - - [x] CONUMDLS0210 LivePerson information
 - - [x] CONUMDLS0211 Modified question footer with navigation to all the questions
+- - [ ] CONUMDLS0212 Review page
 - [ ] CONUMDLS03 - Miscellaneous
 - - [ ] CONUMDLS0301 Review table css
 - - [ ] CONUMDLS0302 Review add/remove users css

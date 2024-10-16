@@ -1,0 +1,39 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Example context (json):
+    {
+        "title":"Filter by",
+        "buttons":[
+            {"key":"filterall","outtext":"All","amount":20,"enabled":"enabled"},
+            {"key":"answered","outtext":"Attempted","amount":0,"enabled":"disabled"},
+            {"key":"invalidanswer","outtext":"Incomplete","amount":0,"enabled":"disabled"},
+            {"key":"unanswered","outtext":"Not attempted","amount":20,"enabled":"disabled"},
+            {"key":"unsure","outtext":"Unsure","amount":0,"enabled":"disabled"}
+        ]
+    }
+}}
+<div class="summarysortby">
+    <h4 class="sort-title">
+        {{# str }} sortby, theme_saimaniq {{/ str }}
+    </h4>
+    {{#buttons}}
+    <button class="sortbtn {{{key}}}" name="{{{key}}}" type="button" data-filter="{{{enabled}}}">
+        <span>{{{amount}}}</span>
+        <span>{{{outtext}}}</span>
+    </button>
+    {{/buttons}}
+</div>

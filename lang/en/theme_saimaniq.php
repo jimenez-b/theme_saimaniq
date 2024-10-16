@@ -121,11 +121,13 @@ $string['enablecustomquestionvisuals']     = 'Enables Custom format for the ques
 $string['enablecustomquestionvisualsdesc'] = 'Enable/Disable a custom visual formatting for the questions';
 $string['enablecustomexamnavigation']      = 'Enables the custom Exam Navigation block';
 $string['enablecustomexamnavigationdesc']  = 'Enable/Disable the custom block elements for the Exam Navigation Block';
+$string['enablequestionsanswered']         = 'Enables Questions Answered section';
+$string['enablequestionsanswereddesc']     = 'Enable/Disable the Questions section, including the title and bar (separate control)';
 // All the settings for the attempt Quiz page
 $string['quizquestionheading']            = 'Settings for the Quiz question(s) page';
 $string['quizquestionheadingdesc']        = 'Allows the administrator to control several aspects of quiz question page';
-$string['enablequestionsanswered']        = 'Enables Questions Answered bar';
-$string['enablequestionsanswereddesc']    = 'Enable/Disable the Questions bar';
+$string['enablequestionsbar']             = 'Enables Questions Answered bar';
+$string['enablequestionsbardesc']         = 'Enable/Disable the Questions Answered bar';
 $string['enablecustompagination']         = 'Enables Custom pagination';
 $string['enablecustompaginationdesc']     = 'Enable/Disable the custom pagination at the bottom of the quiz page';
 $string['enablestickypagination']         = 'Enables sticky pagination';
@@ -138,6 +140,11 @@ $string['custompaginationpositiondesc']   = 'Selects the position of the paginat
 $string['quiztimercolorchange']           = 'Seconds timer';
 $string['quiztimercolorchangedesc']       = 'Number of seconds to use in order to switch to a different color in the timer';
 $string['quiztimercolorchangedef']        = '100';
+// All the settings for the Quiz summary page
+$string['quizsummaryheading']             = 'Settings for the Quiz summary page';
+$string['quizsummaryheadingdesc']         = 'Allows the administrator to control several aspects of quiz summary page';
+$string['enablecustomattemptsummary']     = 'Enables custom attempt summary';
+$string['enablecustomattemptsummarydesc'] = 'Enable/Disable a custom table for the attempt';
 
 //the name for the Integrations tab
 $string['settingsintegrationpage'] = 'Integrations settings';
@@ -234,6 +241,13 @@ $string['notanswered'] = 'Not answered';
 $string['invalidanswerhybrid'] = 'Incomplete/Pending upload';
 $string['invalidsummaryhybrid'] = 'Pending upload';
 $string['invalidsummaryhybridbutton'] = 'Incomplete/ To upload';
+
+//review page 
+$string['modaltext'] = 'Your exam has been submitted successfully for marking. Please wait for a few seconds, and you will be returned to the exam cover page.';
+$string['modaltextextra'] = 'We are having difficulty closing your exam, please notify an invigilator.';
+
+//qr upload page 
+$string['qruploadmodaltext'] = 'This section of the exam has finished. In a few seconds you will be redirected to the exam start page where you will scan the QR code and upload your files.';
 
 //Last Saved string - to be shown in the attempt page
 $string['lastautosave'] = "Last saved: ";
