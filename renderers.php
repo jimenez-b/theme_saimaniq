@@ -689,22 +689,6 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         }
 
         // Print the summary table.
-        $output = html_writer::nonempty_tag(
-                                            'div', 
-                                            html_writer::tag(
-                                                'div',
-                                                html_writer::tag(
-                                                    'div',
-                                                    html_writer::tag(
-                                                        'div',
-                                                        html_writer::table($table),
-                                                        array('class'=>'no-overflow')        
-                                                    ),
-                                                    array('class'=>'summarytable')        
-                                                )
-                                            ), 
-                                            array('class'=>'summarycontent')
-                                        );
         $output = html_writer::nonempty_tag('div',
                                                 html_writer::tag(
                                                     'div',
@@ -837,7 +821,7 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         } else if ($duedate) {
             $message = get_string('mustbesubmittedby', 'quiz', userdate($duedate));
         }
-        $message = html_writer::span($message, 'alert alert-warning m-2');
+        $message = html_writer::span($message, 'alert alert-warning mx-1 p-2');
 
         $output .= $this->countdown_timer($attemptobj, time());
         
@@ -870,17 +854,17 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $output .= $this->header();
         //$output .= $this->heading(format_string($attemptobj->get_quiz_name()));
         //$output .= $this->heading(get_string('summaryofattempt', 'quiz'), 3);
+        $output .= html_writer::start_tag('div', ['id' =>'saimaniq-summary-custom', 'class' => "d-inline-flex"]);
         $output .= $this->filter_panel($attemptobj, $displayoptions);
-        $output .= html_writer::start_tag('div', array('class' => "summarycontent"));
+        $output .= html_writer::start_tag('div', array('class' => "summarycontent saimaniq-summary-custom"));
         $output .= $this->header_questions_attempted($attemptobj, false);
         $output .= $this->summary_table($attemptobj, $displayoptions);
         $output .= $this->summary_page_controls($attemptobj);
         $output .= html_writer::end_tag('div');
+        $output .= html_writer::end_tag('div');
 
         $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/summary','init');
         $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/summary','modalSummary');
-/*         $PAGE->requires->js(new moodle_url('/theme/quizzer/javascript/modal_summary.js'));
-*/
         $output .= $this->footer();
         $templatecontext = [
             'quiz_name' => $attemptobj->get_quiz_name(),

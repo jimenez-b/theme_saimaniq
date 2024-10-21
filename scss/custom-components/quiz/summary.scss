@@ -15,8 +15,8 @@ $button-size: 100px;
     }
     section#region-main {
         div[role="main"] {
-            display: inline-flex;
-            .summarysortby{
+            //display: inline-flex;
+            .summarysortby.saimaniq-summary-custom{
                 display:flex;
                 flex-direction: column;
                 position: fixed;
@@ -148,7 +148,7 @@ $button-size: 100px;
                     }
                 }
             }
-            .summarycontent {
+            .summarycontent.saimaniq-summary-custom {
                 margin-left: 180px;
                 margin-top: 10px;
             /**/

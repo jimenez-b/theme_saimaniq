@@ -64,7 +64,6 @@ export const init = () => {
 };
 
 export const modalSummary = () => {
-    window.console.log('we are here');
     //window.addEventListener('DOMContentLoaded', (event) => {
     if (document.readyState !== 'loading') {
         const domObserver = new MutationObserver(() => {

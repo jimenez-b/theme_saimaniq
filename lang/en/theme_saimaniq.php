@@ -145,8 +145,8 @@ $string['quizsummaryheading']               = 'Settings for the Quiz summary pag
 $string['quizsummaryheadingdesc']           = 'Allows the administrator to control several aspects of quiz summary page';
 $string['enablecustomattemptsummary']       = 'Enables custom attempt summary';
 $string['enablecustomattemptsummarydesc']   = 'Enable/Disable a custom table for the attempt';
-$string['enablecustomsummarybuttons']       = 'Enables custom attempt summary';
-$string['enablecustomsummarybuttonsdesc']   = 'Enable/Disable a custom table for the attempt';
+$string['enablecustomsummarybuttons']       = 'Enables custom summary button bar';
+$string['enablecustomsummarybuttonsdesc']   = 'Enable/Disable custom display of the buttons at the bottom of the quiz page';
 $string['customsummarybuttonsposition']     = 'Select pagination position';
 $string['customsummarybuttonspositiondesc'] = 'Selects the position of the pagination bar for the quiz';
 
