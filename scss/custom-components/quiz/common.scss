@@ -68,28 +68,38 @@ body[id^='page-mod-quiz-'] {
                 height: auto;
             }
             &.complete,
-            &.answersaved,
+            //&.answersaved,
             &.requiresgrading {
                 .trafficlight {
                     background-color: $conu-medium-grey;
                 }
             }
             
-            &.notyetanswered {
+            &.notyetanswered,
+            &.notanswered {
                 .trafficlight {
                     background-color: $conu-unanswered;
                 }
             }
             
-            &.invalidanswer {
+            &.invalidanswer,
+            &.incorrect {
                 .trafficlight {
                     background-color: $conu-invalidanswer;
                     background-image: none!important;
                 }
             }
-            &.answersaved {
+            &.answersaved,
+            &.correct {
                 .trafficlight {
                     background-color: $conu-answered;
+                    background-image: none!important;
+                }
+            }
+            &.partiallycorrect {
+                .trafficlight {
+                    background-color: $conu-unsure;
+                    background-image: none!important;
                 }
             }
             &.thispage {

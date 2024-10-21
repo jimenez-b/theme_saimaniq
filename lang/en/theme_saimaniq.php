@@ -141,10 +141,14 @@ $string['quiztimercolorchange']           = 'Seconds timer';
 $string['quiztimercolorchangedesc']       = 'Number of seconds to use in order to switch to a different color in the timer';
 $string['quiztimercolorchangedef']        = '100';
 // All the settings for the Quiz summary page
-$string['quizsummaryheading']             = 'Settings for the Quiz summary page';
-$string['quizsummaryheadingdesc']         = 'Allows the administrator to control several aspects of quiz summary page';
-$string['enablecustomattemptsummary']     = 'Enables custom attempt summary';
-$string['enablecustomattemptsummarydesc'] = 'Enable/Disable a custom table for the attempt';
+$string['quizsummaryheading']               = 'Settings for the Quiz summary page';
+$string['quizsummaryheadingdesc']           = 'Allows the administrator to control several aspects of quiz summary page';
+$string['enablecustomattemptsummary']       = 'Enables custom attempt summary';
+$string['enablecustomattemptsummarydesc']   = 'Enable/Disable a custom table for the attempt';
+$string['enablecustomsummarybuttons']       = 'Enables custom attempt summary';
+$string['enablecustomsummarybuttonsdesc']   = 'Enable/Disable a custom table for the attempt';
+$string['customsummarybuttonsposition']     = 'Select pagination position';
+$string['customsummarybuttonspositiondesc'] = 'Selects the position of the pagination bar for the quiz';
 
 //the name for the Integrations tab
 $string['settingsintegrationpage'] = 'Integrations settings';

@@ -776,6 +776,81 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
      * Summary Page
      * imported from theme_quizzer
      */
+
+    /**
+     * Creates any controls the page should have.
+     *
+     * @param quiz_attempt $attemptobj
+     */
+    public function summary_page_controls($attemptobj) {
+        $enablecustomsummarybuttons = get_config('theme_saimaniq', 'enablecustomsummarybuttons');
+        //we first verify if the setting is not enabled
+        // if it's not enabled, loads the original parent function
+        if (!$enablecustomsummarybuttons) {
+            return parent::summary_page_controls($attemptobj);
+        }
+        $output = '';
+
+        $customsummarybuttonsposition = get_config('theme_saimaniq', 'customsummarybuttonsposition');
+
+        // Return to place button.
+        if ($attemptobj->get_state() == quiz_attempt::IN_PROGRESS) {
+            $button_return = new single_button(
+                    new moodle_url($attemptobj->attempt_url(null, $attemptobj->get_currentpage())),
+                    get_string('returnattempt', 'quiz'));
+            $button_return->class = 'singlebutton m-initial mr-1';
+        }
+
+        // Finish attempt button.
+        $options = array(
+            'attempt' => $attemptobj->get_attemptid(),
+            'finishattempt' => 1,
+            'timeup' => 0,
+            'slots' => '',
+            'cmid' => $attemptobj->get_cmid(),
+            'sesskey' => sesskey(),
+            'returnto' => 'url',
+            'returnurl' => new moodle_url('/course/view.php', array('id' => $attemptobj->get_courseid())),
+        );
+        
+        $button = new single_button(
+                new moodle_url($attemptobj->processattempt_url(), $options),
+                get_string('submitallandfinish', 'quiz'));
+        $button->id = 'responseform';
+        $button->class = 'btn-finishattempt';
+        $button->formid = 'frm-finishattempt';
+        if ($attemptobj->get_state() == quiz_attempt::IN_PROGRESS) {
+            $totalunanswered = 0;
+            if ($attemptobj->get_quiz()->navmethod == 'free') {
+                // Only count the unanswered question if the navigation method is set to free.
+                $totalunanswered = $attemptobj->get_number_of_unanswered_questions();
+            }
+            $this->page->requires->js_call_amd('mod_quiz/submission_confirmation', 'init', [$totalunanswered]);
+        }
+        $button->primary = true;
+
+        $duedate = $attemptobj->get_due_date();
+        $message = '';
+        if ($attemptobj->get_state() == quiz_attempt::OVERDUE) {
+            $message = get_string('overduemustbesubmittedby', 'quiz', userdate($duedate));
+
+        } else if ($duedate) {
+            $message = get_string('mustbesubmittedby', 'quiz', userdate($duedate));
+        }
+        $message = html_writer::span($message, 'alert alert-warning m-2');
+
+        $output .= $this->countdown_timer($attemptobj, time());
+        
+        $align = $customsummarybuttonsposition ?: 'end';
+        $output .= $this->container(
+                $message . 
+                $this->render($button_return) .
+                $this->render($button),
+            'd-flex flex-row align-items-center justify-content-'.$align);
+
+        return $output;
+    }
+
     /**
      * Create the summary page
      *
