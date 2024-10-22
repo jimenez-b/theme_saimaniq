@@ -977,6 +977,175 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         return $output;
     }
     //CONUMDLS0212 Review page -- End
+
+    //CONUMDLS0213 Functionality coming from QR Code question type integration -- Begin
+    /**
+     * Generate a brief textual desciption of the current state of an attempt.
+     * @param quiz_attempt $attemptobj the attempt
+     * @param int $timenow the time to use as 'now'.
+     * @return string the appropriate lang string to describe the state.
+     */
+    public function attempt_state($attemptobj) {
+        global $DB, $USER;
+        switch ($attemptobj->get_state()) {
+            case quiz_attempt::IN_PROGRESS:
+                ///////////////////////////////////////////////////////
+                // QRMOD-11 - POC a file sub in a Hybrid question type.
+                //
+                // Contains the question and their completion status.
+                $questionstatus = '';
+                $status = new lang_string('stateinprogress', 'quiz');
+
+                // Load the questions in the attempt object.
+                $attemptobj->load_questions();
+
+                $plugininfo = \core_plugin_manager::instance()->get_plugin_info('qtype_hybrid');
+                if ($plugininfo) {
+                    // Get the hybrid question and their status.
+                    $hybridinfo = new qrsub_attempt_info_block($attemptobj);
+                    $hybrids = $hybridinfo->get_questions();
+
+                    // Find if the exam is proctored.
+                    list($is_proctored, $upload_exam) = qrsub::is_exam_protored($attemptobj);
+
+                    // Display the question status only if we have hybrid question.
+                    if (count($hybrids) > 0 && !$is_proctored) {
+                        $this->page->requires->js_call_amd('local_qrsub/attempt_status_unproctored','init',array($attemptobj->get_attemptid()));
+                        // Exam completion status.
+                        $status .= html_writer::tag(
+                            'span',
+                            new lang_string('hybrid_upload', 'local_qrsub'),
+                            array('id' => 'qrsub_attempt_status')
+                        );
+
+                        // Display the question.
+                        foreach ($hybrids as $hybrid) {
+                            $questionstatus .= html_writer::tag('div', $hybrid['name'] . ' ' . $hybrid['complete'], array('class' => $hybrid['complete_css_class']));
+                        }
+
+                        // Contains the hybrid questions status.
+                        $status .= html_writer::tag(
+                            'div',
+                            $questionstatus,
+                            array('id' => 'hybrid_status')
+                        );
+                        // QRMOD-11
+                    }
+                }
+                return $status;
+
+            case quiz_attempt::OVERDUE:
+                return get_string('stateoverdue', 'quiz') . html_writer::tag(
+                    'span',
+                    get_string(
+                        'stateoverduedetails',
+                        'quiz',
+                        userdate($attemptobj->get_due_date())
+                    ),
+                    array('class' => 'statedetails')
+                );
+
+            case quiz_attempt::FINISHED:
+                ///////////////////////////////////////////////////////
+                // QRMOD-11 - POC a file sub in a Hybrid question type.
+                //
+                // Contains the HTML to output.
+                // Moodle's default below.
+                $status = get_string('statefinished', 'quiz') . html_writer::tag(
+                    'span',
+                    get_string(
+                        'statefinisheddetails',
+                        'quiz',
+                        userdate($attemptobj->get_submitted_date())
+                    ),
+                    array('class' => 'statedetails')
+                );
+
+                // Load the questions in the attempt object.
+                $attemptobj->load_questions();
+                $plugininfo = \core_plugin_manager::instance()->get_plugin_info('qtype_hybrid');
+                if ($plugininfo) {
+                    $qrsub = new qrsub();
+                    $has_hybrid = $qrsub->has_hybrid_question($attemptobj);
+                    if ($has_hybrid) {
+                        if (!$qrsub->question_attempt_has_uploaded_file($attemptobj)) {
+                            // Check if the attempt is proctored or not.
+                            list($is_proctored, $upload_exam) = qrsub::is_exam_protored($attemptobj);
+                            if ($is_proctored) {
+                                ///////////////////////////////////////////////////////
+                                // QRMOOD-51 - As an IT, I want the exam refresh rate to be x sec
+                                //
+                                // Get the exam's refresh rate settings.
+                                $qrsub_setting = get_config('local_qrsub');
+                                $exam_refresh_rate = ($qrsub_setting === false) ? 2000 : intval($qrsub_setting->exam_refresh_rate) * 1000;
+                                // QRMOOD-51
+
+                                $this->page->requires->js_call_amd(
+                                    'local_qrsub/attempt_status_proctored',
+                                    'init',
+                                    array($upload_exam, $exam_refresh_rate)
+                                );
+                            } else {
+                                $this->page->requires->js_call_amd(
+                                    'local_qrsub/attempt_status_unproctored',
+                                    'init',
+                                    array($attemptobj->get_attemptid())
+                                );
+                            }
+
+                            // Exam completion status.
+                            $status .= html_writer::tag(
+                                'span',
+                                new lang_string('non_hybrid_finished', 'local_qrsub'),
+                                array('id' => 'qrsub_attempt_status')
+                            );
+
+                            // First attempt completion date.
+                            $status .= html_writer::tag(
+                                'span',
+                                get_string(
+                                    'statefinisheddetails',
+                                    'quiz',
+                                    userdate($attemptobj->get_submitted_date())
+                                ),
+                                array('class' => 'statedetails')
+                            );
+
+                            // Holds the questions status.
+                            $status .= html_writer::tag(
+                                'div',
+                                new lang_string('no_attempt_yet', 'local_qrsub'),
+                                array('id' => 'hybrid_status')
+                            );
+                        } else {
+                            // Exam completion status.
+                            $status .= html_writer::tag(
+                                'span',
+                                new lang_string('exam_finished', 'local_qrsub'),
+                                array('id' => 'qrsub_attempt_status')
+                            );
+
+                            // First attempt completion date.
+                            $status .= html_writer::tag(
+                                'span',
+                                get_string(
+                                    'statefinisheddetails',
+                                    'quiz',
+                                    userdate($attemptobj->get_submitted_date())
+                                ),
+                                array('class' => 'statedetails')
+                            );
+                        }
+                    // QRMOD-11
+                    }
+                }
+                return $status;
+
+            case quiz_attempt::ABANDONED:
+                return get_string('stateabandoned', 'quiz');
+        }
+    }
+    //CONUMDLS0213 Functionality coming from QR Code question type integration -- End
 }
 
 class theme_saimaniq_core_renderer extends theme_boost\output\core_renderer {
@@ -1393,14 +1562,11 @@ class theme_saimaniq_core_question_renderer extends core_question_renderer {
     }
 
     protected function add_part_marks($highlighters, $marks) {
-        
         global $USER,$PAGE;
         $context = $PAGE->context;
         $role = theme_saimaniq\helper::get_role($context,$USER->id);
         $preset = theme_saimaniq\helper::is_cole_preset(theme_config::load('saimaniq'));
         return ($role == "student" && $preset == true ? html_writer::tag('div', $highlighters.$marks, array('class' => 'row mx-0 flex-row justify-content-end', 'id' => 'additional-control')) : '' );
-        
-        /*return html_writer::tag('div', $highlighters.$marks, array('class' => 'row mx-0 flex-row justify-content-end', 'id' => 'additional-control'));*/
     }
 
     /**
@@ -1495,3 +1661,76 @@ class theme_saimaniq_core_question_renderer extends core_question_renderer {
         return $output;
     }
 }
+
+//CONUMDLS0213 Functionality coming from QR Code question type integration -- Begin
+//for now, we're keeping the require_once
+require_once($CFG->dirroot.'/mod/quiz/report/grading/renderer.php');
+class theme_saimaniq_quiz_grading_renderer extends quiz_grading_renderer {
+
+    //originally modified in theme_quizzer by Nicholas Dalpe
+    /**
+     * Render grade question content.
+     *
+     * @param question_usage_by_activity $questionusage The question usage that need to grade.
+     * @param int $slot the number used to identify this question within this usage.
+     * @param question_display_options $displayoptions the display options to use.
+     * @param int $questionnumber the number of the question to check.
+     * @param string $heading the question heading text.
+     * @return string The HTML for the question display.
+     */
+    public function render_grade_question($questionusage, $slot, $displayoptions, $questionnumber, $heading) {
+        $output = '';
+        //we are going to check if the QR Hybrid question plugin is installed
+        $plugininfo = \core_plugin_manager::instance()->get_plugin_info('qtype_hybrid');
+        if (!$plugininfo){
+            $output .= parent::render_grade_question($questionusage, $slot, $displayoptions, $questionnumber, $heading);
+            return $output;
+        }
+
+        if ($heading) $output .= $this->heading($heading, 4);
+
+        $output .= $questionusage->render_question($slot, $displayoptions, $questionnumber);
+
+        ///////////////////////////////////////////////////////
+        // QRMOOD-40 - As a prof, I want the student uploaded files in the same attempt on proctored exam.
+        // Adds the student uploaded files in the quiz manual grading report.
+
+        // Get the quiz id from the URL.
+        $id = optional_param('id', 0, PARAM_INT);
+	    $quiz_cmid = get_coursemodule_from_id('quiz',$id);	
+
+        // Get the question attempt from question usage.
+        $question_attempt = $questionusage->get_question_attempt($slot);
+
+        // Get the user id from the needsgrading step because, for some reason,
+        // the step changes owner once graded.
+        $step_iterator = $question_attempt->get_step_iterator();
+        foreach($step_iterator as $step) {
+            $step_state = $step->get_state();
+            if (get_class($step_state) == 'question_state_todo') {
+                $user_id = $step->get_user_id();
+                break;
+            }
+        }
+
+        // Create the quiz object and get the file upload attempt.
+        $quizobj = quiz::create($quiz_cmid->instance, $user_id);
+        $userattempts = quiz_get_user_attempts($quizobj->get_quizid(), $user_id, 'all', true);
+        $userattempt = end($userattempts);
+        if ($userattempt) {
+            // Create a quiz attempt obj, get the uploaded files and add them to the page.
+            $attemptobj = quiz_attempt::create($userattempt->id);
+            $files = qrsub::get_files_from_upload_exam($attemptobj, $slot, $this->output);
+            if (!empty($files)) {
+                $output = qrsub::add_upload_exam_files_to_review($output, $files);
+            }
+        }
+        // QRMOOD-40
+
+        return $output;
+    }
+   
+
+    
+}
+//CONUMDLS0213 Functionality coming from QR Code question type integration -- End
