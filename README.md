@@ -35,7 +35,8 @@ using Boost 3.9 as it's main inspirtation.
 - - [x] CONUMDLS0209 Landing information reordered
 - - [x] CONUMDLS0210 LivePerson information
 - - [x] CONUMDLS0211 Modified question footer with navigation to all the questions
-- - [ ] CONUMDLS0212 Review page
+- - [x] CONUMDLS0212 Review page
+- - [ ] CONUMDLS0213 Functionality coming from QR Code question type integration
 - [ ] CONUMDLS03 - Miscellaneous
 - - [ ] CONUMDLS0301 Review table css
 - - [ ] CONUMDLS0302 Review add/remove users css

@@ -192,5 +192,17 @@ $setting = new admin_setting_configselect($name, $title, $description, $default,
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+$page->add(new admin_setting_heading('theme_saimaniq_quiz_review_page', get_string('quizreviewheading', 'theme_saimaniq'),
+        format_text(get_string('quizreviewheadingdesc', 'theme_saimaniq'), FORMAT_MARKDOWN)));
+
+// Checkbox to Enable/Disable the custom buttons on the summary of the quiz
+$name = 'theme_saimaniq/enablecustomreview';
+$title = get_string('enablecustomreview', 'theme_saimaniq');
+$description = get_string('enablecustomreviewdesc', 'theme_saimaniq');
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true,false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Must add the page after definiting all the settings! 
 $settings->add($page);

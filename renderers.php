@@ -890,6 +890,93 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         return $output;
     }
     //CONUMDLS0204 Summary of questions -- End
+
+    //CONUMDLS0212 Review page --Begin
+    //this modified function was originally on theme_quizzer
+    /**
+     * Builds the review page
+     *
+     * @param quiz_attempt $attemptobj an instance of quiz_attempt.
+     * @param array $slots an array of intgers relating to questions.
+     * @param int $page the current page number
+     * @param bool $showall whether to show entire attempt on one page.
+     * @param bool $lastpage if true the current page is the last page.
+     * @param mod_quiz_display_options $displayoptions instance of mod_quiz_display_options.
+     * @param array $summarydata contains all table data
+     * @return $output containing html data.
+     */
+    public function review_page(quiz_attempt $attemptobj, $slots, $page, $showall,
+                                $lastpage, mod_quiz_display_options $displayoptions,
+                                $summarydata) {
+        global $OUTPUT,$USER;
+        
+        $enablecustomreview = get_config('theme_saimaniq', 'enablecustomreview');
+        //we first verify if the setting is not enabled
+        // if it's not enabled, loads the original parent function
+        if (!$enablecustomreview) {
+            return parent::review_page($attemptobj, $slots, $page, $showall, $lastpage, $displayoptions, $summarydata);
+        }
+
+        $output = $this->header();
+
+        /*
+        * new logic to be added to contemplate scenarios with the hybrid questions
+        *  The checkmark page:
+        *  1 - No hybrid question: redirect to course main page
+        *  2 - Hybrid question: redirect to quiz main page
+        */
+        $urltogo = new moodle_url('/course/view.php', array('id' => $attemptobj->get_courseid()));
+        //we need to verify if the plugin is installed
+        $plugininfo = \core_plugin_manager::instance()->get_plugin_info('qtype_hybrid');
+        if ($plugininfo){
+            $qrsub = new qrsub();
+            $hashybrid = $qrsub->has_hybrid_question($attemptobj);
+            if ($hashybrid) $urltogo = new moodle_url('/mod/quiz/view.php', array('id' => $attemptobj->get_cmid()));
+        }
+        //end new logic
+        
+        $roleuser = theme_saimaniq\helper::get_role($attemptobj->get_quizobj()->get_context(),$USER->id);
+        //if it's a student, redirect
+        if ($roleuser == 'student'){
+            $when = quiz_attempt_state($attemptobj->get_quiz(), $attemptobj->get_attempt());
+            $t=time();
+            $closingtime = $attemptobj->get_quiz()->timeclose;
+            //if the attempt is still open but the student has the capability to see the review set by
+            //the teacher, still, it should only be visible after the quiz is closed
+            if ($closingtime && 
+                $t<$closingtime && 
+                $attemptobj->get_quiz()->reviewattempt & mod_quiz_display_options::AFTER_CLOSE){
+                $output .= get_string('noreviewuntil', 'quiz',userdate($closingtime));
+            }
+            //now we check if the attempt is indeed closed
+            else if($closingtime && 
+                    $t>$closingtime && 
+                    $attemptobj->get_quiz()->reviewattempt & mod_quiz_display_options::AFTER_CLOSE) {
+                $output .= $this->review_summary_table($summarydata, $page);
+                $output .= $this->review_form($page, $showall, $displayoptions,
+                        $this->questions($attemptobj, true, $slots, $page, $showall, $displayoptions),
+                        $attemptobj);
+
+                $output .= $this->review_next_navigation($attemptobj, $page, $lastpage, $showall);
+                $output .= $this->footer();
+            }
+            else {
+                //sleep(10);
+                redirect($urltogo);
+            }
+        }
+        else {
+            $output .= $this->review_summary_table($summarydata, $page);
+            $output .= $this->review_form($page, $showall, $displayoptions,
+                    $this->questions($attemptobj, true, $slots, $page, $showall, $displayoptions),
+                    $attemptobj);
+
+            $output .= $this->review_next_navigation($attemptobj, $page, $lastpage, $showall);
+            $output .= $this->footer();
+        }
+        return $output;
+    }
+    //CONUMDLS0212 Review page -- End
 }
 
 class theme_saimaniq_core_renderer extends theme_boost\output\core_renderer {

@@ -149,6 +149,11 @@ $string['enablecustomsummarybuttons']       = 'Enables custom summary button bar
 $string['enablecustomsummarybuttonsdesc']   = 'Enable/Disable custom display of the buttons at the bottom of the quiz page';
 $string['customsummarybuttonsposition']     = 'Select pagination position';
 $string['customsummarybuttonspositiondesc'] = 'Selects the position of the pagination bar for the quiz';
+// All the settings for the Quiz review page
+$string['quizreviewheading']        = 'Settings for the Quiz review page';
+$string['quizreviewheadingdesc']    = 'Allows the administrator to control several aspects of quiz review page';
+$string['enablecustomreview']       = 'Enables custom review';
+$string['enablecustomreviewdesc']   = 'Enable/Disable a custom review for the current attempt';
 
 //the name for the Integrations tab
 $string['settingsintegrationpage'] = 'Integrations settings';
