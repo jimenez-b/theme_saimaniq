@@ -24,7 +24,7 @@ using Boost 3.9 as it's main inspirtation.
 - - ~~[ ] CONUMDLS0102 Build Proctorio integration (deemed not necessary)~~ 
 - - [x] CONUMDLS0103 Build Conquizzer integration
 - [ ] CONUMDLS02 - Features coming from COLEv2
-- - [ ] CONUMDLS0201 Branding
+- - [x] CONUMDLS0201 Branding
 - - [x] CONUMDLS0202 Support FAQ Sidebar
 - - [x] CONUMDLS0203 General Quiz UX/UI
 - - [x] CONUMDLS0204 Summary of questions
@@ -39,7 +39,7 @@ using Boost 3.9 as it's main inspirtation.
 - - [x] CONUMDLS0213 Functionality coming from QR Code question type integration
 - [ ] CONUMDLS03 - Miscellaneous
 - - [ ] CONUMDLS0301 Review table css
-- - [ ] CONUMDLS0302 Review add/remove users css
+- - [x] CONUMDLS0302 Review add/remove users css
 - - [x] CONUMDLS0303 Cleanup code lib.php
 - - [x] CONUMDLS0304 Cleanup code settings_general.php
 - - [x] CONUMDLS0305 Add privacy class file

@@ -933,6 +933,7 @@ body {
         margin-left: 1rem;
     }
     select{
+        border-radius: $conu-border-radius;
         &.form-control[size],
         &.form-control[multiple] {
             option {
