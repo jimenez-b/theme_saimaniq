@@ -37,13 +37,13 @@ using Boost 3.9 as it's main inspirtation.
 - - [x] CONUMDLS0211 Modified question footer with navigation to all the questions
 - - [x] CONUMDLS0212 Review page
 - - [x] CONUMDLS0213 Functionality coming from QR Code question type integration
-- [ ] CONUMDLS03 - Miscellaneous
-- - [ ] CONUMDLS0301 Review table css
+- [x] CONUMDLS03 - Miscellaneous
+- - [x] CONUMDLS0301 Review table css
 - - [x] CONUMDLS0302 Review add/remove users css
 - - [x] CONUMDLS0303 Cleanup code lib.php
 - - [x] CONUMDLS0304 Cleanup code settings_general.php
 - - [x] CONUMDLS0305 Add privacy class file
-- - [ ] CONUMDLS0306 Update all JS files to ES6
+- - [x] CONUMDLS0306 Update all JS files to ES6
 - [ ] CONUMDLS04 - Settings
 - - [x] CONUMDLS0401 Create course settings page
 - - [ ] CONUMDLS0402 Create home settings page
