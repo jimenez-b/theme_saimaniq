@@ -469,9 +469,9 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $property->setAccessible(true);
         $attemptobj = $property->getValue($panel);
         //we are going to check if the QR Hybrid question plugin is installed
-        $plugininfo = \core_plugin_manager::instance()->get_plugin_info('qtype_hybrid');
+        $plugininfo = \core_plugin_manager::instance()->get_plugin_info('local_qrsub');
         if ($plugininfo){
-            $qrsub = new qrsub();
+            $qrsub = new local_qrsub\local\qrsub();
             $has_hybrid = $qrsub->has_hybrid_question($attemptobj);
             if ($has_hybrid) {
                 $search_keys = array('answered','unsure','unanswered','invalidanswerhybrid');
@@ -733,9 +733,9 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
                 case "unsure":
                     $outtext = get_string('unsureshort', 'theme_saimaniq'); break;
                 case "invalidanswer":
-                    $plugininfo = \core_plugin_manager::instance()->get_plugin_info('qtype_hybrid');
+                    $plugininfo = \core_plugin_manager::instance()->get_plugin_info('local_qrsub');
                     if ($plugininfo){
-                        $qrsub = new qrsub();
+                        $qrsub = new local_qrsub\local\qrsub();
                         $has_hybrid = $qrsub->has_hybrid_question($attemptobj);
                         if ($has_hybrid) {
                             $outtext = get_string('invalidsummaryhybridbutton', 'theme_saimaniq');
@@ -879,9 +879,9 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
             he will be redirected to the attempt start page 
             where he will scan the QR Code and upload his file.
         */
-        $plugininfo = \core_plugin_manager::instance()->get_plugin_info('qtype_hybrid');
+        $plugininfo = \core_plugin_manager::instance()->get_plugin_info('local_qrsub');
         if ($plugininfo) {
-            $qrsub = new qrsub();
+            $qrsub = new local_qrsub\local\qrsub();
             $has_hybrid = $qrsub->has_hybrid_question($attemptobj);
             if ($has_hybrid) $templatecontext['hybrid'] = 'true';
         }
@@ -927,9 +927,9 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         */
         $urltogo = new moodle_url('/course/view.php', array('id' => $attemptobj->get_courseid()));
         //we need to verify if the plugin is installed
-        $plugininfo = \core_plugin_manager::instance()->get_plugin_info('qtype_hybrid');
+        $plugininfo = \core_plugin_manager::instance()->get_plugin_info('local_qrsub');
         if ($plugininfo){
-            $qrsub = new qrsub();
+            $qrsub = new local_qrsub\local\qrsub();
             $hashybrid = $qrsub->has_hybrid_question($attemptobj);
             if ($hashybrid) $urltogo = new moodle_url('/mod/quiz/view.php', array('id' => $attemptobj->get_cmid()));
         }
@@ -999,14 +999,14 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
                 // Load the questions in the attempt object.
                 $attemptobj->load_questions();
 
-                $plugininfo = \core_plugin_manager::instance()->get_plugin_info('qtype_hybrid');
+                $plugininfo = \core_plugin_manager::instance()->get_plugin_info('local_qrsub');
                 if ($plugininfo) {
                     // Get the hybrid question and their status.
-                    $hybridinfo = new qrsub_attempt_info_block($attemptobj);
+                    $hybridinfo = new local_qrsub\local\qrsub_attempt_info_block($attemptobj);
                     $hybrids = $hybridinfo->get_questions();
 
                     // Find if the exam is proctored.
-                    list($is_proctored, $upload_exam) = qrsub::is_exam_protored($attemptobj);
+                    list($is_proctored, $upload_exam) = local_qrsub\local\qrsub::is_exam_protored($attemptobj);
 
                     // Display the question status only if we have hybrid question.
                     if (count($hybrids) > 0 && !$is_proctored) {
@@ -1063,14 +1063,14 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
 
                 // Load the questions in the attempt object.
                 $attemptobj->load_questions();
-                $plugininfo = \core_plugin_manager::instance()->get_plugin_info('qtype_hybrid');
+                $plugininfo = \core_plugin_manager::instance()->get_plugin_info('local_qrsub');
                 if ($plugininfo) {
-                    $qrsub = new qrsub();
+                    $qrsub = new local_qrsub\local\qrsub();
                     $has_hybrid = $qrsub->has_hybrid_question($attemptobj);
                     if ($has_hybrid) {
                         if (!$qrsub->question_attempt_has_uploaded_file($attemptobj)) {
                             // Check if the attempt is proctored or not.
-                            list($is_proctored, $upload_exam) = qrsub::is_exam_protored($attemptobj);
+                            list($is_proctored, $upload_exam) = local_qrsub\local\qrsub::is_exam_protored($attemptobj);
                             if ($is_proctored) {
                                 ///////////////////////////////////////////////////////
                                 // QRMOOD-51 - As an IT, I want the exam refresh rate to be x sec
@@ -1650,9 +1650,9 @@ class theme_saimaniq_core_question_renderer extends core_question_renderer {
 	              $attemptobj = quiz_attempt::create($id);
 
 	              // Create a quiz attempt obj, get the uploaded files and add them to the page.
-	              $files = qrsub::get_files_from_upload_exam($attemptobj, $qa->get_slot(), $this->output);
+	              $files = local_qrsub\local\qrsub::get_files_from_upload_exam($attemptobj, $qa->get_slot(), $this->output);
 	              if (!empty($files)) {
-	                  $output = qrsub::add_upload_exam_files_to_review($output, $files);
+	                  $output = local_qrsub\local\qrsub::add_upload_exam_files_to_review($output, $files);
 	              }
 	          }
         }
@@ -1681,7 +1681,7 @@ class theme_saimaniq_quiz_grading_renderer extends quiz_grading_renderer {
     public function render_grade_question($questionusage, $slot, $displayoptions, $questionnumber, $heading) {
         $output = '';
         //we are going to check if the QR Hybrid question plugin is installed
-        $plugininfo = \core_plugin_manager::instance()->get_plugin_info('qtype_hybrid');
+        $plugininfo = \core_plugin_manager::instance()->get_plugin_info('local_qrsub');
         if (!$plugininfo){
             $output .= parent::render_grade_question($questionusage, $slot, $displayoptions, $questionnumber, $heading);
             return $output;
@@ -1720,9 +1720,9 @@ class theme_saimaniq_quiz_grading_renderer extends quiz_grading_renderer {
         if ($userattempt) {
             // Create a quiz attempt obj, get the uploaded files and add them to the page.
             $attemptobj = quiz_attempt::create($userattempt->id);
-            $files = qrsub::get_files_from_upload_exam($attemptobj, $slot, $this->output);
+            $files = local_qrsub\local\qrsub::get_files_from_upload_exam($attemptobj, $slot, $this->output);
             if (!empty($files)) {
-                $output = qrsub::add_upload_exam_files_to_review($output, $files);
+                $output = local_qrsub\local\qrsub::add_upload_exam_files_to_review($output, $files);
             }
         }
         // QRMOOD-40
