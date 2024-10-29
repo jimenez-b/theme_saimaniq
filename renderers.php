@@ -53,6 +53,7 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         if ($preset == true) {
             $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/landing','init');
             $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/landing','bolder');
+            $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/landing','qrchanges');
             $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/landing','checkboxEnabler', [$checkboxes_display->instructions , $checkboxes_display->copyright]);
         }
         return $output;
@@ -160,6 +161,35 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         return $output = (($preset == true) ? $this->render_from_template('theme_saimaniq/cole/image_modal', $data) : '');
     }
 
+    /**
+     * Function to show the hybrid qr_code
+     * Code originally part of the view_page in theme_quizzer
+     * created by Nicholas Dalpe
+     * @param mod_quiz_view_object $viewobj
+     */
+    protected function load_hybrid_attempt($viewobj) {
+        //we first check if the preset is COLE 
+        //and the plugin is indeed installed
+        $preset = theme_saimaniq\helper::is_cole_preset(theme_config::load('saimaniq'));
+        $plugininfo = \core_plugin_manager::instance()->get_plugin_info('local_qrsub');
+        $output = '';
+        if ($preset == true && $plugininfo) {
+            /*
+            * here goes the hybrid question code provided by
+            * Nicolas Dulpe
+            */
+            // We need at least one attempt object.
+            // Display the QR Code if there is hybrid question in the exam.
+            if (isset($viewobj->attemptobjs[0])) {
+                $qrsub = new qrsub();
+                $output .= $qrsub->display_qrcode($viewobj->attemptobjs[0], $cm);
+            }
+            /*end hybrid question code */
+        }
+        return $output;
+    }
+
+
     /*
      * View Page
      */
@@ -186,6 +216,7 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $output .= $this->saimaniq_row($quiz, $cm, $context, $viewobj);
         $output .= $this->view_table($quiz, $context, $viewobj);
         $output .= $this->view_result_info($quiz, $context, $cm, $viewobj);
+        $output .= $this->load_hybrid_attempt($viewobj);
         //CONUMDLS0206 Customized checkboxes for the Copyright notice and the Terms and conditions - begin
         $output .= $this->render_modals();
         //CONUMDLS0206 Customized checkboxes for the Copyright notice and the Terms and conditions - end

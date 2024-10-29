@@ -129,3 +129,11 @@ export const checkboxEnabler = (instructions, copyright) => {
         }
     }
 };
+
+export const qrchanges = () => {
+    let upper = document.querySelector('#saimaniq-quiz-landing-container');
+    upper.classList.remove("d-none");
+    if (document.querySelector(".k1-qrcode")) {
+        upper.classList.add("d-none");
+    }
+};
