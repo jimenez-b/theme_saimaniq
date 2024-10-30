@@ -166,8 +166,9 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
      * Code originally part of the view_page in theme_quizzer
      * created by Nicholas Dalpe
      * @param mod_quiz_view_object $viewobj
+     * @param stdClass $cm the course_module settings row from the database.
      */
-    protected function load_hybrid_attempt($viewobj) {
+    protected function load_hybrid_attempt($viewobj, $cm) {
         //we first check if the preset is COLE 
         //and the plugin is indeed installed
         $preset = theme_saimaniq\helper::is_cole_preset(theme_config::load('saimaniq'));
@@ -216,7 +217,7 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $output .= $this->saimaniq_row($quiz, $cm, $context, $viewobj);
         $output .= $this->view_table($quiz, $context, $viewobj);
         $output .= $this->view_result_info($quiz, $context, $cm, $viewobj);
-        $output .= $this->load_hybrid_attempt($viewobj);
+        $output .= $this->load_hybrid_attempt($viewobj,$cm);
         //CONUMDLS0206 Customized checkboxes for the Copyright notice and the Terms and conditions - begin
         $output .= $this->render_modals();
         //CONUMDLS0206 Customized checkboxes for the Copyright notice and the Terms and conditions - end
