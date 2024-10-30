@@ -181,7 +181,7 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
             // We need at least one attempt object.
             // Display the QR Code if there is hybrid question in the exam.
             if (isset($viewobj->attemptobjs[0])) {
-                $qrsub = new qrsub();
+                $qrsub = new local_qrsub\local\qrsub();
                 $output .= $qrsub->display_qrcode($viewobj->attemptobjs[0], $cm);
             }
             /*end hybrid question code */
