@@ -279,11 +279,12 @@
     }
     #saimaniq-modal-image {
         .modal-dialog {
-            max-width:calc(100vh + 13rem);
+            max-width:calc(100vh + 15rem);
             .modal-content {
                 width: fit-content;
+                margin-top: 5.5%;
                 img {
-                    max-width:calc(100vh + 13rem);
+                    max-width:calc(100vh + 15rem);
                     //width: 100vh;
                 }
             }

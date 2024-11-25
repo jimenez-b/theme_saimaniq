@@ -500,20 +500,18 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $property = $reflection->getProperty('attemptobj');
         $property->setAccessible(true);
         $attemptobj = $property->getValue($panel);
+        $search_keys = ['answered','unsure','unanswered','invalidanswer'];
         //we are going to check if the QR Hybrid question plugin is installed
         $plugininfo = \core_plugin_manager::instance()->get_plugin_info('local_qrsub');
         if ($plugininfo){
             $qrsub = new local_qrsub\local\qrsub();
             $has_hybrid = $qrsub->has_hybrid_question($attemptobj);
             if ($has_hybrid) {
-                $search_keys = array('answered','unsure','unanswered','invalidanswerhybrid');
+                $search_keys = ['answered','unsure','unanswered','invalidanswerhybrid'];
             }
-        } else {
-            $search_keys = array('answered','unsure','unanswered','invalidanswer');
         }
-
         if (strpos($bodyattributes,'page-mod-quiz-review')!==false){
-            $search_keys = array('correct','partiallycorrect','incorrect','notanswered','gradingrequired');
+            $search_keys = ['correct','partiallycorrect','incorrect','notanswered','gradingrequired'];
         }
         $key_strings = get_strings($search_keys, 'theme_saimaniq');
         $array_keys = json_decode(json_encode($key_strings), true);

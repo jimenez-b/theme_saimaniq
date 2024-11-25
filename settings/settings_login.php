@@ -103,7 +103,7 @@ $title = get_string('loginnobackground', 'theme_saimaniq');
 $description = get_string('loginnobackgrounddesc', 'theme_saimaniq');
 $default = 'plain';
 $setting = new admin_setting_configselect($name, $title, $description, $default, ['plain' => 'Plain Color','random' => 'JS Generator']);
-$setting->set_updatedcallback('theme_reset_all_caches');
+//$setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
   
 // We use an empty default value because the default colour should come from the preset.    
@@ -111,10 +111,9 @@ $name = 'theme_saimaniq/loginbackgroundcolor';
 $title = get_string('loginbackgroundcolor', 'theme_saimaniq');       
 $description = get_string('loginbackgroundcolordesc', 'theme_saimaniq');     
 $setting = new admin_setting_configcolourpicker($name, $title, $description, '#fff');  
-$setting->set_updatedcallback('theme_reset_all_caches');
+//$setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
-
-//$page->hide_if($name, 'theme_saimaniq/defaultnobackground', 'eq','random');
+//$page->hide_if($name, 'theme_saimaniq/defaultnobackground', 'neq','plain');
 
 // When JS is enabled, number of rectangles to produce
 $name = 'theme_saimaniq/loginjsrectangles';
@@ -122,9 +121,9 @@ $title = get_string('loginjsrectangles', 'theme_saimaniq');
 $description = get_string('loginjsrectanglesdesc', 'theme_saimaniq');
 $default = 20;
 $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_INT,2);
-$setting->set_updatedcallback('theme_reset_all_caches');
+//$setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
-// $page->hide_if($name,'theme_saimaniq/defaultnobackground','noeq','random');
+//$page->hide_if($name,'theme_saimaniq/defaultnobackground','neq','random');
 
 // Checkbox to Show/hide the front page quote
 $name = 'theme_saimaniq/showdefaultfrontpagebody';
