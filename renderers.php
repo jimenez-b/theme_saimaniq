@@ -851,8 +851,9 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         } else if ($duedate) {
             $message = get_string('mustbesubmittedby', 'quiz', userdate($duedate));
         }
-        $message = html_writer::span($message, 'alert alert-warning mx-1 my-0 p-2');
-
+        if ($message !== ''){
+            $message = html_writer::span($message, 'alert alert-warning mx-1 my-0 p-2');
+        }
         $output .= $this->countdown_timer($attemptobj, time());
         
         $align = $customsummarybuttonsposition ?: 'end';
