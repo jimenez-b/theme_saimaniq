@@ -81,38 +81,20 @@ export const bolder = () => {
 
 export const checkboxEnabler = (instructions, copyright) => {
     // First, we disable the button
-    document.querySelector('.quizstartbuttondiv button[type="submit"]').disabled = true;
     let statusModals = {
         copyrightModal: 0,
         termsModal: 0,
         where: ''
     };
-    if (instructions !== "" && copyright !== "") {
-        document.querySelector('input#instructions_verification').addEventListener("click", bothCheck);
-        document.querySelector('input#copyrightnotice').addEventListener("click", bothCheck);
-        // It is to be rendered
-        let selectorCloser = document.querySelectorAll('button.saimaniq-close-modal');
-        selectorCloser.forEach((closerModal) => {
-            closerModal.addEventListener("click", () => {
-                modalClose(statusModals, closerModal.closest('.saimaniq-modal-box'));
-            });
-        });
-
-        let selector = document.querySelector('input#copyrightnotice');
-        selector.addEventListener("click", () => {
-            statusModals.where = selector;
-            checkSingle2(statusModals);
-        });
-    } else {
-        // We check if instructions is to be rendered by config
-        if (instructions !== "") {
-            // It is to be rendered
-            let selector = document.querySelector('input#instructions_verification');
-            selector.addEventListener("click", () => {
-                singleCheck(selector);
-            });
-        }
-        if (copyright !== "") {
+    if (instructions === "" && copyright === "") {
+        //window.console.log('nothing to see here');
+        return;
+    }
+    else {
+        document.querySelector('.quizstartbuttondiv button[type="submit"]').disabled = true;
+        if (instructions !== "" && copyright !== "") {
+            document.querySelector('input#instructions_verification').addEventListener("click", bothCheck);
+            document.querySelector('input#copyrightnotice').addEventListener("click", bothCheck);
             // It is to be rendered
             let selectorCloser = document.querySelectorAll('button.saimaniq-close-modal');
             selectorCloser.forEach((closerModal) => {
@@ -124,8 +106,32 @@ export const checkboxEnabler = (instructions, copyright) => {
             let selector = document.querySelector('input#copyrightnotice');
             selector.addEventListener("click", () => {
                 statusModals.where = selector;
-                checkSingle(statusModals);
+                checkSingle2(statusModals);
             });
+        } else {
+            // We check if instructions is to be rendered by config
+            if (instructions !== "") {
+                // It is to be rendered
+                let selector = document.querySelector('input#instructions_verification');
+                selector.addEventListener("click", () => {
+                    singleCheck(selector);
+                });
+            }
+            if (copyright !== "") {
+                // It is to be rendered
+                let selectorCloser = document.querySelectorAll('button.saimaniq-close-modal');
+                selectorCloser.forEach((closerModal) => {
+                    closerModal.addEventListener("click", () => {
+                        modalClose(statusModals, closerModal.closest('.saimaniq-modal-box'));
+                    });
+                });
+
+                let selector = document.querySelector('input#copyrightnotice');
+                selector.addEventListener("click", () => {
+                    statusModals.where = selector;
+                    checkSingle(statusModals);
+                });
+            }
         }
     }
 };

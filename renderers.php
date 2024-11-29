@@ -32,6 +32,7 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
     public function view_confirmation() : string {
         $preset = theme_saimaniq\helper::is_cole_preset(theme_config::load('saimaniq'));
         $checkboxes_display = theme_saimaniq\helper::checkboxes_display('object');
+        $checkboxes_display->dontdisplay = (empty($checkboxes_display->instructions) && empty($checkboxes_display->copyright)) ? true : false;
         $checkboxes_display->checkmessage = (!empty($checkboxes_display->instructions) && !empty($checkboxes_display->copyright)) ? true : false;
         return ($preset == true ? $this->render_from_template('theme_saimaniq/cole/checkboxes', $checkboxes_display) : '' );
     }

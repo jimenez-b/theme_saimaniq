@@ -26,11 +26,13 @@
         <label class="very-small" for="copyrightnotice">{{# str }} copyrightnotice, theme_saimaniq {{/ str }}</label><br>
         {{/copyright}}
     </form>
+    {{^dontdisplay}}
     {{#checkmessage}}
     <p class="small strong">{{# str }} obligatoryapproval, theme_saimaniq {{/ str }}</p>
     {{/checkmessage}}
     {{^checkmessage}}
     <p class="small strong">{{# str }} obligatoryapprovalsingle, theme_saimaniq {{/ str }}</p>
     {{/checkmessage}}
+    {{/dontdisplay}}
     </div>
 </div>
