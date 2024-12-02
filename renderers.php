@@ -557,7 +557,7 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
             return parent::render_quiz_nav_question_button($button);
         }
 
-        $classes = array('qnbutton', $button->stateclass, $button->navmethod, 'btn');
+        $classes = array('qnbutton saimaniq-custom-exam-navigation', $button->stateclass, $button->navmethod, 'btn');
         $extrainfo = array();
         $unsureclasses = array ('unsure');
 
