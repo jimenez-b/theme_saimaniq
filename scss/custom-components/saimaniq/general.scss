@@ -1043,6 +1043,12 @@ $icon-height: 20px;
         }
     }
 }
+
+div#page.show-drawer-left {
+    .saimaniq-floating-faq {
+        left: 13%;
+    }
+}
 //CONUMDLS0202 Support FAQ Sidebar -- floating css -- end
 
 //CONUMDLS0211 Modified question footer with navigation to all the questions
