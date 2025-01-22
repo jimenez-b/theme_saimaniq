@@ -4,7 +4,7 @@ body[id^='page-mod-quiz-'] {
     #saimaniq-attempt_navigation_buttons {
         #saimaniq-pagination-main-buttons {
             input[type="submit"] {
-                max-height: 2rem;
+                max-height: 38px;
                 color: $conu-very-dark-grey;
                 background-color: $conu-light-grey;
                 border: 0px solid $conu-light-grey;
@@ -13,8 +13,9 @@ body[id^='page-mod-quiz-'] {
                 font-weight: normal;
                 //border-width: 0px;
                 width: 2rem;
-                height: 2rem;
+                height: 38px;
                 padding: 4px;
+                padding: 8px;
                 color: $conu-very-dark-grey;
                 background-color: $conu-light-grey;
                 border: 0px solid $conu-light-grey;
