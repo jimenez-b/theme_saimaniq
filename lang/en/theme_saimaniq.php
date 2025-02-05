@@ -185,7 +185,7 @@ $string['loginmaintext'] = ' students, faculty and staff login';
 //Summary strings
 //Table strings
 $string['questionno'] = 'Q No.';
-$string['questionsatt'] = 'Questions attempted:';
+$string['questionsatt'] = 'Questions attempted: ';
 
 // We need to include a lang string for each block region.
 $string['region-side-pre'] = 'Right';
