@@ -230,7 +230,7 @@ $string['supportphone'] = 'Call <a href="tel:+18882028615">1-888-202-8615</a> fo
 //Summary strings
 //Table strings
 $string['questionno'] = 'Q No.';
-$string['questionsatt'] = 'Questions attempted:';
+$string['questionsatt'] = 'Questions attempted: ';
 //Filter
 $string['sortby'] = 'Filter by';
 
