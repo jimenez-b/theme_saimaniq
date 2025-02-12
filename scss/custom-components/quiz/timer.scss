@@ -9,6 +9,7 @@
         background-color: $conu-light-grey;
         position: fixed;
         top: 0px;
+        margin-top: 0;
         right: 350px;
         z-index: 10000;
         &::before {
@@ -23,29 +24,31 @@
             color: $conu-dark-grey;
             line-height: 50px;
         }
-    }
-}
-
-
-$tl: 300;
-@for $i from 1 through $tl {
-    #quiz-timer{
-        &.timeleft#{$i} { 
-            color: $conu-red !important;
-            #quiz-time-left {
-                color: $conu-red !important;
-            }
+        &.timeleft16 {
+            background-color: $conu-light-grey;
+            color: $conu-dark-grey;
         }
     }
-    @if $i < 15 {
+    $tl: 300;
+    @for $i from 1 through $tl {
         #quiz-timer{
-            &.timeleft#{$i} {
-                background-color: $conu-red !important;
-                color: white !important;
+            &.timeleft#{$i} { 
+                color: $conu-red !important;
                 #quiz-time-left {
-                    color: white !important;
+                    color: $conu-red !important;
                 }
             }
         }
-    } 
+        @if $i <= 15 {
+            #quiz-timer{
+                &.timeleft#{$i} {
+                    background-color: $conu-red !important;
+                    color: white !important;
+                    #quiz-time-left {
+                        color: white !important;
+                    }
+                }
+            }
+        } 
+    }
 }
