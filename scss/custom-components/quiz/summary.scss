@@ -153,37 +153,16 @@ $button-size: 100px;
                     --shadow: hsla(0 0% 0% / 0.4) 0 0.3rem 0.2rem;    
                     flex-direction: row;         
                     background-color: white;
-                    text-align: center;
-                    padding: 0 40px;
+                    padding-left: 10px;
                     height: calc(100% - 240px);
                     -webkit-transition: left .5s ease;
                     -o-transition: left .5s ease;
                     transition: left .5s ease;
                     overflow-y: auto;
                     box-shadow: var(--shadow);
-                    .sort-title {
-                        margin-top: 20px;
-                        &:after {
-                            content: "";
-                            height: 1px;
-                            background-color: $conu-medium-grey;
-                            display: block;
-                            margin-top: 5px;
-                            margin-left: 10px;
-                            margin-right: 10px;
-                        }
-                    }
                     .sortbtn {
-                        /*width: $button-size;
-                        max-height: $button-size;
-                        height: $button-size;*/
                         background-color: white;
-                        -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
-                        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
-                        margin-top: 16px;
-                        margin-bottom: 8px;
-                        border: none;
-                        position: relative;
+                        border: 1px solid $conu-medium-grey;
                         -webkit-transition: all .08s linear;
                         -o-transition: all .08s linear;
                         transition: all .08s linear;
@@ -197,13 +176,13 @@ $button-size: 100px;
                         }
                         &[data-filter="enabled"] {
                             background-color: $conu-mauve;
+                            border: 1px solid $conu-mauve;
                             span {
                                 color: white;
                             }
                         }
                         span {
                             font-size: 18px;
-                            //color: $conu-dark-grey;
                             color: $conu-mauve;
                             line-height: 20px;
                             margin: 0 -5px;
@@ -214,6 +193,7 @@ $button-size: 100px;
                             }
                             &[data-filter="enabled"] {
                                 background-color: $conu-answered;
+                                border: 1px solid $conu-answered;
                                 span {
                                     color: white;
                                 }
@@ -225,6 +205,7 @@ $button-size: 100px;
                             }
                             &[data-filter="enabled"] {
                                 background-color: $conu-invalidanswer;
+                                border: 1px solid $conu-invalidanswer;
                                 span {
                                     color: white;
                                 }
@@ -236,6 +217,7 @@ $button-size: 100px;
                             }
                             &[data-filter="enabled"] {
                                 background-color: $conu-unanswered;
+                                border: 1px solid $conu-unanswered;
                                 span {
                                     color: white;
                                 }
@@ -247,6 +229,7 @@ $button-size: 100px;
                             }
                             &[data-filter="enabled"] {
                                 background-color: $conu-unsure;
+                                border: 1px solid $conu-unsure;
                                 span {
                                     color: white;
                                 }
