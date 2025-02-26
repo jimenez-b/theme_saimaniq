@@ -26,7 +26,8 @@
         ]
     }
 }}
-<div class="summarysortby saimaniq-summary-custom">
+
+<div class="summarysortby saimaniq-summary-custom d-none">
     <h4 class="sort-title">
         {{# str }} sortby, theme_saimaniq {{/ str }}
     </h4>
@@ -34,6 +35,17 @@
     <button class="sortbtn {{{key}}}" name="{{{key}}}" type="button" data-filter="{{{enabled}}}">
         <span>{{{amount}}}</span>
         <span>{{{outtext}}}</span>
+    </button>
+    {{/buttons}}
+</div>
+
+<div class="summarysortby saimaniq-summary-custom custom-pills d-inline-flex sticky-top">
+    <h4 class="sort-title">
+        {{# str }} sortby, theme_saimaniq {{/ str }}
+    </h4>
+    {{#buttons}}
+    <button class="sortbtn badge badge-pill {{{key}}} mx-2" name="{{{key}}}" type="button" data-filter="{{{enabled}}}">
+        <span class="px-2">{{{outtext}}} ({{{amount}}})</span>
     </button>
     {{/buttons}}
 </div>

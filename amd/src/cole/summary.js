@@ -53,12 +53,28 @@ function changeState(button, buttons) {
     }
 }
 
+/**
+ * Function to scroll to the top
+ */
+function scroll() {
+    window.console.log('im here');
+    var myDiv = document.getElementById('page');
+    myDiv.scrollTop = 0;
+    //window.focus();
+    /*document.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });*/
+    //window.scrollTo(0,0);
+    window.console.log('im still');
+}
 
 export const init = () => {
     let buttons = document.querySelectorAll('.sortbtn');
     buttons.forEach(button => {
         button.addEventListener('click', ()=>{
             changeState(button, buttons);
+            scroll();
         });
     });
 };

@@ -760,24 +760,18 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
             if ($attemptobj->is_question_flagged($slot)) $unsure++;
         }
         foreach ($search_keys as $key) {
-            switch ($key) {
-                case "unsure":
-                    $outtext = get_string('unsureshort', 'theme_saimaniq'); break;
-                case "invalidanswer":
-                    $plugininfo = \core_plugin_manager::instance()->get_plugin_info('local_qrsub');
-                    if ($plugininfo){
-                        $qrsub = new local_qrsub\local\qrsub();
-                        $has_hybrid = $qrsub->has_hybrid_question($attemptobj);
-                        if ($has_hybrid) {
-                            $outtext = get_string('invalidsummaryhybridbutton', 'theme_saimaniq');
-                        }
+            if ($key == 'invalidanswer') {
+                $outtext = get_string($key, 'theme_saimaniq');
+                $plugininfo = \core_plugin_manager::instance()->get_plugin_info('local_qrsub');
+                if (!is_null($plugininfo)) {
+                    $qrsub = new local_qrsub\local\qrsub();
+                    $has_hybrid = $qrsub->has_hybrid_question($attemptobj);
+                    if ($has_hybrid) {
+                        $outtext = get_string('invalidsummaryhybridbutton', 'theme_saimaniq');
                     }
-                    else {
-                        $outtext = get_string($key, 'theme_saimaniq');
-                    }
-                    break;
-                default:
-                    $outtext = get_string($key, 'theme_saimaniq');
+                }
+            } else {
+                $outtext = get_string($key, 'theme_saimaniq');
             }
             $enabled = ($key == 'filterall')?'enabled':'disabled';
             $data['buttons'][]=['key' => $key, 'outtext' => $outtext, 'amount' => ${$key}, 'enabled' => $enabled ];
@@ -885,10 +879,11 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $output .= $this->header();
         //$output .= $this->heading(format_string($attemptobj->get_quiz_name()));
         //$output .= $this->heading(get_string('summaryofattempt', 'quiz'), 3);
-        $output .= html_writer::start_tag('div', ['id' =>'saimaniq-summary-custom', 'class' => "d-inline-flex"]);
-        $output .= $this->filter_panel($attemptobj, $displayoptions);
+        $output .= html_writer::start_tag('div', ['id' =>'saimaniq-summary-custom', 'class' => "d-inline-block"]);
+        //$output .= $this->filter_panel($attemptobj, $displayoptions);
         $output .= html_writer::start_tag('div', array('class' => "summarycontent saimaniq-summary-custom"));
         $output .= $this->header_questions_attempted($attemptobj, false);
+        $output .= $this->filter_panel($attemptobj, $displayoptions);
         $output .= $this->summary_table($attemptobj, $displayoptions);
         $output .= $this->summary_page_controls($attemptobj);
         $output .= html_writer::end_tag('div');
