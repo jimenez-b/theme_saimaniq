@@ -23,6 +23,13 @@
                         bottom: 1rem;*/
                         a.aabtn{
                             font-size: 1rem;
+                            font-weight: 600;
+                            color: $conu-unsure;
+                            
+                            &[aria-pressed="true"] {
+                                color: $conu-unsure;
+                                text-decoration: underline;
+                            }
                             img{
                                 vertical-align: text-bottom;
                                 &.questionflagimage{
@@ -35,12 +42,14 @@
                 }
             }
             &.unsure {
-                .info {
+                .info, .content {
                     border-top: 10px solid $conu-yellow;
                 }
             }
             .content {
-                border-left: 1px solid rgba($color: $primary, $alpha: 0.3);
+                //border-left: 1px solid rgba($color: $primary, $alpha: 0.3);
+                border-left: 1px solid $conu-medium-grey;
+                border-top: 10px solid transparent;
                 .formulation {
                     background-color: transparent;
                     border: 0px;
@@ -62,7 +71,10 @@
         div{
             &.r0,
             &.r1 {
-                background-color: rgba($color: $conu-blue, $alpha: 0.15);
+                //background-color: rgba($color: $conu-blue, $alpha: 0.15);
+                background-color: $conu-tint-blue;
+                background-color: white;
+                border: 1px solid $conu-tint-blue;
                 margin-bottom:0.3rem;
                 //padding-top: 5px;
                 input[type="radio"] {
@@ -80,27 +92,32 @@
                     padding-top: 5px;
                 }
                 .answernumber {
-                    background-color: rgba($color: $conu-blue, $alpha: 0.5);
+                    //background-color: rgba($color: $conu-blue, $alpha: 0.5);
                     min-width: 1.7rem;
                     padding:5px;
                     padding-left:8px;
                 }
                 &.checked,
                 &:hover {
-                    background-color: rgba($color: $conu-blue, $alpha: 0.5);
+                    //background-color: rgba($color: $conu-blue, $alpha: 0.5);
+                    background-color: $conu-blue;
+                    border: 1px solid $conu-blue;
+                    color: white;
                 }
                 
             }
         }
         select{
             &.custom-select {
-                border: 1px solid transparent;
-                border-bottom: 4px solid rgba($color: $conu-blue, $alpha: 0.5);
+                border: 1px solid #d3e1e9;
+                //border-bottom: 4px solid rgba($color: $conu-blue, $alpha: 0.5);
+                border-bottom: 4px solid $conu-blue;
                 //background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-caret-down%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M3.204%205h9.592L8%2010.481zm-.753.659%204.796%205.48a1%201%200%200%200%201.506%200l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1%201%200%200%200-.753%201.659%22%2F%3E%3C%2Fsvg%3E);
                 background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-chevron-down%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M1.646%204.646a.5.5%200%200%201%20.708%200L8%2010.293l5.646-5.647a.5.5%200%200%201%20.708.708l-6%206a.5.5%200%200%201-.708%200l-6-6a.5.5%200%200%201%200-.708%22%2F%3E%3C%2Fsvg%3E);
                 background-size: 10px;
                 &:hover {
-                    background-color: rgba($color: $conu-blue, $alpha: 0.15);
+                    //background-color: rgba($color: $conu-blue, $alpha: 0.15);
+                    background-color: #d3e1e9;
                 }
                 option {
                     background-color: $conu-light-grey;
@@ -109,7 +126,9 @@
         }
         input[type="text"] {
             &:focus {
-                border-bottom: 4px solid rgba($color: $conu-blue, $alpha: 0.5);
+                //border-bottom: 4px solid rgba($color: $conu-blue, $alpha: 0.5);
+                border: 1px solid $conu-tint-blue;
+                border-bottom: 4px solid $conu-blue;
                 box-shadow: none;
                 transition: border-bottom 0.25s ease-out;
             }
@@ -123,12 +142,37 @@
                 transition: border-bottom 0.25s ease-in-out;
             }
         }
+        &.match {
+            table {
+                &.answer {
+                    background-color: white;
+                    width: 90%;
+                    tr {
+                        border-top: 1px solid $conu-medium-grey;
+                        td {
+                            padding: 10px;
+                            &.text {
+                                width: 50%;
+                            }
+                            &.control {
+                                select.select {
+                                    width: 90%;
+                                }
+                            }
+                        }
+                    }
+                }
+    
+            }
+        }
         &.ddwtos,
         &.ddimageortext {
             .drop {
                 &.active {
-                    border: 1px dashed rgba($color: $conu-blue, $alpha: 0.5);
-                    background-color: rgba($color: $conu-blue, $alpha: 0.15);
+                    //border: 1px dashed rgba($color: $conu-blue, $alpha: 0.5);
+                    //background-color: rgba($color: $conu-blue, $alpha: 0.15);
+                    border: 1px dashed $conu-blue;
+                    background-color: $conu-tint-blue;
                 }
                 &:focus,
                 &.valid-drag-over-drop {
@@ -138,6 +182,7 @@
             .dropzone {
                 &.active {
                     border: 1px dashed $conu-dark-grey;
+                    opacity: .9;
                 }
                 &:focus,
                 &.valid-drag-over-drop {
@@ -148,8 +193,8 @@
                 border: 1px solid $conu-medium-grey;
                 &.beingdragged {
                     box-shadow: none;
-                    border: 1px solid rgba($color: $conu-blue, $alpha: 0.5);
-                    border-left-width: 4px;
+                    border: 1px solid $conu-tint-blue;
+                    border-left: 4px solid $conu-blue;
                 }
                 &.placed {
                     &:focus:not(.beingdragged),
@@ -168,12 +213,14 @@
                 span.markertext{
                     border: 1px solid $conu-medium-grey;
                     border-radius: $conu-border-radius;
+                    opacity: .9;
                 }
                 &.beingdragged {
                     span.markertext{
                         box-shadow: none;
-                        border: 1px solid rgba($color: $conu-blue, $alpha: 0.5);
-                        border-left-width: 4px;
+                        border: 1px solid $conu-tint-blue;
+                        border-left: 4px solid $conu-blue;
+                        opacity: .9;
                     }
                 }
             }
@@ -209,12 +256,16 @@
                                     padding: 4px 6px;
                                     &:hover {
                                         background-image: none;
-                                        background-color: rgba($color: $conu-blue, $alpha: 0.15);
+                                        //background-color: rgba($color: $conu-blue, $alpha: 0.15);
+                                        background-color: $conu-tint-blue;
                                     }
                                     &:active,
                                     &.highlight {
                                         background-image: none;
-                                        background-color: rgba($color: $conu-blue, $alpha: 0.5);
+                                        background-color: $conu-blue;
+                                        i.icon {
+                                            color: $white;
+                                        }
                                     }
                                 }
                             }

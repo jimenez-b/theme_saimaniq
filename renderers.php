@@ -254,6 +254,7 @@ class theme_saimaniq_mod_quiz_renderer extends mod_quiz_renderer  {
         $output .= $this->add_img_modal();
         $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/attempt','init');
         $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/attempt','modal_images');
+        $output .= $this->page->requires->js_call_amd('theme_saimaniq/cole/attempt','clean_clearmychoice');
         $output .= $this->footer();
         return $output;
     }
