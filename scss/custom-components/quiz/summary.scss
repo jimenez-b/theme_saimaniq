@@ -153,12 +153,13 @@ $button-size: 100px;
                     --shadow: hsla(0 0% 0% / 0.4) 0 0.3rem 0.2rem;    
                     flex-direction: row;         
                     background-color: white;
-                    padding-left: 10px;
-                    height: calc(100% - 240px);
+                    padding: 5px 0 0px 10px;
+                    //height: calc(100% - 240px);
+                    //width: 100%;
                     -webkit-transition: left .5s ease;
                     -o-transition: left .5s ease;
                     transition: left .5s ease;
-                    overflow-y: auto;
+                    //overflow-y: auto;
                     box-shadow: var(--shadow);
                     .sortbtn {
                         background-color: white;

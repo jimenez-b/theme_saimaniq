@@ -57,7 +57,7 @@ function changeState(button, buttons) {
  * Function to scroll to the top
  */
 function scroll() {
-    window.console.log('im here');
+    //window.console.log('im here');
     var myDiv = document.getElementById('page');
     myDiv.scrollTop = 0;
     //window.focus();
@@ -66,7 +66,7 @@ function scroll() {
       behavior: 'smooth'
     });*/
     //window.scrollTo(0,0);
-    window.console.log('im still');
+    //window.console.log('im still');
 }
 
 export const init = () => {
