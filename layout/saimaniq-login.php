@@ -26,9 +26,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $bodyattributes = $OUTPUT->body_attributes();
 
-/**
- * First, we get all the config for the login page
- */
+
+// First, we get all the config for the login page.
+
 
 $loginmaintextconf        = get_config('theme_saimaniq', 'loginmaintextconf');
 $loginimage               = get_config('theme_saimaniq', 'loginbgimage');
@@ -45,18 +45,17 @@ $formatfrontpagebody      = get_config('theme_saimaniq', 'formatfrontpagebody');
 $showchangepassword       = get_config('theme_saimaniq', 'showchangepassword');
 $corelogo                 = get_config('core_admin', 'logo');
 $corelogosmall            = get_config('core_admin', 'logocompact');
-$themedesigner            = get_config('core','themedesignermode');
+$themedesigner            = get_config('core', 'themedesignermode');
 
-$themedesignertrue = (get_config('core','themedesignermode')== 1) ? "theme-designer-true" : "";
+$themedesignertrue = (get_config('core', 'themedesignermode') == 1) ? "theme-designer-true" : "";
 
-/**
- * we have to cleanup the initial tags from the text to be put in the blockquote
- */
-if (isset($defaultfrontpagebody)){
+//
+// We have to cleanup the initial tags from the text to be put in the blockquote.
+//
+if (isset($defaultfrontpagebody)) {
     $defaultfrontpagebody = preg_replace('/<p[^>]*>(.*)<\/p[^>]*>/i', '$1', $defaultfrontpagebody);
     $defaultfrontpagebody = preg_replace('/\&nbsp;/i', '$1', $defaultfrontpagebody);
-}
-else {
+} else {
     $defaultfrontpagebody = 'nothing to see here';
 }
 
@@ -64,7 +63,7 @@ $loginmaintextconf = empty($loginmaintextconf) ? get_string('loginmaintext', 'th
 
 $hasbackground = empty($loginimage) ? 'saimaniq-no-background' : 'saimaniq-background';
 
-$nobackground = $hasbackground == 'saimaniq-no-background' ? 'saimaniq-'.$logindefault : '';
+$nobackground = $hasbackground == 'saimaniq-no-background' ? 'saimaniq-' . $logindefault : '';
 $additionalclasses = [
     $hasbackground,
     $nobackground,
@@ -72,20 +71,19 @@ $additionalclasses = [
 ];
 $bodyattributes = $OUTPUT->body_attributes($additionalclasses);
 
-$logorenderwhitin = ($loginlogoposition=='within') ? true : false;
+$logorenderwhitin = ($loginlogoposition == 'within') ? true : false;
 
 $blockquoteposition = '';
-if ($loginformposition=='left'){
+if ($loginformposition == 'left') {
     $blockquoteposition = 'right';
-}
-else if ($loginformposition=='right'){
+} else if ($loginformposition == 'right') {
     $blockquoteposition = 'left';
 } else {
     $blockquoteposition = 'center';
 }
-$logorender = ($loginformposition=='left' || $loginformposition=='right' ) ? true : false;
+$logorender = ($loginformposition == 'left' || $loginformposition == 'right' ) ? true : false;
 
-$reverse = ($loginformposition=='right') ? true : false;
+$reverse = ($loginformposition == 'right') ? true : false;
 
 $shapesload = $logindefault == "random" ? true : false;
 
@@ -103,7 +101,7 @@ $templatecontext = [
     'defaultnobackground'     => $logindefault,
     'loginbackgroundcolor'    => $loginbackgroundcolor,
     'loginjsrectangles'       => $loginjsrectangles,
-    'showdefaultfrontpagebody'=> $showdefaultfrontpagebody,
+    'showdefaultfrontpagebody' => $showdefaultfrontpagebody,
     'defaultfrontpagebody'    => $defaultfrontpagebody,
     'formatfrontpagebody'     => $formatfrontpagebody,
     'showchangepassword'      => $showchangepassword,
@@ -119,4 +117,3 @@ $templatecontext = [
 ];
 
 echo $OUTPUT->render_from_template('theme_saimaniq/login', $templatecontext);
-

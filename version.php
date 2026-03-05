@@ -29,4 +29,4 @@ $plugin->release = '1.0.0 MkI - Nanuq';
 $plugin->version = 2023121500;
 $plugin->requires = 2022041900;
 $plugin->maturity = MATURITY_STABLE;
-$plugin->dependencies = array('theme_boost' => 2022112800);
+$plugin->dependencies = ['theme_boost' => 2022112800];

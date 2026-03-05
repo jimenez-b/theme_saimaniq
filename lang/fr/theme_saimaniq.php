@@ -25,8 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname']   = 'Saimaniq';
 $string['choosereadme'] = '« Saimaniq », mot inuktitut signifiant « paix », est notre nouveau thème Boost dans Moodle. Il reflète la signature de Concordia et comporte quelques caractéristiques supplémentaires, comme une page de connexion personnalisable.';
+$string['pluginname']   = 'Saimaniq';
 // Name of the settings pages.
 $string['configtitle'] = 'Paramètres de Saimaniq';
 // Name of the first settings tab.
@@ -48,18 +48,18 @@ $string['brandcolor'] = 'Couleur signature';
 // The brand colour setting description.
 $string['brandcolor_desc'] = 'Couleur d\'accent.';
 
-// The name of the second tab in the theme settings.        
+// The name of the second tab in the theme settings.
 $string['settingsrawscss'] = 'Paramètres SCSS bruts';
 // Raw initial SCSS setting.
 $string['rawscsspre'] = 'SCSS initial brut';
 // Raw initial SCSS setting help text.
 $string['rawscsspre_desc'] = 'Ce champ permet d\'entrer un code SCSS d\'initialisation qui est pris en compte avant tout autre. La plupart du temps, ce paramètre est utilisé pour définir des variables.';
 // Raw SCSS setting.
-$string['rawscss'] = 'SCSS brut'; 
+$string['rawscss'] = 'SCSS brut';
 // Raw SCSS setting help text.
 $string['rawscss_desc'] = 'Utilisez ce champ pour entrer un code SCSS ou CSS qui est pris en compte à la fin de la feuille de style.';
 
-// The name of the third tab in the theme settings.        
+// The name of the third tab in the theme settings.
 $string['settingsloginpage'] = 'Paramètres de la page de connexion';
 
 $string['loginsettingsheading'] = 'Personnaliser la page de connexion';

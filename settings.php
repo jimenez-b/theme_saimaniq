@@ -26,13 +26,13 @@
 defined('MOODLE_INTERNAL') || die();
 
 if ($hassiteconfig) {
-    //$settings = new admin_settingpage('theme_saimaniq_settings', new lang_string('pluginname', 'theme_saimaniq'));
-    
+    // $settings = new admin_settingpage('theme_saimaniq_settings', new lang_string('pluginname', 'theme_saimaniq'));
+
     if ($ADMIN->fulltree) {
         // $ADMIN->add("parent_section", new admin_externalpage('themesaimaniqtester', "Foo Admin Component", "$CFG->wwwroot/theme/saimaniq/foo.php"));
         // $settings = new admin_externalpage('themesaimaniqtester', "Foo Admin Component", "$CFG->wwwroot/theme/saimaniq/test-pages/regular.php");
-        // Boost provides a nice setting page which splits settings onto separate tabs. We want to use it here.       
-        $settings = new theme_boost_admin_settingspage_tabs('themesettingsaimaniq', get_string('configtitle', 'theme_saimaniq'));    
+        // Boost provides a nice setting page which splits settings onto separate tabs. We want to use it here.
+        $settings = new theme_boost_admin_settingspage_tabs('themesettingsaimaniq', get_string('configtitle', 'theme_saimaniq'));
         require_once('settings/settings_general.php');
         require_once('settings/settings_raw_scss.php');
         require_once('settings/settings_login.php');
