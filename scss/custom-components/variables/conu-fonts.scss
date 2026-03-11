@@ -1,96 +1,19 @@
 
-@font-face {
-    font-family: GillSansNova-Book;
-    src: url([[font:theme|GillSansNova-Book.woff2]]) format('woff2'),
-         url([[font:theme|GillSansNova-Book.woff]]) format('woff');
-}
-/*
-@font-face {
-    font-family: GillSansMTPro-BookItalic;
-    src: url([[font:theme|GillSansMTPro-BookItalic.woff2]]) format('woff2'),
-         url([[font:theme|GillSansMTPro-BookItalic.woff]]) format('woff'),
-         url([[font:theme|GillSansMTPro-BookItalic.otf]]) format('opentype');
-}
-*/
-@font-face {
-    font-family: GillSansNova-Bold;
-    src: url([[font:theme|GillSansNova-Bold.woff2]]) format('woff2'),
-         url([[font:theme|GillSansNova-Bold.woff]]) format('woff');
-}
-
-@font-face {
-    font-family: GillSansNova-CnBold;
-    src: url([[font:theme|GillSansNova-CnBold.woff2]]) format('woff2'),
-         url([[font:theme|GillSansNova-CnBold.woff]]) format('woff');
-}
-
-/*
-@font-face {
-    font-family: GillSansMTPro-BoldExtCond;
-    src: url([[font:theme|GillSansMTPro-BoldExtCond.woff2]]) format('woff2'),
-         url([[font:theme|GillSansMTPro-BoldExtCond.woff]]) format('woff'),
-         url([[font:theme|GillSansMTPro-BoldExtCond.otf]]) format('opentype');
-}
-
-@font-face {
-    font-family: GillSansMTPro-BoldItalic;
-    src: url([[font:theme|GillSansMTPro-BoldItalic.woff2]]) format('woff2'),
-         url([[font:theme|GillSansMTPro-BoldItalic.woff]]) format('woff'),
-         url([[font:theme|GillSansMTPro-BoldItalic.otf]]) format('opentype');
-}
-*/
-
-@font-face {
-    font-family: GillSansNova-CnBook;
-    src: url([[font:theme|GillSansNova-CnBook.woff2]]) format('woff2'),
-         url([[font:theme|GillSansNova-CnBook.woff]]) format('woff');
-}
-
-@font-face {
-    font-family: GillSansNova-Light;
-    src: url([[font:theme|GillSansNova-Light.woff2]]) format('woff2'),
-         url([[font:theme|GillSansNova-Light.woff]]) format('woff');
-}
-
-/*
-@font-face {
-    font-family: GillSansMTPro-LightItalic;
-    src: url([[font:theme|GillSansMTPro-LightItalic.woff2]]) format('woff2'),
-         url([[font:theme|GillSansMTPro-LightItalic.woff]]) format('woff'),
-         url([[font:theme|GillSansMTPro-LightItalic.otf]]) format('opentype');
-}
-*/
-
-@font-face {
-    font-family: GillSansNova-SemiBold;
-    src: url([[font:theme|GillSansNova-SemiBold.woff2]]) format('woff2'),
-         url([[font:theme|GillSansNova-SemiBold.woff]]) format('woff');
-}
-
-/*
-@font-face {
-    font-family: GillSansMTPro-MediumItalic;
-    src: url([[font:theme|GillSansMTPro-MediumItalic.woff2]]) format('woff2'),
-         url([[font:theme|GillSansMTPro-MediumItalic.woff]]) format('woff'),
-         url([[font:theme|GillSansMTPro-MediumItalic.otf]]) format('opentype');
-}
-*/
-
 /**************************** Font Section ****************************/
-$conu-font-book: "GillSansNova-Book", 'Gill Sans', Calibri, 'Trebuchet MS', sans-serif;
+$conu-font-book: gill-sans-nova, Calibri, 'Trebuchet MS', sans-serif;
 //$conu-font-book-italic: "GillSansMTPro-BookItalic", 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
-$conu-font-bold: "GillSansNova-Bold", 'Gill Sans', Calibri, 'Trebuchet MS', sans-serif;
-$conu-font-bold-condensed: "GillSansNova-CnBold", 'Gill Sans', Calibri, 'Trebuchet MS', sans-serif;
+$conu-font-bold: gill-sans-nova, Calibri, 'Trebuchet MS', sans-serif;
+$conu-font-bold-condensed: gill-sans-nova-condensed, Calibri, 'Trebuchet MS', sans-serif;
 //$conu-font-bold-ext-condensed: "GillSansMTPro-BoldExtCond", 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 //$conu-font-bold-italic: "GillSansMTPro-BoldItalic", 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
-$conu-font-condensed: "GillSansNova-CnBook", 'Gill Sans', Calibri, 'Trebuchet MS', sans-serif;
+$conu-font-condensed: gill-sans-nova-condensed, Calibri, 'Trebuchet MS', sans-serif;
 
-$conu-font-light: "GillSansNova-Light", 'Gill Sans', Calibri, 'Trebuchet MS', sans-serif;
+$conu-font-light: gill-sans-nova, Calibri, 'Trebuchet MS', sans-serif;
 //$conu-font-light-italic: "GillSansMTPro-LightItalic", 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
-$conu-font-medium: "GillSansNova-SemiBold", 'Gill Sans', Calibri, 'Trebuchet MS', sans-serif;
+$conu-font-medium: gill-sans-nova, Calibri, 'Trebuchet MS', sans-serif;
 //$conu-font-medium-italic: "GillSansMTPro-MediumItalic", 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 $font-default: Arial, Helvetica, sans-serif;

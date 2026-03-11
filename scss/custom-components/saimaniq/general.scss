@@ -318,6 +318,8 @@ button:disabled,
         background-color: #E7EEF4;
         border: 2px dashed $conu-blue;
         font-family: $conu-font-book;
+        font-style: normal;
+        font-weight: 400;
         font-size: 21px;
         letter-spacing: 0.5px;
         color: $conu-blue;
@@ -405,8 +407,7 @@ a {
 //headers
 h1,
 .h1 {
-    font: normal 2.488rem $conu-font-bold-condensed;
-    // line-height: 3.732rem;
+    font: normal 700 2.488rem $conu-font-bold-condensed;
     line-height: 3.23rem;
     letter-spacing: 0.5px;
     &.conu-h1-big {
@@ -416,7 +417,7 @@ h1,
 
 h2,
 .h2 {
-    font: normal 2.074rem $conu-font-bold-condensed;
+    font: normal 700 2.074rem $conu-font-bold-condensed;
     line-height: 3.11rem;
     letter-spacing: 0.5px;
     &.conu-h2-small {
@@ -426,18 +427,18 @@ h2,
 
 h3,
 .h3 {
-    font: normal 1.728rem $conu-font-bold-condensed;
+    font: normal 700 1.728rem $conu-font-bold-condensed;
     line-height: 2.592rem;
     letter-spacing: 0.5px;
     &.heading-reset {
-        font: normal 1.728rem $conu-font-bold-condensed !important;
+        font: normal 700 1.728rem $conu-font-bold-condensed !important;
         line-height: 2.592rem !important;
     }
 }
 
 h4,
 .h4 {
-    font: normal 1.44rem $conu-font-bold-condensed;
+    font: normal 700 1.44rem $conu-font-bold-condensed;
     line-height: 2.16rem;
     letter-spacing: 0.5px;
     &.conu-h4-alternate {
@@ -449,14 +450,14 @@ h4,
 
 h5,
 .h5 {
-    font: normal 1.3125rem $conu-font-bold-condensed;
+    font: normal 700 1.3125rem $conu-font-bold-condensed;
     line-height: 1.968rem;
     letter-spacing: 0.5px;
 }
 
 h6,
 .h6 {
-    font: normal 1.3125rem $conu-font-medium;
+    font: normal 600 1.3125rem $conu-font-medium;
     line-height: 1.968rem;
     letter-spacing: 0.5px;
 }
@@ -483,10 +484,6 @@ p {
 .font-80 {
     font-size: 80%;
 }
-//miscelaneous
-/*.form-control {
-    font-family: $conu-font-book;
-}*/
 
 .form-autocomplete-selection {
     min-height: initial;
