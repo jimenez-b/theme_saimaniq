@@ -16,6 +16,8 @@
 .secondary-navigation {
     .navigation {
         font-family: $conu-font-bold-condensed;
+        font-style: normal;
+        font-weight: 700;
         font-size: 1.3125rem;
         line-height: 1.968rem;
         letter-spacing: 0.5px;
@@ -47,12 +49,16 @@
 .primary-navigation {
     .navigation {
         font-family: $conu-font-bold-condensed;
+        font-style: normal;
+        font-weight: 700;
     }
 }
 
 .secondary-navigation {
     .navigation {
         font-family: $conu-font-medium;
+        font-style: normal;
+        font-weight: 600;
         background-color: transparent;
         .nav-tabs{
             background-color: transparent;

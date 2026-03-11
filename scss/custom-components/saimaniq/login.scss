@@ -132,6 +132,8 @@ body.pagelayout-login {
             }
             &.styledquote {
                 font-family: $conu-font-light;
+                font-style: normal;
+                font-weight: 300;
                 background-color: rgba($black,$opacity-calculated);
                 color:$white;
                 border: none;
