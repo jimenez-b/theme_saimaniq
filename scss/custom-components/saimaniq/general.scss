@@ -44,6 +44,13 @@ body {
         border-top-left-radius:  $border-radius !important;
         border-top-right-radius: $border-radius !important;
     }
+    .gradeparent .gradereport-grader-table .dropdown-menu.show {
+        display: flex;
+        flex-direction: column;
+    }
+    .gradeparent .gradereport-grader-table td[aria-label="Overridden"] {
+        background-color: #fffd98;
+    }
 }
 
 #page {

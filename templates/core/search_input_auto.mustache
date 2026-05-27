@@ -43,7 +43,7 @@
         </label>
         <input
            type="text"
-           role="searchbox"
+           role="combobox"
            data-region="input"
            data-action="search"
            id="searchinput-{{uniqid}}"
@@ -52,6 +52,11 @@
            name="search"
            value="{{$value}}{{/value}}"
            autocomplete="off"
+           aria-expanded="false"
+           aria-controls="user-{{instance}}-result-listbox"
+           aria-autocomplete="list"
+           aria-haspopup="listbox"
+           data-input-element="user-input-{{uniqid}}-{{instance}}"
         >
         <button
             class="btn btn-clear d-none"
