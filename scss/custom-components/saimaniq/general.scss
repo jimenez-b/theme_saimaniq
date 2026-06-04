@@ -53,6 +53,31 @@ body {
     }
 }
 
+.path-grade-report-singleview .reporttable {
+    input[name^="finalgrade"] {
+        width: 90px;
+        display: inline-block;
+    }
+    .action-menu {
+        display: inline-block;
+        margin-left: 0.5rem;
+        float: right;
+    }
+    .dropdown-toggle::after {
+        display: none;
+    }
+}
+
+.gradereport-grader-table {
+    input[name^="grade"] {
+        width: 90px;
+        display: inline-block;
+    }
+    .dropdown-toggle::after {
+        display: none;
+    }
+}
+
 #page {
     background-color: $backgroundcolorchoices;
 }
