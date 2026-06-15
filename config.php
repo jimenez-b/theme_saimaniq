@@ -21,6 +21,7 @@
  * @copyright   2023 Brandon Jimenez <brandon.jimenez@concordia.ca>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+defined('MOODLE_INTERNAL') || die();
 
 $THEME->name = 'saimaniq';
 
@@ -31,27 +32,28 @@ $THEME->parents = ['boost'];
 $THEME->sheets = [];
 $THEME->editor_sheets = [];
 
-// Most themes will use this rendererfactory as this is the one that allows the theme to override any other renderer.      
-$THEME->rendererfactory = 'theme_overridden_renderer_factory';       
- 
-// This is a list of blocks that are required to exist on all pages for this theme to function correctly. For example      
-// bootstrap base requires the settings and navigation blocks because otherwise there would be no way to navigate to all the        
-// pages in Moodle. Boost does not require these blocks because it provides other ways to navigate built into the theme.   
-$THEME->requiredblocks = '';   
- 
-// This is a feature that tells the blocks library not to use the "Add a block" block. We don't want this in boost based themes because
+// Most themes will use this rendererfactory as this is the one that allows the theme to override any other renderer.
+$THEME->rendererfactory = 'theme_overridden_renderer_factory';
+
+// This is a list of blocks that are required to exist on all pages for this theme to function correctly. For example
+// bootstrap base requires the settings and navigation blocks because otherwise there would be no way to navigate to all the
+// pages in Moodle. Boost does not require these blocks because it provides other ways to navigate built into the theme.
+$THEME->requiredblocks = '';
+
+// This is a feature that tells the blocks library not to use the "Add a block" block.
+// We don't want this in boost based themes because
 // it forces a block region into the page when editing is enabled and it takes up too much room.
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 
 $THEME->haseditswitch = true;
 $THEME->enable_dock = false;
 
-//Or else it won't show in the theme selector
-$THEME->hidefromselector = FALSE;
+// Or else it won't show in the theme selector.
+$THEME->hidefromselector = false;
 
 $THEME->usefallback = true;
 
-$THEME->scss = function($theme) {
+$THEME->scss = function ($theme) {
     return theme_saimaniq_get_main_scss_content($theme);
 };
 
@@ -62,7 +64,7 @@ $THEME->yuicssmodules = [];
 
 $THEME->iconsystem = '\\core\\output\\icon_system::FONTAWESOME';
 
-//$THEME->iconsystem = '\\theme_classic\\output\\icon_system_fontawesome';
+// $THEME->iconsystem = '\\theme_classic\\output\\icon_system_fontawesome';
 
 // The theme needs to be added to all Moodle layouts.
 $THEME->layouts = [
@@ -83,27 +85,27 @@ $THEME->layouts = [
         'file' => 'saimaniq-login.php',
         'regions' => [],
         'options' => [
-            'langmenu' => true
+            'langmenu' => true,
         ],
     ],
     // My dashboard page.
     'mydashboard' => [
         'file' => 'saimaniq-drawers.php',
-        'regions' => array('side-pre'),
+        'regions' => ['side-pre'],
         'defaultregion' => 'side-pre',
-        'options' => array('nonavbar' => true, 'langmenu' => true),
+        'options' => ['nonavbar' => true, 'langmenu' => true],
     ],
     // Main course page.
     'course' => [
         'file' => 'course.php',
-        'regions' => array('side-pre'),
+        'regions' => ['side-pre'],
         'defaultregion' => 'side-pre',
-        'options' => array('langmenu' => true),
+        'options' => ['langmenu' => true],
     ],
     // Server administration scripts.
     'admin' => [
         'file' => 'saimaniq-drawers.php',
-        'regions' => array('side-pre'),
+        'regions' => ['side-pre'],
         'defaultregion' => 'side-pre',
     ],
     // My courses page.
@@ -111,7 +113,7 @@ $THEME->layouts = [
         'file' => 'saimaniq-drawers.php',
         'regions' => ['side-pre'],
         'defaultregion' => 'side-pre',
-        'options' => array('nonavbar' => true),
+        'options' => ['nonavbar' => true],
     ],
     // My public page.
     'mypublic' => [
@@ -128,21 +130,21 @@ $THEME->layouts = [
     // The pagelayout used for reports.
     'report' => [
         'file' => 'saimaniq-drawers.php',
-        'regions' => array('side-pre'),
+        'regions' => ['side-pre'],
         'defaultregion' => 'side-pre',
     ],
     // The site home page.
     'frontpage' => [
         'file' => 'saimaniq-drawers.php',
-        'regions' => array('side-pre'),
+        'regions' => ['side-pre'],
         'defaultregion' => 'side-pre',
     ],
-/*
+    /*
     'coursecategory' => [
         'file' => 'layout4',
         'regions' => [],
     ],
-    
+
 
     // My public page.
     'mypublic' => [

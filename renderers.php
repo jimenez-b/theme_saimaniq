@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-//namespace theme_saimaniq\output;
+// namespace theme_saimaniq\output;
 
 defined('MOODLE_INTERNAL') || die;
 require_once($CFG->dirroot . '/backup/util/ui/renderer.php');
@@ -41,8 +41,7 @@ class theme_saimaniq_core_renderer extends theme_boost\output\core_renderer {
         } else {
             if ($contextheader->headinglevel == 2) {
                 $heading = $this->heading($contextheader->heading, $contextheader->headinglevel, 'text-reset');
-            }
-            else {
+            } else {
                 $heading = $this->heading($contextheader->heading, $contextheader->headinglevel, 'conu-burgundy-color');
             }
         }
@@ -63,7 +62,7 @@ class theme_saimaniq_core_renderer extends theme_boost\output\core_renderer {
         }
         $extraclasses  = (isset($contextheader->prefix)) ? ' flex-column align-items-left' : ' align-items-center';
         $extraclasses .= (isset($contextheader->additionalbuttons)) ? ' col-7' : '';
-        $html .= html_writer::tag('div', $heading, array('class' => 'page-header-headings d-flex'.$extraclasses));
+        $html .= html_writer::tag('div', $heading, ['class' => 'page-header-headings d-flex' . $extraclasses]);
 
         // Buttons.
         if (isset($contextheader->additionalbuttons)) {
@@ -77,16 +76,16 @@ class theme_saimaniq_core_renderer extends theme_boost\output\core_renderer {
                     if ($button['buttontype'] === 'message') {
                         \core_message\helper::messageuser_requirejs();
                     }
-                    $image = $this->pix_icon($button['formattedimage'], $button['title'], 'moodle', array(
+                    $image = $this->pix_icon($button['formattedimage'], $button['title'], 'moodle', [
                         'class' => 'iconsmall',
-                        'role' => 'presentation'
-                    ));
+                        'role' => 'presentation',
+                    ]);
                     $image .= html_writer::span($button['title'], 'header-button-title');
                 } else {
-                    $image = html_writer::empty_tag('img', array(
+                    $image = html_writer::empty_tag('img', [
                         'src' => $button['formattedimage'],
-                        'role' => 'presentation'
-                    ));
+                        'role' => 'presentation',
+                    ]);
                 }
                 $html .= html_writer::link($button['url'], html_writer::tag('span', $image), $button['linkattributes']);
             }
@@ -97,6 +96,15 @@ class theme_saimaniq_core_renderer extends theme_boost\output\core_renderer {
         return $html;
     }
 
+    /**
+     * Renders the login form for the theme.
+     *
+     * This method overrides the default core login rendering to allow
+     * for custom HTML structures or styling specific to the Saimaniq theme.
+     *
+     * @param \core_auth\output\login $form The login form renderable object.
+     * @return string The HTML to be output.
+     */
     public function render_login(\core_auth\output\login $form) {
         global $CFG, $SITE;
 
@@ -108,16 +116,26 @@ class theme_saimaniq_core_renderer extends theme_boost\output\core_renderer {
             $url = $url->out(false);
         }
         $context->logourl = $url;
-        $context->sitename = format_string($SITE->fullname, true,
-                ['context' => context_course::instance(SITEID), "escape" => false]);
+        $context->sitename = format_string(
+            $SITE->fullname,
+            true,
+            ['context' => context_course::instance(SITEID), "escape" => false]
+        );
         $context->showchangepassword = get_config('theme_saimaniq', 'showchangepassword');
 
         return $this->render_from_template('theme_saimaniq/core/loginform', $context);
     }
 }
-
+/**
+ * Custom backup renderer for the Saimaniq theme.
+ *
+ * This class overrides the default backup rendering logic to provide
+ * a customized user interface for backup and restore processes.
+ *
+ * @package    theme_saimaniq
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class theme_saimaniq_core_backup_renderer extends \core_backup_renderer {
-
     /**
      * Renders an import course search object
      *
@@ -125,26 +143,26 @@ class theme_saimaniq_core_backup_renderer extends \core_backup_renderer {
      * @return string
      */
     public function render_import_course_search(import_course_search $component) {
-        $output = html_writer::start_tag('div', array('class' => 'import-course-search'));
+        $output = html_writer::start_tag('div', ['class' => 'import-course-search']);
         if ($component->get_count() === 0) {
             $output .= $this->output->notification(get_string('nomatchingcourses', 'backup'));
 
-            $output .= html_writer::start_tag('div', array('class' => 'ics-search form-inline'));
-            $attrs = array(
+            $output .= html_writer::start_tag('div', ['class' => 'ics-search form-inline']);
+            $attrs = [
                 'type' => 'text',
                 'name' => restore_course_search::$VAR_SEARCH,
                 'value' => $component->get_search(),
                 'aria-label' => get_string('searchcourses'),
                 'placeholder' => get_string('searchcourses'),
-                'class' => 'form-control'
-            );
+                'class' => 'form-control',
+            ];
             $output .= html_writer::empty_tag('input', $attrs);
-            $attrs = array(
+            $attrs = [
                 'type' => 'submit',
                 'name' => 'searchcourses',
                 'value' => get_string('search'),
-                'class' => 'btn btn-secondary ml-1'
-            );
+                'class' => 'btn btn-secondary ml-1',
+            ];
             $output .= html_writer::empty_tag('input', $attrs);
             $output .= html_writer::end_tag('div');
 
@@ -159,12 +177,12 @@ class theme_saimaniq_core_backup_renderer extends \core_backup_renderer {
             $countstr = get_string('totalcoursesearchresults', 'backup', $component->get_count());
         }
 
-        $output .= html_writer::tag('div', $countstr, array('class' => 'ics-totalresults'));
-        $output .= html_writer::start_tag('div', array('class' => 'ics-results'));
+        $output .= html_writer::tag('div', $countstr, ['class' => 'ics-totalresults']);
+        $output .= html_writer::start_tag('div', ['class' => 'ics-results']);
 
         $table = new html_table();
-        $table->head = array('&nbsp', get_string('shortnamecourse'), get_string('fullnamecourse'));
-        $table->data = array();
+        $table->head = ['&nbsp', get_string('shortnamecourse'), get_string('fullnamecourse')];
+        $table->data = [];
         foreach ($component->get_results() as $course) {
             $row = new html_table_row();
             $row->attributes['class'] = 'ics-course';
@@ -181,7 +199,7 @@ class theme_saimaniq_core_backup_renderer extends \core_backup_renderer {
                     true,
                     ['class' => 'd-block']
                 ),
-                format_string($course->fullname, true, ['context' => context_course::instance($course->id)])
+                format_string($course->fullname, true, ['context' => context_course::instance($course->id)]),
             ];
             $table->data[] = $row;
         }
@@ -189,33 +207,32 @@ class theme_saimaniq_core_backup_renderer extends \core_backup_renderer {
             $cell = new html_table_cell(get_string('moreresults', 'backup'));
             $cell->colspan = 3;
             $cell->attributes['class'] = 'notifyproblem';
-            $row = new html_table_row(array($cell));
+            $row = new html_table_row([$cell]);
             $row->attributes['class'] = 'rcs-course';
             $table->data[] = $row;
         }
         $output .= html_writer::table($table);
         $output .= html_writer::end_tag('div');
 
-        $output .= html_writer::start_tag('div', array('class' => 'ics-search form-inline'));
-        $attrs = array(
+        $output .= html_writer::start_tag('div', ['class' => 'ics-search form-inline']);
+        $attrs = [
             'type' => 'text',
             'name' => restore_course_search::$VAR_SEARCH,
             'value' => $component->get_search(),
             'aria-label' => get_string('searchcourses'),
             'placeholder' => get_string('searchcourses'),
-            'class' => 'form-control');
+            'class' => 'form-control'];
         $output .= html_writer::empty_tag('input', $attrs);
-        $attrs = array(
+        $attrs = [
             'type' => 'submit',
             'name' => 'searchcourses',
             'value' => get_string('search'),
-            'class' => 'btn btn-secondary ml-1'
-        );
+            'class' => 'btn btn-secondary ml-1',
+        ];
         $output .= html_writer::empty_tag('input', $attrs);
         $output .= html_writer::end_tag('div');
 
         $output .= html_writer::end_tag('div');
         return $output;
     }
-
 }

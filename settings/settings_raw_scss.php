@@ -29,16 +29,26 @@ defined('MOODLE_INTERNAL') || die();
 $page = new admin_settingpage('theme_saimaniq_raw_scss', get_string('settingsrawscss', 'theme_saimaniq'));
 
 // Raw SCSS to include before the content.
-$setting = new admin_setting_configtextarea('theme_saimaniq/scsspre',
-get_string('rawscsspre', 'theme_saimaniq'), get_string('rawscsspre_desc', 'theme_saimaniq'), '', PARAM_RAW);
+$setting = new admin_setting_configtextarea(
+    'theme_saimaniq/scsspre',
+    get_string('rawscsspre', 'theme_saimaniq'),
+    get_string('rawscsspre_desc', 'theme_saimaniq'),
+    '',
+    PARAM_RAW
+);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Raw SCSS to include after the content.
-$setting = new admin_setting_configtextarea('theme_saimaniq/scss', get_string('rawscss', 'theme_saimaniq'),
-    get_string('rawscss_desc', 'theme_saimaniq'), '', PARAM_RAW);
+$setting = new admin_setting_configtextarea(
+    'theme_saimaniq/scss',
+    get_string('rawscss', 'theme_saimaniq'),
+    get_string('rawscss_desc', 'theme_saimaniq'),
+    '',
+    PARAM_RAW
+);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-// Must add the page after definiting all the settings! 
-$settings->add($page);  
+// Must add the page after definiting all the settings!
+$settings->add($page);

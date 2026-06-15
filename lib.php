@@ -26,38 +26,38 @@
 defined('MOODLE_INTERNAL') || die();
 
 // We will add callbacks here as we add features to our theme.
-function theme_saimaniq_get_main_scss_content($theme) {        
-    global $CFG;        
- 
+function theme_saimaniq_get_main_scss_content($theme) {
+    global $CFG;
+
     $scss = '';
-    $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;    
+    $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;
     $fs = get_file_storage();
 
     $context = context_system::instance();
 
     if ($filename == 'default.scss') {
-        // We still load the default preset files directly from the boost theme. No sense in duplicating them.    
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss'); 
+        // We still load the default preset files directly from the boost theme. No sense in duplicating them.
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
     } else if ($filename == 'plain.scss') {
-        // We still load the default preset files directly from the boost theme. No sense in duplicating them.    
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/plain.scss');       
-    } else if ($filename == 'saimaniq.scss') {  
-        $scss .= file_get_contents($CFG->dirroot . '/theme/saimaniq/scss/preset/saimaniq.scss');      
-    } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_saimaniq', 'preset', 0, '/', $filename))) {     
-        // This preset file was fetched from the file area for theme_saimaniq and not theme_boost (see the line above).       
-        $scss .= $presetfile->get_content();       
-    } else {   
-        // Safety fallback - maybe new installs etc.        
-        //$scss .= file_get_contents($CFG->dirroot . '/theme/saimaniq/scss/preset/concordia2.scss');
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');    
+        // We still load the default preset files directly from the boost theme. No sense in duplicating them.
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/plain.scss');
+    } else if ($filename == 'saimaniq.scss') {
+        $scss .= file_get_contents($CFG->dirroot . '/theme/saimaniq/scss/preset/saimaniq.scss');
+    } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_saimaniq', 'preset', 0, '/', $filename))) {
+        // This preset file was fetched from the file area for theme_saimaniq and not theme_boost (see the line above).
+        $scss .= $presetfile->get_content();
+    } else {
+        // Safety fallback - maybe new installs etc.
+        // $scss .= file_get_contents($CFG->dirroot . '/theme/saimaniq/scss/preset/concordia2.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
     }
-     // Pre CSS - this is loaded AFTER any prescss from the setting but before the main scss.    
+     // Pre CSS - this is loaded AFTER any prescss from the setting but before the main scss.
      $pre = file_get_contents($CFG->dirroot . '/theme/saimaniq/scss/pre.scss');
      // Post CSS - this is loaded AFTER the main scss but before the extra scss from the setting.
      $post = file_get_contents($CFG->dirroot . '/theme/saimaniq/scss/post.scss');
-     
-     // Combine them together.    
-    return $pre . "\n" . $scss . "\n" . $post;      
+
+     // Combine them together.
+    return $pre . "\n" . $scss . "\n" . $post;
 }
 
 /**
@@ -69,7 +69,7 @@ function theme_saimaniq_get_main_scss_content($theme) {
  */
 function theme_saimaniq_get_pre_scss($theme) {
     $scss = '';
-    $configurable = [       
+    $configurable = [
         // Config key => [variableName, ...].
         'backgroundcolorchoices' => ['backgroundcolorchoices'],
         'brandcolor'             => ['brand-primary'],
@@ -80,33 +80,32 @@ function theme_saimaniq_get_pre_scss($theme) {
         'loginbackgroundcolor'   => ['loginbackgroundcolor'],
         'defaultnobackground'    => ['defaultnobackground'],
     ];
-    
+
     $backgroundimageurl = $theme->setting_file_url('loginbgimage', 'loginbgimage');
 
     $scss .= (!empty($backgroundimageurl)) ? "\$login-backgroundimage: '$backgroundimageurl';\n" : "\$login-backgroundimage: none;\n";
 
-    // Prepend variables first.          
-    foreach ($configurable as $configkey => $targets) {            
-        $value = isset($theme->settings->{$configkey}) ? $theme->settings->{$configkey} : null;           
+    // Prepend variables first.
+    foreach ($configurable as $configkey => $targets) {
+        $value = isset($theme->settings->{$configkey}) ? $theme->settings->{$configkey} : null;
         if (empty($value)) {
-            continue;       
-        }      
-        array_map(function($target) use (&$scss, $value) {         
+            continue;
+        }
+        array_map(function ($target) use (&$scss, $value) {
             $scss .= '$' . $target . ': ' . $value . ";\n";
-        }, (array) $targets);            
+        }, (array) $targets);
     }
     $loginformposition = $theme->settings->loginformposition;
     $blockquoteposition = '';
-    if ($loginformposition=='left'){
+    if ($loginformposition == 'left') {
         $blockquoteposition = 'right';
-    }
-    else if ($loginformposition=='right'){
+    } else if ($loginformposition == 'right') {
         $blockquoteposition = 'left';
     } else {
         $blockquoteposition = 'center';
     }
     $scss .= '$blockquoteposition: ' . $blockquoteposition . ";\n";
-    //$scss .= "body #page-wrapper { background-image: url(". '$'.'login-backgroundimage '.") !important; }\n";
+    // $scss .= "body #page-wrapper { background-image: url(". '$'.'login-backgroundimage '.") !important; }\n";
     // Prepend pre-scss.
     if (! empty($theme->settings->scsspre)) {
         $scss .= $theme->settings->scsspre;
@@ -126,7 +125,7 @@ function theme_saimaniq_get_pre_scss($theme) {
  * @param array $options
  * @return bool
  */
-function theme_saimaniq_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+function theme_saimaniq_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = []) {
     if ($context->contextlevel == CONTEXT_SYSTEM) {
         $theme = theme_config::load('saimaniq');
         // By default, theme files must be cache-able by both browsers and proxies.

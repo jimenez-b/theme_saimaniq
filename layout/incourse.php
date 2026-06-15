@@ -17,7 +17,7 @@
 /**
  * A drawer based layout for the boost theme.
  *
- * @package   theme_boost
+ * @package   theme_saimaniq
  * @copyright 2021 Bas Brands
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -29,9 +29,6 @@ require_once($CFG->dirroot . '/course/lib.php');
 
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
-
-user_preference_allow_ajax_update('drawer-open-index', PARAM_BOOL);
-user_preference_allow_ajax_update('drawer-open-block', PARAM_BOOL);
 
 if (isloggedin()) {
     $courseindexopen = (get_user_preferences('drawer-open-index', true) == true);
@@ -104,7 +101,7 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'overflow' => $overflow,
     'headercontent' => $headercontent,
-    'addblockbutton' => $addblockbutton
+    'addblockbutton' => $addblockbutton,
 ];
 
 echo $OUTPUT->render_from_template('theme_saimaniq/incourse', $templatecontext);

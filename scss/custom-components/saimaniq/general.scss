@@ -318,6 +318,8 @@ button:disabled,
         background-color: #E7EEF4;
         border: 2px dashed $conu-blue;
         font-family: $conu-font-book;
+        font-style: normal;
+        font-weight: 400;
         font-size: 21px;
         letter-spacing: 0.5px;
         color: $conu-blue;
@@ -405,8 +407,7 @@ a {
 //headers
 h1,
 .h1 {
-    font: normal 2.488rem $conu-font-bold-condensed;
-    // line-height: 3.732rem;
+    font: normal 700 2.488rem $conu-font-bold-condensed;
     line-height: 3.23rem;
     letter-spacing: 0.5px;
     &.conu-h1-big {
@@ -416,7 +417,7 @@ h1,
 
 h2,
 .h2 {
-    font: normal 2.074rem $conu-font-bold-condensed;
+    font: normal 700 2.074rem $conu-font-bold-condensed;
     line-height: 3.11rem;
     letter-spacing: 0.5px;
     &.conu-h2-small {
@@ -426,18 +427,18 @@ h2,
 
 h3,
 .h3 {
-    font: normal 1.728rem $conu-font-bold-condensed;
+    font: normal 700 1.728rem $conu-font-bold-condensed;
     line-height: 2.592rem;
     letter-spacing: 0.5px;
     &.heading-reset {
-        font: normal 1.728rem $conu-font-bold-condensed !important;
+        font: normal 700 1.728rem $conu-font-bold-condensed !important;
         line-height: 2.592rem !important;
     }
 }
 
 h4,
 .h4 {
-    font: normal 1.44rem $conu-font-bold-condensed;
+    font: normal 700 1.44rem $conu-font-bold-condensed;
     line-height: 2.16rem;
     letter-spacing: 0.5px;
     &.conu-h4-alternate {
@@ -449,14 +450,14 @@ h4,
 
 h5,
 .h5 {
-    font: normal 1.3125rem $conu-font-bold-condensed;
+    font: normal 700 1.3125rem $conu-font-bold-condensed;
     line-height: 1.968rem;
     letter-spacing: 0.5px;
 }
 
 h6,
 .h6 {
-    font: normal 1.3125rem $conu-font-medium;
+    font: normal 600 1.3125rem $conu-font-medium;
     line-height: 1.968rem;
     letter-spacing: 0.5px;
 }
@@ -483,10 +484,6 @@ p {
 .font-80 {
     font-size: 80%;
 }
-//miscelaneous
-/*.form-control {
-    font-family: $conu-font-book;
-}*/
 
 .form-autocomplete-selection {
     min-height: initial;
@@ -980,3 +977,154 @@ $icon-height: 20px;
 .path-grade-report-grader .gradeparent select { 
     width: auto; 
 }
+
+/* WR-479191 START */
+
+/*A8.1 start */
+.path-course-view #page-content .course-content .thegrid .card .card-header .h6.text-truncate {
+    white-space: unset;
+}
+/* A8.1 end */
+
+/*A8.2 start */
+.course-section .sectionname {
+    font-size: 25px;
+    a {
+        color: #0000 !important;
+    }
+}
+/*A8.2 end */
+
+/* A8.3 Start */
+#page-content .course-content iframe {
+    width: 750px;
+}
+/* A8.3 End */
+
+/* T2.1 Start */
+.btn.btn-icon.icons-collapse-expand {
+    background-color: #ffffff !important;
+    i.icon {
+        color: #000000;
+    }
+}
+
+.btn.btn-icon {
+    height: ($icon-width + 20px);
+    width: ($icon-width + 20px);
+    font-size: $icon-width;
+    line-height: $icon-width;
+    padding: 0;
+    border-radius: 50%;
+    flex-shrink: 0;
+
+    &:hover,
+    &:focus {
+        background-color: $gray-200;
+    }
+
+    @each $size, $length in $iconsizes {
+        &.icon-size-#{$size} {
+            height: ($length + 20px) !important; /* stylelint-disable-line declaration-no-important */
+            width: ($length + 20px) !important; /* stylelint-disable-line declaration-no-important */
+            font-size: $length !important; /* stylelint-disable-line declaration-no-important */
+            line-height: $length !important; /* stylelint-disable-line declaration-no-important */
+        }
+    }
+}
+/* T2.1 End */
+
+/* T2.2 Start */
+a.bg-secondary:hover, a.bg-secondary:focus, button.bg-secondary:hover, button.bg-secondary:focus {
+    background-color: $primary !important;
+    color: $light !important;
+}
+/* T2.2 End */
+
+/* T2.3 Start */
+/* Inverts the colour (e.g. makes black svg into white) for the 3rd party activity plugins */
+.activityiconcontainer:not(.isbranded, .interactivecontent, .other, .modicon_jazzquiz) .activityicon {
+    filter: brightness(0) invert(1) !important;
+
+}
+/* T2.3 End */
+
+/* T2.4 Start */
+body.pagelayout-course.editing #page .main-inner .course-content .divider button.section-modchooser {
+    background-color: $primary;
+    color: $light;
+
+}
+
+.divider:has(.btn.add-content:hover) hr {
+    border-color: $primary;
+}
+/* T2.4 End */
+
+/* T2.5 Start */
+.path-user #page header#page-header .page-context-header {
+    display: flex;
+    .header-button-group {
+        width: 300px;
+    }
+}
+/* T2.5 End */
+
+/* T2.6 Start */
+#page-mod-quiz-summary #quiz-timer-wrapper {
+    align-items: baseline;
+}
+/* T2.6 End */
+
+/* START WR-479191 Staging QA */
+.course-section .section-item {
+    border: unset;
+}
+
+body[id*="page-course-view"] {
+    section#region-main .section-item .content ul.section .activity {
+        border-top: unset;
+    }
+
+    /* Add border mark as done. */
+    section#region-main button.btn[data-action="toggle-manual-completion"] {
+        border: 1px solid #c8c8c8 ;
+    }
+    /* Add border each section */
+     section#region-main ul.topics li.section {
+         border-bottom: 1px solid #dee2e6;
+    }
+
+      section#region-main ul.weeks li.section {
+         border-bottom: 1px solid #dee2e6;
+    }
+    section#region-main ul.topics li.section:last-child{
+         border-bottom: unset;
+    }
+}
+
+/* Fix misalignment of button in grading */
+body#page-mod-assign-grading section#region-main table#submissions tbody tr td.cell {
+    div.d-flex:nth-child(2):has(.d-flex) {
+        align-items: center;
+    }
+    border-top: 1px solid #dee2e6;
+}
+
+/* Fix color format_grid less than 100 */
+.format-grid .grid-completion.grid-completion-colour-low {
+    background-color: #F0F0F0F0 !important;
+    color: #000000;
+}
+/* Fix color format_grid less than 100 */
+.format-grid .grid-completion.grid-completion-colour-middle {
+    background-color: #F0F0F0F0 !important;
+    color: #000000;
+}
+div.activity-icon.activityiconcontainer.smaller {
+    width: 50px !important;
+    height: 50px !important;
+    max-width: 50px;
+    max-height: 50px;
+}
+/* End WR-479191 Staging QA */

@@ -44,7 +44,6 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class saimaniq_admin_settings_styleguide extends admin_setting_heading {
-
     /**
      * not a setting, just text
      * @param string $name unique ascii name, either 'mysetting' for settings that in config, or 'myplugin/mysetting'
@@ -323,5 +322,4 @@ class saimaniq_admin_settings_styleguide extends admin_setting_heading {
 
         return $OUTPUT->render_from_template('theme_saimaniq/admin_setting_styleguide', $context);
     }
-
 }
